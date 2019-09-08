@@ -13,16 +13,16 @@
 
 Route::get('/', function () {
     return view('pages.welcome');
-});
+})->name('index');
 
 Route::get('/achat', function () {
     return view('pages.achat');
-});
+})->name('achat');
 
 Route::get('/connexion', function () {
     return view('pages.connexion');
-});
+})->name('connexion');
 
 Route::get('/contact', function () {
     return view('pages.contact');
-});
+})->name('contact');

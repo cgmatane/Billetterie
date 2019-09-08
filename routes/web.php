@@ -12,5 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.gwelcome');
+});
+
+Route::get('/achat', function () {
+    return view('pages.achat');
+});
+
+Route::get('/connexion', function () {
+    return view('pages.connexion');
+});
+
+Route::get('/contact', function () {
+    return view('pages.contact');
 });

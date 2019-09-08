@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('pages.gwelcome');
+    return view('pages.welcome');
 });
 
 Route::get('/achat', function () {

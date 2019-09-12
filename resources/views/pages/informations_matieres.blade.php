@@ -1,3 +1,6 @@
+@include('partials.head')
+@include('partials.nav')
+
 <body id="top" style="background-color: #004882">
 <div class="container">
     <div class="row">
@@ -16,3 +19,6 @@
                 retour</button></a>
     </div>
 </div>
+
+@include('partials.footer')
+@include('partials.foot')

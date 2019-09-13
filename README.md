@@ -15,9 +15,21 @@ Tutoriel vidéo : https://www.youtube.com/watch?v=mISRTGYtWVs&list=PLriKzYyLb28m
 
 
 Le projet Laravel se trouve sur le github sous le repository "Billeterie"
-ATTENTION !! Quand vous téléchargerez le projet Laravel avec la commande git clone, il manquera certains fichiers pour votre projet, qui sont labellés du .gitignore et ne se 
-retrouve donc pas sur le remote repository. Je vous conseille de créer vous même de créer un projet Laravel avec la commande correspondante, puis de faire "git clone" dans 
-le dossier, de sorte à remplacer tous les fichiers en commun et de bien avoir tous les fichiers du gitignore.
+ATTENTION !! Quand vous téléchargerez le projet Laravel avec la commande git clone, il manquera certains fichiers pour votre projet, qui sont labellés du .gitignore et ne se retrouve donc pas sur le remote repository. Vous devrez donc vous même créer un projet Laravel vierge et y ajouter le contenu du github.
+
+1)Installation du projet Laravel
+
+-Assurez que votre version de php est supérieur à la 7.1.3
+
+
+-Exécutez n'importe où la commande "composer global require laravel/installer"
+-Dans le dossier où vous voulez créer le projet, exécutez la commande "laravel new temp" -> crée un projet laravel de nom "temp"
+-Toujours dans le dossier où vous voulez créer le projet, exécutez la commande "git clone https://github.com/cgmatane/Billetterie.git" -> Importe le repository de Github
+-Copiez tout le contenu du dossier "Billeterie", y compris le .git et collez-le dans "temp", faites "remplacer tous les fichiers de nom identique"
+-Détruisez à présent le dossier "Billeterie" puis renommez le dossier "temp" en "Billeterie"
+
+Pour tester que tout fonctionne bien : dans le dossier Billeterie lancez la commande "php artisan serve", si tout fonctionne, vous devriez pouvoir accéder au serveur en écoutant le port 8000. (localhost:8000)
+
 
 -Quand vous avez fait tout ça, runnez la commande "npm install" à la racine du projet, ça va installer toutes les librairies dont on a besoin. Pour pouvoir exécuter cette commande, vous devez 
 d'abord avoir installé Node.js sur votre PC (https://nodejs.org/en/download/). Soyez bien sûr que le dossier node_modules se trouve bien dans le .gitignore.

@@ -17,7 +17,7 @@
         <form>
             <div class="row">
                 <div class="col">
-                    <label for="nom">Nom et prénom:</label>
+                    <label for="nom">Nom et prénom :</label>
                 </div>
                 <div class="col-sm-7">
                     <input type="text" class="form-control" id="nom">
@@ -49,7 +49,7 @@
 
     <div class="row text-center justify-content-center">
         <a href="/reservation/passagers"><button type="button" class="btn btn-warning mt-5 mb-5 px-5 py-lg-3 py-xs-2">
-                Retour au choix precedent </button></a>
+                Retour au choix précédent </button></a>
     </div>
 
     <div class="row text-center justify-content-center">

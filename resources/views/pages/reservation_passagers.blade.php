@@ -57,7 +57,7 @@
 
     <div class="row text-center justify-content-center">
         <a href="/choix/vehicule"><button type="button" class="btn btn-warning mt-5 mb-5 px-5 py-lg-3 py-xs-2">
-                Retour au choix precedent </button></a>
+                Retour au choix précédent </button></a>
     </div>
 
     <div class="row text-center justify-content-center">

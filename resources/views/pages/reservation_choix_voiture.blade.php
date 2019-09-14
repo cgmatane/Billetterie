@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h4 class="text-center text-warning p-4 font-weight-bold">Votre véhicule est une voiture ?</h4>
+            <h4 class="text-center text-warning p-4 font-weight-bold">Votre véhicule est-il une voiture ?</h4>
         </div>
     </div>
     <div class="row text-center">
@@ -18,7 +18,7 @@
 
     <div class="row text-center justify-content-center">
         <a href="/choix/vehicule"><button type="button" class="btn btn-warning mt-5 mb-5 px-5 py-lg-3 py-xs-2">
-                Retour au choix precedent </button></a>
+                Retour au choix précédent </button></a>
     </div>
 
     <div class="row text-center justify-content-center">

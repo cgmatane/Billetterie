@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1 class="text-center text-warning font-weight-bold">Vous avez des matières dangereuses ?</h1>
+            <h1 class="text-center text-warning font-weight-bold">Voyagez-vous avec des matières dangereuses ?</h1>
         </div>
     </div>
     <div class="text-center row justify-content-center">
@@ -16,7 +16,7 @@
     </div>
     <div class="row text-center justify-content-center">
         <a href="/index"><button type="button" class="btn btn-danger m-5 px-5 py-lg-5 py-xs-2">
-                retour</button></a>
+                Retour</button></a>
     </div>
 </div>
 

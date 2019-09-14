@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1 class="text-center text-warning p-4 font-weight-bold">Sélectionner un départ</h1>
+            <h1 class="text-center text-warning p-4 font-weight-bold">Sélectionnez un lieu de départ</h1>
         </div>
     </div>
     <div class="text-center row justify-content-center">

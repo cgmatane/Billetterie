@@ -11,15 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.accueil');
-})->name('index');
-
-Route::get('/choix_date', function () {
+Route::get('/choix/date', function () {
     return view('pages.choix_date');
 })->name('choix_date');
 
-Route::get('/choix_depart', function () {
+Route::get('/choix/depart', function () {
     return view('pages.choix_depart');
 })->name('choix_depart');
 
@@ -27,50 +23,54 @@ Route::get('/informations', function () {
     return view('pages.informations');
 })->name('informations');
 
-Route::get('/informations_animaux', function () {
+Route::get('/informations/animaux', function () {
     return view('pages.informations_animaux');
 })->name('informations_animaux');
 
-Route::get('/informations_matieres', function () {
+Route::get('/informations/matieres', function () {
     return view('pages.informations_matieres');
 })->name('informations_matieres');
 
-Route::get('/reservation_choix_autre_vehicule', function () {
+Route::get('/choix/autre_vehicule', function () {
     return view('pages.reservation_choix_autre_vehicule');
 })->name('reservation_choix_autre_vehicule');
 
-Route::get('/reservation_choix_horaire_depart', function () {
+Route::get('/choix/horaires_depart', function () {
     return view('pages.reservation_choix_horaire_depart');
 })->name('reservation_choix_horaire_depart');
 
-Route::get('/reservation_choix_remorque', function () {
+Route::get('/choix/remorque', function () {
     return view('pages.reservation_choix_remorque');
 })->name('reservation_choix_remorque');
 
-Route::get('/reservation_choix_vehicule', function () {
+Route::get('/choix/vehicule', function () {
     return view('pages.reservation_choix_vehicule');
 })->name('reservation_choix_vehicule');
 
-Route::get('/reservation_choix_voiture', function () {
+Route::get('/choix/voiture', function () {
     return view('pages.reservation_choix_voiture');
 })->name('reservation_choix_voiture');
 
-Route::get('/reservation_confirmation', function () {
+Route::get('/reservation/confirmation', function () {
     return view('pages.reservation_confirmation');
 })->name('reservation_confirmation');
 
-Route::get('/reservation_matieres', function () {
+Route::get('/choix/matieres_dangereuses', function () {
     return view('pages.reservation_matieres');
 })->name('reservation_matieres');
 
-Route::get('/reservation_paiement', function () {
+Route::get('/reservation/paiement', function () {
     return view('pages.reservation_paiement');
 })->name('reservation_paiement');
 
-Route::get('/reservation_passagers', function () {
+Route::get('/reservation/passagers', function () {
     return view('pages.reservation_passagers');
 })->name('reservation_passagers');
 
-Route::get('/reservation_poids', function () {
+Route::get('/choix/poids_vehicule', function () {
     return view('pages.reservation_poids');
 })->name('reservation_poids');
+
+Route::get('/index', function () {
+    return view('pages.accueil');
+})->name('index');

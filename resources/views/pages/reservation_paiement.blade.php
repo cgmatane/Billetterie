@@ -43,17 +43,17 @@
     </div>
 
     <div class="row text-center justify-content-center">
-        <a href="/reservation/confirmation"><button type="button" class="btn btn-success mx-5 my-2 px-5 py-lg-5 py-xs-2">
+        <a href="{{ route('reservation_confirmation') }}"><button type="button" class="btn btn-success mx-5 my-2 px-5 py-lg-5 py-xs-2">
                 Payer</button></a>
     </div>
 
     <div class="row text-center justify-content-center">
-        <a href="/reservation/passagers"><button type="button" class="btn btn-warning mt-5 mb-5 px-5 py-lg-3 py-xs-2">
+        <a href="{{ route('reservation_passagers') }}"><button type="button" class="btn btn-warning mt-5 mb-5 px-5 py-lg-3 py-xs-2">
                 Retour au choix précédent </button></a>
     </div>
 
     <div class="row text-center justify-content-center">
-        <a href="/index"><button type="button" class="btn btn-danger px-5 mb-5 py-lg-3 py-xs-2">
+        <a href="{{ route('index') }}"><button type="button" class="btn btn-danger px-5 mb-5 py-lg-3 py-xs-2">
                 Recommencer</button></a>
     </div>
 </div>

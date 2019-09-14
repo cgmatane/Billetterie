@@ -9,10 +9,10 @@
         </div>
     </div>
     <div class="row text-center">
-        <a href="/choix/poids_vehicule" class="bg-white rounded-sm col-5 ml-1 mx-auto pb-5 pt-5 display-4"
+        <a href="{{ route('reservation_poids') }}" class="bg-white rounded-sm col-5 ml-1 mx-auto pb-5 pt-5 display-4"
            style="height: 200px; text-decoration:none;">Camionnette</a>
 
-        <a href="/choix/poids_vehicule" class="bg-white rounded-sm col-5 ml-1 mx-auto pb-5 pt-5 display-4"
+        <a href="{{ route('reservation_poids') }}" class="bg-white rounded-sm col-5 ml-1 mx-auto pb-5 pt-5 display-4"
            style="height: 200px; text-decoration:none;">Poids lourd</a>
     </div>
 

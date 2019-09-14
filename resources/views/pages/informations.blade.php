@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="row text-center justify-content-center">
-        <a href="/index"><button type="button" class="btn btn-info m-5 p-3" >Accueil</button></a>
+        <a href="{{ route('index') }}"><button type="button" class="btn btn-info m-5 p-3" >Accueil</button></a>
     </div>
 </div>
 

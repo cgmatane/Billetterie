@@ -20,7 +20,7 @@
     </div>
 
     <div class="row text-center justify-content-center">
-        <a href="/index"><button type="button" class="btn btn-danger m-5 px-5 py-lg-5 py-xs-2">
+        <a href="{{ route('index') }}"><button type="button" class="btn btn-danger m-5 px-5 py-lg-5 py-xs-2">
                 Retour à l'accueil</button></a>
     </div>
 </div>

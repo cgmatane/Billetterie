@@ -14,14 +14,14 @@
         </div>
     </div>
     <div class="row text-center">
-        <a href="/reservation/passagers" class="bg-white rounded-sm mx-auto p-5 m-5">11h30</a>
-        <a href="/reservation/passagers" class="bg-white rounded-sm mx-auto p-5 m-5">13h00</a>
-        <a href="/reservation/passagers" class="bg-white rounded-sm mx-auto p-5 m-5">14h30</a>
-        <a href="/reservation/passagers" class="bg-white rounded-sm mx-auto p-5 m-5">17h00</a>
+        <a href="{{ route('reservation_passagers') }}" class="bg-white rounded-sm mx-auto p-5 m-5">11h30</a>
+        <a href="{{ route('reservation_passagers') }}" class="bg-white rounded-sm mx-auto p-5 m-5">13h00</a>
+        <a href="{{ route('reservation_passagers') }}" class="bg-white rounded-sm mx-auto p-5 m-5">14h30</a>
+        <a href="{{ route('reservation_passagers') }}" class="bg-white rounded-sm mx-auto p-5 m-5">17h00</a>
     </div>
 
     <div class="row text-center justify-content-center">
-        <a href="/index"><button type="button" class="btn btn-danger m-5 px-5 py-lg-5 py-xs-2">
+        <a href="{{ route('index') }}"><button type="button" class="btn btn-danger m-5 px-5 py-lg-5 py-xs-2">
                 Retour</button></a>
     </div>
 </div>

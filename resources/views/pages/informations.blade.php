@@ -1,6 +1,6 @@
-@include('partials.head')
-@include('partials.nav')
+@extends('index')
 
+@section('contenu')
 <body id="top" style="background-color: #004882">
 <div class="container">
     <div class="row">
@@ -24,6 +24,4 @@
         <a href="{{ route('index') }}"><button type="button" class="btn btn-info m-5 p-3" >Accueil</button></a>
     </div>
 </div>
-
-@include('partials.footer')
-@include('partials.foot')
+@endsection

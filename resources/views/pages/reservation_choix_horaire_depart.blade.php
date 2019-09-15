@@ -1,6 +1,6 @@
-@include('partials.head')
-@include('partials.nav')
+@extends('index')
 
+@section('contenu')
 <body id="top" style="background-color: #d3d3d3">
 <div class="row">
     <div class="col-sm-12 col-xs-0">
@@ -25,6 +25,4 @@
                 Retour</button></a>
     </div>
 </div>
-
-@include('partials.footer')
-@include('partials.foot')
+@endsection

@@ -71,6 +71,6 @@ Route::get('/choix/poids_vehicule', function () {
     return view('pages.reservation_poids');
 })->name('reservation_poids');
 
-Route::get('/index', function () {
+Route::get('/', function () {
     return view('pages.accueil');
 })->name('index');

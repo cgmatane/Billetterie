@@ -1,6 +1,6 @@
-@include('partials.head')
-@include('partials.nav')
+@extends('index')
 
+@section('contenu')
 <body id="top" class="" style="background-color: #004882">
 <div class="container">
     <div class="row">
@@ -27,6 +27,4 @@
                 Accueil</button></a>
     </div>
 </div>
-
-@include('partials.footer')
-@include('partials.foot')
+@endsection

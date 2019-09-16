@@ -1,7 +1,7 @@
-@include('partials.head')
-@include('partials.nav')
+@include('global_components.head')
+@include('global_components.nav')
 
 @yield('contenu')
 
-@include('partials.footer')
-@include('partials.foot')
+@include('global_components.footer')
+@include('global_components.foot')

@@ -2,16 +2,16 @@
 
 namespace App\Statics\Views;
 
-class DonneesVueNav extends DonneesVue
+class DonneesVueAccueil extends DonneesVue
 {
     private $traverse;
 
     public function __construct()
     {
         parent::__construct();
-        $this->nomVue = 'nav';
+        $this->nomVue = 'accueil';
         $this->donneesVue = [
-            'traverse'=>'Matane Côte-Nord',
+            'choix_destination_heure_depart'=>'Choisissez une destination/heure de départ',
         ];
     }
 }

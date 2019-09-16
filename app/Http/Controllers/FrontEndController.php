@@ -2,23 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Statics\Views\DonneesVueAccueil;
 use App\Statics\Views\DonneesVueNav;
 
 class FrontEndController extends Controller
 {
 
-    private $donneesVueNav;
     private $donneesVueGlobal;
+
+    private $donneesVueNav;
+
+    private $donneesVueAccueil;
 
     public function __construct()
     {
+        //Les donnees statiques de vues communes a toutes les pages
         $this->donneesVueGlobal = [];
+
         $this->donneesVueNav = (new DonneesVueNav())->getDonneesVue();
+
+        $this->donneesVueAccueil = (new DonneesVueAccueil())->getDonneesVue();
+
         $this->donneesVueGlobal = array_merge($this->donneesVueGlobal, $this->donneesVueNav);
     }
 
     public function accueil() {
-        return $this->getVue('pages.accueil');
+        return $this->getVue('pages.accueil',$this->donneesVueAccueil);
     }
 
     public function choixDate() {

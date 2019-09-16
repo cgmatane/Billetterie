@@ -10,7 +10,7 @@
     </div>
     <div class="text-center row justify-content-center">
         <div class="img-thumbnail col-sm-6 col-xs-8 bg-light pb-5">
-            <h4 class="text-center mt-3">Choisissez votre destination/heure de départ</h4>
+            <h4 class="text-center mt-3">{{ $accueil_choix_destination_heure_depart }}</h4>
             <a href="{{ route('reservation_choix_vehicule') }}"><button type="button" class="btn btn-success mt-5 col-6 p-3" >Godbout : 10h00</button></a><br>
             <a href="{{ route('reservation_choix_vehicule') }}"><button type="button" class="btn btn-success mt-5 col-6 p-3" >Godbout : 13h30</button></a><br>
             <a href="{{ route('reservation_choix_vehicule') }}"><button type="button" class="btn btn-success mt-5 col-6 p-3" >Godbout : 16h00</button></a><br>

@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1 class="text-center text-warning font-weight-bold">Départ Matane <?php if (isset($_GET['jour'])) {echo $_GET['jour'] ; } else { echo '4' ; } ?> septembre</h1>
+            <h1 class="text-center text-warning font-weight-bold">{{ $accueil_depart }} Matane <?php if (isset($_GET['jour'])) {echo $_GET['jour'] ; } else { echo '4' ; } ?> septembre</h1>
         </div>
     </div>
     <div class="text-center row justify-content-center">
@@ -20,8 +20,8 @@
         </div>
     </div>
     <div class="row text-center justify-content-around">
-        <a href="{{ route('choix_date') }}"><button type="button" class="btn btn-info mt-5 p-3 mb-5" >Choisir une autre date</button></a>
-        <a href="{{ route('choix_depart') }}"><button type="button" class="btn btn-info mt-5 p-3 mb-5" >Choisir un autre départ</button></a>
+        <a href="{{ route('choix_date') }}"><button type="button" class="btn btn-info mt-5 p-3 mb-5" >{{ $accueil_choix_autre_date }}</button></a>
+        <a href="{{ route('choix_depart') }}"><button type="button" class="btn btn-info mt-5 p-3 mb-5" >{{ $accueil_choix_autre_depart }}</button></a>
     </div>
 </div>
 

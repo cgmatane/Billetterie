@@ -33,11 +33,11 @@ class FrontEndController extends Controller
     }
 
     public function choixDate() {
-        return $this->getVue('choix_date','choix_date');
+        return $this->getVue('choix','choix_date');
     }
 
     public function choixDepart() {
-        return $this->getVue('choix_depart','choix_depart');
+        return $this->getVue('choix','choix_depart');
     }
 
     public function informations() {

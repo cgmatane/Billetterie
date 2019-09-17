@@ -47,6 +47,15 @@
                 <input type="tel" class="form-control" id="phone" placeholder="418 000-1234">
             </div>
         </div>
+        <div class="row">
+                <div>
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Je ne voyage pas avec des animaux exotiques</label>
+                    <br/>
+                    <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                    <label class="form-check-label" for="exampleCheck2">Je ne transporte pas de marchandises dangereuses</label>
+                </div>
+        </div>
     </form>
     </div>
 

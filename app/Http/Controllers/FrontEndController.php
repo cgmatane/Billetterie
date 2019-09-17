@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Statics\Views\DonneesVueAccueil;
 use App\Statics\Views\DonneesVueNav;
 
-define('REPERTOIRE_VUES', 'pages');
+define('REPERTOIRE_INTERFACES', 'interfaces');
 define('SOUS_REPERTOIRE_PAGES', 'pages');
 
 class FrontEndController extends Controller
@@ -18,7 +18,7 @@ class FrontEndController extends Controller
 
     public function __construct()
     {
-        //Les donnees statiques de vues communes a toutes les pages
+        //Les donnees statiques de vues communes a toutes les interfaces
         $this->donneesVueGlobal = [];
 
         $this->donneesVueNav = (new DonneesVueNav())->getDonneesVue();
@@ -92,7 +92,7 @@ class FrontEndController extends Controller
 
     private function getVue($interface, $page, $donneesVueLocal = []) {
         $donneesVue = array_merge($this->donneesVueGlobal, $donneesVueLocal);
-        return view(REPERTOIRE_VUES . '.' . $interface . '.' . SOUS_REPERTOIRE_PAGES . '.' . $page, $donneesVue);
+        return view(REPERTOIRE_INTERFACES . '.' . $interface . '.' . SOUS_REPERTOIRE_PAGES . '.' . $page, $donneesVue);
     }
 
 }

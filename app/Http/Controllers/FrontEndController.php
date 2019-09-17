@@ -33,12 +33,37 @@ class FrontEndController extends Controller
     }
 
     public function choixDate() {
-        return $this->getVue('choix','choix_date');
+        return $this->getVue('choix_liste','choix_date');
     }
 
     public function choixDepart() {
-        return $this->getVue('choix','choix_depart');
+        return $this->getVue('choix_liste','choix_depart');
     }
+
+    public function reservationChoixAutreVehicule() {
+        return $this->getVue('choix_deux_options','reservation_choix_autre_vehicule');
+    }
+
+    public function reservationChoixRemorque() {
+        return $this->getVue('choix_deux_options','reservation_choix_remorque');
+    }
+
+    public function reservationChoixVehicule() {
+        return $this->getVue('choix_deux_options','reservation_choix_vehicule');
+    }
+
+    public function reservationChoixVoiture() {
+        return $this->getVue('choix_deux_options','reservation_choix_voiture');
+    }
+
+    public function reservationMatieres() {
+        return $this->getVue('choix_deux_options','reservation_matieres');
+    }
+
+    public function reservationPoids() {
+        return $this->getVue('choix_deux_options','reservation_poids');
+    }
+
 
     public function informations() {
         return $this->getVue('informations','informations');
@@ -52,34 +77,6 @@ class FrontEndController extends Controller
         return $this->getVue('informations','informations_matieres');
     }
 
-    public function reservationChoixAutreVehicule() {
-        return $this->getVue('reservation_choix_autre_vehicule','reservation_choix_autre_vehicule');
-    }
-
-    public function reservationChoixHoraireDepart() {
-        return $this->getVue('reservation_choix_horaire_depart','reservation_choix_horaire_depart');
-    }
-
-    public function reservationChoixRemorque() {
-        return $this->getVue('reservation_choix_remorque','reservation_choix_remorque');
-    }
-
-    public function reservationChoixVehicule() {
-        return $this->getVue('reservation_choix_vehicule','reservation_choix_vehicule');
-    }
-
-    public function reservationChoixVoiture() {
-        return $this->getVue('reservation_choix_voiture','reservation_choix_voiture');
-    }
-
-    public function reservationConfirmation() {
-        return $this->getVue('reservation_confirmation','reservation_confirmation');
-    }
-
-    public function reservationMatieres() {
-        return $this->getVue('reservation_matieres','reservation_matieres');
-    }
-
     public function reservationPaiement() {
         return $this->getVue('reservation_paiement','reservation_paiement');
     }
@@ -88,9 +85,10 @@ class FrontEndController extends Controller
         return $this->getVue('reservation_passagers','reservation_passagers');
     }
 
-    public function reservationPoids() {
-        return $this->getVue('reservation_poids','reservation_poids');
+    public function reservationConfirmation() {
+        return $this->getVue('reservation_confirmation','reservation_confirmation');
     }
+
 
     private function getVue($interface, $page, $donneesVueLocal = []) {
         $donneesVue = array_merge($this->donneesVueGlobal, $donneesVueLocal);

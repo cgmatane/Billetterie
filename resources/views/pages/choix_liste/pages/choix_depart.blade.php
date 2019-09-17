@@ -1,4 +1,4 @@
-@extends('pages.choix.choix')
+@extends('pages.choix_liste.choix_liste')
 
 @section('titre')
     Sélectionnez un lieu de départ

@@ -13,23 +13,21 @@
 
 Route::get('/', 'FrontEndController@accueil')->name('index');
 
-Route::get('/choix/date', 'FrontEndController@choixDate')->name('choix_date');
+Route::get('/choix_liste/date', 'FrontEndController@choixDate')->name('choix_date');
 
-Route::get('/choix/depart', 'FrontEndController@choixDepart')->name('choix_depart');
+Route::get('/choix_liste/depart', 'FrontEndController@choixDepart')->name('choix_depart');
 
-Route::get('/choix/autre_vehicule', 'FrontEndController@reservationChoixAutreVehicule')->name('reservation_choix_autre_vehicule');
+Route::get('/choix_liste/autre_vehicule', 'FrontEndController@reservationChoixAutreVehicule')->name('reservation_choix_autre_vehicule');
 
-Route::get('/choix/horaires_depart', 'FrontEndController@reservationChoixHoraireDepart')->name('reservation_choix_horaire_depart');
+Route::get('/choix_liste/remorque', 'FrontEndController@reservationChoixRemorque')->name('reservation_choix_remorque');
 
-Route::get('/choix/remorque', 'FrontEndController@reservationChoixRemorque')->name('reservation_choix_remorque');
+Route::get('/choix_liste/vehicule', 'FrontEndController@reservationChoixVehicule')->name('reservation_choix_vehicule');
 
-Route::get('/choix/vehicule', 'FrontEndController@reservationChoixVehicule')->name('reservation_choix_vehicule');
+Route::get('/choix_liste/voiture', 'FrontEndController@reservationChoixVoiture')->name('reservation_choix_voiture');
 
-Route::get('/choix/voiture', 'FrontEndController@reservationChoixVoiture')->name('reservation_choix_voiture');
+Route::get('/choix_liste/matieres_dangereuses', 'FrontEndController@reservationMatieres')->name('reservation_matieres');
 
-Route::get('/choix/matieres_dangereuses', 'FrontEndController@reservationMatieres')->name('reservation_matieres');
-
-Route::get('/choix/poids_vehicule', 'FrontEndController@reservationPoids')->name('reservation_poids');
+Route::get('/choix_liste/poids_vehicule', 'FrontEndController@reservationPoids')->name('reservation_poids');
 
 Route::get('/reservation/paiement', 'FrontEndController@reservationPaiement')->name('reservation_paiement');
 

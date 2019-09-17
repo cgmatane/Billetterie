@@ -1,4 +1,4 @@
-@extends('interfaces.sous_interfaces.informations')
+@extends('pages.informations.informations')
 
 @section('titre')
     Voyagez-vous avec des animaux exotiques ?

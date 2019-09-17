@@ -1,4 +1,4 @@
-@extends('interfaces.index')
+@extends('pages.index')
 
 @section('contenu')
 <body id="top" style="background-color: #004882">

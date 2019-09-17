@@ -1,4 +1,4 @@
-@extends('index')
+@extends('interfaces.index')
 
 @section('contenu')
 <body id="top" style="background-color: #004882">
@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="text-center row justify-content-center">
-        <div class="img-thumbnail col-sm-6 col-xs-8 bg-light pb-5">
+        <div class="bg-white col-sm-6 col-xs-8 bg-light pb-5">
             @component('pages.accueil.components.titre_choix_destination_heure_depart')
                 {{ $accueil_choix_destination_heure_depart }}
             @endcomponent

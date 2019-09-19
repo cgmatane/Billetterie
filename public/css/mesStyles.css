@@ -1,0 +1,10 @@
+body{
+    background-color: #FFFFFF;
+}
+.containerImage{
+    background: url(/img/fond.jpg) 0 0 fixed no-repeat;
+    opacity: 0.5;
+}
+.containerBox{
+    opacity: 1;
+}

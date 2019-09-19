@@ -8,6 +8,10 @@
 
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 
+    <link rel="stylesheet" href="/css/mesStyles.css">
+
+
+
     <!--
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
@@ -26,3 +30,4 @@
     <link rel="icon" href="resource/image/icon_bookshelf.svg" />
     -->
 </head>
+<body id="top" "background-color: #004882">

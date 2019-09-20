@@ -8,3 +8,14 @@ body{
 .containerBox{
     opacity: 1;
 }
+
+.btn-outline-primary {
+    color: mediumblue;
+    border-color: mediumblue;
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: midnightblue;
+    border-color:midnightblue;
+}

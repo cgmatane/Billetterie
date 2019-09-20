@@ -30,4 +30,4 @@
     <link rel="icon" href="resource/image/icon_bookshelf.svg" />
     -->
 </head>
-<body id="top" "background-color: #004882">
+<body id="top">

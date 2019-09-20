@@ -48,8 +48,7 @@
     </div>
 
     <div class="row text-center justify-content-center">
-        <a href="{{ route('reservation_passagers') }}"><button type="button" class="btn btn-warning mt-5 mb-5 px-5 py-lg-3 py-xs-2">
-                Retour au choix précédent </button></a>
+        @include('global_components.bouton_retour_precedent')
     </div>
 
     <div class="row text-center justify-content-center">

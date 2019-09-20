@@ -2,6 +2,7 @@
 
 @section('contenu')
     <body id="top" class="" style="background-color: #004882">
+    {{session('test')}}
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -11,16 +12,15 @@
             </div>
         </div>
         <div class="row text-center">
-            <a href="@yield('route1')" class="bg-white rounded-sm col-5 ml-1 mx-auto pb-5 pt-5 display-4"
+            <a href="@yield('route1')?dernierChoix=1" class="bg-white rounded-sm col-5 ml-1 mx-auto pb-5 pt-5 display-4"
                style="height: 200px; text-decoration:none;">@yield('choix1')</a>
 
-            <a href="@yield('route2')" class="bg-white rounded-sm col-5 ml-1 mx-auto pb-5 pt-5 display-4"
+            <a href="@yield('route2')?dernierChoix=2" class="bg-white rounded-sm col-5 ml-1 mx-auto pb-5 pt-5 display-4"
                style="height: 200px; text-decoration:none;">@yield('choix2')</a>
         </div>
 
         <div class="row text-center justify-content-center">
-            <a href="@yield('choix_precedent')"><button type="button" class="btn btn-warning mt-5 mb-5 px-5 py-lg-3 py-xs-2">
-                    Retour au choix précédent </button></a>
+            @include('global_components.bouton_retour_precedent')
         </div>
 
         <div class="row text-center justify-content-center">

@@ -50,6 +50,11 @@ class FrontEndController extends Controller
     }
 
     public function reservationChoixVehicule(Request $request) {
+        if (!isset($_GET['destination']) or !isset($_GET['heure'])) {
+            return redirect()->route('index');
+        }
+        $request->session()->put('destination', htmlspecialchars($_GET['destination']));
+        $request->session()->put('heure', htmlspecialchars($_GET['heure']));
         return $this->getVue($request,'choix_deux_options','reservation_choix_vehicule');
     }
 
@@ -104,6 +109,7 @@ class FrontEndController extends Controller
             $request->session()->put('type_vehicule', 'Pieton');
             $request->session()->put('poids_eleve', false);
         }
+        //dd($request->session()->all();
         return $this->getVue($request,'reservation_passagers','reservation_passagers');
     }
 

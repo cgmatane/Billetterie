@@ -16,13 +16,35 @@
             @endcomponent
 
 
-            @component('interfaces.accueil.components.bouton_choix_trajet') Godbout : 10h00  @endcomponent
-            @component('interfaces.accueil.components.bouton_choix_trajet') Godbout : 13h30  @endcomponent
-            @component('interfaces.accueil.components.bouton_choix_trajet') Godbout : 16h00  @endcomponent
+            @component('interfaces.accueil.components.bouton_choix_trajet')
+                @slot('destination') Godbout @endslot
+                @slot('heure') 10h00 @endslot
+            @endcomponent
 
-            @component('interfaces.accueil.components.bouton_choix_trajet') Baie-Comeau : 10h45  @endcomponent
-            @component('interfaces.accueil.components.bouton_choix_trajet') Baie-Comeau : 13h00  @endcomponent
-            @component('interfaces.accueil.components.bouton_choix_trajet') Baie-Comeau : 15h30  @endcomponent
+            @component('interfaces.accueil.components.bouton_choix_trajet')
+                @slot('destination') Godbout @endslot
+                @slot('heure') 13h30 @endslot
+            @endcomponent
+
+            @component('interfaces.accueil.components.bouton_choix_trajet')
+                @slot('destination') Godbout @endslot
+                @slot('heure') 16h00 @endslot
+            @endcomponent
+
+            @component('interfaces.accueil.components.bouton_choix_trajet')
+                @slot('destination') Baie-Comeau @endslot
+                @slot('heure') 10h45 @endslot
+            @endcomponent
+
+            @component('interfaces.accueil.components.bouton_choix_trajet')
+                @slot('destination') Baie-Comeau @endslot
+                @slot('heure') 13h30 @endslot
+            @endcomponent
+
+            @component('interfaces.accueil.components.bouton_choix_trajet')
+                @slot('destination') Baie-Comeau @endslot
+                @slot('heure') 15h30 @endslot
+            @endcomponent
 
         </div>
     </div>

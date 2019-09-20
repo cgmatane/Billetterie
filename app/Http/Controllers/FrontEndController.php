@@ -11,26 +11,26 @@ define('SOUS_REPERTOIRE_PAGES', 'pages');
 
 class FrontEndController extends Controller
 {
-    private $donneesVueGlobal;
+    private $donneesStatiquesGlobal;
 
-    private $donneesVueNav;
+    private $donneesStatiquesNav;
 
-    private $donneesVueAccueil;
+    private $donneesStatiquesAccueil;
 
     public function __construct()
     {
         //Les donnees statiques de vues communes a toutes les interfaces
-        $this->donneesVueGlobal = [];
+        $this->donneesStatiquesGlobal = [];
 
-        $this->donneesVueNav = (new DonneesVueNav())->getDonneesVue();
+        $this->donneesStatiquesNav = (new DonneesVueNav())->getDonneesVue();
 
-        $this->donneesVueAccueil = (new DonneesVueAccueil())->getDonneesVue();
+        $this->donneesStatiquesAccueil = (new DonneesVueAccueil())->getDonneesVue();
 
-        $this->donneesVueGlobal = array_merge($this->donneesVueGlobal, $this->donneesVueNav);
+        $this->donneesStatiquesGlobal = array_merge($this->donneesStatiquesGlobal, $this->donneesStatiquesNav);
     }
 
     public function accueil(Request $request) {
-        return $this->getVue($request,'accueil','accueil',$this->donneesVueAccueil);
+        return $this->getVue($request,'accueil','accueil',$this->donneesStatiquesAccueil);
     }
 
     public function choixDate(Request $request) {
@@ -109,8 +109,44 @@ class FrontEndController extends Controller
             $request->session()->put('type_vehicule', 'Pieton');
             $request->session()->put('poids_eleve', false);
         }
+
+        $donneesDynamiquesReservationPassagers = [];
+
+        $destination = $request->session()->get('destination');
+        $heureDepart = $request->session()->get('heure');
+        $typeVehicule = $request->session()->get('type_vehicule');
+        $chargeEleve = '';
+        if ($request->session()->get('charge_eleve'))
+            $chargeEleve = 'Oui';
+        else
+            $chargeEleve = 'Non';
+
+
+        $this->ajouterDonneeDynamique($destination,
+            'destination',
+            'reservation_passagers',
+            $donneesDynamiquesReservationPassagers);
+
+        $this->ajouterDonneeDynamique($heureDepart,
+            'heure',
+            'reservation_passagers',
+            $donneesDynamiquesReservationPassagers);
+
+        $this->ajouterDonneeDynamique($typeVehicule,
+            'type_vehicule',
+            'reservation_passagers',
+            $donneesDynamiquesReservationPassagers);
+
+
+        $this->ajouterDonneeDynamique($chargeEleve,
+            'poids_eleve',
+            'reservation_passagers',
+            $donneesDynamiquesReservationPassagers);
+
+
         //dd($request->session()->all();
-        return $this->getVue($request,'reservation_passagers','reservation_passagers');
+        return $this->getVue($request,'reservation_passagers','reservation_passagers',
+            $donneesDynamiquesReservationPassagers);
     }
 
     public function reservationConfirmation(Request $request) {
@@ -118,10 +154,14 @@ class FrontEndController extends Controller
     }
 
 
-    private function getVue(Request $request, $interface, $page, $donneesVueLocal = []) {
+    private function getVue(Request $request, $interface, $page, $donneesLocal = []) {
         $request->session()->put('derniere_URL', $page);
-        $donneesVue = array_merge($this->donneesVueGlobal, $donneesVueLocal);
+        $donneesVue = array_merge($this->donneesStatiquesGlobal, $donneesLocal);
         return view(REPERTOIRE_INTERFACES . '.' . $interface . '.' . SOUS_REPERTOIRE_PAGES . '.' . $page, $donneesVue);
+    }
+
+    private function ajouterDonneeDynamique($donneeDynamique, $cleDonneeDynamique, $page, &$tabDonneesDynamique) {
+        $tabDonneesDynamique[$page . '_' . $cleDonneeDynamique] = $donneeDynamique;
     }
 
     private function estDerniereURL(Request $request, $chaine) {

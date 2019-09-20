@@ -8,6 +8,13 @@
     </div>
 </div>
 <div class="container">
+    <div class = "row">
+        <div class = "col">Votre billet : </div>
+        <div class = "col">Destination : {{$reservation_passagers_destination}}</div>
+        <div class = "col">Heure de départ : {{$reservation_passagers_heure}}</div>
+        <div class = "col">Moyen de transport : {{$reservation_passagers_type_vehicule}}</div>
+        <div class = "col">Surplus charge lourde : {{$reservation_passagers_poids_eleve}}</div>
+    </div>
     <div class="row">
         <div class="col-12">
             <h4 class="text-center text-info font-weight-bold mt-4">Renseignez vos informations</h4>
@@ -33,7 +40,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <label for="exampleFormControlInput1">Adresse email :</label>
+                <label for="exampleFormControlInput1">Courriel :</label>
             </div>
             <div class="col-sm-7">
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">

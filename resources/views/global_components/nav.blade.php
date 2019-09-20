@@ -1,5 +1,3 @@
-<style>
-</style>
 <nav class="bg-white">
     <div class="container-fluid">
         <header class="blog-header py-3">

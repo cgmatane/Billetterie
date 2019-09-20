@@ -3,14 +3,14 @@
 @section('contenu')
 <div class="container-fluid" style="background: url(/img/fond.jpg) 0 0 fixed no-repeat;background-size: 100% 100%;">
         <div class="row">
-        <div class="col-12">
+        <div class="col-12 mt-5 mb-5">
             @component('interfaces.accueil.components.titre_principal')
                 {{ $accueil_depart }} Matane <?php if (isset($_GET['jour'])) {echo $_GET['jour'] ; } else { echo '4' ; } ?> septembre
             @endcomponent
         </div>
     </div>
     <div class="text-center row justify-content-center">
-        <div class="bg-white col-sm-6 col-xs-8 bg-light pb-5">
+        <div class="bg-white col-sm-6 col-xs-8 bg-light pb-5 shadow-lg rounded-lg">
             @component('interfaces.accueil.components.titre_choix_destination_heure_depart')
                 {{ $accueil_choix_destination_heure_depart }}
             @endcomponent

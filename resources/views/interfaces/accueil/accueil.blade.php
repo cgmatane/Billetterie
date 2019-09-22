@@ -58,15 +58,11 @@
 
         @component('interfaces.accueil.components.bouton_changer_parametres_depart')
             @slot('route')
-                {{ route('choix_date') }}
+                {{ route('choix_depart') }}
             @endslot
-            {{ $accueil_choix_autre_date }}
+            {{ $accueil_choix_autre_depart }}
         @endcomponent
     </div>
-   <!-- <div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; z-index: -999999; position: fixed; width: 100%; height: 100%;">
-        <img src="/img/fond.PNG" style="position: absolute; margin: 0px; padding: 0px; border: none; max-height: none; max-width: none; z-index: -999999; width:100%; height: 100%; left: -98.9079px; top: 0px;">
-    </div>
-    -->
 </div>
 
 @endsection

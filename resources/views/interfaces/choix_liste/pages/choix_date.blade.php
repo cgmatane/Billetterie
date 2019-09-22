@@ -5,15 +5,47 @@
 @endsection
 
 @section('liste')
-    <a href="{{ route('index') }}?jour=4"><button type="button" class="btn btn-info mt-5 col-6 p-3" >4 septembre</button></a><br>
-    <a href="{{ route('index') }}?jour=5"><button type="button" class="btn btn-info mt-5 col-6 p-3" >5 septembre</button></a><br>
-    <a href="{{ route('index') }}?jour=6"><button type="button" class="btn btn-info mt-5 col-6 p-3" >6 septembre</button></a><br>
-    <a href="{{ route('index') }}?jour=7"><button type="button" class="btn btn-info mt-5 col-6 p-3" >7 septembre</button></a><br>
-    <a href="{{ route('index') }}?jour=8"><button type="button" class="btn btn-info mt-5 col-6 p-3" >8 septembre</button></a><br>
-    <a href="{{ route('index') }}?jour=9"><button type="button" class="btn btn-info mt-5 col-6 p-3" >9 septembre</button></a><br>
-    <a href="{{ route('index') }}?jour=10"><button type="button" class="btn btn-info mt-5 col-6 p-3" >10 septembre</button></a><br>
-@endsection
 
-@section('bouton')
-    <a href="{{ route('index') }}"><button type="button" class="btn btn-info m-5 px-5 py-lg-5 py-xs-2">Accueil</button></a>
+    @component('interfaces.choix_liste.components.bouton_liste_options')
+        @slot('typeInformation') jour @endslot
+        @slot('valeur') 4 @endslot
+        @slot('contenu') 4 Septembre @endslot
+    @endcomponent
+
+    @component('interfaces.choix_liste.components.bouton_liste_options')
+        @slot('typeInformation') jour @endslot
+        @slot('valeur') 5 @endslot
+        @slot('contenu') 5 Septembre @endslot
+    @endcomponent
+
+    @component('interfaces.choix_liste.components.bouton_liste_options')
+        @slot('typeInformation') jour @endslot
+        @slot('valeur') 6 @endslot
+        @slot('contenu') 6 Septembre @endslot
+    @endcomponent
+
+    @component('interfaces.choix_liste.components.bouton_liste_options')
+        @slot('typeInformation') jour @endslot
+        @slot('valeur') 7 @endslot
+        @slot('contenu') 7 Septembre @endslot
+    @endcomponent
+
+    @component('interfaces.choix_liste.components.bouton_liste_options')
+        @slot('typeInformation') jour @endslot
+        @slot('valeur') 8 @endslot
+        @slot('contenu') 8 Septembre @endslot
+    @endcomponent
+
+    @component('interfaces.choix_liste.components.bouton_liste_options')
+        @slot('typeInformation') jour @endslot
+        @slot('valeur') 9 @endslot
+        @slot('contenu') 9 Septembre @endslot
+    @endcomponent
+
+    @component('interfaces.choix_liste.components.bouton_liste_options')
+        @slot('typeInformation') jour @endslot
+        @slot('valeur') 10 @endslot
+        @slot('contenu') 10 Septembre @endslot
+    @endcomponent
+
 @endsection

@@ -48,7 +48,9 @@
     </div>
 
     <div class="row text-center justify-content-center">
-        @include('global_components.bouton_retour_precedent')
+        @component('global_components.bouton_retour_precedent')
+            {{ $global_retour_precedent }}
+        @endcomponent
     </div>
 
     <div class="row text-center justify-content-center">

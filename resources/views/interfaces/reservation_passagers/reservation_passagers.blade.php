@@ -10,10 +10,10 @@
 <div class="container">
     <div class = "row">
         <div class = "col">Votre billet : </div>
-        <div class = "col">Destination : {{$reservation_passagers_destination}}</div>
-        <div class = "col">Heure de départ : {{$reservation_passagers_heure}}</div>
-        <div class = "col">Moyen de transport : {{$reservation_passagers_type_vehicule}}</div>
-        <div class = "col">Surplus charge lourde : {{$reservation_passagers_poids_eleve}}</div>
+        <div class = "col">Destination : {{$destination}}</div>
+        <div class = "col">Heure de départ : {{$heure}}</div>
+        <div class = "col">Moyen de transport : {{$type_vehicule}}</div>
+        <div class = "col">Surplus charge lourde : {{$poids_eleve}}</div>
     </div>
     <div class="row">
         <div class="col-12">
@@ -72,12 +72,14 @@
     </div>
 
     <div class="row text-center justify-content-center">
-        @include('global_components.bouton_retour_precedent')
+        @component('global_components.bouton_retour_precedent')
+            {{ $global_retour_precedent }}
+        @endcomponent
     </div>
 
     <div class="row text-center justify-content-center">
         <a href="{{ route('index') }}"><button type="button" class="btn btn-danger px-5 mb-5 py-lg-3 py-xs-2">
-                Recommencer</button></a>
+                {{ $global_retour_accueil }}</button></a>
     </div>
 </div>
 @endsection

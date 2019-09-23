@@ -11,11 +11,27 @@ body{
 }
 
 .btn-outline-primary {
-    color: mediumblue;    border-color: mediumblue;
+    color: mediumblue;
+    border-color: mediumblue;
 }
 
 .btn-outline-primary:hover {
     color: #fff;
     background-color: midnightblue;
     border-color:midnightblue;
+}
+
+.btn-outline-success {
+    color: #1d643b;
+    border-color: #2a9055;
+}
+
+.btn-outline-success:hover {
+    color:white;
+    background-color: #6ACE71;
+    border-color:#6ACE71;
+}
+
+.display-4 {
+    font-size: 2rem;
 }

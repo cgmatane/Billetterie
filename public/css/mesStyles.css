@@ -1,5 +1,6 @@
 body{
     background-color: #FFFFFF;
+    font-family: 'Muli', sans-serif;
 }
 .containerImage{
     background: url(/img/fond.jpg) 0 0 fixed no-repeat;
@@ -10,8 +11,7 @@ body{
 }
 
 .btn-outline-primary {
-    color: mediumblue;
-    border-color: mediumblue;
+    color: mediumblue;    border-color: mediumblue;
 }
 
 .btn-outline-primary:hover {

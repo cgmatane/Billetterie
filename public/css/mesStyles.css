@@ -38,6 +38,12 @@ body{
     line-height: 1;
 }
 
+.display-3 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
 .btn-outline-param {
     color: mediumblue;
     border-color: mediumblue;
@@ -49,3 +55,19 @@ body{
     background-color: midnightblue;
     border-color:midnightblue;
 }
+
+.oui {
+    border: 5px solid rgba(74, 213, 69, 0.1);
+}
+.oui:hover {
+    border: 5px solid rgba(74, 213, 69, 1);
+}
+
+.non {
+    border: 5px solid rgba(227, 89, 89, 0.1);
+}
+.non:hover {
+    border: 5px solid rgba(227, 89, 89, 1);
+}
+
+

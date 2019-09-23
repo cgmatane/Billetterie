@@ -1,4 +1,4 @@
-<nav class="bg-white">
+<nav class="bg-white shadow-lg">
     <div class="container-fluid">
         <header class="blog-header py-3">
             <div class="row justify-content-between align-items-center">

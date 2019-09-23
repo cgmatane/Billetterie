@@ -34,4 +34,18 @@ body{
 
 .display-4 {
     font-size: 2rem;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.btn-outline-param {
+    color: mediumblue;
+    border-color: mediumblue;
+    background-color: #E2EBF9;
+}
+
+.btn-outline-param:hover {
+    color: #fff;
+    background-color: midnightblue;
+    border-color:midnightblue;
 }

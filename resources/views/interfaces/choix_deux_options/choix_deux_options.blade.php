@@ -20,7 +20,7 @@
                style=" text-decoration:none; color: #1b1e21">{{ $choix_deux_options_choix2 }}</a>
         </div>
         </div>
-        <div style="width: 100% ;height: 400px; background-color: #2C3E50; margin-top: -50px; border-radius: 20px">
+        <div style="width: 100% ;height: 400px; background-color: #002A4D; margin-top: -50px; border-radius: 20px">
             <div class="row">
             <div style="float: left; margin-left: 5%; margin-top: 15%">
             @component('global_components.bouton_retour_precedent')

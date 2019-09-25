@@ -47,7 +47,7 @@ body{
 .btn-outline-param {
     color: mediumblue;
     border-color: mediumblue;
-    background-color: transparent;
+    background-color: white;
     border-width: medium;
 }
 
@@ -58,9 +58,9 @@ body{
 }
 
 .btn-outline-retour {
-    color: black;
+    color: white;
     border-color: #FFB74A;
-    background-color: #FFE5BF;
+    background-color: black;
 }
 
 .btn-outline-retour:hover {
@@ -105,5 +105,8 @@ body{
 {
     font-family: 'Paytone One', sans-serif;
 }*/
+.mt-6{
+margin-top: 8rem !important;
+}
 
 

@@ -4,10 +4,10 @@
     <body id="top" style="background-color: #BDBDBD; margin: 0">
     {{session('test')}}
     <div class="container-fluid">
-        <div class="container">
+        <div class="container mt-5">
         <div class="row">
             <div class="col-12">
-                <h4 class="text-center text-warning p-4 m-4 font-weight-bold" style="font-size: xx-large">
+                <h4 class="text-center text-warning p-4 m-4 font-weight-bold mb-5" style="font-size: xx-large">
                      {{ $choix_deux_options_question }}
                 </h4>
             </div>

@@ -74,6 +74,12 @@ body{
     background-color: black;
 }
 
+.btn-outline-ajout {
+    color: mediumblue;
+    border-color: mediumblue;
+    background-color: #d3d3d3;
+}
+
 .btn-outline-retour-menu:hover {
     color: #fff;
     background-color: #761b18;

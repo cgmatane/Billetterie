@@ -27,13 +27,18 @@
             <div class="form-row mb-4">
                 <div class="col">
                     <!-- First name -->
-                    <input type="text" id="defaultRegisterFormFirstName" class="form-control mb-3" placeholder="Nom">
+                    <input type="text" id="defaultRegisterFormFirstName" class="form-control " placeholder="Nom">
                 </div>
                 <div class="col">
                     <!-- Last name -->
-                    <input type="text" id="defaultRegisterFormLastName" class="form-control mb-3" placeholder="Prenom">
+                    <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Prenom">
                 </div>
             </div>
+            <!--
+            <div class="col">
+                <button class="btn btn-outline-ajout mb-3" style="float: right; margin-top: -10px; ">ajouter un passager</button>
+            </div>
+            -->
 
             <!-- E-mail -->
             <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4 mb-3" placeholder="E-mail">

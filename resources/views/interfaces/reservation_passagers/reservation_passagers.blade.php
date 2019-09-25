@@ -3,9 +3,11 @@
 @section('contenu')
 <body id="top" style="background-color: #d3d3d3;">
 <div class="row">
+    <!--
     <div class="col-sm-12 col-xs-0">
         <img src="/img/avancement2.PNG" width="100%">
     </div>
+    -->
 </div>
 <div class="container">
     <!--<div class = "row">
@@ -44,13 +46,13 @@
 
             <!-- Newsletter -->
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
-                <label class="custom-control-label" for="defaultRegisterFormNewsletter">je confirme ne pas transporter de matières dangereuses</label>
+                <input type="checkbox" class="custom-control-input" id="matieres">
+                <label class="custom-control-label" for="matieres">je confirme ne pas transporter de matières dangereuses</label>
             </div>
 
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
-                <label class="custom-control-label" for="defaultRegisterFormNewsletter">je confirme ne pas transporter d'animaux exotiques</label>
+                <input type="checkbox" class="custom-control-input" id="animaux">
+                <label class="custom-control-label" for="animaux">je confirme ne pas transporter d'animaux exotiques</label>
             </div>
 
             <!-- Sign up button -->

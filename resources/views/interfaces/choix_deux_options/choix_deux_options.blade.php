@@ -20,22 +20,24 @@
                style=" text-decoration:none; color: #1b1e21">{{ $choix_deux_options_choix2 }}</a>
         </div>
         </div>
-        <div style="margin-top: -50px">
-        <div style="background-color: #1d643b; width: 100%">
-        <div class="row text-center justify-content-center">
+        <div style="width: 100% ;height: 400px; background-color: #2C3E50; margin-top: -50px; border-radius: 20px">
+            <div class="row">
+            <div style="float: left; margin-left: 5%; margin-top: 15%">
             @component('global_components.bouton_retour_precedent')
                 {{ $global_retour_choix_precedent }}
             @endcomponent
-        </div>
-
-        <div class="row text-center justify-content-center">
+            </div>
+            </div>
+            <div class="row">
+            <div style="float: left; margin-left: 5%; margin-top: 20px">
             <a href="{{ route('index') }}">
-                <button type="button" class="btn btn-danger px-5 py-lg-3 py-xs-2 mb-5">
+                <button type="button" class="btn btn-outline-retour-menu p-3">
                     {{ $global_retour_au_debut }}
                 </button>
             </a>
-        </div>
-        </div>
+            </div>
+            </div>
         </div>
     </div>
+
 @endsection

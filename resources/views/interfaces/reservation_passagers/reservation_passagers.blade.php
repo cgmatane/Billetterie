@@ -8,13 +8,13 @@
     </div>
 </div>
 <div class="container">
-    <div class = "row">
+    <!--<div class = "row">
         <div class = "col">Votre billet : </div>
         <div class = "col">Destination : {{$destination}}</div>
         <div class = "col">Heure de départ : {{$heure}}</div>
         <div class = "col">Moyen de transport : {{$type_vehicule}}</div>
         <div class = "col">Surplus charge lourde : {{$poids_eleve}}</div>
-    </div>
+    </div> -->
     <div class="row">
         <div class="col-12">
             <h4 class="text-center text-info font-weight-bold mt-4">Renseignez vos informations</h4>

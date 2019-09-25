@@ -20,7 +20,7 @@
             </div>
             <div class="row text-center justify-content-around">
                 <a href="{{ route('index') }}">
-                    <button type="button" class="btn btn-info m-5 px-5 py-lg-5 py-xs-2">
+                    <button type="button" class="btn btn-outline-param m-5 px-5 py-lg-5 py-xs-2">
                         {{ $global_retour_accueil }}
                     </button>
                 </a>

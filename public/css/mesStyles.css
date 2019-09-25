@@ -47,7 +47,8 @@ body{
 .btn-outline-param {
     color: mediumblue;
     border-color: mediumblue;
-    background-color: #E2EBF9;
+    background-color: transparent;
+    border-width: medium;
 }
 
 .btn-outline-param:hover {

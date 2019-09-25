@@ -22,7 +22,7 @@
         <!-- Default form register -->
         <form class="text-center border border-light p-5 mt-5 mb-5">
 
-            <p class="h2 mb-4 text-info font-weight-bold mb-5">Renseignez vos informations</p>
+            <p class="h2 mb-4 font-weight-bold mb-5" style="color: midnightblue">Renseignez vos informations</p>
 
             <div class="form-row mb-4">
                 <div class="col">

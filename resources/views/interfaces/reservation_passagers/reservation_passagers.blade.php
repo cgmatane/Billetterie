@@ -22,16 +22,16 @@
         <!-- Default form register -->
         <form class="text-center border border-light p-5 mt-5 mb-5">
 
-            <p class="h2 mb-4 font-weight-bold mb-5" style="color: midnightblue">Renseignez vos informations</p>
+            <p class="h2 mb-4 font-weight-bold mb-5" style="color: midnightblue">{{ $reservation_passagers_renseigner_informations }}</p>
 
             <div class="form-row mb-4">
                 <div class="col">
                     <!-- First name -->
-                    <input type="text" id="defaultRegisterFormFirstName" class="form-control " placeholder="Nom">
+                    <input type="text" id="defaultRegisterFormFirstName" class="form-control " placeholder="{{ $reservation_passagers_nom }}">
                 </div>
                 <div class="col">
                     <!-- Last name -->
-                    <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Prenom">
+                    <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="{{ $reservation_passagers_prenom }}">
                 </div>
             </div>
             <!--
@@ -41,28 +41,35 @@
             -->
 
             <!-- E-mail -->
-            <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4 mb-3" placeholder="E-mail">
+            <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4 mb-3" placeholder="{{ $reservation_passagers_courriel }}">
 
             <!-- Phone number -->
-            <input type="text" id="defaultRegisterPhonePassword" class="form-control mb-3" placeholder="Numéro de Téléphone" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+            <input type="text" id="defaultRegisterPhonePassword" class="form-control mb-3" placeholder="{{ $reservation_passagers_numero }}" aria-describedby="defaultRegisterFormPhoneHelpBlock">
             <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-                nécessaire en cas d'annulation ou de retard
+                {{ $reservation_passagers_tel_necessaire }}
             </small>
 
             <!-- Newsletter -->
             <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="matieres">
-                <label class="custom-control-label" for="matieres">je confirme ne pas transporter de matières dangereuses</label>
+                <label class="custom-control-label" for="matieres">
+                    {{ $reservation_passagers_confirmation_matieres }}
+                </label>
             </div>
 
             <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="animaux">
-                <label class="custom-control-label" for="animaux">je confirme ne pas transporter d'animaux exotiques</label>
+                <label class="custom-control-label" for="animaux">
+                    {{ $reservation_passagers_confirmation_animaux }}
+                </label>
             </div>
 
             <!-- Sign up button -->
-            <a href="{{ route('reservation_paiement') }}"><button type="button" class="btn btn-outline-success my-4 btn-block">
-                    Procéder au paiement</button></a>
+            <a href="{{ route('reservation_paiement') }}">
+                <button type="button" class="btn btn-outline-success my-4 btn-block">
+                    {{ $reservation_passagers_paiement}}
+                </button>
+            </a>
 
         </form>
 </div>

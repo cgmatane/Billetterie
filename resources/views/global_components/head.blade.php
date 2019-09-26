@@ -14,7 +14,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Muli:400,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Paytone+One&display=swap" rel="stylesheet">
-    
+
 
 
 
@@ -30,6 +30,8 @@
     <script src="resource/js/myscript.js"></script>
 
     -->
+    <script src="/js/app.js"></script>
+
 
     <title>Billetterie - STQ</title>
     <!--

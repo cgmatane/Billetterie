@@ -6878,7 +6878,7 @@ button.bg-dark:focus {
 }
 
 .border-light {
-  border-color: midnightblue !important;
+  border-color: #f8f9fa !important;
 }
 
 .border-dark {
@@ -8257,7 +8257,7 @@ button.bg-dark:focus {
 
 .mt-5,
 .my-5 {
-  margin-top: 4rem !important;
+  margin-top: 3rem !important;
 }
 
 .mr-5,
@@ -8267,7 +8267,7 @@ button.bg-dark:focus {
 
 .mb-5,
 .my-5 {
-  margin-bottom: 4rem !important;
+  margin-bottom: 3rem !important;
 }
 
 .ml-5,
@@ -13687,3 +13687,4 @@ a.text-dark:focus {
   overflow: visible;
   clip: auto;
 }
+

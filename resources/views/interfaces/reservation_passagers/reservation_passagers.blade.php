@@ -24,16 +24,27 @@
 
             <p class="h2 mb-4 font-weight-bold mb-5" style="color: midnightblue">{{ $reservation_passagers_renseigner_informations }}</p>
 
-            <div class="form-row mb-4">
-                <div class="col">
+            <div class="form-row mb-5">
+                <div class="col-sm-5 col-12">
                     <!-- First name -->
                     <input type="text" id="defaultRegisterFormFirstName" class="form-control " placeholder="{{ $reservation_passagers_nom }}">
                 </div>
-                <div class="col">
+                <div class="col-sm-5 col-12">
                     <!-- Last name -->
                     <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="{{ $reservation_passagers_prenom }}">
                 </div>
+                <div class="dropdown col-sm-2 col-12">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sélectionner l'âge
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" >moins de 18ans</a>
+                        <a class="dropdown-item active" >18-60ans</a>
+                        <a class="dropdown-item" >plus de 60ans</a>
+                    </div>
+                </div>
             </div>
+
             <!--
             <div class="col">
                 <button class="btn btn-outline-ajout mb-3" style="float: right; margin-top: -10px; ">ajouter un passager</button>

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Http\Controllers\Auth\pages;
+namespace App\Http\Controllers\Pages;
 
 
 use App\Http\Controllers\PageController;

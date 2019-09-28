@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Auth\pages as Controllers;
+use App\Http\Controllers\Pages as Controllers;
 
 use App\Statics\Views\DonneesVueGlobales;
 use Illuminate\Http\Request;

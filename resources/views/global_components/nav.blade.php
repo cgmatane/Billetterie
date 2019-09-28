@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-sm-4 col-xs-12 d-flex justify-content-end align-items-center text-dark ">
                     <a class="mx-auto btn btn-lg btn-outline-primary" href="{{ route('informations') }}">Informations</a> <!-- Route à définir -->
-                    <a class="mx-auto btn btn-lg btn-outline-primary" href="{{ route('informations') }}">Se connecter</a> <!-- Route à définir -->
+                    <a class="mx-auto btn btn-lg btn-outline-primary" href="{{ route('connexion') }}">Se connecter</a> <!-- Route à définir -->
                 </div>
             </div>
         </header>

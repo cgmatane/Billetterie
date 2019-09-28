@@ -22,6 +22,8 @@ Route::get('/{nomRoute?}', ['uses' => 'FrontEndController@manager'])->name('mana
 
 Route::get('/accueil')->name('index');
 
+Route::get('/connexion')->name('connexion');
+
 Route::get('/date')->name('choix_date');
 
 Route::get('/depart')->name('choix_depart');

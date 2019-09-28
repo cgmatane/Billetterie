@@ -40,6 +40,7 @@ class FrontEndController extends Controller
             'reservation_passagers' => array(new Controllers\ReservationPassagersController()),
             'reservation_paiement' => array(new Controllers\ReservationPaiementController()),
             'reservation_confirmation' => array(new Controllers\ReservationConfirmationController()),
+            'connexion' => array(new Controllers\ConnexionController()),
             );
 
         //Les donnees statiques de vues communes a plusieurs interfaces/pages

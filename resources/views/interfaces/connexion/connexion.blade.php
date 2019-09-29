@@ -47,7 +47,7 @@
         </form>
         <div class="text-center">
             @component('interfaces.connexion.components.lien_vue_inscription')
-                @slot('route'){{ route('index') }}@endslot
+                @slot('route'){{ route('inscription') }}@endslot
                 @slot('text_lien') Créer un compte @endslot
                 @slot('slot') Pas encore de compte ? @endslot
                 @slot('slot1') rapidement @endslot

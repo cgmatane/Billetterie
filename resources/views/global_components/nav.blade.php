@@ -19,7 +19,7 @@
                         </button>
                         <ul class="dropdown-menu" style="font-size: 18px;">
                             <li><a class="dropdown-item  border-bottom " href="{{ route('connexion') }}"><i class="fas fa-sign-in-alt"></i> Se connecter</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-plus"></i> S'inscrire</a></li>
+                            <li><a class="dropdown-item" href="{{ route('inscription') }}"><i class="fas fa-user-plus"></i> S'inscrire</a></li>
                         </ul>
                     </div>
 

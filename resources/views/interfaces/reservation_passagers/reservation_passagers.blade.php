@@ -33,15 +33,13 @@
                     <!-- Last name -->
                     <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="{{ $reservation_passagers_prenom }}">
                 </div>
-                <div class="dropdown col-sm-2 col-12">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Sélectionner l'âge
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" >moins de 18ans</a>
-                        <a class="dropdown-item active" >18-60ans</a>
-                        <a class="dropdown-item" >plus de 60ans</a>
-                    </div>
+                <div class="col-sm-2 col-12">
+                    <select class="browser-default custom-select">
+                        <option>Sélectionner l'âge du passagers</option>
+                        <option value="1">moins de 18ans</option>
+                        <option value="2" selected>18-60ans</option>
+                        <option value="3">plus de 60ans</option>
+                    </select>
                 </div>
             </div>
 

@@ -17,6 +17,13 @@
                 {{ $accueil_choix_destination_heure_depart }}
             @endcomponent
 
+            @foreach ($trajets as $trajet)
+                @component('interfaces.accueil.components.bouton_choix_trajet')
+                    @slot('destination') {{ $trajet['stationArrivee'] }} @endslot
+                    @slot('heure') {{ $trajet['heureDepart'] }} @endslot
+                @endcomponent
+            @endforeach
+
 
             @component('interfaces.accueil.components.bouton_choix_trajet')
                 @slot('destination') Godbout @endslot

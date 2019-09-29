@@ -25,7 +25,7 @@ class DonneesVueInscription extends DonneesVue
 
 
         $this->setDonneeVue('modal_titre', 'Conditions d\'utilisation');
-        $this->setDonneeVue('modal_texte', 'Ecrire ici les conditions d\'utilisation);
+        $this->setDonneeVue('modal_texte', 'Ecrire ici les conditions d\'utilisation');
 
     }
 }

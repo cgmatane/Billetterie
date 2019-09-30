@@ -42,6 +42,7 @@ class FrontEndController extends Controller
             'reservation_confirmation' => array(new Controllers\ReservationConfirmationController()),
             'connexion' => array(new Controllers\ConnexionController()),
             'inscription' => array(new Controllers\InscriptionController()),
+            'requete-qr' => array(new Controllers\RequeteQRController())
             );
 
         //Les donnees statiques de vues communes a plusieurs interfaces/pages

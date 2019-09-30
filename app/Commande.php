@@ -10,11 +10,21 @@ class Commande extends Model
     protected $primaryKey = 'id_commande';
 
     public function getVehicule() {
-        return Vehicule::find($this->id_vehicule)->first();
+        return Vehicule::where('id_vehicule', $this->id_vehicule)->get();
     }
 
     public function getAcheteur() {
-        return Acheteur::find($this->id_acheteur)->first();
+        return Acheteur::where('id_acheteur', $this->id_acheteur)->get();
+    }
+
+    public function passagers()
+    {
+        return $this->getAcheteur()->first()->passagers();
+    }
+
+    public function vehicule()
+    {
+        return $this->hasOne('App\Vehicule', 'id_vehicule');
     }
 
     public function getTickets() {

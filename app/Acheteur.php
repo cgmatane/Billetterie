@@ -9,8 +9,12 @@ class Acheteur extends Model
     protected $table = 'acheteur';
     protected $primaryKey = 'id_acheteur';
 
-    public function getPassager() {
-        return Passager::find($this->id_passager)->first();
+    public function getPassagers() {
+        return Passager::where('id_acheteur',$this->id_acheteur)->get();
+    }
+
+    public function passagers() {
+        return $this->hasMany('App\Passager', 'id_acheteur');
     }
 
     public function getCommandes() {

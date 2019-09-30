@@ -10,7 +10,7 @@ class Passager extends Model
     protected $primaryKey = 'id_passager';
 
     public function getAcheteur() {
-        return Acheteur::where('id_passager',$this->id_passager)->first();
+        return Acheteur::find($this->id_acheteur)->first();
     }
 }
 

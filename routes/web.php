@@ -53,3 +53,5 @@ Route::get('/infos')->name('informations');
 Route::get('/infos_animaux')->name('informations_animaux');
 
 Route::get('/infos_matieres')->name('informations_matieres');
+
+Route::get('/requete-qr')->name('requete-qr');

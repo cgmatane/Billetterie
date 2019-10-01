@@ -159,3 +159,16 @@ margin-top: 8rem !important;
     transition: all 0.2s linear;
     transition-delay: 0.15s;
 }
+
+#checkbox2:checked + .check svg {
+    stroke: #4285f4;
+}
+#checkbox2:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#checkbox2:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}

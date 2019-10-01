@@ -1,6 +1,16 @@
 @extends('interfaces.index')
 
 @section('contenu')
+
+    <script>
+        function surligne(champ, erreur)
+        {
+            if(erreur)
+                champ.style.backgroundColor = "#fba";
+            else
+                champ.style.backgroundColor = "";
+        }
+    </script>
 <body id="top" style="background-color: #d3d3d3;">
 <div class="row">
     <!--
@@ -19,23 +29,23 @@
     </div> -->
     <div class="row">
     </div>
-        <!-- Default form register -->
+
         <form class="text-center border border-light p-5 mt-5 mb-5">
 
             <p class="h2 mb-4 font-weight-bold mb-5" style="color: midnightblue">{{ $reservation_passagers_renseigner_informations }}</p>
 
             <div class="form-row mb-5">
                 <div class="col-sm-5 col-12">
-                    <!-- First name -->
+
                     <input type="text" id="defaultRegisterFormFirstName" class="form-control " placeholder="{{ $reservation_passagers_nom }}">
                 </div>
                 <div class="col-sm-5 col-12">
-                    <!-- Last name -->
+
                     <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="{{ $reservation_passagers_prenom }}">
                 </div>
                 <div class="col-sm-2 col-12">
                     <select class="browser-default custom-select">
-                        <option>Sélectionner l'âge du passagers</option>
+                        <option>Sélectionner l'âge du passager</option>
                         <option value="1">moins de 18ans</option>
                         <option value="2" selected>18-60ans</option>
                         <option value="3">plus de 60ans</option>
@@ -49,31 +59,36 @@
             </div>
             -->
 
-            <!-- E-mail -->
             <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4 mb-3" placeholder="{{ $reservation_passagers_courriel }}">
 
-            <!-- Phone number -->
             <input type="text" id="defaultRegisterPhonePassword" class="form-control mb-3" placeholder="{{ $reservation_passagers_numero }}" aria-describedby="defaultRegisterFormPhoneHelpBlock">
             <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
                 {{ $reservation_passagers_tel_necessaire }}
             </small>
 
-            <!-- Newsletter -->
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="matieres">
-                <label class="custom-control-label" for="matieres">
-                    {{ $reservation_passagers_confirmation_matieres }}
+
+            <div class="form-group">
+                <input type="checkbox" id="checkbox" style="display: none;">
+                <label for="checkbox" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
                 </label>
+                <label class="form-check-label" for="checkbox">{{$reservation_passagers_confirmation_matieres }}</label>
             </div>
 
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="animaux">
-                <label class="custom-control-label" for="animaux">
-                    {{ $reservation_passagers_confirmation_animaux }}
+            <div class="form-group">
+                <input type="checkbox" id="checkbox2" style="display: none;">
+                <label for="checkbox2" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
                 </label>
+                <label class="form-check-label" for="checkbox">{{$reservation_passagers_confirmation_animaux }}</label>
             </div>
 
-            <!-- Sign up button -->
             <a href="{{ route('reservation_paiement') }}">
                 <button type="button" class="btn btn-outline-success my-4 btn-block">
                     {{ $reservation_passagers_paiement}}

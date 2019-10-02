@@ -6,13 +6,15 @@
         <form class="border pt-4 pb-5 pl-5 pr-5">
             <div class="form-group">
                 <label>{{ $inscription_nom_prenom }}</label>
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 has-danger">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-circle"></i></span>
                     </div>
-                    <input type="text" class="form-control" id="inputNom" aria-describedby="emailHelp" placeholder="{{ $inscription_nom }}">
-                    <input type="text" class="form-control" id="inputPrenom" aria-describedby="emailHelp" placeholder="{{ $inscription_prenom }}">
+                    <input type="text" class="form-control" onkeyup="verifNom(this,'alert-nom','{{ $inscription_erreur_nom }}')" id="inputNom" aria-describedby="emailHelp" placeholder="{{ $inscription_nom }}">
+                    <input type="text" class="form-control form-control-danger" onkeyup="verifNom(this,'alert-prenom','{{ $inscription_erreur_prenom }}')" id="inputPrenom" aria-describedby="emailHelp" placeholder="{{ $inscription_prenom }}">
                 </div>
+                <div class="alert-danger " id="alert-nom"></div>
+                <div class="alert-danger" id="alert-prenom"></div>
             </div>
             <div class="form-group">
                 <label for="inputCourriel">{{ $inscription_courriel }}</label>
@@ -20,8 +22,9 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-envelope"></i></span>
                     </div>
-                    <input type="email" class="form-control" id="inputCourriel" aria-describedby="emailHelp" placeholder="{{ $inscription_courriel }}">
+                    <input type="email" class="form-control" onkeyup="verifMail(this,'alert-courriel','{{ $inscription_erreur_courriel }}')" id="inputCourriel" aria-describedby="emailHelp" placeholder="{{ $inscription_courriel }}">
                 </div>
+                <div class="alert-danger " id="alert-courriel"></div>
             </div>
             <div class="form-group">
                 <label for="inputMotDePasse">{{ $inscription_mot_passe }}</label>
@@ -29,8 +32,9 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
                     </div>
-                    <input type="password" class="form-control" id="inputMotDePasse" placeholder="{{ $inscription_mot_passe }}">
+                    <input type="password" onkeyup="verifMDP(this,'alert-password','{{ $inscription_erreur_mot_passe }}')" class="form-control" id="inputMotDePasse" placeholder="{{ $inscription_mot_passe }}">
                 </div>
+                <div class="alert-danger " id="alert-password"></div>
             </div>
             <div class="form-group">
                 <label for="inputConfirmeMotDePasse">{{ $inscription_confirme_mot_passe }}</label>
@@ -38,8 +42,9 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
                     </div>
-                    <input type="password" class="form-control" id="inputConfirmeMotDePasse" placeholder="{{ $inscription_confirme_mot_passe }}">
+                    <input type="password" onkeyup="verifConfirmationMDP(this,'inputMotDePasse','alert-confirm-password','{{ $inscription_erreur_confirme_mot_passe }}')" class="form-control" id="inputConfirmeMotDePasse" placeholder="{{ $inscription_confirme_mot_passe }}">
                 </div>
+                <div class="alert-danger " id="alert-confirm-password"></div>
             </div>
             <div class="form-group">
                 <input type="checkbox" id="checkbox" style="display: none;">

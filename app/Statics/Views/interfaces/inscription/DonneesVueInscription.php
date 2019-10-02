@@ -27,6 +27,15 @@ class DonneesVueInscription extends DonneesVue
         $this->setDonneeVue('modal_titre', 'Conditions d\'utilisation');
         $this->setDonneeVue('modal_texte', 'Ecrire ici les conditions d\'utilisation');
 
+
+        $this->setDonneeVue('erreur_nom', 'Nom : seul les lettres, tirets et espaces acceptés');
+        $this->setDonneeVue('erreur_prenom', 'Prenom : seul les lettres, tirets et espaces acceptés');
+        $this->setDonneeVue('erreur_courriel', 'Email : adresse non valide');
+        $this->setDonneeVue('erreur_mot_passe', 'Mot de passe : le mot de passe doit contenir au moins 8 caracteres');
+        $this->setDonneeVue('erreur_confirme_mot_passe', 'Confirmation mot de passe : les mots de passe ne sont pas identiques');
+
+
+
     }
 }
 

@@ -1,24 +1,34 @@
 @extends('interfaces.index')
 
 @section('contenu')
+    <script src="/js/app.js"></script>
 <body id="top" style="background-color: #d3d3d3">
 <div class="row">
 </div>
 <div class="container">
+    <!--
     <div class="row">
         <div class="col-12">
             <h4 class="text-center text-info font-weight-bold m-5">{{ $reservation_paiement_renseigner_informations }}</h4>
         </div>
     </div>
+    -->
 
-    <div class="demo-container row">
-        <div class="card-wrapper justify-content-around col-md-6 col-sm-12"></div>
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center text-info font-weight-bold m-5">Montant de la transaction : 55 $CAD</h2>
+        </div>
+    </div>
+
+    <div class="demo-container row mb-5">
+        <div class="card-wrapper justify-content-around col-md-6 col-sm-12 mt-3 mb-3"></div>
         <div class="form-container active justify-content-around col-md-6 col-sm-12">
             <div class="row text-center">
             <form action="">
+                <h5>Veuillez renseigner vos informations</h5>
                 <input placeholder="numéro de carte" type="tel" name="number" class="col-10 m-2">
-                <input placeholder="nom et prénom" type="text" name="name" class="col-10 m-2">
-                <input placeholder="MM/AA" type="tel" name="expiry" class="col-10 m-2">
+                <input placeholder="nom tel qu'il est inscrit" type="text" name="name" class="col-10 m-2">
+                <input placeholder="date d'expiration" type="tel" name="expiry" class="col-10 m-2">
                 <input placeholder="CVC" type="number" name="cvc" class="col-10 m-2">
             </form>
             </div>
@@ -34,7 +44,7 @@
 
     <div class="row text-center justify-content-center">
         <a href="{{ route('reservation_confirmation') }}">
-            <button type="button" class="btn btn-success mx-5 my-2 px-5 py-lg-5 py-xs-2">
+            <button type="button" class="btn btn-success p-5 pl-5">
                 {{ $reservation_paiement_payer }}
             </button>
         </a>

@@ -3,9 +3,6 @@
 @section('contenu')
 <body id="top" style="background-color: #d3d3d3">
 <div class="row">
-    <div class="col-sm-12 col-xs-0">
-        <img src="/img/avancement4.PNG" width="100%">
-    </div>
 </div>
 <div class="container">
     <div class="row">

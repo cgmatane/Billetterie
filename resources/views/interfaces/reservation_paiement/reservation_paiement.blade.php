@@ -11,10 +11,9 @@
         </div>
     </div>
 
-    <div class="demo-container">
-        <div class="card-wrapper"></div>
-
-        <div class="form-container active">
+    <div class="demo-container row">
+        <div class="card-wrapper justify-content-around col-6"></div>
+        <div class="form-container active justify-content-around col-6">
             <form action="">
                 <input placeholder="numéro de carte" type="tel" name="number">
                 <input placeholder="nom et prénom" type="text" name="name">

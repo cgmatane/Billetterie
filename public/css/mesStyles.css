@@ -172,17 +172,3 @@ margin-top: 8rem !important;
     transition: all 0.2s linear;
     transition-delay: 0.15s;
 }
-
-.demo-container {
-    width: 100%;
-    max-width: 350px;
-    margin: 50px auto;
-}
-form {
-    margin: 30px;
-}
-input {
-    width: 200px;
-    margin: 10px auto;
-    display: block;
-}

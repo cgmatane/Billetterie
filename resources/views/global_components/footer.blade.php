@@ -8,4 +8,4 @@
         </div>
     </div>
 </footer>
-<a id="toTheTop"><span><i class="fa fa-chevron-circle-up"></i></span></a>
+<!--<a id="toTheTop"><span><i class="fa fa-chevron-circle-up"></i></span></a>-->

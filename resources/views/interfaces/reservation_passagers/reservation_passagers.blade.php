@@ -45,10 +45,9 @@
                 </div>
                 <div class="col-sm-2 col-12">
                     <select class="browser-default custom-select">
-                        <option>Sélectionner l'âge du passager</option>
-                        <option value="1">moins de 18ans</option>
-                        <option value="2" selected>18-60ans</option>
-                        <option value="3">plus de 60ans</option>
+                        <option value="1">moins de 18 ans</option>
+                        <option value="2" selected>entre 18 et 60 ans</option>
+                        <option value="3">plus de 60 ans</option>
                     </select>
                 </div>
             </div>

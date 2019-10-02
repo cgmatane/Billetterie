@@ -7,19 +7,21 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h4 class="text-center text-info font-weight-bold mt-5">{{ $reservation_paiement_renseigner_informations }}</h4>
+            <h4 class="text-center text-info font-weight-bold m-5">{{ $reservation_paiement_renseigner_informations }}</h4>
         </div>
     </div>
 
     <div class="demo-container row">
-        <div class="card-wrapper justify-content-around col-6"></div>
-        <div class="form-container active justify-content-around col-6">
+        <div class="card-wrapper justify-content-around col-md-6 col-sm-12"></div>
+        <div class="form-container active justify-content-around col-md-6 col-sm-12">
+            <div class="row text-center">
             <form action="">
-                <input placeholder="numéro de carte" type="tel" name="number">
-                <input placeholder="nom et prénom" type="text" name="name">
-                <input placeholder="MM/AA" type="tel" name="expiry">
-                <input placeholder="CVC" type="number" name="cvc">
+                <input placeholder="numéro de carte" type="tel" name="number" class="col-10 m-2">
+                <input placeholder="nom et prénom" type="text" name="name" class="col-10 m-2">
+                <input placeholder="MM/AA" type="tel" name="expiry" class="col-10 m-2">
+                <input placeholder="CVC" type="number" name="cvc" class="col-10 m-2">
             </form>
+            </div>
         </div>
     </div>
     <script src="/js/app.js"></script>

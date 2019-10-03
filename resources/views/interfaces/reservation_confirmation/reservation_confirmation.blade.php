@@ -17,6 +17,10 @@
             <p> {{ $reservation_confirmation_rappel_embarquement }}</p>
         </div>
 
+        <div class="row text-center justify-content-center">
+            <a href="{{ route('pdf') }}"><button type="button" class="btn btn-info m-5 px-5 py-lg-5 py-xs-2">
+                    Voir le pdf </button></a>
+        </div>
 
         <div class="row text-center justify-content-center">
             <a href="{{ route('index') }}">

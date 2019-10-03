@@ -28,11 +28,15 @@ class GenerateurPdfController extends Controller
             [
                 'name' => $request->name,
                 'email' => $request->email,
-                'message' => $request->message
+                'message' => $request->message,
+                'destination' => $request->session()->get('destination'),
+                'date' => $request->session()->get('date'),
+                'heure' => $request->session()->get('heure'),
+                'type_vehicule' => $request->session()->get('type_vehicule')
             ];
         $pdf = PDF::loadView('pdf-facture', $data);
 
-        return $pdf->download('test.pdf');
+        return $pdf->download('facture.pdf');
     }
 
 

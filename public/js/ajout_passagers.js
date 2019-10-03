@@ -44,15 +44,15 @@ var ajout_passagers = (function(){
    }
 
    supprimerForm = function(){
+        console.log("increment:" + increment);
+        increment--;
         var form1Delete = document.getElementById('premier-form-' + increment);
         var form2Delete = document.getElementById('deuxieme-form-' + increment);
         var form3Delete = document.getElementById('troisieme-form-' + increment);
         div.removeChild(form1Delete);
         div.removeChild(form2Delete);
         div.removeChild(form3Delete);
-
-
-
+        console.log("increment:" + increment);
    }
 
 

@@ -52,6 +52,8 @@ Route::get('/confirmation')->name('reservation_confirmation');
 
 Route::get('/infos')->name('informations');
 
+Route::get('/validation')->name('validation_informations');
+
 Route::get('/infos_animaux')->name('informations_animaux');
 
 Route::get('/infos_matieres')->name('informations_matieres');

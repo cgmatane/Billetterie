@@ -88,7 +88,7 @@
                 <label class="form-check-label" for="checkbox">{{$reservation_passagers_confirmation_animaux }}</label>
             </div>
 
-            <a href="{{ route('reservation_paiement') }}">
+            <a href="{{ route('validation_informations') }}">
                 <button type="button" class="btn btn-outline-success my-4 btn-block">
                     {{ $reservation_passagers_paiement}}
                 </button>

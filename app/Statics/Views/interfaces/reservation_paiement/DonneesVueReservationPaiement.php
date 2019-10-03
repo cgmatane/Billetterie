@@ -14,7 +14,7 @@ class DonneesVueReservationPaiement extends DonneesVue
         $this->setDonneeVue('nom_prenom','Nom et prénom : ');
         $this->setDonneeVue('numero_carte','Numéro de carte : ');
         $this->setDonneeVue('code_securite','Code de sécurité : ');
-        $this->setDonneeVue('payer','Payer');
+        $this->setDonneeVue('payer','JE VALIDE MON PAIEMENT');
 
     }
 }

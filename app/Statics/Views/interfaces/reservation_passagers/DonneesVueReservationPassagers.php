@@ -18,6 +18,6 @@ class DonneesVueReservationPassagers extends DonneesVue
         $this->setDonneeVue('tel_necessaire', '(nécessaire en cas d\'annulation ou de retard)');
         $this->setDonneeVue('confirmation_animaux','Je confirme ne pas voyager avec des animaux exotiques');
         $this->setDonneeVue('confirmation_matieres','Je confirme ne pas transporter de matières dangereuses');
-        $this->setDonneeVue('paiement', 'Procéder au paiement');
+        $this->setDonneeVue('paiement', 'PROCÉDER AU PAIEMENT');
     }
 }

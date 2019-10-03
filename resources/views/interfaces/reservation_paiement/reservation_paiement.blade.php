@@ -44,7 +44,7 @@
 
     <div class="row text-center justify-content-center">
         <a href="{{ route('reservation_confirmation') }}">
-            <button type="button" class="btn btn-success p-5 pl-5">
+            <button type="button" class="btn btn-success p-4">
                 {{ $reservation_paiement_payer }}
             </button>
         </a>

@@ -15,7 +15,12 @@ var ajout_passagers = (function(){
         form2 = document.getElementById('deuxieme-form-0');
         form3 = document.getElementById('troisieme-form-0');
         div = document.getElementById('form-passager');
-        bouton = document.getElementById('bouton-plus');
+        boutonMoins = document.getElementById('bouton-moins');
+        boutonPlus = document.getElementById('bouton-plus');
+        
+        boutonMoins.style.marginLeft = "85%";
+        boutonPlus.style.marginLeft = "5px";
+        
         //console.log("OK");
     }
     clonerForm =  function(){
@@ -33,7 +38,20 @@ var ajout_passagers = (function(){
        div.appendChild(form1Clone);
        div.appendChild(form2Clone);
        div.appendChild(form3Clone);
-       div.appendChild(bouton);
+       div.appendChild(boutonMoins);
+       div.appendChild(boutonPlus);
+
+   }
+
+   supprimerForm = function(){
+        var form1Delete = document.getElementById('premier-form-' + increment);
+        var form2Delete = document.getElementById('deuxieme-form-' + increment);
+        var form3Delete = document.getElementById('troisieme-form-' + increment);
+        div.removeChild(form1Delete);
+        div.removeChild(form2Delete);
+        div.removeChild(form3Delete);
+
+
 
    }
 

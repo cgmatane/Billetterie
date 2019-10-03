@@ -25,9 +25,9 @@ class AccueilController extends PageController
 
     //On va injecter des donnees venant de la DB dans la vue
     protected function setDonneesDynamiques(Request $requete = null) {
-        /* A decommenter quand vous chercherez a vous connecter a la BD
+        // A decommenter quand vous chercherez a vous connecter a la BD
         //On recupere la date d'aujourdhui (mois ecrit en francais)
-        setlocale(LC_TIME, "fr");
+        /*setlocale(LC_TIME, "fr");
         $dateAujourdhui = strftime('%d %B'); //jour mois en francais
 
         //On recupere la station d'id 2 dans la DB (sous forme d'objet)

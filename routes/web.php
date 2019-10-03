@@ -18,6 +18,8 @@ Route::get('/', function() {
     return redirect('accueil');
 });
 
+Route::get('pdf_dl', 'GenerateurPdfController@pdfDownload');
+
 Route::get('/{nomRoute?}', ['uses' => 'FrontEndController@manager'])->name('manager');
 
 Route::get('/accueil')->name('index');
@@ -55,3 +57,6 @@ Route::get('/infos_animaux')->name('informations_animaux');
 Route::get('/infos_matieres')->name('informations_matieres');
 
 Route::get('/requete-qr')->name('requete-qr');
+
+Route::get('/pdf')->name('pdf');
+

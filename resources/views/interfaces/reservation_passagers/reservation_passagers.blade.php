@@ -11,6 +11,7 @@
                 champ.style.backgroundColor = "";
         }
     </script>
+    <script type="text/javascript" src="{{URL::asset('js/ajout_passagers.js')}}"></script>
 <body id="top" style="background-color: #d3d3d3;">
 <div class="row">
     <!--
@@ -34,22 +35,24 @@
 
             <p class="h2 mb-4 font-weight-bold mb-5" style="color: midnightblue">{{ $reservation_passagers_renseigner_informations }}</p>
 
-            <div class="form-row mb-5">
-                <div class="col-sm-5 col-12">
+            <div class="form-row mb-5" id="form-passager">
+                <div class="col-sm-5 col-12" id="premier-form-0">
 
                     <input type="text" id="defaultRegisterFormFirstName" class="form-control " placeholder="{{ $reservation_passagers_nom }}">
                 </div>
-                <div class="col-sm-5 col-12">
+                <div class="col-sm-5 col-12" id="deuxieme-form-0">
 
                     <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="{{ $reservation_passagers_prenom }}">
                 </div>
-                <div class="col-sm-2 col-12">
+                <div class="col-sm-2 col-12" id="troisieme-form-0">
                     <select class="browser-default custom-select">
                         <option value="1">moins de 18 ans</option>
                         <option value="2" selected>entre 18 et 60 ans</option>
                         <option value="3">plus de 60 ans</option>
                     </select>
                 </div>
+                <input id="bouton-moins" type="button" value="-" style="display: inline-block;" onclick="supprimerForm();" />
+                <input id="bouton-plus" type="button" value="+" style="display: inline-block;" onclick="clonerForm();" />
             </div>
 
             <!--

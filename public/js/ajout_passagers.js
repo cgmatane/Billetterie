@@ -20,6 +20,7 @@ var ajout_passagers = (function(){
         
         boutonMoins.style.marginLeft = "85%";
         boutonPlus.style.marginLeft = "5px";
+        boutonMoins.style.visibility = "hidden";
         
         //console.log("OK");
     }
@@ -40,11 +41,12 @@ var ajout_passagers = (function(){
        div.appendChild(form3Clone);
        div.appendChild(boutonMoins);
        div.appendChild(boutonPlus);
+       boutonMoins.style.visibility = "visible";
 
    }
 
    supprimerForm = function(){
-        console.log("increment:" + increment);
+        //console.log("increment:" + increment);
         increment--;
         var form1Delete = document.getElementById('premier-form-' + increment);
         var form2Delete = document.getElementById('deuxieme-form-' + increment);
@@ -52,7 +54,8 @@ var ajout_passagers = (function(){
         div.removeChild(form1Delete);
         div.removeChild(form2Delete);
         div.removeChild(form3Delete);
-        console.log("increment:" + increment);
+        if(increment == 1){boutonMoins.style.visibility = "hidden";}
+        //console.log("increment:" + increment);
    }
 
 

@@ -26,7 +26,8 @@ Route::get('/accueil')->name('index');
 
 Route::get('/connexion')->name('connexion');
 
-Route::get('/inscription')->name('inscription');
+Route::post('/connexion', ['uses' => 'FrontEndController@verifyLogin'])->name('connexion');
+
 
 Route::get('/date')->name('choix_date');
 

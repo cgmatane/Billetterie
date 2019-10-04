@@ -7,6 +7,9 @@ use App\Http\Controllers\Pages as Controllers;
 use App\Statics\Views\DonneesVueGlobales;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Validator;
+
 define('REPERTOIRE_INTERFACES', 'interfaces');
 
 class FrontEndController extends Controller
@@ -80,5 +83,24 @@ class FrontEndController extends Controller
             }
         }
         return null;
+    }
+
+    public function verifyLogin(Request $request){
+
+        $this->validate($request,[
+            'email' =>  'required|email',
+            'password'  => 'required|min:3'
+        ]);
+
+        $user_data = array(
+            'email' => $request->get('email'),
+            'password'  => $request->get('password')
+        );
+
+        if (Auth::attempt($user_data)){
+            return redirect('/accueil');
+        }else{
+            return back()->with('error','Les identifiants sont incorrect');
+        }
     }
 }

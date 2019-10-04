@@ -3,14 +3,31 @@
 @section('contenu')
     <div class="container mt-5 mb-4 ctn-connexion">
         <h1>{{ $connexion_titre }}</h1>
-        <form class="border pt-4 pb-5 pl-5 pr-5">
+
+        @if($message = \Illuminate\Support\Facades\Session::get('error'))
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                <strong>{{$message}}</strong>
+            </div>
+        @endif
+        @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <form class="border pt-4 pb-5 pl-5 pr-5" action="/connexion" method="post">
+            {{ csrf_field() }}
             <div class="form-group">
                 <label for="inputCourriel">{{ $connexion_courriel }}</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-envelope"></i></span>
                     </div>
-                    <input type="email" class="form-control" id="inputCourriel" aria-describedby="emailHelp" placeholder="{{ $connexion_courriel }}">
+                    <input type="email" class="form-control" id="inputCourriel" name="email" aria-describedby="emailHelp" placeholder="{{ $connexion_courriel }}">
                 </div>
             </div>
             <div class="form-group">
@@ -19,7 +36,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
                     </div>
-                    <input type="password" class="form-control" id="inputMotDePasse" placeholder="{{ $connexion_mot_passe }}">
+                    <input type="password" name="password" class="form-control" id="inputMotDePasse" placeholder="{{ $connexion_mot_passe }}">
                 </div>
             </div>
             <div class="form-group">
@@ -45,14 +62,6 @@
             </div>
 
         </form>
-        <div class="text-center">
-            @component('interfaces.connexion.components.lien_vue_inscription')
-                @slot('route'){{ route('inscription') }}@endslot
-                @slot('text_lien') Créer un compte @endslot
-                @slot('slot') Pas encore de compte ? @endslot
-                @slot('slot1') rapidement @endslot
-            @endcomponent
-        </div>
     </div>
 
 

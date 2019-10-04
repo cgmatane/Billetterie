@@ -12,17 +12,6 @@
                 </div>
                 <div class="col-sm-12 col-md-4 d-flex align-items-center text-dark ">
                     <a class="mx-auto btn btn-lg btn-outline-primary" href="{{ route('informations') }}">Informations</a> <!-- Route à définir -->
-
-                    <div class="btn-group">
-                        <a class="mx-auto btn btn-lg btn-outline-primary" href="{{ route('connexion') }}"> Mon compte</a>
-                        <button type="button" class="mx-auto btn btn-lg btn-outline-primary dropdown-toggle" style="border-left: none;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" style="font-size: 18px;">
-                            <li><a class="dropdown-item  border-bottom " href="{{ route('connexion') }}"><i class="fas fa-sign-in-alt"></i> Se connecter</a></li>
-                            <li><a class="dropdown-item" href="{{ route('inscription') }}"><i class="fas fa-user-plus"></i> S'inscrire</a></li>
-                        </ul>
-                    </div>
-
                 </div>
             </div>
         </header>

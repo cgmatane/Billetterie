@@ -108,4 +108,15 @@ class FrontEndController extends Controller
             return back()->with('error','Les identifiants sont incorrect');
         }
     }
+
+    public function recuperationInfoPassager(Request $request){
+    $info_passager = array(
+        'nom' => $request->get('nom'),
+        'prenom'  => $request->get('prenom'),
+        'age' => $request->get('age'),
+        'email' => $request->get('email'),
+        'numero' => $request->get('numero'),
+    );
+    return redirect('/validation')->with('info_passager',$info_passager);
+}
 }

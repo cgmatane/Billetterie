@@ -28,6 +28,7 @@ Route::get('/connexion')->name('connexion');
 
 Route::post('/connexion', ['uses' => 'FrontEndController@verifyLogin'])->name('connexion');
 
+Route::post('/reservation_passagers', ['uses' => 'FrontEndController@recuperationInfoPassager'])->name('reservation_passagers');
 
 Route::get('/date')->name('choix_date');
 

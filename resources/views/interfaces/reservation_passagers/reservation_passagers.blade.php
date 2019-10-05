@@ -31,21 +31,21 @@
     <div class="row">
     </div>
 
-        <form class="text-center border border-light p-5 mt-5 mb-5">
-
+        <form class="text-center border border-light p-5 mt-5 mb-5" method="post" action="/reservation_passagers">
+            {{ csrf_field() }}
             <p class="h2 mb-4 font-weight-bold mb-5" style="color: midnightblue">{{ $reservation_passagers_renseigner_informations }}</p>
 
             <div class="form-row mb-5" id="form-passager">
                 <div class="col-sm-5 col-12" id="premier-form-0">
 
-                    <input type="text" id="defaultRegisterFormFirstName" class="form-control " placeholder="{{ $reservation_passagers_nom }}">
+                    <input name="nom" type="text" id="defaultRegisterFormFirstName" class="form-control " placeholder="{{ $reservation_passagers_nom }}">
                 </div>
                 <div class="col-sm-5 col-12" id="deuxieme-form-0">
 
-                    <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="{{ $reservation_passagers_prenom }}">
+                    <input name="prenom" type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="{{ $reservation_passagers_prenom }}">
                 </div>
                 <div class="col-sm-2 col-12" id="troisieme-form-0">
-                    <select class="browser-default custom-select">
+                    <select name="age" class="browser-default custom-select">
                         <option value="1">moins de 18 ans</option>
                         <option value="2" selected>entre 18 et 60 ans</option>
                         <option value="3">plus de 60 ans</option>
@@ -61,9 +61,9 @@
             </div>
             -->
 
-            <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4 mb-3" placeholder="{{ $reservation_passagers_courriel }}">
+            <input name="email" type="email" id="defaultRegisterFormEmail" class="form-control mb-4 mb-3" placeholder="{{ $reservation_passagers_courriel }}">
 
-            <input type="text" id="defaultRegisterPhonePassword" class="form-control mb-3" placeholder="{{ $reservation_passagers_numero }}" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+            <input name="numero" type="text" id="defaultRegisterPhonePassword" class="form-control mb-3" placeholder="{{ $reservation_passagers_numero }}" aria-describedby="defaultRegisterFormPhoneHelpBlock">
             <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
                 {{ $reservation_passagers_tel_necessaire }}
             </small>
@@ -91,11 +91,9 @@
                 <label class="form-check-label" for="checkbox">{{$reservation_passagers_confirmation_animaux }}</label>
             </div>
 
-            <a href="{{ route('validation_informations') }}">
-                <button type="button" class="btn btn-outline-success my-4 btn-block">
+                <button type="submit" class="btn btn-outline-success my-4 btn-block">
                     {{ $reservation_passagers_paiement}}
                 </button>
-            </a>
 
         </form>
 </div>

@@ -13,7 +13,7 @@
                 <div class="col-6">
                     <div class="container-fluid">
                         <div class="row col-6">
-                            <h5>depart</h5>
+                            <h5>Départ</h5>
                         </div>
                         <div class="row col-6">
                             <h5>arrivé</h5>
@@ -25,11 +25,16 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid border border-secondary m-4" style="border-radius: 0.5em;">
+        <div class="container-fluid border border-secondary mt-4 mb-2 ml-4 mr-4" style="border-radius: 0.5em;">
+            <h5 class="float-left">votre billet sera envoyé à l'adresse :</h5>
+            @if($data = \Illuminate\Support\Facades\Session::get('info_passager'))
+                {{$data['email']}}
+            @endif
+        </div>
+        <div class="container-fluid border border-secondary mb-4 ml-4 mr-4" style="border-radius: 0.5em;">
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">Passagers</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Prenom</th>
                     <th scope="col">Age</th>
@@ -37,13 +42,28 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>18-60ans</td>
-                    <td>55 $ CAD</td>
-                </tr>
+                @if($data = \Illuminate\Support\Facades\Session::get('info_passager'))
+                    @if(isset($data[0][0]))
+
+                        @foreach($data as $info)
+                        <tr>
+                            <td>{{$info['nom']}}</td>
+                            <td>{{$info['prenom']}}</td>
+                            <td>{{$info['age']}}</td>
+                            <td>{{$info['age']}}</td>
+                        </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <td>{{$data['nom']}}</td>
+                            <td>{{$data['prenom']}}</td>
+                            <td>{{$data['age']}}</td>
+                            <td>{{$data['age']}}</td>
+                        </tr>
+                    @endif
+
+                @endif
+                <!--
                 <tr>
                     <th scope="row">2</th>
                     <td>Jacob</td>
@@ -58,7 +78,9 @@
                     <td>18-60ans</td>
                     <td>55 $ CAD</td>
                 </tr>
+                -->
                 </tbody>
+
             </table>
         </div>
 

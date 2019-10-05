@@ -86,11 +86,14 @@ class FrontEndController extends Controller
     }
 
     public function verifyLogin(Request $request){
-
+        $messages = [
+            'email.required' => 'Le champ courriel n\'est pas rempli' ,
+            'password.required' => 'Le champ mot de passe n\'est pas rempli' ,
+        ];
         $this->validate($request,[
             'email' =>  'required|email',
             'password'  => 'required|min:3'
-        ]);
+        ],$messages);
 
         $user_data = array(
             'email' => $request->get('email'),

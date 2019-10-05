@@ -88,7 +88,9 @@ class FrontEndController extends Controller
     public function verifyLogin(Request $request){
         $messages = [
             'email.required' => 'Le champ courriel n\'est pas rempli' ,
+            'email.email' => 'Le courriel n\'est pas valide' ,
             'password.required' => 'Le champ mot de passe n\'est pas rempli' ,
+            'password.min' => 'Le champ mot de passe doit faire au minimum 3 caractères' ,
         ];
         $this->validate($request,[
             'email' =>  'required|email',
@@ -96,8 +98,8 @@ class FrontEndController extends Controller
         ],$messages);
 
         $user_data = array(
-            'email' => $request->get('email'),
-            'password'  => $request->get('password')
+            'email' => htmlentities($request->get('email')),
+            'password'  => htmlentities($request->get('password'))
         );
 
         if (Auth::attempt($user_data)){

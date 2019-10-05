@@ -45,6 +45,7 @@ class FrontEndController extends Controller
             'reservation_paiement' => array(new Controllers\ReservationPaiementController()),
             'reservation_confirmation' => array(new Controllers\ReservationConfirmationController()),
             'connexion' => array(new Controllers\ConnexionController()),
+            'administration' => array(new Controllers\AdministrationController()),
             'inscription' => array(new Controllers\InscriptionController()),
             'requete-qr' => array(new Controllers\RequeteQRController()),
             'pdf' => array(new Controllers\PdfController()),
@@ -103,7 +104,7 @@ class FrontEndController extends Controller
         );
 
         if (Auth::attempt($user_data)){
-            return redirect('/accueil');
+            return redirect('/administration');
         }else{
             return back()->with('error','Les identifiants sont incorrect');
         }

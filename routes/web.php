@@ -26,6 +26,8 @@ Route::get('/accueil')->name('index');
 
 Route::get('/connexion')->name('connexion');
 
+Route::get('/administration')->name('administration');
+
 Route::post('/connexion', ['uses' => 'FrontEndController@verifyLogin'])->name('connexion');
 
 Route::post('/reservation_passagers', ['uses' => 'FrontEndController@recuperationInfoPassager'])->name('reservation_passagers');

@@ -1,4 +1,4 @@
-@extends('interfaces.index')
+@extends('interfaces.index-administration')
 
 @section('contenu')
     <div class="container mt-5 mb-4 ctn-connexion">

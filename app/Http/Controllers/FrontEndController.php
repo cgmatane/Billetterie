@@ -110,6 +110,17 @@ class FrontEndController extends Controller
     }
 
     public function recuperationInfoPassager(Request $request){
+        $messages = [
+            'nom.required' => 'Le champ nom n\'est pas rempli' ,
+            'prenom.required' => 'Le champ prenom n\'est pas rempli' ,
+            'email.email' => 'Le courriel n\'est pas valide' ,
+            'email.required' => 'Le champ email n\'est pas rempli' ,
+        ];
+        $this->validate($request,[
+            'email' =>  'required|email',
+            'nom'  => 'required',
+            'prenom'  => 'required'
+        ],$messages);
     $info_passager = array(
         'nom' => $request->get('nom'),
         'prenom'  => $request->get('prenom'),

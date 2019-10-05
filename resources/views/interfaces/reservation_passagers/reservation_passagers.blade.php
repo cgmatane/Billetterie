@@ -41,14 +41,13 @@
                     <input name="nom" type="text" id="defaultRegisterFormFirstName" class="form-control " placeholder="{{ $reservation_passagers_nom }}">
                 </div>
                 <div class="col-sm-5 col-12" id="deuxieme-form-0">
-
                     <input name="prenom" type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="{{ $reservation_passagers_prenom }}">
                 </div>
                 <div class="col-sm-2 col-12" id="troisieme-form-0">
                     <select name="age" class="browser-default custom-select">
-                        <option value="1">moins de 18 ans</option>
-                        <option value="2" selected>entre 18 et 60 ans</option>
-                        <option value="3">plus de 60 ans</option>
+                        <option value="moins de 18ans">moins de 18 ans</option>
+                        <option value="entre 18 et 60 ans" selected>entre 18 et 60 ans</option>
+                        <option value="plus de 60 ans">plus de 60 ans</option>
                     </select>
                 </div>
                 <input id="bouton-moins" type="button" value="-" style="display: inline-block;" onclick="supprimerForm();" />
@@ -67,6 +66,15 @@
             <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
                 {{ $reservation_passagers_tel_necessaire }}
             </small>
+            @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
 
             <div class="form-group">

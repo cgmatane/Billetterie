@@ -50,7 +50,7 @@
                             <td>{{$info['nom']}}</td>
                             <td>{{$info['prenom']}}</td>
                             <td>{{$info['age']}}</td>
-                            <td>{{$info['age']}}</td>
+                            <td>TODO</td>
                         </tr>
                         @endforeach
                     @else
@@ -58,7 +58,7 @@
                             <td>{{$data['nom']}}</td>
                             <td>{{$data['prenom']}}</td>
                             <td>{{$data['age']}}</td>
-                            <td>{{$data['age']}}</td>
+                            <td>TODO</td>
                         </tr>
                     @endif
 

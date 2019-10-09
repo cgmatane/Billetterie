@@ -19,5 +19,7 @@ class DonneesVueReservationPassagers extends DonneesVue
         $this->setDonneeVue('confirmation_animaux','Je confirme ne pas voyager avec des animaux exotiques');
         $this->setDonneeVue('confirmation_matieres','Je confirme ne pas transporter de matières dangereuses');
         $this->setDonneeVue('paiement', 'PROCÉDER AU PAIEMENT');
+        $this->setDonneeVue('intervalles_age', ['moins de 18 ans', 'entre 18 et 60 ans', 'plus de 60 ans']);
+        $this->setDonneeVue('index_intervalle_age_par_defaut', 1);
     }
 }

@@ -1,16 +1,18 @@
     let increment;
-    let divPremierPassager;
+    let passagerVitrine;
     let divPassagers;
     let boutonMoins;
+    let separateur = '-';
 
     document.addEventListener("DOMContentLoaded", onLoad);
 
 
     function onLoad() {
-        increment = 1;
-        divPremierPassager = document.getElementById('passager-1');
+        increment = 0;
+        passagerVitrine = document.getElementById('passager');
         divPassagers = document.getElementById('passagers');
         boutonMoins = document.getElementById('bouton-moins');
+        ajouterPassager();
     }
 
     function ajouterPassager() {
@@ -18,15 +20,15 @@
         if (increment === 2) {
             boutonMoins.style.display = "inline-block";
         }
-        let passagerClone = divPremierPassager.cloneNode(true);
-        passagerClone.id = 'passager-'+increment;
-        passagerClone.getElementsByClassName('legendePassager')[0].innerHTML = "Passager "+increment;
-        passagerClone.getElementsByClassName('champNom')[0].id = 'champNom-'+increment;
-        passagerClone.getElementsByClassName('champNom')[0].style.borderColor = 'transparent';
-        passagerClone.getElementsByClassName('champPrenom')[0].id = 'champPrenom-'+increment;
-        passagerClone.getElementsByClassName('champPrenom')[0].style.borderColor = 'transparent';
-        passagerClone.getElementsByClassName('champAge')[0].id = 'champAge-'+increment;
-        divPassagers.appendChild(passagerClone);
+        let clonePassager = passagerVitrine.cloneNode(true);
+        clonePassager.id += separateur+increment;
+        clonePassager.getElementsByClassName('legendePassager')[0].innerHTML += " "+increment;
+        clonePassager.getElementsByClassName('champNom')[0].id += separateur + increment;
+        clonePassager.getElementsByClassName('champPrenom')[0].id += separateur + increment;
+        clonePassager.getElementsByClassName('champAge')[0].id += separateur + increment;
+        clonePassager.style.display = "block";
+
+        divPassagers.appendChild(clonePassager);
 
     }
 

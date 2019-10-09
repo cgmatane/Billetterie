@@ -1,63 +1,85 @@
-var ajout_passagers = (function(){
+    let increment;
+    let divPremierPassager;
+    let divPassagers;
+    let boutonMoins;
 
-    var increment;
-    var form1;
-    var form2;
-    var form3;
-    var bouton;
-    var div;
-    document.addEventListener("DOMContentLoaded", recevoirElements);
-    
+    document.addEventListener("DOMContentLoaded", onLoad);
 
-    function recevoirElements(){
+
+    function onLoad() {
         increment = 1;
-        form1 = document.getElementById('premier-form-0');
-        form2 = document.getElementById('deuxieme-form-0');
-        form3 = document.getElementById('troisieme-form-0');
-        div = document.getElementById('form-passager');
+        divPremierPassager = document.getElementById('passager-1');
+        divPassagers = document.getElementById('passagers');
         boutonMoins = document.getElementById('bouton-moins');
-        boutonPlus = document.getElementById('bouton-plus');
-        
-        boutonMoins.style.marginLeft = "85%";
-        boutonPlus.style.marginLeft = "5px";
-        boutonMoins.style.visibility = "hidden";
-        
-        //console.log("OK");
     }
-    clonerForm =  function(){
-        var form1Clone = form1.cloneNode(true);
-        var form2Clone = form2.cloneNode(true);
-        var form3Clone = form3.cloneNode(true);
-       form1Clone.id = "premier-form-" + increment;
-       form2Clone.id = "deuxieme-form-" + increment;
-       form3Clone.id = "troisieme-form-" + increment;
-       form1Clone.style.marginTop = "10px";
-       form2Clone.style.marginTop = "10px";
-       form3Clone.style.marginTop = "10px";
-       increment++;
-       
-       div.appendChild(form1Clone);
-       div.appendChild(form2Clone);
-       div.appendChild(form3Clone);
-       div.appendChild(boutonMoins);
-       div.appendChild(boutonPlus);
-       boutonMoins.style.visibility = "visible";
 
-   }
+    function ajouterPassager() {
+        increment++;
+        if (increment === 2) {
+            boutonMoins.style.display = "inline-block";
+        }
+        let passagerClone = divPremierPassager.cloneNode(true);
+        passagerClone.id = 'passager-'+increment;
+        passagerClone.getElementsByClassName('legendePassager')[0].innerHTML = "Passager "+increment;
+        passagerClone.getElementsByClassName('champNom')[0].id = 'champNom-'+increment;
+        passagerClone.getElementsByClassName('champNom')[0].style.borderColor = 'transparent';
+        passagerClone.getElementsByClassName('champPrenom')[0].id = 'champPrenom-'+increment;
+        passagerClone.getElementsByClassName('champPrenom')[0].style.borderColor = 'transparent';
+        passagerClone.getElementsByClassName('champAge')[0].id = 'champAge-'+increment;
+        divPassagers.appendChild(passagerClone);
 
-   supprimerForm = function(){
-        //console.log("increment:" + increment);
+    }
+
+    function supprimerPassager() {
+        //Ne peux pas supprimer un passager s'il n'y en a qu'un
+        if (increment === 1)
+            return;
+        let dernierPassager = document.getElementById('passager-'+increment);
+        divPassagers.removeChild(dernierPassager);
         increment--;
-        var form1Delete = document.getElementById('premier-form-' + increment);
-        var form2Delete = document.getElementById('deuxieme-form-' + increment);
-        var form3Delete = document.getElementById('troisieme-form-' + increment);
-        div.removeChild(form1Delete);
-        div.removeChild(form2Delete);
-        div.removeChild(form3Delete);
-        if(increment == 1){boutonMoins.style.visibility = "hidden";}
-        //console.log("increment:" + increment);
-   }
+        if(increment === 1) {
+            boutonMoins.style.display = "none";
+        }
+    }
 
+    function validerFormulaire() {
+        let erreur = false;
+        let passagers = document.getElementsByClassName("passager");
+        for (let i = 0;i<passagers.length;i++) {
+            if (!estChampValide(passagers[i].getElementsByClassName('champNom')[0])) {
+                erreur = true;
+            }
+            if (!estChampValide(passagers[i].getElementsByClassName('champPrenom')[0])) {
+                erreur = true;
+            }
+        }
 
+        if (!estChampValide(document.getElementById('champCourriel'))) {
+            erreur = true;
+        }
 
-})();
+        if (!estChampValide(document.getElementById('champTelephone'))) {
+            erreur = true;
+        }
+
+        return !erreur;
+    }
+
+    function estChampValide(champ) {
+        valide = champ.value.length > 0;
+        surligne(champ, !valide);
+        return valide;
+    }
+
+    function surligne(champ, erreur)
+    {
+        let couleur;
+        if (erreur) {
+            couleur = '#fba';
+        }
+        else {
+            couleur = 'transparent';
+        }
+        champ.style.borderColor = couleur;
+    }
+

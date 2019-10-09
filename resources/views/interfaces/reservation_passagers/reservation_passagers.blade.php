@@ -2,16 +2,6 @@
 
 @section('contenu')
 
-    <script>
-        function surligne(champ, erreur)
-        {
-            if(erreur)
-                champ.style.backgroundColor = "#fba";
-            else
-                champ.style.backgroundColor = "";
-        }
-    </script>
-    <script type="text/javascript" src="{{URL::asset('js/ajout_passagers.js')}}"></script>
 <body id="top" style="background-color: #d3d3d3;">
 <div class="row">
     <!--
@@ -21,51 +11,21 @@
     -->
 </div>
 <div class="container">
-    <!--<div class = "row">
-        <div class = "col">Votre billet : </div>
-        <div class = "col">Destination : {{$destination}}</div>
-        <div class = "col">Heure de départ : {{$heure}}</div>
-        <div class = "col">Moyen de transport : {{$type_vehicule}}</div>
-        <div class = "col">Surplus charge lourde : {{$poids_eleve}}</div>
-    </div> -->
     <div class="row">
     </div>
 
-        <form class="text-center border border-light p-5 mt-5 mb-5" method="post" action="/reservation_passagers">
+        <form class="text-center border border-light p-5 mt-5 mb-5" method="post" action="/reservation_passagers" onsubmit="return validerFormulaire()">
             {{ csrf_field() }}
             <p class="h2 mb-4 font-weight-bold mb-5" style="color: midnightblue">{{ $reservation_passagers_renseigner_informations }}</p>
 
-            <div class="form-row mb-5" id="form-passager">
-                <div class="col-sm-5 col-12" id="premier-form-0">
+            <span class="mb-2 mt-2" id="passagers">
+                @include('interfaces.reservation_passagers.components.passager')
+            </span>
 
-                    <input name="nom" type="text" id="defaultRegisterFormFirstName" class="form-control " placeholder="{{ $reservation_passagers_nom }}">
-                </div>
-                <div class="col-sm-5 col-12" id="deuxieme-form-0">
-                    <input name="prenom" type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="{{ $reservation_passagers_prenom }}">
-                </div>
-                <div class="col-sm-2 col-12" id="troisieme-form-0">
-                    <select name="age" class="browser-default custom-select">
-                        <option value="moins de 18ans">moins de 18 ans</option>
-                        <option value="entre 18 et 60 ans" selected>entre 18 et 60 ans</option>
-                        <option value="plus de 60 ans">plus de 60 ans</option>
-                    </select>
-                </div>
-                <input id="bouton-moins" type="button" value="-" style="display: inline-block;" onclick="supprimerForm();" />
-                <input id="bouton-plus" type="button" value="+" style="display: inline-block;" onclick="clonerForm();" />
-            </div>
+            @include('interfaces.reservation_passagers.components.boutons')
 
-            <!--
-            <div class="col">
-                <button class="btn btn-outline-ajout mb-3" style="float: right; margin-top: -10px; ">ajouter un passager</button>
-            </div>
-            -->
+            @include('interfaces.reservation_passagers.components.reste_formulaire')
 
-            <input name="email" type="email" id="defaultRegisterFormEmail" class="form-control mb-4 mb-3" placeholder="{{ $reservation_passagers_courriel }}">
-
-            <input name="numero" type="text" id="defaultRegisterPhonePassword" class="form-control mb-3" placeholder="{{ $reservation_passagers_numero }}" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-            <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-                {{ $reservation_passagers_tel_necessaire }}
-            </small>
             @if(count($errors) > 0)
                 <div class="alert alert-danger">
                     <ul>
@@ -125,4 +85,8 @@
             </div>
         </div>
 </div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="{{URL::asset('js/ajout_passagers.js')}}"></script>
 @endsection

@@ -4,4 +4,7 @@
 @yield('contenu')
 
 @include('global_components.footer')
+
+@yield('scripts')
+
 @include('global_components.foot')

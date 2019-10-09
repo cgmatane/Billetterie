@@ -47,7 +47,9 @@
     function validerFormulaire() {
         let erreur = false;
         let passagers = document.getElementsByClassName("passager");
-        for (let i = 0;i<passagers.length;i++) {
+
+        //On commence a 1 pour skip le passager vitrine
+        for (let i = 1;i<passagers.length;i++) {
             if (!estChampValide(passagers[i].getElementsByClassName('champNom')[0])) {
                 erreur = true;
             }

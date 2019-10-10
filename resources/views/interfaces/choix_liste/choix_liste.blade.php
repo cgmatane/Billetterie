@@ -14,8 +14,7 @@
                     @foreach($tab_items as $item)
                         @component('interfaces.choix_liste.components.bouton_liste_options')
                             @slot('typeInformation') {{ $type_information }} @endslot
-                            @slot('valeur') {{ $item['valeur'] }} @endslot
-                            @slot('contenu') {{ $item['contenu'] }} @endslot
+                            @slot('contenu') {{ $item }} @endslot
                         @endcomponent
                     @endforeach
                 </div>

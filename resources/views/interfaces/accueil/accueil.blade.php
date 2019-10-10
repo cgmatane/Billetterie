@@ -6,7 +6,19 @@
     <div class="text-center row justify-content-center" style="margin-bottom: 0;">
         <div class="col-sm-6 col-xs-8 shadow-lg rounded-lg  mt-6" style="background-color: midnightblue">
             @component('interfaces.accueil.components.titre_principal')
-                {{ $accueil_depart }} Matane <?php if (isset($_GET['jour'])) {echo $_GET['jour'] ; } else { echo '4' ; } ?> septembre
+
+
+                {{ $accueil_depart }}
+                @if(empty($depart))
+                    Matane
+                @else
+                    {{ $depart }}
+                @endif
+                @if(empty($date))
+                    4 Septembre
+                @else
+                    {{ $date }}
+                @endif
             @endcomponent
         </div>
     </div>

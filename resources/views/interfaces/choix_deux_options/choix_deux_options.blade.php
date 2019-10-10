@@ -14,11 +14,11 @@
                 </div>
             </div>
             <div class="row text-center">
-                <a href="{{ $choix_deux_options_lien_choix1 }}?dernierChoix=1"
+                <a href="?dernierChoix=1"
                    class="bg-white col-5 mx-auto p-5 shadow-lg oui"
                    style=" text-decoration:none; color: #1b1e21;font-size: xx-large; border-radius: 0.5em;">{{ $choix_deux_options_choix1 }}</a>
 
-                <a href="{{ $choix_deux_options_lien_choix2 }}?dernierChoix=2"
+                <a href="?dernierChoix=2"
                    class="bg-white col-5 mx-auto p-5 shadow-lg non"
                    style=" text-decoration:none; color: #1b1e21;font-size: xx-large; border-radius: 0.5em;">{{ $choix_deux_options_choix2 }}</a>
             </div>

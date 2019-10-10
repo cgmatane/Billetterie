@@ -20,7 +20,7 @@ Route::get('/', function() {
 
 Route::get('pdf_dl', 'GenerateurPdfController@pdfDownload');
 
-Route::get('/{nomRoute?}', ['uses' => 'FrontEndController@manager'])->name('manager');
+Route::match(array('GET', 'POST'),'/{nomRoute?}', ['uses' => 'FrontEndController@manager'])->name('manager');
 
 Route::get('/accueil')->name('index');
 
@@ -30,7 +30,7 @@ Route::get('/administration')->name('administration');
 
 Route::post('/connexion', ['uses' => 'FrontEndController@verifyLogin'])->name('connexion');
 
-Route::post('/reservation_passagers', ['uses' => 'FrontEndController@recuperationInfoPassager'])->name('reservation_passagers');
+//Route::post('/reservation_passagers', ['uses' => 'FrontEndController@recuperationInfoPassager'])->name('reservation_passagers');
 
 Route::get('/date')->name('choix_date');
 

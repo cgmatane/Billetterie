@@ -18,9 +18,13 @@ class AccueilController extends PageController
         $this->setDonneesStatiques(new DonneesVueAccueil());
     }
 
-    public function gererSession(Request $requete) {
-        if (isset($_GET['date']))
-            $requete->session()->push('date', htmlentities($_GET['date']));
+    public function gererValidation(Request $requete)
+    {
+        $heure = $requete->input('heure');
+        $requete->session()->put('ticket.heure', $heure);
+        $destination = $requete->input('destination');
+        $requete->session()->put('ticket.destination', $destination);
+        return redirect(route('reservation_choix_vehicule'));
     }
 
     //On va injecter des donnees venant de la DB dans la vue
@@ -60,5 +64,9 @@ class AccueilController extends PageController
             'trajets'=>$trajetsVue,
         );
         */
+        if ($requete->session()->has('ticket.date'))
+            $this->donneesDynamiques['date'] = $requete->session()->get('ticket.date');
+        if ($requete->session()->has('ticket.depart'))
+            $this->donneesDynamiques['depart'] = $requete->session()->get('ticket.depart');
     }
 }

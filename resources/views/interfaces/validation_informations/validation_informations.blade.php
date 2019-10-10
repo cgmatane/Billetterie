@@ -8,15 +8,15 @@
         <div class="container-fluid mt-3">
             <div class="row">
                 <div class="col-3" style="margin-top: auto;margin-bottom: auto;">
-                    <h5>DATE</h5>
+                    <h5>Le {{ $date }}</h5>
                 </div>
                 <div class="col-6">
                     <div class="container-fluid">
-                        <div class="row col-6">
-                            <h5>Départ</h5>
+                        <div class="row">
+                            <h5>Départ {{ $depart }} à {{ $heure }}</h5>
                         </div>
-                        <div class="row col-6">
-                            <h5>arrivé</h5>
+                        <div class="row">
+                            <h5>Arrivée {{ $destination }}</h5>
                         </div>
                     </div>
                 </div>
@@ -26,59 +26,36 @@
             </div>
         </div>
         <div class="container-fluid border border-secondary mt-4 mb-2 ml-4 mr-4" style="border-radius: 0.5em;">
-            <h5 class="float-left">votre billet sera envoyé à l'adresse :</h5>
-            @if($data = \Illuminate\Support\Facades\Session::get('info_passager'))
-                {{$data['email']}}
-            @endif
+            <div class = "row">
+                <div class="col">Votre courriel :</div> <div class="col">{{ $email }}</div>
+            </div>
+            <div class = "row">
+                <div class="col">Votre numéro de téléphone :</div> <div class="col">{{ $numero }}</div>
+            </div>
+
         </div>
         <div class="container-fluid border border-secondary mb-4 ml-4 mr-4" style="border-radius: 0.5em;">
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th scope="col">Nom</th>
-                    <th scope="col">Prenom</th>
-                    <th scope="col">Age</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Âge</th>
                     <th scope="col">Tarif</th>
                 </tr>
                 </thead>
                 <tbody>
-                @if($data = \Illuminate\Support\Facades\Session::get('info_passager'))
-                    @if(isset($data[0][0]))
 
-                        @foreach($data as $info)
-                        <tr>
-                            <td>{{$info['nom']}}</td>
-                            <td>{{$info['prenom']}}</td>
-                            <td>{{$info['age']}}</td>
-                            <td>TODO</td>
-                        </tr>
-                        @endforeach
-                    @else
-                        <tr>
-                            <td>{{$data['nom']}}</td>
-                            <td>{{$data['prenom']}}</td>
-                            <td>{{$data['age']}}</td>
-                            <td>TODO</td>
-                        </tr>
-                    @endif
 
-                @endif
-                <!--
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>18-60ans</td>
-                    <td>55 $ CAD</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>18-60ans</td>
-                    <td>55 $ CAD</td>
-                </tr>
-                -->
+                    @for($i = 0;$i<count($noms);$i++)
+                        <tr>
+                            <td>{{ $noms[$i] }}</td>
+                            <td>{{ $prenoms[$i] }}</td>
+                            <td>{{ $ages[$i] }}</td>
+                            <td>20.00 CAD</td> {{-- temporaire --}}
+                        </tr>
+                    @endfor
+
                 </tbody>
 
             </table>

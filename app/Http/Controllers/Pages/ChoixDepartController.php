@@ -16,15 +16,19 @@ class ChoixDepartController extends PageController
         $this->setDonneesStatiques(new DonneesVueChoixDepart());
     }
 
+    public function gererValidation(Request $requete)
+    {
+        $depart = $requete->input('depart');
+        $requete->session()->put('ticket.depart', $depart);
+        return redirect(route('index'));
+    }
+
     protected function setDonneesDynamiques(Request $requete = null) {
         $this->donneesDynamiques['type_information'] = 'depart';
         $this->donneesDynamiques['tab_items'] = [
-            ['valeur' => 'matane',
-                'contenu' => 'Matane'],
-            ['valeur' => 'baie_comeau',
-                'contenu' => 'Baie Comeau'],
-            ['valeur' => 'godbout',
-                'contenu' => 'Godbout'],
+            "Matane",
+            "Godbout",
+            "Baie Comeau",
         ];
     }
 }

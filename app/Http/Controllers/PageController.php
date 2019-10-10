@@ -4,12 +4,14 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\ReservationPassagerRequest;
 use App\Statics\Views\DonneesVue;
 use Illuminate\Http\Request;
 
 abstract class PageController extends Controller
 {
     private $nomPage;
+    private $donneesGlobales;
     private $donneesStatiques;
     protected $donneesDynamiques;
 
@@ -26,8 +28,8 @@ abstract class PageController extends Controller
         return $this->nomPage;
     }
 
-    public function gererSession(Request $requete) {
-        return null;
+    public function gererValidation(Request $requete) {
+        return redirect($requete->url());
     }
 
     protected final function setNomPage($nomPage) {
@@ -43,6 +45,7 @@ abstract class PageController extends Controller
 
     private function init() {
         $this->setNomPage = '';
+        $this->donneesGlobales = array();
         $this->donneesStatiques = array();
         $this->donneesDynamiques = array();
     }

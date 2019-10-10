@@ -24,8 +24,11 @@
         clonePassager.id += separateur+increment;
         clonePassager.getElementsByClassName('legendePassager')[0].innerHTML += " "+increment;
         clonePassager.getElementsByClassName('champNom')[0].id += separateur + increment;
+        clonePassager.getElementsByClassName('champNom')[0].name = "nom[]";
         clonePassager.getElementsByClassName('champPrenom')[0].id += separateur + increment;
+        clonePassager.getElementsByClassName('champPrenom')[0].name = "prenom[]";
         clonePassager.getElementsByClassName('champAge')[0].id += separateur + increment;
+        clonePassager.getElementsByClassName('champAge')[0].name = "age[]";
         clonePassager.style.display = "block";
 
         divPassagers.appendChild(clonePassager);

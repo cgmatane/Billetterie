@@ -47,9 +47,9 @@ class FrontEndController extends Controller
             'connexion' => array(new Controllers\ConnexionController()),
             'administration' => array(new Controllers\AdministrationController()),
             'inscription' => array(new Controllers\InscriptionController()),
-            'requete-qr' => array(new Controllers\RequeteQRController()),
-            'pdf' => array(new Controllers\PdfController()),
-            'pdf-facture' => array(new GenerateurPdfController())
+            //'requete-qr' => array(new Controllers\RequeteQRController()),
+            //'pdf' => array(new Controllers\PdfController()),
+            //'pdf-facture' => array(new GenerateurPdfController())
             );
 
         //Les donnees statiques de vues communes a plusieurs interfaces/pages
@@ -58,6 +58,9 @@ class FrontEndController extends Controller
     }
 
     public function manager(Request $requete, $nomRoute = '') {
+        if (count($requete->all()) > 0)
+            return $this->managerResultatFormulaire($requete, $nomRoute);
+
         $contexte = $this->getContexteDeNomPage($nomRoute);
         if ($contexte == null)
             return '404';
@@ -66,12 +69,17 @@ class FrontEndController extends Controller
         return $this->getVue($requete, $interface, $controleur);
     }
 
+    public function managerResultatFormulaire(Request $requete, $nomRoute = '') {
+        $contexte = $this->getContexteDeNomPage($nomRoute);
+        if ($contexte == null)
+            return '404';
+        $controleur = $contexte['controleur'];
+        return $controleur->gererValidation($requete);
+    }
+
     private function getVue(Request $requete, $interface, PageController $controleur) {
         $requete->session()->put('derniere_URL', $interface);
         $donneesVue = array_merge($this->donneesStatiquesGlobales, $controleur->getDonnees($requete));
-        $redirection = $controleur->gererSession($requete);
-        if ($redirection != null)
-            return $redirection;
         return view(REPERTOIRE_INTERFACES . '.' . $interface . '.' . $interface, $donneesVue);
     }
 
@@ -119,16 +127,22 @@ class FrontEndController extends Controller
         ];
         $this->validate($request,[
             'email' =>  'required|email',
-            'nom'  => 'required',
-            'prenom'  => 'required'
+            'nom.*' => 'required',
+            'nom.0' => 'nullable',
+            'prenom.*' => 'required',
+            'prenom.0' => 'nullable',
+            'age.*' => 'required',
+            'age.0' => 'nullable',
         ],$messages);
+
     $info_passager = array(
         'nom' => $request->get('nom'),
-        'prenom'  => $request->get('prenom'),
+        'prenom' => $request->get('prenom'),
         'age' => $request->get('age'),
         'email' => $request->get('email'),
         'numero' => $request->get('numero'),
     );
     return redirect('/validation')->with('info_passager',$info_passager);
 }
+
 }

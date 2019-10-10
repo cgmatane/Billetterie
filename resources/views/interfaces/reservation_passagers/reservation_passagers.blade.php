@@ -6,7 +6,7 @@
     <div class="container">
 
 
-        <form class="text-center border border-light p-5 mt-5 mb-5" method="post" action="{{ route('reservation_passagers') }}"
+        <form class="text-center border border-light p-5 mt-5 mb-5" method="get" action="{{ route('reservation_passagers') }}"
               onsubmit="return validerFormulaire()">
             {{ csrf_field() }}
             <p class="h2 mb-4 font-weight-bold mb-5"
@@ -33,13 +33,11 @@
     </fieldset>
 </span>
 
-            <button id="bouton-plus" type="button" class="btn btn-success" style="display: inline-block;"
-                    onclick="ajouterPassager();">
-                Ajouter un passager
+            <button id="bouton-plus" type="button" class="btn btn-success" style="display: inline-block;" onclick="ajouterPassager();">
+                {{ $reservation_passagers_ajouter_passager }}
             </button>
-            <button id="bouton-moins" type="button" class="btn btn-danger" style="display: none;"
-                    onclick="supprimerPassager();">
-                Retirer un passager
+            <button id="bouton-moins" type="button" class="btn btn-danger" style="display: none;" onclick="supprimerPassager();">
+                {{ $reservation_passagers_retirer_passager }}
             </button>
 
             <fieldset class="form-group mt-3">

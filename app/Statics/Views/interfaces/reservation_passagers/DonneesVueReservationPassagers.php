@@ -21,5 +21,7 @@ class DonneesVueReservationPassagers extends DonneesVue
         $this->setDonneeVue('paiement', 'PROCÉDER AU PAIEMENT');
         $this->setDonneeVue('intervalles_age', ['moins de 18 ans', 'entre 18 et 60 ans', 'plus de 60 ans']);
         $this->setDonneeVue('index_intervalle_age_par_defaut', 1);
+        $this->setDonneeVue('ajouter_passager', 'Ajouter un passager');
+        $this->setDonneeVue('retirer_passager', 'Retirer un passager');
     }
 }

@@ -2,7 +2,7 @@
 
 @section('contenu')
     <body id="top" style="background-color: #d3d3d3;">
-    <p class="h2 mb-4 font-weight-bold mb-5 mt-5 text-center" style="color: midnightblue">Récapitulatif du billet</p>
+    <p class="h2 mb-4 font-weight-bold mb-5 mt-5 text-center" style="color: midnightblue">{{ $validation_informations_recapitulatif_billet }}</p>
 <div class="container bg-white text-center shadow-lg mt-3" style="border-radius: 0.5em;">
     <div class="row">
         <div class="container-fluid mt-3">
@@ -13,24 +13,24 @@
                 <div class="col-6">
                     <div class="container-fluid">
                         <div class="row">
-                            <h5>Départ {{ $depart }} à {{ $heure }}</h5>
+                            <h5>{{ $validation_informations_depart }}{{ $depart }} {{ $heure }}</h5>
                         </div>
                         <div class="row">
-                            <h5>Arrivée {{ $destination }}</h5>
+                            <h5>{{ $validation_informations_arrivee }}{{ $destination }}</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-3" style="margin-top: auto;margin-bottom: auto;">
-                    <h5>prix</h5>
+                    <h5>{{$validation_informations_prix}}</h5>
                 </div>
             </div>
         </div>
         <div class="container-fluid border border-secondary mt-4 mb-2 ml-4 mr-4" style="border-radius: 0.5em;">
             <div class = "row">
-                <div class="col">Votre courriel :</div> <div class="col">{{ $email }}</div>
+                <div class="col">{{ $validation_informations_courriel }}</div> <div class="col">{{ $email }}</div>
             </div>
             <div class = "row">
-                <div class="col">Votre numéro de téléphone :</div> <div class="col">{{ $numero }}</div>
+                <div class="col">{{ $validation_informations_numero_telephone }}</div> <div class="col">{{ $numero }}</div>
             </div>
 
         </div>
@@ -38,10 +38,10 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Prénom</th>
-                    <th scope="col">Âge</th>
-                    <th scope="col">Tarif</th>
+                    <th scope="col">{{ $validation_informations_nom }}</th>
+                    <th scope="col">{{ $validation_informations_prenom }}</th>
+                    <th scope="col">{{ $validation_informations_age }}</th>
+                    <th scope="col">{{ $validation_informations_tarif }}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -67,7 +67,7 @@
 <div class="container">
 <a href="{{ route('reservation_paiement') }}">
     <button type="button" class="btn btn-outline-success my-4 btn-block">
-        VALIDER LES INFORMATIONS DE MON BILLET
+        {{ $validation_informations_valider_informations_billet }}
     </button>
 </a>
 </div>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Pages;
 
 
 use App\Http\Controllers\PageController;
-use App\Statics\Views\interfaces\informations\pages\DonneesVueInformationsGenerales;
+use App\Statics\Views\interfaces\validation_informations\DonneesVueValidationInformations;
 use Illuminate\Http\Request;
 
 class ValidationInformationsController extends PageController
@@ -13,7 +13,8 @@ class ValidationInformationsController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('validation');
-        $this->setDonneesStatiques(new DonneesVueInformationsGenerales());
+
+        $this->setDonneesStatiques(new DonneesVueValidationInformations());
     }
 
     protected function setDonneesDynamiques(Request $requete = null)

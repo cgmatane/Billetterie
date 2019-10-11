@@ -9,10 +9,10 @@
     <div class="container bg-white text-center shadow-lg mt-3 p-1" style="border-radius: 0.5em;">
         <div class="m-1">
             <div class="container-fluid border border-secondary mt-4 mb-2" style="border-radius: 0.5em;">
-                <h5>Traversée</h5>
+                <h5>{{ $validation_informations_traversee }}</h5>
                 <div class="row">
                     <div class="col">
-                        Date :
+                        {{ $validation_informations_date }}
                     </div>
                     <div class="col">
                         {{ $date }}
@@ -20,7 +20,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        Départ :
+                        {{ $validation_informations_depart }}
                     </div>
                     <div class="col">
                         {{ $depart }}
@@ -29,7 +29,7 @@
 
                 <div class="row">
                     <div class="col">
-                        Heure de départ :
+                        {{ $validation_informations_heure_depart }}
                     </div>
                     <div class="col">
                         {{ $heure }}
@@ -37,7 +37,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        Arrivée :
+                        {{ $validation_informations_arrivee }}
                     </div>
                     <div class="col">
                         {{ $destination }}
@@ -46,17 +46,17 @@
 
                 <div class="row">
                     <div class="col">
-                        Prix :
+                        {{ $validation_informations_prix }}
                     </div>
                     <div class="col">
-                        XXX CAD
+                        XXX {{ $validation_informations_dollar_canadien }}
                     </div>
                 </div>
 
             </div>
 
             <div class="container-fluid border border-secondary mb-2" style="border-radius: 0.5em;">
-                <h5>Passagers</h5>
+                <h5>{{ $validation_informations_passagers }}</h5>
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -74,7 +74,7 @@
                             <td>{{ $noms[$i] }}</td>
                             <td>{{ $prenoms[$i] }}</td>
                             <td>{{ $ages[$i] }}</td>
-                            <td>20.00 CAD</td> {{-- temporaire --}}
+                            <td>20.00 {{ $validation_informations_dollar_canadien }}</td> {{-- temporaire --}}
                         </tr>
                     @endfor
 
@@ -84,10 +84,10 @@
             </div>
             @isset($type_vehicule)
                 <div class="container-fluid border border-secondary mb-2" style="border-radius: 0.5em;">
-                    <h5>Véhicule</h5>
+                    <h5>{{ $validation_informations_vehicule }}</h5>
                     <div class="row">
                         <div class="col">
-                            Véhicule :
+                            {{ $validation_informations_vehicule_soute }}
                         </div>
                         <div class="col">
                             {{ $type_vehicule }}
@@ -95,13 +95,13 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            Charge lourde (> XXX KG) :
+                            {{ $validation_informations_charge_lourde }}
                         </div>
                         <div class="col">
                             @if($poids_eleve)
-                                Oui
+                                {{ $validation_informations_oui }}
                             @else
-                                Non
+                                {{ $validation_informations_non }}
                             @endif
                         </div>
                     </div>
@@ -109,7 +109,7 @@
             @endisset
 
             <div class="container-fluid border border-secondary mb-2" style="border-radius: 0.5em;">
-                <h5>Pour vous contacter</h5>
+                <h5>{{ $validation_informations_vous_contacter }}</h5>
                 <div class="row">
                     <div class="col">{{ $validation_informations_courriel }}</div>
                     <div class="col">{{ $email }}</div>

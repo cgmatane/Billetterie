@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="row text-center justify-content-start mt-5">
-            <h2> {{ $reservation_confirmation_billet_email }}</h2>
+            <h2> {{ $reservation_confirmation_billet_email }}{{ $email }}</h2>
         </div>
         <div class="row text-center justify-content-start">
             <p> {{ $reservation_confirmation_rappel_embarquement }}</p>

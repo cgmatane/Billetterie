@@ -10,29 +10,27 @@ use Illuminate\Http\Request;
 
 class ReservationPoidsController extends PageController
 {
+    const CHOIX_POIDS_LOURD = 1;
+    const CHOIX_POIDS_NON_LOURD = 2;
+
     public function __construct() {
         parent::__construct();
         $this->setNomPage('poids');
         $this->setDonneesStatiques(new DonneesVueReservationPoids());
     }
 
-    public function gererSession(Request $requete)
+    public function gererValidation(Request $requete)
     {
-        if ($requete->session()->get('derniere_URL') == 'reservation_choix_remorque') {
-            if ($_GET['dernierChoix'] == 1) {
-                $requete->session()->put('type_vehicule', 'Voiture avec remorque');
-            }
-            else {
-                $requete->session()->put('type_vehicule', 'Voiture');
-            }
+        $dernierChoix = $requete->input('dernierChoix');
+        switch($dernierChoix) {
+            case self::CHOIX_POIDS_LOURD:
+                $requete->session()->put('ticket.poids_eleve', true);
+                break;
+            case self::CHOIX_POIDS_NON_LOURD:
+                $requete->session()->put('ticket.poids_eleve', false);
+                break;
         }
-        if ($requete->session()->get('derniere_url') == 'reservation_choix_autre_vehicule') {
-            if ($_GET['dernierChoix'] == 1) {
-                $requete->session()->put('type_vehicule', 'Camionette');
-            }
-            else {
-                $requete->session()->put('type_vehicule', 'Poids lourd');
-            }
-        }
+        return redirect(route('reservation_passagers'));
     }
+
 }

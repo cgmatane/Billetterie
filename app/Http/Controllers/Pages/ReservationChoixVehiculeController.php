@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\PageController;
 use App\Statics\Views\interfaces\choix_deux_options\pages\DonneesVueReservationChoixVehicule;
+use App\TypeVehicule;
 use Illuminate\Http\Request;
 
 class ReservationChoixVehiculeController extends PageController
@@ -28,7 +29,8 @@ class ReservationChoixVehiculeController extends PageController
                 return redirect(route('reservation_choix_voiture'));
                 break;
             case self::CHOIX_PIETON:
-                $requete->session()->put('ticket.typeVehicule', 'piéton');
+                $requete->session()->put('ticket.typeVehicule', TypeVehicule::PIETON);
+                $requete->session()->put('ticket.poids_lourd', false);
                 return redirect(route('reservation_passagers'));
                 break;
         }

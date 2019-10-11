@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\PageController;
 use App\Statics\Views\interfaces\validation_informations\DonneesVueValidationInformations;
+use App\TypeVehicule;
 use Illuminate\Http\Request;
 
 class ValidationInformationsController extends PageController
@@ -19,7 +20,6 @@ class ValidationInformationsController extends PageController
 
     protected function setDonneesDynamiques(Request $requete = null)
     {
-        $typeVehicule = $requete->session()->get('ticket.type_vehicule');
         $date = $requete->session()->get('ticket.date');
         $heure = $requete->session()->get('ticket.heure');
         $depart = $requete->session()->get('ticket.depart');
@@ -29,6 +29,23 @@ class ValidationInformationsController extends PageController
         $ages = $requete->session()->get('ticket.ages');
         $email = $requete->session()->get('ticket.email');
         $numero = $requete->session()->get('ticket.numero');
+        $poidsEleve = $requete->session()->get('ticket.poids_eleve');
+        switch($requete->session()->get('ticket.type_vehicule')) {
+            case TypeVehicule::PIETON:
+                $typeVehicule = null;
+                break;
+            case TypeVehicule::VOITURE:
+                $typeVehicule = "Voiture";
+                break;
+            case TypeVehicule::VOITURE_AVEC_REMORQUE:
+                $typeVehicule = "Voiture avec remorque";
+                break;
+            case TypeVehicule::CAMIONETTE:
+                $typeVehicule = "Camionette";
+                break;
+            case TypeVehicule::POIDS_LOURD:
+                $typeVehicule = "Poids lourd";
+        }
 
         $this->donneesDynamiques = [
             'type_vehicule'=>$typeVehicule,
@@ -40,7 +57,8 @@ class ValidationInformationsController extends PageController
             'prenoms'=>$prenoms,
             'ages'=>$ages,
             'email'=>$email,
-            'numero'=>$numero
+            'numero'=>$numero,
+            'poids_eleve'=>$poidsEleve,
         ];
     }
 

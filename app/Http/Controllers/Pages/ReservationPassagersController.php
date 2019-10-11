@@ -39,24 +39,4 @@ class ReservationPassagersController extends PageController
     }
 
 
-    protected function setDonneesDynamiques(Request $requete = null)
-    {
-        $destination = $requete->session()->get('destination');
-        $heureDepart = $requete->session()->get('heure');
-        $typeVehicule = $requete->session()->get('type_vehicule');
-        $chargeEleve = '';
-        if ($requete->session()->get('charge_eleve'))
-            $chargeEleve = 'Oui';
-        else
-            $chargeEleve = 'Non';
-
-        $this->donneesDynamiques = [
-            'destination'=>$destination,
-            'heure'=>$heureDepart,
-            'type_vehicule'=>$typeVehicule,
-            'poids_eleve'=>$chargeEleve
-        ];
-    }
-
-
 }

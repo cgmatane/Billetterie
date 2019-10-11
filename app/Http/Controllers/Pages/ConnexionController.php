@@ -25,7 +25,7 @@ class ConnexionController extends PageController
             'password.required' => 'Le champ mot de passe n\'est pas rempli' ,
             'password.min' => 'Le champ mot de passe doit faire au minimum 3 caractères' ,
         ];
-        $this->validate($requete,[
+        $validatedData = $this->validate($requete,[
             'email' =>  'required|email',
             'password'  => 'required|min:3'
         ],$messages);
@@ -36,6 +36,7 @@ class ConnexionController extends PageController
         );
 
         if (Auth::attempt($user_data)){
+            $requete->session()->put('utilisateur.email', $validatedData['email']);
             return redirect('/administration');
         }else{
             return back()->with('error','Les identifiants sont incorrect');

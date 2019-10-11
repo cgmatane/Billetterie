@@ -1,6 +1,9 @@
-@extends('interfaces.index')
+@include('global_components.head')
+@component('interfaces.administration.components.nav')
+    @slot('titre'){{ $connexion_administration }} @endslot
+    @slot('email'){{ $connexion_connexion }} @endslot
+@endcomponent
 
-@section('contenu')
     <div class="container mt-5 mb-4 ctn-connexion">
         <h1>{{ $connexion_titre }}</h1>
 
@@ -66,4 +69,5 @@
 
 
 
-@endsection
+
+@include('global_components.foot')

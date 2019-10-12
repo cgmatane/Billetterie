@@ -13,7 +13,7 @@ class ConnexionController extends PageController
 {
     public function __construct() {
         parent::__construct();
-        $this->setNomPage('connexion');
+        $this->setNomPage('administration/connexion');
         $this->setDonneesStatiques(new DonneesVueConnexion());
     }
 

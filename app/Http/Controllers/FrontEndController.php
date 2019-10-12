@@ -45,6 +45,7 @@ class FrontEndController extends Controller
             'reservation_paiement' => array(new Controllers\ReservationPaiementController()),
             'reservation_confirmation' => array(new Controllers\ReservationConfirmationController()),
             'connexion' => array(new Controllers\ConnexionController()),
+            'vue_generale' => array(new Controllers\VueGeneraleController()),
             'administration' => array(new Controllers\AdministrationController()),
             'inscription' => array(new Controllers\InscriptionController()),
             //'requete-qr' => array(new Controllers\RequeteQRController()),

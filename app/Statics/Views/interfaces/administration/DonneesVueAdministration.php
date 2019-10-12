@@ -10,7 +10,7 @@ class DonneesVueAdministration extends DonneesVue
     {
         parent::__construct();
         $this->nomVue = 'administration';
-        $this->setDonneeVue('titre','Administration');
+
 
     }
 }

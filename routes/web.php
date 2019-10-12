@@ -18,15 +18,19 @@ Route::get('/', function() {
     return redirect('accueil');
 });
 
+Route::get('/administration', function() {
+    return redirect('/administration/vue_generale');
+});
+
 Route::get('pdf_dl', 'GenerateurPdfController@pdfDownload');
 
-Route::match(array('GET', 'POST'),'/{nomRoute?}', ['uses' => 'FrontEndController@manager'])->name('manager');
+Route::match(array('GET', 'POST'),'/{nomRoute?}', ['uses' => 'FrontEndController@manager'])->name('manager')->where('nomRoute','.*');
 
 Route::get('/accueil')->name('index');
 
-Route::get('/connexion')->name('connexion');
+Route::get('/administration/connexion')->name('connexion');
 
-Route::get('/administration')->name('administration');
+Route::get('/administration/vue_generale')->name('vue_generale');
 
 Route::get('/date')->name('choix_date');
 

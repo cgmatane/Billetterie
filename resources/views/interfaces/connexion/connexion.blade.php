@@ -22,7 +22,7 @@
                 </ul>
             </div>
         @endif
-        <form class="border pt-4 pb-5 pl-5 pr-5" action="{{ route('connexion') }}" method="post">
+        <form class="border pt-4 pb-5 pl-5 pr-5" action="{{ route('administration.connexion') }}" method="post">
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="inputCourriel">{{ $connexion_courriel }}</label>

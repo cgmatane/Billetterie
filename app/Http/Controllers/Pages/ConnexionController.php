@@ -37,7 +37,7 @@ class ConnexionController extends PageController
 
         if (Auth::attempt($user_data)){
             $requete->session()->put('utilisateur.email', $validatedData['email']);
-            return redirect('/administration');
+            return redirect('/administration/vue_generale');
         }else{
             return back()->with('error','Les identifiants sont incorrect');
         }

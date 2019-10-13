@@ -1,6 +1,6 @@
 @include('global_components.head')
 @component('interfaces.administration.components.nav')
-    @slot('titre'){{ $connexion_administration }} @endslot
+    @section('titre'){{ $connexion_administration }}@endsection
     @slot('email'){{ $connexion_connexion }} @endslot
 @endcomponent
 

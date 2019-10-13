@@ -47,7 +47,10 @@ class FrontEndController extends Controller
             'connexion' => array(new Controllers\ConnexionController()),
             'vue_generale' => array(new Controllers\VueGeneraleController()),
             'administration' => array(new Controllers\AdministrationController()),
-            'inscription' => array(new Controllers\InscriptionController()),
+            'station' => array(new Controllers\StationController()),
+            'trajet' => array(new Controllers\TrajetController()),
+            'planification' => array(new Controllers\PlanificationController()),
+            'parametre' => array(new Controllers\ParametreController()),
             //'requete-qr' => array(new Controllers\RequeteQRController()),
             //'pdf' => array(new Controllers\PdfController()),
             //'pdf-facture' => array(new GenerateurPdfController())
@@ -67,6 +70,12 @@ class FrontEndController extends Controller
             return '404';
         $interface = $contexte['interface'];
         $controleur = $contexte['controleur'];
+
+        $id_administrateur = Auth::id();
+        if (preg_match('/administration\/(?!connexion)/',$nomRoute) && !isset($id_administrateur)){
+            return redirect('/administration/connexion');
+        }
+
         return $this->getVue($requete, $interface, $controleur);
     }
 

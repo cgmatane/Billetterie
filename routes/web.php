@@ -28,9 +28,17 @@ Route::match(array('GET', 'POST'),'/{nomRoute?}', ['uses' => 'FrontEndController
 
 Route::get('/accueil')->name('index');
 
-Route::get('/administration/connexion')->name('connexion');
+Route::get('/administration/connexion')->name('administration.connexion');
 
-Route::get('/administration/vue_generale')->name('vue_generale');
+Route::get('/administration/vue_generale')->name('administration.vue_generale');
+
+Route::get('/administration/station')->name('administration.station');
+
+Route::get('/administration/trajet')->name('administration.trajet');
+
+Route::get('/administration/planification')->name('administration.planification');
+
+Route::get('/administration/parametre')->name('administration.parametre');
 
 Route::get('/date')->name('choix_date');
 

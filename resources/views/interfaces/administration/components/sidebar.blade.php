@@ -2,49 +2,32 @@
     <div class="menu-list">
 
         <ul id="menu-content" class="menu-content collapse out">
-            <li class="collapsed active">
-                <a href="#">
+            <li class="collapsed {{ (request()->is('administration/vue_generale')) ? 'active' : '' }}">
+                <a href="{{route('administration.vue_generale')}}">
                     <i class="fas fa-eye"></i> Vue générale
                 </a>
             </li>
 
-            <li  data-toggle="collapse" data-target="#destination" class="collapsed">
-                <a><i class="fas fa-map-pin"></i> Destination <span class="arrow"></span></a>
+            <li class="collapsed {{ (request()->is('administration/station')) ? 'active' : '' }}">
+                <a href="{{route('administration.station')}}"><i class="fas fa-map-pin"></i> Station</a>
             </li>
-            <ul class="sub-menu collapse" id="destination">
-                <li><a href="#">Ajouter</a></li>
-                <li><a href="#">Supprimer</a></li>
-                <li><a href="#">Editer</a></li>
-            </ul>
 
-            <li data-toggle="collapse" data-target="#trajet" class="collapsed">
-                <a><i class="fas fa-ship"></i> Trajet <span class="arrow"></span></a>
+            <li class="collapsed {{ (request()->is('administration/trajet')) ? 'active' : '' }}">
+                <a href="{{route('administration.trajet')}}"><i class="fas fa-ship"></i> Trajet</a>
             </li>
-            <ul class="sub-menu collapse" id="trajet">
-                <li><a href="#">Ajouter</a></li>
-                <li><a href="#">Supprimer</a></li>
-                <li><a href="#">Editer</a></li>
-            </ul>
 
-            <li data-toggle="collapse" data-target="#planification" class="collapsed">
-                <a href="#"><i class="fas fa-ship"></i> Planification <span class="arrow"></span></a>
+
+            <li class="collapsed {{ (request()->is('administration/planification')) ? 'active' : '' }}">
+                <a href="{{route('administration.planification')}}"><i class="fas fa-clock-o"></i> Planification</a>
             </li>
-            <ul class="sub-menu collapse" id="planification">
-                <li><a href="#">Ajouter</a></li>
-                <li><a href="#">Supprimer</a></li>
-                <li><a href="#">Editer</a></li>
-            </ul>
 
-            <li>
-                <a href="#">
-                    <i class="fas fa-cog"></i> Paramètres
-                </a>
+
+            <li class="collapsed {{ (request()->is('administration/prametres')) ? 'active' : '' }}">
+                <a href="{{route('administration.parametre')}}"><i class="fas fa-cog"></i> Paramètre</a>
             </li>
 
             <li>
-                <a href="#">
-                    <i class="fas fa-sign-out-alt"></i> Déconnexion
-                </a>
+                <a href=""><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
             </li>
 
         </ul>

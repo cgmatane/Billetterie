@@ -268,6 +268,10 @@ margin-top: 8rem !important;
 .nav-side-menu li a {
     text-decoration: none;
     color: #e1ffff;
+    margin: 0px;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 .nav-side-menu li a i {
     padding-left: 10px;

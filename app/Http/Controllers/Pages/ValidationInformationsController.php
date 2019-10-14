@@ -45,6 +45,10 @@ class ValidationInformationsController extends PageController
                 break;
             case TypeVehicule::POIDS_LOURD:
                 $typeVehicule = "Poids lourd";
+                break;
+            default :
+                $typeVehicule = "pas de véhicule";
+                break;
         }
 
         $this->donneesDynamiques = [

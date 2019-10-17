@@ -24,12 +24,17 @@
         <div class="card-wrapper justify-content-around col-md-6 col-sm-12 mt-3 mb-3"></div>
         <div class="form-container active justify-content-around col-md-6 col-sm-12">
             <div class="row text-center">
-            <form action="">
+            <form onsubmit="return verifierNumeroCarteBleue()">
                 <h5>Veuillez renseigner vos informations</h5>
-                <input placeholder="numéro de carte" type="tel" name="number" class="col-10 m-2">
+                <input placeholder="numéro de carte" type="tel" name="number" id="numeroCarte" class="col-10 m-2">
                 <input placeholder="nom tel qu'il est inscrit" type="text" name="name" class="col-10 m-2">
                 <input placeholder="date d'expiration" type="tel" name="expiry" class="col-10 m-2">
                 <input placeholder="CVC" type="number" name="cvc" class="col-10 m-2">
+                <div class="row text-center justify-content-center">
+                    <button class="btn btn-success p-4">
+                        {{ $reservation_paiement_payer }}
+                    </button>
+                </div>
             </form>
             </div>
         </div>
@@ -41,15 +46,6 @@
             container: '.card-wrapper'
         });
     </script>
-
-    <div class="row text-center justify-content-center">
-        <a href="{{ route('reservation_confirmation') }}">
-            <button type="button" class="btn btn-success p-4">
-                {{ $reservation_paiement_payer }}
-            </button>
-        </a>
-    </div>
-
 </div>
 
 <div class="container-fluid">
@@ -72,4 +68,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="{{URL::asset('js/reservation_paiement.js')}}"></script>
 @endsection

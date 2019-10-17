@@ -17,12 +17,6 @@ class GenerateurPdfController extends Controller
     public function pdfDownload(Request $request)
     {
 
-        request()->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'message' => 'required'
-        ]);
-
         $request->session()->put("lenom", $request->name);
         $data =
             [

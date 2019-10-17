@@ -148,7 +148,7 @@
             <div class="row">
                 <div style="float: left; margin-left: 5%; margin-top: 20px">
                     <a href="{{ route('index') }}">
-                        <button type="button" class="btn btn-outline-retour-menu p-3">
+                        <button type="button" class="btn btn-outline-retour-menu p-3"> <i class="fas fa-undo-alt "></i>
                             {{ $global_retour_au_debut }}
                         </button>
                     </a>

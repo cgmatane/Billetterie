@@ -73,7 +73,7 @@
     </div>
     <div class="text-center row justify-content-center">
         <div class="col-sm-6 col-xs-8" style="padding: 0">
-            <div class="float-left">
+            <div class="col-sm-5 col-xs-12 float-left">
         @component('interfaces.accueil.components.bouton_changer_parametres_depart')
             @slot('route')
                 {{ route('choix_date') }}
@@ -82,7 +82,7 @@
         @endcomponent
             </div>
 
-            <div class="float-right">
+            <div class="col-sm-5 col-xs-12 float-right">
         @component('interfaces.accueil.components.bouton_changer_parametres_depart')
             @slot('route')
                 {{ route('choix_depart') }}

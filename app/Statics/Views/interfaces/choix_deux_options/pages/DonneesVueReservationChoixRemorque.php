@@ -10,6 +10,8 @@ class DonneesVueReservationChoixRemorque extends DonneesVueChoixDeuxOptions
     {
         parent::__construct();
         $this->setDonneeVue('question','Votre voiture possède-t-elle une remorque ?');
+        $this->setDonneeVue('icone1','');
+        $this->setDonneeVue('icone2','');
         $this->setDonneeVue('lien_choix1', route('reservation_poids'));
         $this->setDonneeVue('lien_choix2', route('reservation_poids'));
     }

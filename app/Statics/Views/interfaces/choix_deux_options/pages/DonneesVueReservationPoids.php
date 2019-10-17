@@ -10,6 +10,8 @@ class DonneesVueReservationPoids extends DonneesVueChoixDeuxOptions
     {
         parent::__construct();
         $this->setDonneeVue('question','Votre véhicule dépasse t-il xxx Kg ?');
+        $this->setDonneeVue('icone1','fas fa-weight-hanging');
+        $this->setDonneeVue('icone2','far fa-times-circle');
         $this->setDonneeVue('lien_choix1', route('reservation_matieres'));
         $this->setDonneeVue('lien_choix2', route('reservation_matieres'));
     }

@@ -10,6 +10,8 @@ class DonneesVueReservationChoixVehicule extends DonneesVueChoixDeuxOptions
     {
         parent::__construct();
         $this->setDonneeVue('question','Voyagez-vous avec un véhicule ?');
+        $this->setDonneeVue('icone1','fas fa-car');
+        $this->setDonneeVue('icone2','far fa-times-circle');
         $this->setDonneeVue('lien_choix1', route('reservation_choix_voiture'));
         $this->setDonneeVue('lien_choix2', route('reservation_passagers'));
     }

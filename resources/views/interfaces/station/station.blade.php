@@ -8,6 +8,57 @@
 
 @section('contenu')
 
-    test
+    <h1>Gestion des stations</h1>
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody style="font-size: 1.2em;">
+        <tr>
+            <th scope="row">1</th>
+            <td>Matane</td>
+            <td><a href=""><i class="fas fa-edit mr-3"></i></a><a href=""><i class="fas fa-trash-alt"></i></a></td>
+
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Baie Comeau</td>
+            <td><a href=""><i class="fas fa-edit mr-3"></i></a><a href=""><i class="fas fa-trash-alt"></i></a></td>
+
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Godbou</td>
+            <td><a href=""><i class="fas fa-edit mr-3"></i></a><a href="" data-target="#myModal" data-toggle="modal" ><i class="fas fa-trash-alt"></i></a></td>
+
+        </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary btn-lg btn-block" style="color: white; cursor: pointer;">Ajouter station</a>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Supprimer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Voulez vous vraiment supprimer la station Godbou ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <a href="" class="btn btn-primary" data-dismiss="modal">Valider</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection

@@ -18,6 +18,8 @@ class FrontEndController extends Controller
     private $routes;
     private $donneesStatiquesGlobales;
 
+    #public static final $
+
     public function __construct()
     {
 
@@ -51,9 +53,8 @@ class FrontEndController extends Controller
             'trajet' => array(new Controllers\TrajetController()),
             'planification' => array(new Controllers\PlanificationController()),
             'parametre' => array(new Controllers\ParametreController()),
-            //'requete-qr' => array(new Controllers\RequeteQRController()),
-            //'pdf' => array(new Controllers\PdfController()),
-            //'pdf-facture' => array(new GenerateurPdfController())
+            'requete-qr' => array(new Controllers\RequeteQRController()),
+            'pdf-facture' => array(new GenerateurPdfController())
             );
 
         //Les donnees statiques de vues communes a plusieurs interfaces/pages

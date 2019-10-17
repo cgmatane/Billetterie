@@ -16,11 +16,11 @@
             <div class="row text-center">
                 <a href="?dernierChoix=1"
                    class="bg-white col-5 mx-auto p-5 shadow-lg oui"
-                   style=" text-decoration:none; color: #1b1e21;font-size: xx-large; border-radius: 0.5em;">{{ $choix_deux_options_choix1 }}</a>
+                   style=" text-decoration:none; color: #1b1e21;font-size: xx-large; border-radius: 0.5em;"> <i class="{{ $choix_deux_options_icone1 }}" style="color:Green"></i>  {{ $choix_deux_options_choix1 }}</a>
 
                 <a href="?dernierChoix=2"
                    class="bg-white col-5 mx-auto p-5 shadow-lg non"
-                   style=" text-decoration:none; color: #1b1e21;font-size: xx-large; border-radius: 0.5em;">{{ $choix_deux_options_choix2 }}</a>
+                   style=" text-decoration:none; color: #1b1e21;font-size: xx-large; border-radius: 0.5em;"> <i class="{{ $choix_deux_options_icone2 }} " style="color:Tomato"></i> {{ $choix_deux_options_choix2 }}</a>
             </div>
         </div>
         <div style="width: 100% ;height: 400px; background-color: midnightblue; margin-top: -50px; border-radius: 20px">
@@ -34,7 +34,7 @@
             <div class="row">
                 <div style="float: left; margin-left: 5%; margin-top: 20px">
                     <a href="{{ route('index') }}">
-                        <button type="button" class="btn btn-outline-retour-menu p-3 mb-5">
+                        <button type="button" class="btn btn-outline-retour-menu p-3 mb-5"> <i class="fas fa-undo-alt"></i>
                             {{ $global_retour_au_debut }}
                         </button>
                     </a>

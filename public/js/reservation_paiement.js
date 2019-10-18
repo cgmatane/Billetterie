@@ -1,3 +1,28 @@
+function verifierNumeroCarteBleue() {
+
+    const nombreDeChiffreMasterCard = 19;
+    const nombreDeChiffreVisa = [19,23];
+
+    let valeurNumeroCarteBleue = document.getElementById('numeroCarte');
+    let nombreDeChiffreCarteBleue = valeurNumeroCarteBleue.value.length;
+    let typeDeLaCarte = typeDeCarte(valeurNumeroCarteBleue.className);
+
+    if (typeDeLaCarte === "rien") {
+        return false;
+    }
+
+    let conditionNombreDeChiffreMasterCardValide = typeDeLaCarte === "mastercard" &&
+        nombreDeChiffreCarteBleue === nombreDeChiffreMasterCard;
+    let conditionNombreDeChiffreVisaValide = typeDeLaCarte === "visa" &&
+        (nombreDeChiffreCarteBleue === nombreDeChiffreVisa[0] || nombreDeChiffreCarteBleue === nombreDeChiffreVisa[1]);
+
+    if (conditionNombreDeChiffreMasterCardValide || conditionNombreDeChiffreVisaValide) {
+        return true;
+    }
+
+    return false;
+}
+
 function typeDeCarte(valeurDeLaClasse) {
 
     let masterCard = "mastercard";
@@ -10,22 +35,4 @@ function typeDeCarte(valeurDeLaClasse) {
         return visa;
     }
     return "rien";
-}
-
-function verifierNumeroCarteBleue() {
-
-    let valeurNumeroCarteBleue = document.getElementById('numeroCarte');
-
-    console.log(valeurNumeroCarteBleue.className);
-
-    var typeDeLaCarte = typeDeCarte(valeurNumeroCarteBleue.className);
-
-    if (valeurNumeroCarteBleue.length === 0) {
-        return false;
-    }
-
-    console.log(valeurNumeroCarteBleue.value.length);
-    console.log(typeDeLaCarte);
-
-    return false;
 }

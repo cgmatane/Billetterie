@@ -101,14 +101,20 @@ function verifierDateExpiration() {
 
 function verifierCvc() {
 
+    const idDivErreurCvc = "erreurNumeroCvc";
+
     const nombreDeNumeroCvc = 3;
 
     let valeurNumeroCvc = document.getElementById('numeroCvc').value;
 
     if (valeurNumeroCvc.length === nombreDeNumeroCvc) {
+
+        effacerErreur(idDivErreurCvc);
         return true;
     }
 
+    afficherErreur(idDivErreurCvc,
+        "Le CVC doi être composé de trois chiffres");
     return false;
 }
 

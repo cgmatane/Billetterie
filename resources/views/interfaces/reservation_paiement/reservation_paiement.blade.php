@@ -24,7 +24,7 @@
         <div class="card-wrapper justify-content-around col-md-6 col-sm-12 mt-3 mb-3"></div>
         <div class="form-container active justify-content-around col-md-6 col-sm-12">
             <div class="row text-center">
-            <form onsubmit="return verifierNom()">
+            <form onsubmit="return verifierDateExpiration()">
                 <h5>Veuillez renseigner vos informations</h5>
                 <input placeholder="numéro de carte" type="tel" name="number" id="numeroCarte" class="col-10 m-2">
                 <input placeholder="nom tel qu'il est inscrit" type="text" name="name" id="nom" class="col-10 m-2">

@@ -42,10 +42,32 @@ function verifierNom() {
     let valeurNomEntier = document.getElementById('nom').value;
     let valeurNomSepare = valeurNomEntier.split(" ");
 
-    if (valeurNomSepare.length !== 2 || !(/^[a-zA-Z\s]*$/.test(valeurNomEntier))) {
+    if (valeurNomSepare.length !== 2 || !(/^[A-Z\s]*$/.test(valeurNomEntier))) {
         return false;
     }
 
+    return true;
+}
+
+function verifierDateExpiration() {
+
+    let valeurDateExpiration = document.getElementById('dateExpiration').value;
+    let valeurDateExpirationSepare = valeurDateExpiration.split(" ");
+
+    if (valeurDateExpirationSepare.length !== 3) {
+        return false;
+    }
+
+    let valeurAnnee = valeurDateExpirationSepare[2];
+    let valeurAnneeActuelle = new Date().getFullYear();
+
+    let valeurMois = valeurDateExpirationSepare[0];
+    let valeurMoisActuelle = new Date().getMonth() + 1;
+
+    if (valeurAnnee < valeurAnneeActuelle)
+        return false;
+    else if (!(valeurAnnee > valeurAnneeActuelle) && valeurMois <= valeurMoisActuelle)
+        return false;
     return true;
 }
 

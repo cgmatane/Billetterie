@@ -69,3 +69,14 @@ PHP artisan permet d'utiliser un ensemble de commandes utiles pour l'édition du
   -Tapez "php artisan" -> affiche la liste des commandes
   Exemple : "php artisan make:controller ControllerTest" crée un fichier controller incluant le corps de classe de nom ControllerTest
   Pour lancer le serveur : "php artisan serve" (par défaut sur le port 8000) on y accède en tapant "localhost:8000" sur la barre du navigateur
+
+<h2>----------------INFO EMAIL .env--------------------<h2>
+    
+Modifier les informations suivantes dans votre .env pour que l'email de confirmation puisse être envoyé :
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailgun.org
+MAIL_PORT=587
+MAIL_USERNAME=postmaster@sandboxaffc90f089a74c49a21180d80f7a4bd6.mailgun.org
+MAIL_PASSWORD=1978ac35dce41756040af170ec4d468d-9c988ee3-d2b3e515
+MAIL_ENCRYPTION=null

@@ -37,6 +37,18 @@ function typeDeCarte(valeurDeLaClasse) {
     return "rien";
 }
 
+function verifierNom() {
+
+    let valeurNomEntier = document.getElementById('nom').value;
+    let valeurNomSepare = valeurNomEntier.split(" ");
+
+    if (valeurNomSepare.length !== 2 || !(/^[a-zA-Z\s]*$/.test(valeurNomEntier))) {
+        return false;
+    }
+
+    return true;
+}
+
 function verifierCvc() {
 
     const nombreDeNumeroCvc = 3;

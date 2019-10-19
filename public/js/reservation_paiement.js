@@ -64,10 +64,15 @@ function verifierNom() {
 
 function verifierDateExpiration() {
 
+    const idDivErreurDateExpiration = "erreurDateExpiration";
+
     let valeurDateExpiration = document.getElementById('dateExpiration').value;
     let valeurDateExpirationSepare = valeurDateExpiration.split(" ");
 
     if (valeurDateExpirationSepare.length !== 3) {
+
+        afficherErreur(idDivErreurDateExpiration,
+            "Ce champ doit être de la forme : MM / AAAA");
         return false;
     }
 
@@ -77,10 +82,20 @@ function verifierDateExpiration() {
     let valeurMois = valeurDateExpirationSepare[0];
     let valeurMoisActuelle = new Date().getMonth() + 1;
 
-    if (valeurAnnee < valeurAnneeActuelle)
+    if (valeurAnnee < valeurAnneeActuelle) {
+
+        afficherErreur(idDivErreurDateExpiration,
+            "La valeur de l'année saisie est inférieure à l'année actuelle");
         return false;
-    else if (!(valeurAnnee > valeurAnneeActuelle) && valeurMois <= valeurMoisActuelle)
+    }
+    else if (!(valeurAnnee > valeurAnneeActuelle) && valeurMois <= valeurMoisActuelle) {
+
+        afficherErreur(idDivErreurDateExpiration,
+            "La valeur du mois saisie est inférieure au mois actuel");
         return false;
+    }
+
+    effacerErreur(idDivErreurDateExpiration);
     return true;
 }
 

@@ -1,6 +1,11 @@
 function verifierFormulaire() {
 
-    if (verifierNumeroCarteBleue() && verifierNom() && verifierDateExpiration() && verifierCvc())
+    let numeroCarteBleueValide = verifierNumeroCarteBleue();
+    let nomValide = verifierNom();
+    let dateExpirationValide = verifierDateExpiration();
+    let cvcValide = verifierCvc();
+
+    if (numeroCarteBleueValide && nomValide && dateExpirationValide && cvcValide)
         return true;
 
     return false;
@@ -39,29 +44,21 @@ function verifierNumeroCarteBleue() {
     return false;
 }
 
-function typeDeCarte(valeurDeLaClasse) {
-
-    let masterCard = "mastercard";
-    let visa = "visa";
-
-    if (valeurDeLaClasse.includes(masterCard)) {
-        return masterCard;
-    }
-    if (valeurDeLaClasse.includes(visa)) {
-        return visa;
-    }
-    return "rien";
-}
-
 function verifierNom() {
+
+    const idDivErreurNom = "erreurNom";
 
     let valeurNomEntier = document.getElementById('nom').value;
     let valeurNomSepare = valeurNomEntier.split(" ");
 
     if (valeurNomSepare.length !== 2 || !(/^[A-Z\s]*$/.test(valeurNomEntier))) {
+
+        afficherErreur(idDivErreurNom,
+            "Ce champ doit être composé d'un nom et d'un prénom sans chiffres");
         return false;
     }
 
+    effacerErreur(idDivErreurNom);
     return true;
 }
 
@@ -98,6 +95,20 @@ function verifierCvc() {
     }
 
     return false;
+}
+
+function typeDeCarte(valeurDeLaClasse) {
+
+    let masterCard = "mastercard";
+    let visa = "visa";
+
+    if (valeurDeLaClasse.includes(masterCard)) {
+        return masterCard;
+    }
+    if (valeurDeLaClasse.includes(visa)) {
+        return visa;
+    }
+    return "rien";
 }
 
 function afficherErreur(idDuDiv, messageErreur) {

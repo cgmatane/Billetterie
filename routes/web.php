@@ -22,6 +22,8 @@ Route::get('/administration', function() {
     return redirect('/administration/vue_generale');
 });
 
+Route::get('/sendemail/envoie', 'SendEmailController@send')->name('envoieEmail');
+
 Route::get('pdf_dl', 'GenerateurPdfController@pdfDownload');
 
 Route::match(array('GET', 'POST'),'/{nomRoute?}', ['uses' => 'FrontEndController@manager'])->name('manager')->where('nomRoute','.*');

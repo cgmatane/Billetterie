@@ -1,3 +1,11 @@
+function verifierFormulaire() {
+
+    if (verifierNumeroCarteBleue() && verifierNom() && verifierDateExpiration() && verifierCvc())
+        return true;
+
+    return false;
+}
+
 function verifierNumeroCarteBleue() {
 
     const nombreDeChiffreMasterCard = 19;

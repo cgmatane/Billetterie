@@ -27,9 +27,9 @@
             <form onsubmit="return verifierNumeroCarteBleue()">
                 <h5>Veuillez renseigner vos informations</h5>
                 <input placeholder="numéro de carte" type="tel" name="number" id="numeroCarte" class="col-10 m-2">
-                <input placeholder="nom tel qu'il est inscrit" type="text" name="name" class="col-10 m-2">
-                <input placeholder="date d'expiration" type="tel" name="expiry" class="col-10 m-2">
-                <input placeholder="CVC" type="number" name="cvc" class="col-10 m-2">
+                <input placeholder="nom tel qu'il est inscrit" type="text" name="name" id="nom" class="col-10 m-2">
+                <input placeholder="date d'expiration" type="tel" name="expiry" id="dateExpiration" class="col-10 m-2">
+                <input placeholder="CVC" type="number" name="cvc" id="numeroCvc" class="col-10 m-2">
                 <div class="row text-center justify-content-center">
                     <button class="btn btn-success p-4">
                         {{ $reservation_paiement_payer }}

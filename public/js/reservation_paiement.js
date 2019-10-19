@@ -36,3 +36,16 @@ function typeDeCarte(valeurDeLaClasse) {
     }
     return "rien";
 }
+
+function verifierCvc() {
+
+    const nombreDeNumeroCvc = 3;
+
+    let valeurNumeroCvc = document.getElementById('numeroCvc').value;
+
+    if (valeurNumeroCvc.length === nombreDeNumeroCvc) {
+        return true;
+    }
+
+    return false;
+}

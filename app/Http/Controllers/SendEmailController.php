@@ -13,14 +13,29 @@ class SendEmailController extends Controller
         return view('reservation_confirmation');
     }
 
-    function send(Request $request)
+    function send(Request $requete)
     {
+        $email = $requete->session()->get('ticket.email');
+        $noms = $requete->session()->get('ticket.noms');
+        $nom = $noms[0];
+        $prenoms = $requete->session()->get('ticket.prenoms');
+        $prenom = $prenoms[0];
+        $date = $requete->session()->get('ticket.date');
+        $heure = $requete->session()->get('ticket.heure');
+        $depart = $requete->session()->get('ticket.depart');
+        $destination = $requete->session()->get('ticket.destination');
+
         $data = array(
-            'nom'      =>  "loic",
+            'nom'      => $nom ,
+            'prenom'      => $prenom,
+            'date'      => $date,
+            'heure'      => $heure,
+            'depart'      => $depart,
+            'destination'      => $destination
             //'message'   =>   $request->message
         );
 
-        Mail::to('h-loic@orange.fr')->send(new SendMail($data));
+        Mail::to($email)->send(new SendMail($data));
         return redirect('/confirmation');
 
     }

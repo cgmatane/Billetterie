@@ -52,7 +52,6 @@ function verifierNom() {
     let valeurNomSepare = valeurNomEntier.split(" ");
 
     if (valeurNomSepare.length !== 2 || !(/^[A-Z\s]*$/.test(valeurNomEntier))) {
-
         afficherErreur(idDivErreurNom,
             "Ce champ doit être composé d'un nom et d'un prénom sans chiffres");
         return false;
@@ -88,7 +87,7 @@ function verifierDateExpiration() {
             "La valeur de l'année saisie est inférieure à l'année actuelle");
         return false;
     }
-    else if (!(valeurAnnee > valeurAnneeActuelle) && valeurMois <= valeurMoisActuelle) {
+    else if (valeurAnnee === valeurAnneeActuelle && valeurMois <= valeurMoisActuelle) {
 
         afficherErreur(idDivErreurDateExpiration,
             "La valeur du mois saisie est inférieure au mois actuel");

@@ -1,18 +1,20 @@
 <?php
 
+
 namespace App\Http\Controllers\Pages;
 
 
 use App\Http\Controllers\PageController;
-use App\Statics\Views\interfaces\parametre\DonneesVueParametre;
+
+use App\Statics\Views\interfaces\administration\DonneesVueNavire;
 use Illuminate\Http\Request;
 
-class ParametreController extends PageController
+class NavireController extends PageController
 {
     public function __construct() {
         parent::__construct();
-        $this->setNomPage('administration/parametre');
-        $this->setDonneesStatiques(new DonneesVueParametre());
+        $this->setNomPage('administration/navire');
+        $this->setDonneesStatiques(new DonneesVueNavire());
     }
 
     protected function setDonneesDynamiques(Request $requete = null)
@@ -24,3 +26,4 @@ class ParametreController extends PageController
     }
 
 }
+

@@ -13,17 +13,16 @@
             </li>
 
             <li class="collapsed {{ (request()->is('administration/trajet')) ? 'active' : '' }}">
-                <a href="{{route('administration.trajet')}}"><i class="fas fa-ship"></i> Trajet</a>
+                <a href="{{route('administration.trajet')}}"><i class="fas fa-route"></i> Trajet</a>
+            </li>
+
+            <li class="collapsed {{ (request()->is('administration/navire')) ? 'active' : '' }}">
+                <a href="{{route('administration.navire')}}"><i class="fas fa-ship"></i> Navire</a>
             </li>
 
 
             <li class="collapsed {{ (request()->is('administration/planification')) ? 'active' : '' }}">
                 <a href="{{route('administration.planification')}}"><i class="fas fa-clock-o"></i> Planification</a>
-            </li>
-
-
-            <li class="collapsed {{ (request()->is('administration/prametres')) ? 'active' : '' }}">
-                <a href="{{route('administration.parametre')}}"><i class="fas fa-cog"></i> Paramètre</a>
             </li>
 
             <li>

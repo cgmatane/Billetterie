@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\PageController;
 
-use App\Statics\Views\interfaces\planification\DonneesVuePlanification;
+use App\Statics\Views\interfaces\administration\DonneesVuePlanification;
 use Illuminate\Http\Request;
 
 class PlanificationController extends PageController

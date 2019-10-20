@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Pages;
 
 
 use App\Http\Controllers\PageController;
-use App\Statics\Views\interfaces\trajet\DonneesVueTrajet;
+use App\Statics\Views\interfaces\administration\DonneesVueTrajet;
 use Illuminate\Http\Request;
 
 class TrajetController extends PageController

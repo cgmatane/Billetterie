@@ -38,9 +38,9 @@ Route::get('/administration/station')->name('administration.station');
 
 Route::get('/administration/trajet')->name('administration.trajet');
 
-Route::get('/administration/planification')->name('administration.planification');
+Route::get('/administration/navire')->name('administration.navire');
 
-Route::get('/administration/parametre')->name('administration.parametre');
+Route::get('/administration/planification')->name('administration.planification');
 
 Route::get('/date')->name('choix_date');
 

@@ -2,13 +2,13 @@
 
 @section('titre')
 
-    {{ $station_titre }}
+    {{ $gestion_titre }}
 
 @endsection
 
 @section('contenu')
 
-    <h1>Gestion des stations</h1>
+    <h1>Gestion des {{ $gestion_type }}s</h1>
 
     <table class="table">
         <thead class="thead-dark">

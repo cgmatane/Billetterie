@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Statics\Views\interfaces\parametre;
+
+namespace App\Statics\Views\interfaces\administration;
 
 use App\Statics\Views\DonneesVue;
 
-class DonneesVueParametre extends DonneesVue
+class DonneesVueNavire extends DonneesVue
 {
     public function __construct()
     {
         parent::__construct();
-        $this->nomVue = 'parametre';
+        $this->nomVue = 'gestion';
         $this->setDonneeVue('titre','Administration');
+        $this->setDonneeVue('type','navire');
 
 
     }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Pages;
 
 
 use App\Http\Controllers\PageController;
-use App\Statics\Views\interfaces\station\DonneesVueStation;
+use App\Statics\Views\interfaces\administration\DonneesVueStation;
 use Illuminate\Http\Request;
 
 class StationController extends PageController

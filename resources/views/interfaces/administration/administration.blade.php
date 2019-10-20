@@ -10,6 +10,10 @@
 
     <h1>Gestion des {{ $gestion_type }}s</h1>
 
+    @foreach($valeurs as $valeur)
+        <p> {{ $valeur->nom }}</p>
+    @endforeach
+
     <table class="table">
         <thead class="thead-dark">
         <tr>
@@ -80,7 +84,7 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                             <button type="submit" class="btn btn-primary">Valider</button>
                         </div>
-                        
+
                     </form>
                 </div>
 

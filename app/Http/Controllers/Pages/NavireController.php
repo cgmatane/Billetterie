@@ -8,6 +8,7 @@ use App\Http\Controllers\PageController;
 
 use App\Statics\Views\interfaces\administration\DonneesVueNavire;
 use Illuminate\Http\Request;
+use App;
 
 class NavireController extends PageController
 {
@@ -20,9 +21,12 @@ class NavireController extends PageController
     protected function setDonneesDynamiques(Request $requete = null)
     {
         $email = $requete->session()->get('utilisateur.email');
+        $valeurs = App\Navire::all();
         $this->donneesDynamiques = [
-            'email'=>$email
+            'email'=>$email,
+            'valeurs'=>$valeurs
         ];
+
     }
 
 }

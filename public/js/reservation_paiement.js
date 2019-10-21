@@ -68,7 +68,7 @@ function verifierDateExpiration() {
     let valeurDateExpiration = document.getElementById('dateExpiration').value;
     let valeurDateExpirationSepare = valeurDateExpiration.split(" ");
 
-    if (valeurDateExpirationSepare.length !== 3) {
+    if (valeurDateExpirationSepare.length !== 3 || valeurDateExpirationSepare[2] !== 4) {
 
         afficherErreur(idDivErreurDateExpiration,
             "Ce champ doit être de la forme : MM / AAAA");

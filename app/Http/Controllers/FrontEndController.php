@@ -48,11 +48,11 @@ class FrontEndController extends Controller
             'reservation_confirmation' => array(new Controllers\ReservationConfirmationController()),
             'connexion' => array(new Controllers\ConnexionController()),
             'vue_generale' => array(new Controllers\VueGeneraleController()),
-            'administration' => array(new Controllers\AdministrationController()),
-            'station' => array(new Controllers\StationController()),
-            'trajet' => array(new Controllers\TrajetController()),
-            'planification' => array(new Controllers\PlanificationController()),
-            'parametre' => array(new Controllers\ParametreController()),
+            'administration' => array(new Controllers\AdministrationController(),
+                new Controllers\StationController(),
+                new Controllers\TrajetController(),
+                new Controllers\PlanificationController(),
+                new Controllers\NavireController()),
             'requete-qr' => array(new Controllers\RequeteQRController()),
             'pdf-facture' => array(new GenerateurPdfController())
             );

@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\PageController;
 
-use App\Statics\Views\interfaces\planification\DonneesVuePlanification;
+use App;
+use App\Statics\Views\interfaces\administration\DonneesVuePlanification;
 use Illuminate\Http\Request;
 
 class PlanificationController extends PageController
@@ -19,8 +20,17 @@ class PlanificationController extends PageController
     protected function setDonneesDynamiques(Request $requete = null)
     {
         $email = $requete->session()->get('utilisateur.email');
+        $valeurs = App\Programmation::all()->sortBy("id_programmation");
         $this->donneesDynamiques = [
-            'email'=>$email
+            'email'=>$email,
+            'valeurs'=>$valeurs,
+            'attributs' => [
+                'id_programmation',
+                'nom',
+                'date_depart',
+                'date_arrivee',
+                'annulation'
+            ]
         ];
     }
 

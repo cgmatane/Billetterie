@@ -17,4 +17,5 @@ class Programmation extends Model
     public function getTickets() {
         return Ticket::where('id_trajet',$this->id_trajet)->get();
     }
+
 }

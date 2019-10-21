@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Pages;
 
-
+use App;
 use App\Http\Controllers\PageController;
-use App\Statics\Views\interfaces\trajet\DonneesVueTrajet;
+use App\Statics\Views\interfaces\administration\DonneesVueTrajet;
 use Illuminate\Http\Request;
 
 class TrajetController extends PageController
@@ -18,8 +18,26 @@ class TrajetController extends PageController
     protected function setDonneesDynamiques(Request $requete = null)
     {
         $email = $requete->session()->get('utilisateur.email');
+        $valeurs = App\Trajet::all()->sortBy("id_trajet");
+        foreach ($valeurs as $valeur){
+            $stationDepart = App\Station::where('id_station', $valeur['id_station_depart'] )->get()->first();
+            $stationArrivee = App\Station::where('id_station', $valeur['id_station_arrivee'] )->get()->first();
+            $valeur['station_depart'] = $stationDepart['nom'];
+            $valeur['station_arrivee'] = $stationArrivee['nom'];
+
+            $navire =  App\Navire::where('id_navire', $valeur['id_navire'] )->get()->first();
+            $valeur['navire'] = $navire['nom'];
+        }
+
         $this->donneesDynamiques = [
-            'email'=>$email
+            'email'=>$email,
+            'valeurs'=>$valeurs,
+            'attributs' => [
+                'id_trajet',
+                'station_depart',
+                'station_arrivee',
+                'navire'
+            ]
         ];
     }
 

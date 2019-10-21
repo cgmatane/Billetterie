@@ -16,8 +16,6 @@ class GenerateurPdfController extends Controller
 
     public function pdfDownload(Request $request)
     {
-
-        $request->session()->put("lenom", $request->name);
         $data =
             [
                 'name' => $request->name,

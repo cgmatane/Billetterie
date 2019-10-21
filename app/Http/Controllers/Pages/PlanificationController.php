@@ -23,7 +23,14 @@ class PlanificationController extends PageController
         $valeurs = App\Programmation::all();
         $this->donneesDynamiques = [
             'email'=>$email,
-            'valeurs'=>$valeurs
+            'valeurs'=>$valeurs,
+            'attributs' => [
+                'id_programmation',
+                'nom',
+                'date_depart',
+                'date_arrivee',
+                'annulation'
+            ]
         ];
     }
 

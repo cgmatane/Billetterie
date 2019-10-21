@@ -24,7 +24,13 @@ class NavireController extends PageController
         $valeurs = App\Navire::all();
         $this->donneesDynamiques = [
             'email'=>$email,
-            'valeurs'=>$valeurs
+            'valeurs'=>$valeurs,
+            'attributs' => [
+                'id_navire',
+                'nom',
+                'nombre_place_pieton',
+                'nombre_place_vehicule'
+            ]
         ];
 
     }

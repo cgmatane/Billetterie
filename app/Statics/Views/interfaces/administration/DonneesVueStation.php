@@ -14,6 +14,12 @@ class DonneesVueStation extends DonneesVue
         $this->nomVue = 'gestion';
         $this->setDonneeVue('titre','Administration');
         $this->setDonneeVue('type','station');
+        $colonnes = [
+            '#',
+            'Nom',
+            'Action'
+        ];
+        $this->setDonneeVue('colonnes',$colonnes);
 
 
     }

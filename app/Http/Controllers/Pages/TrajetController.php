@@ -21,7 +21,13 @@ class TrajetController extends PageController
         $valeurs = App\Trajet::all();
         $this->donneesDynamiques = [
             'email'=>$email,
-            'valeurs'=>$valeurs
+            'valeurs'=>$valeurs,
+            'attributs' => [
+                'id_trajet',
+                'id_station_depart',
+                'id_station_arrivee',
+                'id_navire'
+            ]
         ];
     }
 

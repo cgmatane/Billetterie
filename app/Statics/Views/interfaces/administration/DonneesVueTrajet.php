@@ -12,6 +12,14 @@ class DonneesVueTrajet extends DonneesVue
         $this->nomVue = 'gestion';
         $this->setDonneeVue('titre','Administration');
         $this->setDonneeVue('type','trajet');
+        $colonnes = [
+            '#',
+            'Station départ',
+            'Station arrivé',
+            'Navire',
+            'Action'
+        ];
+        $this->setDonneeVue('colonnes',$colonnes);
 
 
     }

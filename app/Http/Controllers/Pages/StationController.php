@@ -21,7 +21,11 @@ class StationController extends PageController
         $valeurs = App\Station::all();
         $this->donneesDynamiques = [
             'email'=>$email,
-            'valeurs'=>$valeurs
+            'valeurs'=>$valeurs,
+            'attributs' => [
+                'id_station',
+                'nom',
+            ]
         ];
     }
 

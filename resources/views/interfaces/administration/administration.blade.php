@@ -9,38 +9,24 @@
 @section('contenu')
 
     <h1>Gestion des {{ $gestion_type }}s</h1>
-
-    @foreach($valeurs as $valeur)
-        <p> {{ $valeur->nom }}</p>
-    @endforeach
-
     <table class="table">
         <thead class="thead-dark">
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Actions</th>
+            @foreach($gestion_colonnes as $colonne)
+                <th scope="row">{{ $colonne }}</th>
+            @endforeach
         </tr>
         </thead>
         <tbody style="font-size: 1.2em;">
-        <tr>
-            <th scope="row">1</th>
-            <td>Matane</td>
-            <td><a href=""><i class="fas fa-edit mr-3"></i></a><a href=""><i class="fas fa-trash-alt"></i></a></td>
-
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Baie Comeau</td>
-            <td><a href=""><i class="fas fa-edit mr-3"></i></a><a href=""><i class="fas fa-trash-alt"></i></a></td>
-
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Godbou</td>
-            <td><a href=""><i class="fas fa-edit mr-3"></i></a><a href="" data-target="#myModal" data-toggle="modal" ><i class="fas fa-trash-alt"></i></a></td>
-
-        </tr>
+            @foreach($valeurs as $valeur)
+                <tr>
+                    <th scope="row">{{ $valeur[$attributs[0]] }}</th>
+                    @for($i=1; $i< sizeof($attributs) ; $i++ )
+                        <td> {{ $valeur[$attributs[$i]] }}</td>
+                    @endfor
+                    <td><a href=""><i class="fas fa-edit mr-3"></i></a><a data-target="#myModal" data-toggle="modal" href=""><i class="fas fa-trash-alt"></i></a></td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
     <a class="btn btn-primary btn-lg btn-block" data-target="#myModal1" data-toggle="modal" style="color: white; cursor: pointer;">Ajouter {{ $gestion_type }}</a>
@@ -55,7 +41,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Voulez vous vraiment supprimer la station Godbou ?
+                    Voulez-vous vraiment supprimer ?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>

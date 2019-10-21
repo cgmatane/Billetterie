@@ -13,6 +13,14 @@ class DonneesVueNavire extends DonneesVue
         $this->nomVue = 'gestion';
         $this->setDonneeVue('titre','Administration');
         $this->setDonneeVue('type','navire');
+        $colonnes = [
+            '#',
+            'Nom',
+            'Place piéton',
+            'Place vehicule',
+            'Action'
+        ];
+        $this->setDonneeVue('colonnes',$colonnes);
 
 
     }

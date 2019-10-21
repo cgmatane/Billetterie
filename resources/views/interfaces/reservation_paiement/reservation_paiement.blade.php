@@ -30,7 +30,7 @@
                 <div class="alert alert-danger champErreur" id="erreurNumeroCarte" style="display:none">
                     <small class="texteErreur"></small>
                 </div>
-                <input placeholder="nom tel qu'il est inscrit" type="text" name="name" id="nom" class="col-10 m-2">
+                <input placeholder="nom tel qu'il est inscrit" onkeyup="this.value = this.value.toUpperCase();" type="text" name="name" id="nom" class="col-10 m-2">
                 <div class="alert alert-danger champErreur" id="erreurNom" style="display:none">
                     <small class="texteErreur"></small>
                 </div>

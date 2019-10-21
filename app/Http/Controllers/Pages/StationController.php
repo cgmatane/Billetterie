@@ -18,7 +18,7 @@ class StationController extends PageController
     protected function setDonneesDynamiques(Request $requete = null)
     {
         $email = $requete->session()->get('utilisateur.email');
-        $valeurs = App\Station::all();
+        $valeurs = App\Station::all()->sortBy("id_station");
         $this->donneesDynamiques = [
             'email'=>$email,
             'valeurs'=>$valeurs,

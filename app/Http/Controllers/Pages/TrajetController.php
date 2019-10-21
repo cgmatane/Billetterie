@@ -18,7 +18,7 @@ class TrajetController extends PageController
     protected function setDonneesDynamiques(Request $requete = null)
     {
         $email = $requete->session()->get('utilisateur.email');
-        $valeurs = App\Trajet::all();
+        $valeurs = App\Trajet::all()->sortBy("id_trajet");
         $this->donneesDynamiques = [
             'email'=>$email,
             'valeurs'=>$valeurs,

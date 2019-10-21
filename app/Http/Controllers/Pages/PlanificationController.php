@@ -20,7 +20,7 @@ class PlanificationController extends PageController
     protected function setDonneesDynamiques(Request $requete = null)
     {
         $email = $requete->session()->get('utilisateur.email');
-        $valeurs = App\Programmation::all();
+        $valeurs = App\Programmation::all()->sortBy("id_programmation");
         $this->donneesDynamiques = [
             'email'=>$email,
             'valeurs'=>$valeurs,

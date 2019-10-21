@@ -21,7 +21,7 @@ class NavireController extends PageController
     protected function setDonneesDynamiques(Request $requete = null)
     {
         $email = $requete->session()->get('utilisateur.email');
-        $valeurs = App\Navire::all();
+        $valeurs = App\Navire::all()->sortBy("id_navire");
         $this->donneesDynamiques = [
             'email'=>$email,
             'valeurs'=>$valeurs,

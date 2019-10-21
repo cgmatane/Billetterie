@@ -31,7 +31,7 @@ class GenerateurPdfController extends Controller
 
         $pdf = PDF::loadView('pdf-facture', $donnees_pdf);
 
-        return $pdf->download('facture.pdf');
+        return $pdf->stream();
     }
 
 

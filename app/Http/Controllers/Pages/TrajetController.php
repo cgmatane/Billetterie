@@ -24,6 +24,9 @@ class TrajetController extends PageController
             $stationArrivee = App\Station::where('id_station', $valeur['id_station_arrivee'] )->get()->first();
             $valeur['station_depart'] = $stationDepart['nom'];
             $valeur['station_arrivee'] = $stationArrivee['nom'];
+
+            $navire =  App\Navire::where('id_navire', $valeur['id_navire'] )->get()->first();
+            $valeur['navire'] = $navire['nom'];
         }
 
         $this->donneesDynamiques = [
@@ -33,7 +36,7 @@ class TrajetController extends PageController
                 'id_trajet',
                 'station_depart',
                 'station_arrivee',
-                'id_navire'
+                'navire'
             ]
         ];
     }

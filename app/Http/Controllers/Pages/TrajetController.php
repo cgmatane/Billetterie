@@ -19,13 +19,20 @@ class TrajetController extends PageController
     {
         $email = $requete->session()->get('utilisateur.email');
         $valeurs = App\Trajet::all()->sortBy("id_trajet");
+        foreach ($valeurs as $valeur){
+            $stationDepart = App\Station::where('id_station', $valeur['id_station_depart'] )->get()->first();
+            $stationArrivee = App\Station::where('id_station', $valeur['id_station_arrivee'] )->get()->first();
+            $valeur['station_depart'] = $stationDepart['nom'];
+            $valeur['station_arrivee'] = $stationArrivee['nom'];
+        }
+
         $this->donneesDynamiques = [
             'email'=>$email,
             'valeurs'=>$valeurs,
             'attributs' => [
                 'id_trajet',
-                'id_station_depart',
-                'id_station_arrivee',
+                'station_depart',
+                'station_arrivee',
                 'id_navire'
             ]
         ];

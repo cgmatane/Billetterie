@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Pages\ValidationInformationsController;
 use Illuminate\Http\Request;
 use Redirect;
 use PDF;
@@ -26,7 +27,9 @@ class GenerateurPdfController extends Controller
                 'heure' => $request->session()->get('heure'),
                 'type_vehicule' => $request->session()->get('type_vehicule')
             ];
-        $pdf = PDF::loadView('pdf-facture', $data);
+        $donnees_pdf = (new ValidationInformationsController())->getDonnees($request);
+
+        $pdf = PDF::loadView('pdf-facture', $donnees_pdf);
 
         return $pdf->download('facture.pdf');
     }

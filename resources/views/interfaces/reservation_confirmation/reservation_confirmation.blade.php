@@ -16,24 +16,28 @@
         <div class="row text-center justify-content-start">
             <p> {{ $reservation_confirmation_rappel_embarquement }}</p>
         </div>
-        <div class="row text-center justify-content-center">
-            <button type="button" class="btn btn-info m-5 px-5 py-lg-5 py-xs-2" onclick="generer()">
+        <div class="row text-center" style="padding-top: 8%">
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-info" style="padding: 8%;" onclick="generer()">
                     Afficher votre code à scanner </button></a>
         </div>
-        <div class="row text-center justify-content-center" id="contenant-image">
-            <img id="image-code-qr">
-        </div>
 
-        <div class="row text-center justify-content-center">
-            <a href="{{ url('pdf_dl') }}"><button type="button" class="btn btn-info m-5 px-5 py-lg-5 py-xs-2">
+        <div class="col-sm-4">
+            <a href="{{ url('pdf_dl') }}"><button type="button"  style="padding: 8%;" class="btn btn-info">
                     Voir le pdf </button></a>
         </div>
 
-        <div class="row text-center justify-content-center">
+        <div class="col-sm-4">
             <a href="{{ route('index') }}">
-                <button type="button" class="btn btn-danger m-5 px-5 py-lg-5 py-xs-2">
+                <button type="button" class="btn btn-danger" style="padding: 8%;">
                     {{ $global_retour_accueil }}</button>
             </a>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="padding-top: 6%">
+                <h1 class="text-center text-info font-weight-bold mt-4">Merci d'avoir fait confiance à la STQ </h1>
+            </div>
         </div>
     </div>
     @endsection

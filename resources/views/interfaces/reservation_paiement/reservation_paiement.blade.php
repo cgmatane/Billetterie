@@ -36,7 +36,7 @@
                     <small class="texteErreur"></small>
                 </div>
                 <div class="row text-center justify-content-center">
-                    <button type="button" class="btn btn-outline-success my-4 btn-block">
+                    <button type="submit" class="btn btn-outline-success my-4 btn-block">
                         {{ $reservation_paiement_payer }}
                     </button>
                 </div>

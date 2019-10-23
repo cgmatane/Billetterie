@@ -72,7 +72,7 @@
         </div>
     </div>
     <div class="text-center row justify-content-center">
-        <div class="col-sm-6 col-xs-8" style="padding: 0">
+        <div class="col-sm-6 col-xs-8 p-0">
             <div class="col-sm-5 col-xs-12 float-left">
         @component('interfaces.accueil.components.bouton_changer_parametres_depart')
             @slot('route')

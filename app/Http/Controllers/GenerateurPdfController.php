@@ -29,7 +29,7 @@ class GenerateurPdfController extends Controller
             ];
         $donnees_pdf = (new ValidationInformationsController())->getDonnees($request);
 
-        $pdf = PDF::loadView('pdf-facture', $donnees_pdf);
+        $pdf = PDF::loadView('pdf-facture', $donnees_pdf)/*->save('pdf.pdf')*/; // Décommenter pour enregistrer le pdf sur le SERVEUR
 
         return $pdf->stream();
     }

@@ -137,7 +137,7 @@
 
     </div>
     <div class="container-fluid">
-        <div style="width: 100% ;height: 400px; background-color: #002A4D; margin-top: -50px; border-radius: 20px">
+        <div style="width: 100% ;height: 400px; background-color: midnightblue; margin-top: -50px; border-radius: 20px">
             <div class="row">
                 <div style="float: left; margin-left: 5%; margin-top: 55px">
                     @component('global_components.bouton_retour_precedent')

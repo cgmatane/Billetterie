@@ -72,10 +72,12 @@ class FrontEndController extends Controller
         $interface = $contexte['interface'];
         $controleur = $contexte['controleur'];
 
+        /*
         $id_administrateur = Auth::id();
         if (preg_match('/administration\/(?!connexion)/',$nomRoute) && !isset($id_administrateur)){
             return redirect('/administration/connexion');
         }
+        */
 
         return $this->getVue($requete, $interface, $controleur);
     }

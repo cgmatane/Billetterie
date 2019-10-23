@@ -15,12 +15,27 @@
             display:block;
         }
 
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .col {
+            position: relative;
+            display: inline;
+        }
+
+        @media (min-width: 500px) {
+            .container {
+                max-width: 960px;
+            }
+        }
     </style>
 </head>
 <body id="top">
 <h1 class="test-pdf">Facture</h1>
 <div class="row text-center justify-content-right" id="contenant-image">
-    <img id="image-code-qr" src="{{ public_path('/img/logo-stq.png') }}">
+  {{--  <img id="image-code-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=zdzeezdzdzdzd">--}}
 </div>
 @include('interfaces.validation_informations.components.cadre_informations')
 </body>

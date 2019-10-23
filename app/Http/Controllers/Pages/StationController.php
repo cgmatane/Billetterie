@@ -28,5 +28,35 @@ class StationController extends PageController
             ]
         ];
     }
+    public function gererValidation(Request $requete)
+    {
+        switch ($requete->get('submit')){
+            case "ajouter" :
+                $this->gererAjout($requete);
+                break;
+            case "modifier" :
+                dd($requete->get('submit'));
+                break;
+            case "supprimer" :
+                dd($requete->get('submit'));
+                break;
+            default :
+                break;
+        }
+
+
+    }
+
+    private function gererAjout(Request $requete){
+        $station = new App\Station();
+        $station->nom = htmlentities($requete->nom);
+        $station->save();
+    }
+    private function gererModification(Request $requete){
+
+    }
+    private function gererSupression(Request $requete){
+
+    }
 
 }

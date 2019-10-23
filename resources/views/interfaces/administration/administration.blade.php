@@ -24,7 +24,7 @@
                     @for($i=1; $i< sizeof($attributs) ; $i++ )
                         <td> {{ $valeur[$attributs[$i]] }}</td>
                     @endfor
-                    <td><a href=""><i class="fas fa-edit mr-3"></i></a><a data-target="#myModal" data-toggle="modal" href=""><i class="fas fa-trash-alt"></i></a></td>
+                    <td><a href=""><i class="fas fa-edit mr-3"></i></a><a style="color: #3490dc; cursor: pointer;" data-target="#myModal" data-toggle="modal" data-id="{{ $valeur[$attributs[0]] }}"><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
             @endforeach
         </tbody>
@@ -61,14 +61,15 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="post" action="{{ route("administration.station") }}">
+                        {{ csrf_field() }}
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nom {{ $gestion_type }}</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label for="inputNom">Nom {{ $gestion_type }}</label>
+                            <input type="text" name="nom" class="form-control" id="inputNom">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                            <button type="submit" class="btn btn-primary">Valider</button>
+                            <button type="submit" value="ajouter" name="submit" class="btn btn-primary">Valider</button>
                         </div>
 
                     </form>
@@ -77,5 +78,9 @@
             </div>
         </div>
     </div>
+    <script>
+       console.log("$('#myModal').hasClass('in')");
+
+    </script>
 
 @endsection

@@ -8,6 +8,4 @@
 
 @section('contenu')
 
-    test
-
 @endsection

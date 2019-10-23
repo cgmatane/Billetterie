@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Pages;
 
 
 use App\Http\Controllers\PageController;
-use App\Statics\Views\interfaces\choix_liste\pages\DonneesVueChoixDate;
+use App\Statics\Views\interfaces\choix_date\DonneesVueChoixDate;
 use Illuminate\Http\Request;
 
 class ChoixDateController extends PageController

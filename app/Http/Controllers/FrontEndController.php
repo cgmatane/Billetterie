@@ -25,10 +25,8 @@ class FrontEndController extends Controller
 
         $this->routes = array(
             'accueil' => array(new Controllers\AccueilController()),
-            'choix_liste' => array(
-                new Controllers\ChoixDateController(),
-                new Controllers\ChoixDepartController()
-            ),
+            'choix_depart' => array(new Controllers\ChoixDepartController()),
+            'choix_date' => array(new Controllers\ChoixDateController()),
             'choix_deux_options' => array(
                 new Controllers\ReservationChoixVehiculeController(),
                 new Controllers\ReservationChoixRemorqueController(),

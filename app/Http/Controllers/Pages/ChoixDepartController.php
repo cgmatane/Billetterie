@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Pages;
 
 
 use App\Http\Controllers\PageController;
-use App\Statics\Views\interfaces\choix_liste\pages\DonneesVueChoixDepart;
+use App\Statics\Views\interfaces\choix_depart\DonneesVueChoixDepart;
 use Illuminate\Http\Request;
 
 class ChoixDepartController extends PageController

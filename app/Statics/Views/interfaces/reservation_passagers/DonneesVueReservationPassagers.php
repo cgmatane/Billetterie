@@ -23,5 +23,11 @@ class DonneesVueReservationPassagers extends DonneesVue
         $this->setDonneeVue('index_intervalle_age_par_defaut', 1);
         $this->setDonneeVue('ajouter_passager', 'Ajouter un passager');
         $this->setDonneeVue('retirer_passager', 'Retirer un passager');
+        $this->setDonneeVue('infos_matiere_dangereuse_titre', 'Information matières dangereuses');
+        $this->setDonneeVue('infos_matiere_dangereuse', 'Afin de garantir la sécurité des passagers à bord du traversier,
+        il est interdit de transporter des matières dangereuses.');
+        $this->setDonneeVue('infos_animaux_exotiques_titre', 'Information animaux exotiques');
+        $this->setDonneeVue('infos_animaux_exotiques', 'AAfin de garantir la sécurité des passagers à bord du traversier,
+        si vous voyagez avec un animal autre que chat ou chien.');
     }
 }

@@ -107,6 +107,7 @@
                     <label class="form-check-label" for="checkbox">
                         {{$reservation_passagers_confirmation_matieres }}
                     </label>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalMatiereDangereuse">?</button>
                     <div class="alert alert-danger champErreur" style="display:none">
                         <small class="texteErreur"></small>
                     </div>
@@ -125,6 +126,7 @@
                     <label class="form-check-label" for="checkbox2">
                         {{$reservation_passagers_confirmation_animaux }}
                     </label>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalAnimauxExotiques">?</button>
                     <div class="alert alert-danger champErreur" style="display:none">
                         <small class="texteErreur"></small>
                     </div>
@@ -134,7 +136,39 @@
                 {{ $reservation_passagers_paiement}}
             </button>
         </form>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalMatiereDangereuse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ $reservation_passagers_infos_matiere_dangereuse_titre }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{ $reservation_passagers_infos_matiere_dangereuse }}
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="modalAnimauxExotiques" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ $reservation_passagers_infos_animaux_exotiques_titre }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{ $reservation_passagers_infos_animaux_exotiques }}
+                </div>
+            </div>
+        </div>
     </div>
     <div class="container-fluid">
         <div style="width: 100% ;height: 400px; background-color: midnightblue; margin-top: -50px; border-radius: 20px">

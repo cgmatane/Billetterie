@@ -44,9 +44,10 @@
                     XXX {{ $validation_informations_dollar_canadien }}
                 </div>
             </div>
-
+        @isset($imageQR)
+            <img src="{{$imageQR}}" height="20%" width="20%">
+        @endisset
         </div>
-
         <div class="container-fluid border border-secondary mb-2" style="border-radius: 0.5em;">
             <h5>{{ $validation_informations_passagers }}</h5>
             <table class="table table-striped">

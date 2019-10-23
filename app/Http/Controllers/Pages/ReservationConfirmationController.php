@@ -21,6 +21,7 @@ class ReservationConfirmationController extends PageController
         $email = $requete->session()->get('ticket.email');
         $codeQR = $requete->session()->get('ticket.QR');
         $imageQR = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" . $codeQR;
+        $requete->session()->put("ticket.imageQR", $imageQR);
         $this->donneesDynamiques = [
             'email'=>$email,
             'codeQR'=>$codeQR,

@@ -15,19 +15,10 @@ class GenerateurPdfController extends Controller
         return view('pdf_');
     }
 
-    public function pdfDownload(Request $request)
+    public function pdfDownload(Request $requete)
     {
-        $data =
-            [
-                'name' => $request->name,
-                'email' => $request->email,
-                'message' => $request->message,
-                'destination' => $request->session()->get('destination'),
-                'date' => $request->session()->get('date'),
-                'heure' => $request->session()->get('heure'),
-                'type_vehicule' => $request->session()->get('type_vehicule')
-            ];
-        $donnees_pdf = (new ValidationInformationsController())->getDonnees($request);
+        $donnees_pdf = (new ValidationInformationsController())->getDonnees($requete);
+        $donnees_pdf['imageQR'] = $requete->session()->get('ticket.imageQR');
 
         $pdf = PDF::loadView('pdf-facture', $donnees_pdf)/*->save('pdf.pdf')*/; // Décommenter pour enregistrer le pdf sur le SERVEUR
 

@@ -30,6 +30,13 @@
                 max-width: 960px;
             }
         }
+
+        .col-md {
+            /*position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;*/
+        }
     </style>
 </head>
 <body id="top">

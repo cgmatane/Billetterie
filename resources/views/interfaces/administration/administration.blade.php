@@ -41,11 +41,16 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Voulez-vous vraiment supprimer ?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    <a href="" class="btn btn-primary" data-dismiss="modal">Valider</a>
+                    <form method="post" action="{{ route("administration.station") }}">
+                        {{ csrf_field() }}
+                        <label>Voulez-vous vraiment supprimer Matane ?</label>
+                        <input type="text" value="2" name="id" style="visibility: hidden;">
+                        <input type="text" value="no-cascade" name="type" style="visibility: hidden;">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                            <button type="submit" value="supprimer" name="submit" class="btn btn-primary">Valider</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

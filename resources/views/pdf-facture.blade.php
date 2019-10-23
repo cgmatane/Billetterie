@@ -13,6 +13,7 @@
 
         .row {
             display:block;
+            margin-left: 1rem;
         }
 
         .container {
@@ -30,20 +31,10 @@
                 max-width: 960px;
             }
         }
-
-        .col-md {
-            /*position: relative;
-            width: 100%;
-            padding-right: 15px;
-            padding-left: 15px;*/
-        }
     </style>
 </head>
 <body id="top">
 <h1 class="test-pdf">Facture</h1>
-<div class="row text-center justify-content-right" id="contenant-image">
-  {{--  <img id="image-code-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=zdzeezdzdzdzd">--}}
-</div>
 @include('interfaces.validation_informations.components.cadre_informations')
 </body>
 </html>

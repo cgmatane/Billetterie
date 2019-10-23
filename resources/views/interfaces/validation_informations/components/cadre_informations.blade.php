@@ -1,7 +1,7 @@
-<div class="container bg-white text-center shadow-lg mt-3 p-1" style="border-radius: 0.5em;">
+<div class="container bg-white {{--text-center--}} shadow-lg mt-3 p-1" style="border-radius: 0.5em;">
     <div class="m-1">
-        <div class="container-fluid border border-secondary mt-4 mb-2" style="border-radius: 0.5em;">
-            <h5>{{ $validation_informations_traversee }}</h5>
+        <div class="container-fluid border text-justify border-secondary mt-4 mb-2" style="border-radius: 0.5em;">
+            <h5 class="mt-2">{{ $validation_informations_traversee }}</h5>
             <div class="row">
                 <div class="col">
                     {{ $validation_informations_date  }}
@@ -44,12 +44,14 @@
                     XXX {{ $validation_informations_dollar_canadien }}
                 </div>
             </div>
-        @isset($imageQR)
-            <img src="{{$imageQR}}" height="20%" width="20%">
-        @endisset
+            @isset($imageQR)
+                <div class="text-right " style="padding-top: -120px">
+                    <img src="{{$imageQR}}" height="20%" width="20%" class="border border-dark">
+                </div>
+            @endisset
         </div>
         <div class="container-fluid border border-secondary mb-2" style="border-radius: 0.5em;">
-            <h5>{{ $validation_informations_passagers }}</h5>
+            <h5 class="mt-2">{{ $validation_informations_passagers }}</h5>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -77,7 +79,7 @@
         </div>
         @isset($type_vehicule)
             <div class="container-fluid border border-secondary mb-2" style="border-radius: 0.5em;">
-                <h5>{{ $validation_informations_vehicule }}</h5>
+                <h5 class="mt-2">{{ $validation_informations_vehicule }}</h5>
                 <div class="row">
                     <div class="col">
                         {{ $validation_informations_vehicule_soute }}
@@ -102,7 +104,7 @@
         @endisset
 
         <div class="container-fluid border border-secondary mb-2" style="border-radius: 0.5em;">
-            <h5>{{ $validation_informations_vous_contacter }}</h5>
+            <h5 class="mt-2">{{ $validation_informations_vous_contacter }}</h5>
             <div class="row">
                 <div class="col">{{ $validation_informations_courriel }}</div>
                 <div class="col">{{ $email }}</div>

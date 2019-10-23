@@ -109,23 +109,33 @@
     function estChampValide(champ) {
         input = champ.getElementsByTagName('input')[0];
         if (input.type === "checkbox") {
-            return input.checked;
+            valide = input.checked;
         }
-        valide = input.value.length > 0;
+        else {
+            valide = input.value.length > 0;
+        }
         surlignerInput(input, !valide);
         return valide;
     }
 
     function surlignerInput(champ, erreur)
     {
-        let couleur;
-        if (erreur) {
-            couleur = '#fba';
+        if (champ.type === "checkbox") {
+            if (erreur) {
+                champ.parentNode.getElementsByTagName("svg")[0].style.stroke = '#f76';
+            }
+            else {
+                champ.parentNode.getElementsByTagName("svg")[0].style.stroke = '#1b1e21';
+            }
         }
         else {
-            couleur = 'transparent';
+            if (erreur) {
+                champ.style.borderColor = '#fba';
+            }
+            else {
+                champ.style.borderColor = 'transparent';
+            }
         }
-        champ.style.borderColor = couleur;
     }
 
     function setMessageErreurChamp(champ, messageErreur = null) {

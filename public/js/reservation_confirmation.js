@@ -1,16 +1,26 @@
 
-var codeQR ="";
-
-function generer()
+function afficherImageQR()
 {
+    //console.log("Test fonctionnel!");
     image = document.getElementById('image-code-qr');
-    image.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + genererValeur();
+    bouton = document.getElementById('bouton-afficher');
+    if(image.style.visibility != "visible"){
+        image.style.visibility = "visible";
+        bouton.innerHTML = "Masquer votre code à scanner";
+    } else {
+        image.style.visibility = "hidden";
+        bouton.innerHTML = "Afficher votre code à scanner";
+    }
+    
     
     
     
 
 }
 
+
+//Maintenant inutile! Voir le controlleur de ReservationPassagers!
+/*
 function genererValeur(){
     if(codeQR === ""){
         for(var i = 0; i < 7; i++)
@@ -104,3 +114,4 @@ function genererValeur(){
     //console.log(codeQR);
     return codeQR;
 }
+*/

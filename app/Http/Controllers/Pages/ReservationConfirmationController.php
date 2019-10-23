@@ -19,8 +19,12 @@ class ReservationConfirmationController extends PageController
     protected function setDonneesDynamiques(Request $requete = null)
     {
         $email = $requete->session()->get('ticket.email');
+        $codeQR = $requete->session()->get('ticket.QR');
+        $imageQR = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" . $codeQR;
         $this->donneesDynamiques = [
             'email'=>$email,
+            'codeQR'=>$codeQR,
+            'imageQR'=>$imageQR,
         ];
     }
 }

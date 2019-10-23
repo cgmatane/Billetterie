@@ -175,8 +175,16 @@ margin-top: 8rem !important;
     transition-delay: 0.15s;
 }
 
+#image-code-qr{
+   visibility: hidden; 
+   display: block;
+   margin-top: 2%;
+   margin-left: auto;
+   margin-right: auto;
+}
 
- .nav-side-menu {
+
+.nav-side-menu {
      overflow: auto;
      font-family: verdana;
      font-size: 14px;

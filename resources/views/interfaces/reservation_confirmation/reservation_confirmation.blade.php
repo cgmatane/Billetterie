@@ -18,9 +18,12 @@
         </div>
         <div class="row text-center" style="padding-top: 8%">
         <div class="col-sm-4">
-            <button type="button" class="btn btn-info" style="padding: 8%;" onclick="generer()">
-                    Afficher votre code à scanner </button></a>
+            <button id="bouton-afficher" type="button" class="btn btn-info" style="padding: 8%;" onclick="afficherImageQR()">
+                Afficher votre code à scanner
+            </button>
+
         </div>
+        
 
         <div class="col-sm-4">
             <a href="{{ url('pdf_dl') }}"><button type="button"  style="padding: 8%;" class="btn btn-info">
@@ -34,6 +37,7 @@
             </a>
         </div>
         </div>
+        <img id="image-code-qr" src="{{ $imageQR }}" height="20%" width="20%">
         <div class="row">
             <div class="col-12" style="padding-top: 6%">
                 <h1 class="text-center text-info font-weight-bold mt-4">Merci d'avoir fait confiance à la STQ </h1>
@@ -43,5 +47,5 @@
     @endsection
 
     @section('scripts')
-        <script type="text/javascript" src="{{URL::asset('js/generation_qr.js')}}"></script>
+        <script type="text/javascript" src="{{URL::asset('js/reservation_confirmation.js')}}"></script>
 @endsection

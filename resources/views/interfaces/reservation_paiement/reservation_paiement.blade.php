@@ -1,7 +1,6 @@
 @extends('interfaces.index')
 
 @section('contenu')
-    <script src="/js/app.js"></script>
 <body id="top" style="background-color: #d3d3d3">
 <div class="row">
 </div>
@@ -44,7 +43,6 @@
             </div>
         </div>
     </div>
-    <script src="/js/app.js"></script>
     <script>
         var card = new Card({
             form: document.querySelector('form'),

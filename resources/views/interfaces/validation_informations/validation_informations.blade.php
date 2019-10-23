@@ -9,7 +9,7 @@
     @include('interfaces.validation_informations.components.cadre_informations')
 
     <div class="container">
-        <a href="{{ route('reservation_paiement') }}">
+        <a href="{{ route('reservation_paiement') }}" style="text-decoration: none">
             <button type="button" class="btn btn-outline-success my-4 btn-block">
                 {{ $validation_informations_valider_informations_billet }}
             </button>

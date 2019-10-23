@@ -6,13 +6,6 @@
 <div class="row">
 </div>
 <div class="container">
-    <!--
-    <div class="row">
-        <div class="col-12">
-            <h4 class="text-center text-info font-weight-bold m-5">{{ $reservation_paiement_renseigner_informations }}</h4>
-        </div>
-    </div>
-    -->
 
     <div class="row">
         <div class="col-12">
@@ -43,7 +36,7 @@
                     <small class="texteErreur"></small>
                 </div>
                 <div class="row text-center justify-content-center">
-                    <button class="btn btn-success p-4">
+                    <button type="button" class="btn btn-outline-success my-4 btn-block">
                         {{ $reservation_paiement_payer }}
                     </button>
                 </div>

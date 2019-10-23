@@ -16,7 +16,7 @@
             </div>
         </div>
 
-        <div class="row text-center justify-content-center">
+        <div class="row text-center justify-content-center mt-2">
             @component('global_components.bouton_retour_precedent')
                 {{ $global_retour_precedent }}
             @endcomponent

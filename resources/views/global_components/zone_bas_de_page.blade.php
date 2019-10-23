@@ -6,11 +6,9 @@
             @endcomponent
         </div>
         <div class="col" id="zoneDeDroite">
-            <a href="{{ route('index') }}">
-                <button id="boutonRecommencer" type="button" class="btn btn-outline-retour-menu p-3 mb-5"> <i class="fas fa-undo-alt"></i>
-                    {{ $global_retour_au_debut ?? 'Recommencer'}}
-                </button>
-            </a>
+            @component('global_components.bouton_recommencer')
+                {{ $global_retour_au_debut ?? 'Recommencer'}}
+            @endcomponent
         </div>
     </div>
 </div>
@@ -38,7 +36,7 @@
 
     @media screen and (max-width: 768px) {
         #zoneDeDroite {
-            margin-top: 20px;
+            margin-top: 80px;
             display: inline-block;
             float: left;
         }

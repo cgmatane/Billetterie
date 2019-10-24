@@ -31,21 +31,16 @@
                             </button>
                         </div>
                         <div class="vcal-week">
-                            <span>Mon</span>
-                            <span>Tue</span>
-                            <span>Wed</span>
-                            <span>Thu</span>
-                            <span>Fri</span>
-                            <span>Sat</span>
-                            <span>Sun</span>
+                            <span>Lun</span>
+                            <span>Mar</span>
+                            <span>Mer</span>
+                            <span>Jeu</span>
+                            <span>Ven</span>
+                            <span>Sam</span>
+                            <span>Dim</span>
                         </div>
                         <div class="vcal-body" data-calendar-area="month"></div>
                     </div>
-
-                    <p class="demo-picked">
-                        Date picked:
-                        <span data-calendar-label="picked"></span>
-                    </p>
                 </div>
             </div>
 

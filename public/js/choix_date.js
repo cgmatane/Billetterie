@@ -42,7 +42,7 @@ var vanillaCalendar={
                 this.date.setDate(this.date.getDate()+1);this.date.setDate(1),this.date.setMonth(this.date.getMonth()-1),
             this.label.innerHTML=this.monthsAsString(this.date.getMonth())+" "+this.date.getFullYear(),
             this.dateClicked()},monthsAsString:function(t){
-        return["January","Febuary","March","April","May","June","July","August","September","October","November","December"][t]},
+        return["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Decembre"][t]},
     clearCalendar:function(){
         vanillaCalendar.month.innerHTML=""
     },

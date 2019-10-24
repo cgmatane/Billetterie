@@ -23,10 +23,10 @@
             </button>
 
         </div>
-        
+
 
         <div class="col-sm-4">
-            <a href="{{ url('pdf_dl') }}"><button type="button"  style="padding: 8%;" class="btn btn-info">
+            <a href="{{ url('affichage-pdf') }}"><button type="button"  style="padding: 8%;" class="btn btn-info">
                     Voir le pdf </button></a>
         </div>
 

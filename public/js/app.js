@@ -29849,6 +29849,8 @@ __webpack_require__(/*! ./bootstrap.bundle.min */ "./resources/js/bootstrap.bund
 
 __webpack_require__(/*! ./card */ "./resources/js/card.js");
 
+__webpack_require__(/*! ./vanillaCalendar */ "./resources/js/vanillaCalendar.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.bundle.min.js":
@@ -35607,6 +35609,73 @@ function (module, exports) {
 
 /***/ }),
 
+/***/ "./resources/js/vanillaCalendar.js":
+/*!*****************************************!*\
+  !*** ./resources/js/vanillaCalendar.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var vanillaCalendar = {
+  month: document.querySelectorAll('[data-calendar-area="month"]')[0],
+  next: document.querySelectorAll('[data-calendar-toggle="next"]')[0],
+  previous: document.querySelectorAll('[data-calendar-toggle="previous"]')[0],
+  label: document.querySelectorAll('[data-calendar-label="month"]')[0],
+  activeDates: null,
+  date: new Date(),
+  todaysDate: new Date(),
+  init: function init(t) {
+    this.options = t, this.date.setDate(1), this.createMonth(), this.createListeners();
+  },
+  createListeners: function createListeners() {
+    var t = this;
+    this.next.addEventListener("click", function () {
+      t.clearCalendar();
+      var e = t.date.getMonth() + 1;
+      t.date.setMonth(e), t.createMonth();
+    }), this.previous.addEventListener("click", function () {
+      t.clearCalendar();
+      var e = t.date.getMonth() - 1;
+      t.date.setMonth(e), t.createMonth();
+    });
+  },
+  createDay: function createDay(t, e, a) {
+    var n = document.createElement("div"),
+        s = document.createElement("span");
+    s.innerHTML = t, n.className = "vcal-date", n.setAttribute("data-calendar-date", this.date), 1 === t && (n.style.marginLeft = 0 === e ? 6 * 14.28 + "%" : 14.28 * (e - 1) + "%"), this.options.disablePastDays && this.date.getTime() <= this.todaysDate.getTime() - 1 ? n.classList.add("vcal-date--disabled") : (n.classList.add("vcal-date--active"), n.setAttribute("data-calendar-status", "active")), this.date.toString() === this.todaysDate.toString() && n.classList.add("vcal-date--today"), n.appendChild(s), this.month.appendChild(n);
+  },
+  dateClicked: function dateClicked() {
+    var t = this;
+    this.activeDates = document.querySelectorAll('[data-calendar-status="active"]');
+
+    for (var e = 0; e < this.activeDates.length; e++) {
+      this.activeDates[e].addEventListener("click", function (e) {
+        document.querySelectorAll('[data-calendar-label="picked"]')[0].innerHTML = this.dataset.calendarDate, t.removeActiveClass(), this.classList.add("vcal-date--selected");
+      });
+    }
+  },
+  createMonth: function createMonth() {
+    for (var t = this.date.getMonth(); this.date.getMonth() === t;) {
+      this.createDay(this.date.getDate(), this.date.getDay(), this.date.getFullYear()), this.date.setDate(this.date.getDate() + 1);
+    }
+
+    this.date.setDate(1), this.date.setMonth(this.date.getMonth() - 1), this.label.innerHTML = this.monthsAsString(this.date.getMonth()) + " " + this.date.getFullYear(), this.dateClicked();
+  },
+  monthsAsString: function monthsAsString(t) {
+    return ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][t];
+  },
+  clearCalendar: function clearCalendar() {
+    vanillaCalendar.month.innerHTML = "";
+  },
+  removeActiveClass: function removeActiveClass() {
+    for (var t = 0; t < this.activeDates.length; t++) {
+      this.activeDates[t].classList.remove("vcal-date--selected");
+    }
+  }
+};
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -35625,8 +35694,8 @@ function (module, exports) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Billeterie\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Billeterie\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\projet BD\Billeterie\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\projet BD\Billeterie\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

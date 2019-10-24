@@ -72,9 +72,8 @@ function validerFormulaire() {
         setMessageErreurChamp(champ);
     }
     champ = document.getElementById('champTelephone');
-    if (!estChampValide(champ)) {
+    if (!telephoneValide(champ)) {
         erreur = true;
-        setMessageErreurChamp(champ, 'Veuillez saisir un numéro de téléphone');
     }
     else {
         setMessageErreurChamp(champ);
@@ -115,15 +114,12 @@ function nomValide(champ) {
     return false;
 }
 
-function prenomValide(champ) {
+function telephoneValide(champ) {
 
     input = champ.getElementsByTagName('input')[0];
-    if(!(input.value.length > 0)) {
-        setMessageErreurChamp(champ, 'Veuillez saisir un prenom');
-        return false;
-    }
-    if (!(/^[a-zA-Z\s]*$/.test(input.value))) {
-        setMessageErreurChamp(champ, 'Le prenom doit contenir uniquement des lettres');
+
+    if (!(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(input.value))) {
+        setMessageErreurChamp(champ, 'Le numero de telephone est invalide');
         return false;
     }
 

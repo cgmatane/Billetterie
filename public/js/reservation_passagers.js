@@ -54,20 +54,13 @@ function validerFormulaire() {
     //On commence a 1 pour skip le passager vitrine
     for (let i = 1;i<passagers.length;i++) {
         champ = passagers[i].getElementsByClassName('champNom')[0];
-        if (!estChampValide(champ)) {
+        if (!nomValide(champ)) {
             erreur = true;
-            setMessageErreurChamp(champ, 'Veuillez saisir un nom');
         }
-        else {
-            setMessageErreurChamp(champ);
-        }
+
         champ = passagers[i].getElementsByClassName('champPrenom')[0];
-        if (!estChampValide(champ)) {
+        if (!nomValide(champ)) {
             erreur = true;
-            setMessageErreurChamp(champ, 'Veuillez saisir un prénom');
-        }
-        else {
-            setMessageErreurChamp(champ);
         }
     }
     champ = document.getElementById('champCourriel');
@@ -106,10 +99,45 @@ function validerFormulaire() {
     return !erreur;
 }
 
+function nomValide(champ) {
+
+    input = champ.getElementsByTagName('input')[0];
+    if(!(input.value.length > 0)) {
+        setMessageErreurChamp(champ, 'Veuillez saisir un nom');
+        return false;
+    }
+    if (!(/^[a-zA-Z\s]*$/.test(input.value))) {
+        setMessageErreurChamp(champ, 'Le nom doit contenir uniquement des lettres');
+        return false;
+    }
+
+    setMessageErreurChamp(champ);
+    return false;
+}
+
+function prenomValide(champ) {
+
+    input = champ.getElementsByTagName('input')[0];
+    if(!(input.value.length > 0)) {
+        setMessageErreurChamp(champ, 'Veuillez saisir un prenom');
+        return false;
+    }
+    if (!(/^[a-zA-Z\s]*$/.test(input.value))) {
+        setMessageErreurChamp(champ, 'Le prenom doit contenir uniquement des lettres');
+        return false;
+    }
+
+    setMessageErreurChamp(champ);
+    return false;
+}
+
 function estChampValide(champ) {
     input = champ.getElementsByTagName('input')[0];
     if (input.type === "checkbox") {
         valide = input.checked;
+    }
+    else if (input.type === "tel") {
+        valide = input.value.length > 1 && !(/^[a-zA-Z\s]*$/.test(input.value));
     }
     else {
         valide = input.value.length > 1 && (/^[a-zA-Z\s]*$/.test(input.value));

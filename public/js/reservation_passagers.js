@@ -17,7 +17,6 @@ function onLoad() {
 
 function ajouterPassager() {
     increment++;
-
     if (increment === 2) {
         boutonMoins.style.display = "inline-block";
     }
@@ -31,6 +30,7 @@ function ajouterPassager() {
     clonePassager.getElementsByClassName('champAge')[0].id += separateur + increment;
     clonePassager.getElementsByClassName('champAge')[0].getElementsByTagName('select')[0].name = "age[]";
     clonePassager.style.display = "block";
+
     divPassagers.appendChild(clonePassager);
 
 }
@@ -48,54 +48,102 @@ function supprimerPassager() {
 }
 
 function validerFormulaire() {
-
-    let erreurNom = validerNom();
-    let erreurPrenom = validerPrenom();
-
-    return true;
-}
-
-function validerNom() {
-
-    let valeurNom = document.getElementById('valeurNom').value;
-
-    if (!valeurNom || !contientUniquementLettres(valeurNom)) {
-
-        afficherErreur("erreurNom", "Le nom doit contenir au moins deux lettres et pas de chiffres");
-        return false;
+    let erreur = false;
+    let passagers = document.getElementsByClassName("passager");
+    let champ;
+    //On commence a 1 pour skip le passager vitrine
+    for (let i = 1;i<passagers.length;i++) {
+        champ = passagers[i].getElementsByClassName('champNom')[0];
+        if (!estChampValide(champ)) {
+            erreur = true;
+            setMessageErreurChamp(champ, 'Veuillez saisir un nom');
+        }
+        else {
+            setMessageErreurChamp(champ);
+        }
+        champ = passagers[i].getElementsByClassName('champPrenom')[0];
+        if (!estChampValide(champ)) {
+            erreur = true;
+            setMessageErreurChamp(champ, 'Veuillez saisir un prénom');
+        }
+        else {
+            setMessageErreurChamp(champ);
+        }
+    }
+    champ = document.getElementById('champCourriel');
+    if (!estChampValide(champ)) {
+        erreur = true;
+        setMessageErreurChamp(champ, 'Veuillez saisir un courriel');
+    }
+    else {
+        setMessageErreurChamp(champ);
+    }
+    champ = document.getElementById('champTelephone');
+    if (!estChampValide(champ)) {
+        erreur = true;
+        setMessageErreurChamp(champ, 'Veuillez saisir un numéro de téléphone');
+    }
+    else {
+        setMessageErreurChamp(champ);
+    }
+    champ = document.getElementById('checkboxMatieres');
+    if (!estChampValide(champ)) {
+        erreur = true;
+        setMessageErreurChamp(champ, 'Vous devez confirmer que vous ne transportez pas de matériaux dangereux pour continuer');
+    }
+    else {
+        setMessageErreurChamp(champ);
+    }
+    champ = document.getElementById('checkboxAnimaux');
+    if (!estChampValide(champ)) {
+        erreur = true;
+        setMessageErreurChamp(champ, 'Vous devez confirmer que vous ne voyagez pas avec des animaux exotiques pour continuer');
+    }
+    else {
+        setMessageErreurChamp(champ);
     }
 
-    return true;
+    return !erreur;
 }
 
-function validerPrenom() {
-
-    let valeurPrenom = document.getElementById('valeurPrenom').value;
-
-    if (!valeurPrenom || !contientUniquementLettres(valeurPrenom)) {
-
-        afficherErreur("erreurPrenom", "Le nom doit contenir au moins deux lettres et pas de chiffres");
-        return false;
+function estChampValide(champ) {
+    input = champ.getElementsByTagName('input')[0];
+    if (input.type === "checkbox") {
+        valide = input.checked;
     }
-
-    return true;
+    else {
+        valide = input.value.length > 1 && (/^[a-zA-Z\s]*$/.test(input.value));
+    }
+    surlignerInput(input, !valide);
+    return valide;
 }
 
-function contientUniquementLettres(texte) {
-    var lettres = /^[A-Za-z]+$/;
-    if(texte.value.match(lettres))
-        return true;
-    else
-        return false;
+function surlignerInput(champ, erreur)
+{
+    if (champ.type === "checkbox") {
+        if (erreur) {
+            champ.parentNode.getElementsByTagName("svg")[0].style.stroke = '#f76';
+        }
+        else {
+            champ.parentNode.getElementsByTagName("svg")[0].style.stroke = '#1b1e21';
+        }
+    }
+    else {
+        if (erreur) {
+            champ.style.borderColor = '#fba';
+        }
+        else {
+            champ.style.borderColor = 'transparent';
+        }
+    }
 }
 
-function afficherErreur(idDuDiv, messageErreur) {
-
-    document.getElementById(idDuDiv).style.display = "block";
-    document.getElementById(idDuDiv).innerHTML = messageErreur;
-}
-
-function effacerErreur(idDuDiv) {
-
-    document.getElementById(idDuDiv).style.display = "none";
+function setMessageErreurChamp(champ, messageErreur = null) {
+    if (messageErreur == null) {
+        champ.getElementsByClassName('champErreur')[0].style.display = "none";
+        champ.getElementsByClassName('texteErreur')[0].innerHTML = '';
+        return;
+    }
+    champ.getElementsByClassName('champErreur')[0].style.display = "block";
+    champ.getElementsByClassName('texteErreur')[0].innerHTML = messageErreur;
 }

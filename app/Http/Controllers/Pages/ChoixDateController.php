@@ -18,8 +18,50 @@ class ChoixDateController extends PageController
 
     public function gererValidation(Request $requete)
     {
-        $jour = $requete->input('date');
-        $requete->session()->put('ticket.date', $jour);
+        $date = $requete->input('date');
+        $tabDate = explode(" ", $date);
+        $mois = $tabDate[1];
+        switch ($mois) {
+            case "Jan":
+                $mois = "Janvier";
+                break;
+            case "Feb":
+                $mois = "Fevrier";
+                break;
+            case "Mar":
+                $mois = "Mars";
+                break;
+            case "Apr":
+                $mois = "Avril";
+                break;
+            case "May":
+                $mois = "Mai";
+                break;
+            case "Jun":
+                $mois = "Juin";
+                break;
+            case "Jul":
+                $mois = "Juillet";
+                break;
+            case "Aug":
+                $mois = "Août";
+                break;
+            case "Sep":
+                $mois = "Septembre";
+                break;
+            case "Oct":
+                $mois = "Octobre";
+                break;
+            case "Nov":
+                $mois = "Novembre";
+                break;
+            case "Dec":
+                $mois = "Decembre";
+                break;
+        }
+        $jour = $tabDate[2];
+        $dateDepart = $jour.(" ").$mois;
+        $requete->session()->put('ticket.date', $dateDepart);
         return redirect(route('index'));
     }
 

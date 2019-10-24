@@ -23,6 +23,9 @@ class Trajet extends Model
     }
 
     public function getProgrammations() {
-        return Programmation::where('id_trajet',$this->id_trajet)->get();
+        return Programmation::where('id_trajet',$this->id_trajet)->get()->all();
+    }
+    public function getDependances(){
+        return Programmation::where('id_trajet',$this->id_trajet)->get()->all();
     }
 }

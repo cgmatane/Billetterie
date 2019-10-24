@@ -12,10 +12,16 @@ class Station extends Model
     public $timestamps = false;
 
     public function getTrajetsPartantDeStation() {
-        return Trajet::where('id_station_depart', $this->id_station)->get();
+        return Trajet::where('id_station_depart', $this->id_station)->get()->all();
     }
 
     public function getTrajetsArrivantAStation() {
-        return Trajet::where('id_station_arrivee', $this->id_station)->get();
+        return Trajet::where('id_station_arrivee', $this->id_station)->get()->all();
     }
+
+    public function getDependances(){
+        return Trajet::where('id_station_arrivee', $this->id_station)->orWhere('id_station_depart', $this->id_station)->get()->all();
+    }
+
+
 }

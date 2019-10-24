@@ -13,4 +13,7 @@ class Navire extends Model
     public function getTrajets() {
         return Trajet::where('id_navire',$this->id_navire)->get();
     }
+    public function getDependances(){
+        return Trajet::where('id_navire',$this->id_navire)->get();
+    }
 }

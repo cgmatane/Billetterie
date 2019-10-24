@@ -8,6 +8,15 @@
 
 @section('contenu')
 
+
+    @if($messages = \Illuminate\Support\Facades\Session::get('cascades'))
+        @foreach($messages as $message)
+            @if($message)
+                <strong>{{$message}}</strong>
+            @endif
+        @endforeach
+    @endif
+
     <h1>Gestion des {{ $gestion_type }}s</h1>
     <table class="table">
         <thead class="thead-dark">
@@ -44,7 +53,7 @@
                     <form method="post" action="{{ route("administration.station") }}">
                         {{ csrf_field() }}
                         <label>Voulez-vous vraiment supprimer Matane ?</label>
-                        <input type="text" value="2" name="id" style="visibility: hidden;">
+                        <input type="text" value="6" name="id" style="visibility: hidden;">
                         <input type="text" value="no-cascade" name="type" style="visibility: hidden;">
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>

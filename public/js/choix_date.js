@@ -33,7 +33,7 @@ var vanillaCalendar={
     {
         var t=this;this.activeDates=document.querySelectorAll('[data-calendar-status="active"]');
         for(var e=0;e<this.activeDates.length;e++)
-            this.activeDates[e].addEventListener("click",function(e){document.querySelectorAll('[data-calendar-label="picked"]')[0].innerHTML=this.dataset.calendarDate,
+            this.activeDates[e].addEventListener("click",function(e){window.location = '/date?date=' + this.dataset.calendarDate,
                 t.removeActiveClass(),
                 this.classList.add("vcal-date--selected")})},
     createMonth:function(){
@@ -50,3 +50,8 @@ var vanillaCalendar={
         for(var t=0;t<this.activeDates.length;t++)this.activeDates[t].classList.remove("vcal-date--selected")
     }
 };
+window.addEventListener('load', function () {
+    vanillaCalendar.init({
+        disablePastDays: true
+    });
+})

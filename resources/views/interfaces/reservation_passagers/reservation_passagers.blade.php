@@ -20,18 +20,18 @@
                     <div class="row p-0 m-2">
                         <div class="col-sm px-0">
                             <div class="form-group champNom" id="champNom">
-                                <input type="text" class="form-control" style="border-width:medium"
+                                <input type="text" id="valeurNom" class="form-control" style="border-width:medium"
                                        placeholder="{{ $reservation_passagers_nom }}">
-                                <div class="alert alert-danger champErreur" style="display:none">
+                                <div class="alert alert-danger champErreur" id="erreurNom" style="display:none">
                                     <small class="texteErreur"></small>
-                                </div>
+                                 </div>
                             </div>
                         </div>
                         <div class="col-sm px-0">
                             <div class="form-group champPrenom" id="champPrenom">
-                                <input type="text" class="form-control"
+                                <input type="text" id="valeurPrenom" class="form-control"
                                        style="border-width:medium" placeholder="{{ $reservation_passagers_prenom }}">
-                                <div class="alert alert-danger champErreur" style="display:none">
+                                <div class="alert alert-danger champErreur" id="erreurPrenom" style="display:none">
                                     <small class="texteErreur"></small>
                                 </div>
                             </div>
@@ -71,9 +71,9 @@
                 <div class="row">
                     <div class="form-group col" id="champCourriel">
                         <input name="email" type="email" class="form-control"
-                               style="border-width:medium"
+                               style="border-width:medium" id="valeurCourriel"
                                placeholder="{{ $reservation_passagers_courriel }}">
-                        <div class="alert alert-danger champErreur" style="display:none">
+                        <div class="alert alert-danger champErreur" id="erreurCourriel" style="display:none">
                             <small class="texteErreur"></small>
                         </div>
                     </div>
@@ -81,10 +81,10 @@
                 <div class="row">
                     <div class="form-group col" id="champTelephone">
                         <input name="numero" type="tel" class="form-control"
-                               style="border-width:medium"
+                               style="border-width:medium" id="valeurTelephone"
                                placeholder="{{ $reservation_passagers_numero }}"
                                aria-describedby="defaultRegisterFormPhoneHelpBlock">
-                        <div class="alert alert-danger champErreur" style="display:none">
+                        <div class="alert alert-danger champErreur" id="erreurTelephone" style="display:none">
                             <small class="texteErreur"></small>
                         </div>
                         <small class="form-text text-muted mb-4">

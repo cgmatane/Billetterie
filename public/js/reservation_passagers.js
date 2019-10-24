@@ -48,9 +48,11 @@ function supprimerPassager() {
 }
 
 function validerFormulaire() {
-    let valeurPrenom = document.getElementById('valeurPrenom');
-    validerNom();
-    return false;
+
+    let erreurNom = validerNom();
+    let erreurPrenom = validerPrenom();
+
+    return true;
 }
 
 function validerNom() {

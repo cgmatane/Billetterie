@@ -60,6 +60,12 @@ class ChoixDateController extends PageController
                 break;
         }
         $jour = $tabDate[2];
+        
+
+
+
+
+
         $dateDepart = $jour.(" ").$mois;
         $requete->session()->put('ticket.date', $dateDepart);
         return redirect(route('index'));

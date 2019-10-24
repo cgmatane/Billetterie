@@ -24,6 +24,7 @@ class SendEmailController extends Controller
         $heure = $requete->session()->get('ticket.heure');
         $depart = $requete->session()->get('ticket.depart');
         $destination = $requete->session()->get('ticket.destination');
+        $qr = $requete->session()->get('ticket.codeQR');
 
         $data = array(
             'nom'      => $nom ,
@@ -31,7 +32,8 @@ class SendEmailController extends Controller
             'date'      => $date,
             'heure'      => $heure,
             'depart'      => $depart,
-            'destination'      => $destination
+            'destination'      => $destination,
+            'qr'      => $qr
             //'message'   =>   $request->message
         );
 

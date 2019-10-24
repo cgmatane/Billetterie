@@ -28,7 +28,7 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->from('confirmation@stq.com')->subject('Confirmation reservation billet STQ')->view('dynamic_email_template')->with('data', $this->data)->attach("/public/tickets/ticket_");
+        return $this->from('confirmation@stq.com')->subject('Confirmation reservation billet STQ')->view('dynamic_email_template')->with('data', $this->data)->attach($this->data['emplacementPdf']);
     }
 }
 

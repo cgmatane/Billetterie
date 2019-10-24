@@ -26,7 +26,7 @@
 
 
         <div class="col-sm-4">
-            <a href="{{ url('affichage-pdf') }}"><button type="button"  style="padding: 8%;" class="btn btn-info">
+            <a href="{{ url('/tickets/ticket_'.$codeQR.'.pdf') }}"><button type="button"  style="padding: 8%;" class="btn btn-info">
                     Voir le pdf </button></a>
         </div>
 

@@ -24,7 +24,7 @@ Route::get('/administration', function() {
 
 Route::get('/sendemail/envoie', 'SendEmailController@send')->name('envoieEmail');
 
-Route::get('affichage-pdf', 'GenerateurPdfController@pdfDownload');
+Route::get('affichage-pdf', 'GenerateurPdfController@creerPdf');
 
 Route::match(array('GET', 'POST'),'/{nomRoute?}', ['uses' => 'FrontEndController@manager'])->name('manager')->where('nomRoute','.*');
 

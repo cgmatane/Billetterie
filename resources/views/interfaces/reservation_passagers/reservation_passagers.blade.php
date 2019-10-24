@@ -70,7 +70,7 @@
             <fieldset class="mt-3">
                 <div class="row">
                     <div class="form-group col" id="champCourriel">
-                        <input name="email" type="email" class="form-control"
+                        <input name="email" type="text" class="form-control"
                                style="border-width:medium" id="valeurCourriel"
                                placeholder="{{ $reservation_passagers_courriel }}">
                         <div class="alert alert-danger champErreur" id="erreurCourriel" style="display:none">

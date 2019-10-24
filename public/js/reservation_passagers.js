@@ -64,9 +64,8 @@ function validerFormulaire() {
         }
     }
     champ = document.getElementById('champCourriel');
-    if (!estChampValide(champ)) {
+    if (!mailValide(champ)) {
         erreur = true;
-        setMessageErreurChamp(champ, 'Veuillez saisir un courriel');
     }
     else {
         setMessageErreurChamp(champ);
@@ -102,16 +101,21 @@ function nomValide(champ) {
 
     input = champ.getElementsByTagName('input')[0];
     if(!(input.value.length > 0)) {
+
+        surlignerInput(input, true);
         setMessageErreurChamp(champ, 'Veuillez saisir un nom');
         return false;
     }
     if (!(/^[a-zA-Z\s]*$/.test(input.value))) {
+
+        surlignerInput(input, true);
         setMessageErreurChamp(champ, 'Le nom doit contenir uniquement des lettres');
         return false;
     }
 
+    surlignerInput(input, false);
     setMessageErreurChamp(champ);
-    return false;
+    return true;
 }
 
 function telephoneValide(champ) {
@@ -119,24 +123,37 @@ function telephoneValide(champ) {
     input = champ.getElementsByTagName('input')[0];
 
     if (!(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(input.value))) {
+
+        surlignerInput(input, true);
         setMessageErreurChamp(champ, 'Le numero de telephone est invalide');
         return false;
     }
 
+    surlignerInput(input, false);
     setMessageErreurChamp(champ);
-    return false;
+    return true;
+}
+
+function mailValide(champ) {
+
+    input = champ.getElementsByTagName('input')[0];
+
+    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(input.value))) {
+
+        surlignerInput(input, true);
+        setMessageErreurChamp(champ, 'Le mail est invalide');
+        return false;
+    }
+
+    surlignerInput(input, false);
+    setMessageErreurChamp(champ);
+    return true;
 }
 
 function estChampValide(champ) {
     input = champ.getElementsByTagName('input')[0];
     if (input.type === "checkbox") {
         valide = input.checked;
-    }
-    else if (input.type === "tel") {
-        valide = input.value.length > 1 && !(/^[a-zA-Z\s]*$/.test(input.value));
-    }
-    else {
-        valide = input.value.length > 1 && (/^[a-zA-Z\s]*$/.test(input.value));
     }
     surlignerInput(input, !valide);
     return valide;

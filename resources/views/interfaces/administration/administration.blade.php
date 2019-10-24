@@ -23,6 +23,42 @@
             @endforeach
         @endif
 
+        <div class="modal" id="myModal11" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Ajouter</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="{{ route("administration.station") }}">
+                            {{ csrf_field() }}
+                            <div class="form-group">
+                                <label for="inputNom">Nom</label>
+                                <input type="text" name="nom" class="form-control" id="inputNom">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                <button type="submit" value="ajouter" name="submit" class="btn btn-primary">Valider</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            window.onload = function () {
+                document.getElementById("myModal11").showModal();
+            }
+
+        </script>
+
     @endif
 
     <h1>Gestion des {{ $gestion_type }}s</h1>
@@ -41,7 +77,7 @@
                     @for($i=1; $i< sizeof($attributs) ; $i++ )
                         <td> {{ $valeur[$attributs[$i]] }}</td>
                     @endfor
-                    <td><a href=""><i class="fas fa-edit mr-3"></i></a><a style="color: #3490dc; cursor: pointer;" data-target="#myModal" data-toggle="modal" class="open-supprimer" data-id="{{ $valeur[$attributs[0]] }}"><i class="fas fa-trash-alt"></i></a></td>
+                    <td><a href=""><i class="fas fa-edit mr-3"></i></a><a style="color: #3490dc; cursor: pointer;" data-target="#myModal" data-toggle="modal" class="open-supprimer" data-id="{{$valeur[$attributs[0]] }}"><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
             @endforeach
         </tbody>
@@ -60,7 +96,8 @@
                 <div class="modal-body body-supprimer">
                     <form method="post" action="{{ route("administration.station") }}">
                         {{ csrf_field() }}
-                        <label>Voulez-vous vraiment supprimer Matane ?</label>
+                        <label>Voulez-vous vraiment supprimer ce champ ?</label>
+                        <div class="alert alert-primary" id="supprimer-texte" role="alert"></div>
                         <input type="text" name="id" id="supprimer-id" style="visibility: hidden;">
                         <input type="text" value="no-cascade" name="type" style="visibility: hidden;">
                         <div class="modal-footer">
@@ -107,6 +144,7 @@
             link.addEventListener("click", function() {
                 var id = link.getAttribute('data-id');
                 document.getElementById("supprimer-id").value = id;
+                document.getElementById("supprimer-texte").innerHTML = "Champ : #"+id;
             })
         })
 

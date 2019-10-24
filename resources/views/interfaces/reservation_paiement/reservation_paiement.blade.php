@@ -17,7 +17,7 @@
         <div class="form-container active justify-content-around col-md-6 col-sm-12">
             <div class="row text-center">
             <form onsubmit="return verifierFormulaire()" action="{{ route('envoieEmail') }}">
-                <h5>Veuillez renseigner vos informations</h5>
+                <h5>{{ $reservation_paiement_renseigner_informations }}</h5>
                 <input placeholder="numéro de carte" type="tel" name="number" id="numeroCarte" class="col-10 m-2">
                 <div class="alert alert-danger champErreur" id="erreurNumeroCarte" style="display:none">
                     <small class="texteErreur"></small>

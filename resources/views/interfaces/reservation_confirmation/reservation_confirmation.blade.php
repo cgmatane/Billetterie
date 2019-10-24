@@ -16,19 +16,6 @@
         <div class="row text-center justify-content-start">
             <p> {{ $reservation_confirmation_rappel_embarquement }}</p>
         </div>
-        <div class="row text-center" style="padding-top: 8%">
-        <div class="col-sm-4">
-            <button id="bouton-afficher" type="button" class="btn btn-info" style="padding: 8%;" onclick="afficherImageQR()">
-                Afficher votre code à scanner
-            </button>
-
-        </div>
-
-
-        <div class="col-sm-4">
-            <a href="{{ url('/tickets/ticket_'.$codeQR.'.pdf') }}"><button type="button"  style="padding: 8%;" class="btn btn-info">
-                    Voir le pdf </button></a>
-        </div>
 
         <div class="col-sm-4">
             <a href="{{ route('index') }}">
@@ -40,7 +27,7 @@
         <img id="image-code-qr" src="{{ $imageQR }}" height="20%" width="20%">
         <div class="row">
             <div class="col-12" style="padding-top: 6%">
-                <h1 class="text-center text-info font-weight-bold mt-4">Merci d'avoir fait confiance à la STQ </h1>
+                <h1 class="text-center text-info font-weight-bold mt-4"> {{ $reservation_confirmation_remerciement }} </h1>
             </div>
         </div>
     </div>

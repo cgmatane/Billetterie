@@ -1,3 +1,4 @@
+
 @extends('interfaces.index')
 
 @section('contenu')

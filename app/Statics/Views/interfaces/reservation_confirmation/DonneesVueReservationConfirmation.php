@@ -14,5 +14,6 @@ class DonneesVueReservationConfirmation extends DonneesVue
         $this->setDonneeVue('billet_email','Votre billet a été envoyé à ');
         $this->setDonneeVue('consulter_billet','Vous pourrez également les consulter depuis cette page ultérieurement.');
         $this->setDonneeVue('rappel_embarquement','N\'oubliez pas de vous présenter à l\'embarquement 15 minutes avant l\'heure inscrite sur vos billets.');
+        $this->setDonneeVue('remerciement','Merci d avoir fait confiance à la STQ !');
     }
 }

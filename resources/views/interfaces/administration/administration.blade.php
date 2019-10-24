@@ -61,7 +61,7 @@
                     <form method="post" action="{{ route("administration.station") }}">
                         {{ csrf_field() }}
                         <label>Voulez-vous vraiment supprimer Matane ?</label>
-                        <input type="text" value="1" name="id" id="supprimer-id" style="visibility: hidden;">
+                        <input type="text" name="id" id="supprimer-id" style="visibility: hidden;">
                         <input type="text" value="no-cascade" name="type" style="visibility: hidden;">
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
@@ -105,20 +105,11 @@
         links = document.getElementsByClassName("open-supprimer");
         [].forEach.call(links, function(link) {
             link.addEventListener("click", function() {
-                //document.getElementById("text").innerText = "GeeksforGeeks";
                 var id = link.getAttribute('data-id');
-                console.log(id);
+                document.getElementById("supprimer-id").value = id;
             })
         })
-        
-        //$(document).on("click", ".open-supprimer", function () {
-           // var myBookId = $(this).data('id');
-            //console.log(myBookId);
-            //$(".body-supprimer #supprimer-id").val( myBookId );
-            // As pointed out in comments,
-            // it is unnecessary to have to manually call the modal.
-            // $('#addBookDialog').modal('show');
-        //});
+
 
     </script>
 

@@ -20,7 +20,6 @@
                             </button>
 
                             <div class="vcal-header__label" data-calendar-label="month">
-                                March 2017
                             </div>
 
 
@@ -31,13 +30,13 @@
                             </button>
                         </div>
                         <div class="vcal-week">
-                            <span>Lun</span>
-                            <span>Mar</span>
-                            <span>Mer</span>
-                            <span>Jeu</span>
-                            <span>Ven</span>
-                            <span>Sam</span>
-                            <span>Dim</span>
+                            <span>{{ $choix_date_lundi }}</span>
+                            <span>{{ $choix_date_mardi }}</span>
+                            <span>{{ $choix_date_mercredi }}</span>
+                            <span>{{ $choix_date_jeudi }}</span>
+                            <span>{{ $choix_date_vendredi }}</span>
+                            <span>{{ $choix_date_samedi }}</span>
+                            <span>{{ $choix_date_dimanche }}</span>
                         </div>
                         <div class="vcal-body" data-calendar-area="month"></div>
                     </div>

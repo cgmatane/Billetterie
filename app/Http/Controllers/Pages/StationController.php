@@ -39,9 +39,14 @@ class StationController extends PageController
                 dd($requete->get('submit'));
                 break;
             case "supprimer" :
-                if ($this->gererSupression($requete)){
+                if (!$tableauVue = $this->gererSupression($requete)){
+                    //dd("true");
                     return back();
+                }else{
+                    //dd($tableauVue);
+                    return back()->with('cascades',$tableauVue);
                 }
+
                 break;
             default :
                 break;
@@ -71,12 +76,10 @@ class StationController extends PageController
                 }
                 if (!$trajets && !$planifications){
                     $station->delete();
-                    return true;
+                    return null;
                 }else{
-                    return false;
+                    return $this->creerTableauPourVue($trajets,$planifications,$station);
                 }
-
-                //return back()->with('cascades',$tableauVue);
                 break;
             case "cascade" :
                 break;
@@ -84,6 +87,15 @@ class StationController extends PageController
                 break;
 
         }
+    }
+
+    private function creerTableauPourVue($trajets,$planifications,$station){
+        return $tableauVue = [
+            "trajets" => $trajets,
+            "planifications" => $planifications,
+            "id" => $station->id,
+        ];
+
     }
 
 

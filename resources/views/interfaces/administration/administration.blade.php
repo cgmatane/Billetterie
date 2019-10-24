@@ -10,11 +10,19 @@
 
 
     @if($messages = \Illuminate\Support\Facades\Session::get('cascades'))
-        @foreach($messages as $message)
-            @if($message)
-                <strong>{{$message}}</strong>
-            @endif
-        @endforeach
+        @if($messages["trajets"])
+            @foreach($messages["trajets"] as $message)
+                <strong>{{$message->id_trajet}}</strong>
+            @endforeach
+            <br>
+        @endif
+
+        @if($messages["planifications"])
+            @foreach($messages["planifications"] as $message)
+                <strong>{{$message->id_programation}}</strong>
+            @endforeach
+        @endif
+
     @endif
 
     <h1>Gestion des {{ $gestion_type }}s</h1>
@@ -33,7 +41,7 @@
                     @for($i=1; $i< sizeof($attributs) ; $i++ )
                         <td> {{ $valeur[$attributs[$i]] }}</td>
                     @endfor
-                    <td><a href=""><i class="fas fa-edit mr-3"></i></a><a style="color: #3490dc; cursor: pointer;" data-target="#myModal" data-toggle="modal" data-id="{{ $valeur[$attributs[0]] }}"><i class="fas fa-trash-alt"></i></a></td>
+                    <td><a href=""><i class="fas fa-edit mr-3"></i></a><a style="color: #3490dc; cursor: pointer;" data-target="#myModal" data-toggle="modal" class="open-supprimer" data-id="{{ $valeur[$attributs[0]] }}"><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
             @endforeach
         </tbody>
@@ -49,11 +57,11 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body body-supprimer">
                     <form method="post" action="{{ route("administration.station") }}">
                         {{ csrf_field() }}
                         <label>Voulez-vous vraiment supprimer Matane ?</label>
-                        <input type="text" value="6" name="id" style="visibility: hidden;">
+                        <input type="text" value="1" name="id" id="supprimer-id" style="visibility: hidden;">
                         <input type="text" value="no-cascade" name="type" style="visibility: hidden;">
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
@@ -93,7 +101,24 @@
         </div>
     </div>
     <script>
-       console.log("$('#myModal').hasClass('in')");
+
+        links = document.getElementsByClassName("open-supprimer");
+        [].forEach.call(links, function(link) {
+            link.addEventListener("click", function() {
+                //document.getElementById("text").innerText = "GeeksforGeeks";
+                var id = link.getAttribute('data-id');
+                console.log(id);
+            })
+        })
+        
+        //$(document).on("click", ".open-supprimer", function () {
+           // var myBookId = $(this).data('id');
+            //console.log(myBookId);
+            //$(".body-supprimer #supprimer-id").val( myBookId );
+            // As pointed out in comments,
+            // it is unnecessary to have to manually call the modal.
+            // $('#addBookDialog').modal('show');
+        //});
 
     </script>
 

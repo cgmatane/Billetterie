@@ -29,7 +29,7 @@ class ReservationPassagersController extends PageController
         ]);
         $codeQR = "";
         for($i = 0; $i < 7; $i++){
-            $chiffreAleatoire = rand(0,26);
+            $chiffreAleatoire = rand(1,26);
             switch($chiffreAleatoire) {
                 case 1:
                     $codeQR .= 'A';
@@ -111,7 +111,7 @@ class ReservationPassagersController extends PageController
                 break;
             }
         }
-        
+
         $requete->session()->put('ticket.QR', $codeQR);
         $requete->session()->put('ticket.noms', $validatedData['nom']);
         $requete->session()->put('ticket.prenoms', $validatedData['prenom']);

@@ -24,10 +24,15 @@ var vanillaCalendar = {
     createDay: function (t, e, a) {
         var n = document.createElement("div"),
             s = document.createElement("span");
+        var dateLimite = new Date();
+        ceMois = this.todaysDate.getUTCMonth();
+        dateLimite.setUTCMonth(ceMois+3);
         s.innerHTML = t, n.className = "vcal-date",
             n.setAttribute("data-calendar-date", this.date),
         1 === t && (n.style.marginLeft = 0 === e ? 6 * 14.28 + "%" : 14.28 * (e - 1) + "%"),
-            this.options.disablePastDays && this.date.getTime() <= this.todaysDate.getTime() - 1 ? n.classList.add("vcal-date--disabled") : (n.classList.add("vcal-date--active"),
+            this.options.disablePastDays && this.date.getTime() <= this.todaysDate.getTime() - 1
+            ||  this.date > dateLimite
+                ? n.classList.add("vcal-date--disabled") : (n.classList.add("vcal-date--active"),
                 n.setAttribute("data-calendar-status", "active")),
         this.date.toString() === this.todaysDate.toString() && n.classList.add("vcal-date--today"),
             n.appendChild(s),

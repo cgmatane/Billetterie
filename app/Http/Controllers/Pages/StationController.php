@@ -79,7 +79,7 @@ class StationController extends PageController
                 }
                 break;
             case "cascade" :
-                $station->onDelete('cascade');
+                $station->delete();
                 return null;
                 break;
             default:

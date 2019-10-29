@@ -171,24 +171,8 @@
         </div>
     </div>
     <div class="container-fluid">
-        <div style="width: 100% ;height: 400px; background-color: midnightblue; margin-top: -50px; border-radius: 20px">
-            <div class="row">
-                <div style="float: left; margin-left: 5%; margin-top: 55px">
-                    @component('global_components.bouton_retour_precedent')
-                        {{ $global_retour_choix_precedent }}
-                    @endcomponent
-                </div>
-            </div>
-            <div class="row">
-                <div style="float: left; margin-left: 5%; margin-top: 20px">
-                    <a href="{{ route('index') }}">
-                        <button type="button" class="btn btn-outline-retour-menu p-3"> <i class="fas fa-undo-alt "></i>
-                            {{ $global_retour_au_debut }}
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
+        @component('global_components.zone_bas_de_page')
+        @endcomponent
     </div>
     @endsection
 

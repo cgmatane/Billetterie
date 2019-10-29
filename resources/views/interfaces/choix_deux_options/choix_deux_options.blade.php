@@ -23,8 +23,10 @@
                    style=" text-decoration:none; color: #1b1e21;font-size: xx-large; border-radius: 0.5em;"> <i class="{{ $choix_deux_options_icone2 }} " style="color:Tomato"></i> {{ $choix_deux_options_choix2 }}</a>
             </div>
         </div>
-        @component('global_components.zone_bas_de_page')
-        @endcomponent
+        <div class="container-fluid" style="margin-top: -50px;">
+            @component('global_components.zone_bas_de_page')
+            @endcomponent
+        </div>
     </div>
 
 @endsection

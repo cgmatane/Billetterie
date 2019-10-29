@@ -40,10 +40,8 @@ class StationController extends PageController
                 break;
             case "supprimer" :
                 if (!$tableauVue = $this->gererSupression($requete)){
-                    //dd("true");
                     return back();
                 }else{
-                    //dd($tableauVue);
                     return back()->with('cascades',$tableauVue);
                 }
 
@@ -65,10 +63,9 @@ class StationController extends PageController
 
     }
     private function gererSupression(Request $requete){
-
+        $station = App\Station::where('id_station', $requete->id)->get()->first();
         switch ($requete->type){
             case "no-cascade":
-                $station = App\Station::where('id_station', $requete->id)->get()->first();
                 $trajets = $station->getDependances();
                 $planifications = [];
                 foreach ($trajets as $trajet){
@@ -82,6 +79,8 @@ class StationController extends PageController
                 }
                 break;
             case "cascade" :
+                $station->delete();
+                return null;
                 break;
             default:
                 break;
@@ -93,7 +92,7 @@ class StationController extends PageController
         return $tableauVue = [
             "trajets" => $trajets,
             "planifications" => $planifications,
-            "id" => $station->id,
+            "id" => $station->id_station,
         ];
 
     }

@@ -10,15 +10,15 @@ class Ticket extends Model
                                         (par defaut la valeur de $table est le nom de la classe en snake case suivit d'un s)*/
     protected $primaryKey = 'id_ticket';
 
-    public function getProgrammation() {
-        return Programmation::find($this->id_programmation)->first();
+    public function programmation() {
+        return $this->hasOne('App\Programmation', 'id_ticket', 'id_ticket');
     }
 
-    public function getAcheteur() {
-        return Acheteur::find($this->id_acheteur)->first();
+    public function acheteur() {
+        return $this->hasOne('App\Acheteur', 'id_ticket', 'id_ticket');
     }
 
-    public function getCommande() {
-        return Commande::find($this->id_commande)->first();
+    public function commande() {
+        return $this->hasOne('App\Commande', 'id_ticket', 'id_ticket');
     }
 }

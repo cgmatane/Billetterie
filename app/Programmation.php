@@ -10,12 +10,12 @@ class Programmation extends Model
                                         (par defaut la valeur de $table est le nom de la classe en snake case suivit d'un s)*/
     protected $primaryKey = 'id_programmation';
 
-    public function getTrajet() {
-        return Trajet::find($this->id_trajet)->first();
+    public function trajet() {
+        return $this->belongsTo('App\Trajet', 'id_trajet', 'id_trajet');
     }
 
-    public function getTickets() {
-        return Ticket::where('id_trajet',$this->id_trajet)->get();
+    public function tickets() {
+        return $this->hasMany('App\Ticket', 'id_programmation', 'id_programmation');
     }
 
 }

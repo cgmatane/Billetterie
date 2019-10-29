@@ -10,11 +10,11 @@ class Vehicule extends Model
                                         (par defaut la valeur de $table est le nom de la classe en snake case suivit d'un s)*/
     protected $primaryKey = 'id_vehicule';
 
-    public function getTypeVehicule() {
-        return TypeVehicule::find($this->id_type_vehicule)->first();
+    public function typeVehicule() {
+        return $this->belongsTo('App\TypeVehicule', 'id_type_vehicule', 'id_type_vehicule');
     }
 
-    public function getCommandes() {
-        return Commande::where('id_vehicule',$this->id_vehicule)->get();
+    public function commandes() {
+        return $this->hasMany('App\Commande', 'id_vehicule', 'id_vehicule');
     }
 }

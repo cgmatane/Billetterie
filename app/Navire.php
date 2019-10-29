@@ -14,9 +14,10 @@ class Navire extends Model
 
     public $timestamps = false;
 
-    public function getTrajets() {
-        return Trajet::where('id_navire',$this->id_navire)->get();
+    public function trajets() {
+        return $this->hasMany('App\Trajet', 'id_navire', 'id_navire');
     }
+
     public function getDependances(){
         return Trajet::where('id_navire',$this->id_navire)->get();
     }

@@ -10,16 +10,16 @@ class Trajet extends Model
                                         (par defaut la valeur de $table est le nom de la classe en snake case suivit d'un s)*/
     protected $primaryKey = 'id_trajet';
 
-    public function getStationDepart() {
-        return Station::find($this->id_station_depart)->first();
+    public function stationDepart() {
+        return $this->belongsTo('App\Station', 'id_station_arrivee', 'id_station');
     }
 
-    public function getStationArrivee() {
-        return Station::find($this->id_station_arrivee)->first();
+    public function stationArrivee() {
+        return $this->belongsTo('App\Station', 'id_station_depart', 'id_station');
     }
 
-    public function getNavire() {
-        return Navire::find($this->id_navire)->first();
+    public function navire() {
+        return $this->belongsTo('App\Navire', 'id_navire', 'id_navire');
     }
 
     public function getProgrammations() {

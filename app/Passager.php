@@ -9,8 +9,8 @@ class Passager extends Model
     protected $table = 'passager';
     protected $primaryKey = 'id_passager';
 
-    public function getAcheteur() {
-        return Acheteur::find($this->id_acheteur)->first();
+    public function acheteur() {
+        return $this->belongsTo('App\Acheteur', 'id_acheteur', 'id_acheteur');
     }
 }
 

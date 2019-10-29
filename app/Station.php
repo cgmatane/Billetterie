@@ -11,12 +11,12 @@ class Station extends Model
     protected $primaryKey = 'id_station';
     public $timestamps = false;
 
-    public function getTrajetsPartantDeStation() {
-        return Trajet::where('id_station_depart', $this->id_station)->get()->all();
+    public function trajetsPartantDeStation() {
+        return $this->hasMany('App\Trajet', 'id_station_depart', 'id_trajet');
     }
 
-    public function getTrajetsArrivantAStation() {
-        return Trajet::where('id_station_arrivee', $this->id_station)->get()->all();
+    public function trajetsArrivantAStation() {
+        return $this->hasMany('App\Trajet', 'id_station_arrivee', 'id_trajet');
     }
 
     public function getDependances(){

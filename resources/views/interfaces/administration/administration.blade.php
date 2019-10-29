@@ -101,8 +101,8 @@
                         {{ csrf_field() }}
                         <label>Voulez-vous vraiment supprimer ce champ ?</label>
                         <div class="alert alert-primary" id="supprimer-texte" role="alert"></div>
-                        <input type="text" name="id" id="supprimer-id" style="visibility: hidden;">
-                        <input type="text" value="no-cascade" name="type" style="visibility: hidden;">
+                        <input type="text" name="id" id="supprimer-id" style="display:none;">
+                        <input type="text" value="no-cascade" name="type" style="display:none;">
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                             <button type="submit" value="supprimer" name="submit" class="btn btn-primary">Valider</button>

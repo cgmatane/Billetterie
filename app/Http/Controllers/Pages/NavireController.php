@@ -26,16 +26,9 @@ class NavireController extends PageController
         ];
     }
 
-    protected function setClesEtrangeres() {
-        foreach ($this->entreesClesEtrangeres as $entreeClesEtrangere) {
-
-        }
-    }
-
     public function gererValidation(Request $requete)
     {
         if ($requete->method() == "POST") {
-            dd($requete);
             try {
                 $donneesNavire = [];
                 foreach ($this->attributsColonnes as $attribut) {
@@ -51,6 +44,10 @@ class NavireController extends PageController
                     $result->save();
                 }
 
+                if ($requete->input('submit') == 'supprimer') {
+                    $this->gererSupression($requete);
+                }
+
             }
             catch (\Exception $e) {
             }
@@ -62,13 +59,13 @@ class NavireController extends PageController
 
         switch ($requete->type){
             case "no-cascade":
-                $navire = App\Navire::find($requete->id);
+                $navire = App\Navire::find((int)$requete->input('id'));
                 $trajets = $navire->getDependances();
                 $planifications = [];
                 foreach ($trajets as $trajet){
                     array_push($planifications,$trajet->getDependances());
                 }
-                if (!$trajets && !$planifications){
+                if (count($trajets) == 0 && count($planifications) == 0){
                     $navire->delete();
                     return null;
                 }else{

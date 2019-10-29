@@ -9,6 +9,10 @@ class Commande extends Model
     protected $table = 'commande';
     protected $primaryKey = 'id_commande';
 
+    protected $guarded = ['id_commande'];
+
+    public $timestamps = false;
+
     public function acheteur() {
         return $this->belongsTo('App\Acheteur', 'id_acheteur', 'id_acheteur');
     }

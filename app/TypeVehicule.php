@@ -18,6 +18,10 @@ class TypeVehicule extends Model
                                         (par defaut la valeur de $table est le nom de la classe en snake case suivit d'un s)*/
     protected $primaryKey = 'id_type_vehicule';
 
+    protected $guarded = ['id_type_vehicule'];
+
+    public $timestamps = false;
+
     public function vehicules() {
         return $this->hasMany('App\Vehicule', 'id_type_vehicule', 'id_type_vehicule');
     }

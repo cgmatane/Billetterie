@@ -10,6 +10,10 @@ class Ticket extends Model
                                         (par defaut la valeur de $table est le nom de la classe en snake case suivit d'un s)*/
     protected $primaryKey = 'id_ticket';
 
+    protected $guarded = ['id_ticket'];
+
+    public $timestamps = false;
+
     public function programmation() {
         return $this->hasOne('App\Programmation', 'id_ticket', 'id_ticket');
     }

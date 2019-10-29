@@ -10,6 +10,10 @@ class Trajet extends Model
                                         (par defaut la valeur de $table est le nom de la classe en snake case suivit d'un s)*/
     protected $primaryKey = 'id_trajet';
 
+    protected $guarded = ['id_trajet'];
+
+    public $timestamps = false;
+
     public function stationDepart() {
         return $this->belongsTo('App\Station', 'id_station_arrivee', 'id_station');
     }

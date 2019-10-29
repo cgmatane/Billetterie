@@ -10,6 +10,10 @@ class Vehicule extends Model
                                         (par defaut la valeur de $table est le nom de la classe en snake case suivit d'un s)*/
     protected $primaryKey = 'id_vehicule';
 
+    protected $guarded = ['id_vehicule'];
+
+    public $timestamps = false;
+
     public function typeVehicule() {
         return $this->belongsTo('App\TypeVehicule', 'id_type_vehicule', 'id_type_vehicule');
     }

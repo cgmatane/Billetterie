@@ -9,6 +9,10 @@ class Acheteur extends Model
     protected $table = 'acheteur';
     protected $primaryKey = 'id_acheteur';
 
+    protected $guarded = ['id_acheteur'];
+
+    public $timestamps = false;
+
     public function passagers() {
         return $this->hasMany('App\Passager', 'id_acheteur', 'id_acheteur');
     }

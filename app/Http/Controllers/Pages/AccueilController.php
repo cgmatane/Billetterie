@@ -38,7 +38,7 @@ class AccueilController extends PageController
         $stationDepart = Station::find(2);
 
         //On recupere tous les trajets partant de cette station (liste d'objets, voir methode dans la classe Station)
-        $trajets = $stationDepart->getTrajetsPartantDeStation();
+        $trajets = $stationDepart->trajetsPartantDeStation();
 
         //C'est cette liste qu'on injectera aux donnees dynamiques, c'est un tableau de tableau associatif aux cles 'station arrivee' et 'heure depart'
         $trajetsVue = array();
@@ -46,11 +46,11 @@ class AccueilController extends PageController
         //Pour chaque trajet...
         foreach($trajets as $trajet) {
             //Pour chaque programmations du trajet courant.... (voir MCD pour plus de comprehension)
-            foreach($trajet->getProgrammations() as $programmation) {
+            foreach($trajet->programmations() as $programmation) {
                 //Si la programmation n'est pas annule et que la date de la programmation est celle du jour selectionne...
                 if (!$programmation->annulation and date("Y-m-d") == date('Y-m-d', strtotime($programmation->date_depart))) {
                     $trajetVue = array(
-                        'stationArrivee' => $trajet->getStationArrivee()->nom,
+                        'stationArrivee' => $trajet->stationArrivee()->nom,
                         'heureDepart' => date('H:i', strtotime($programmation->date_depart))
                     );
                     array_push($trajetsVue, $trajetVue);

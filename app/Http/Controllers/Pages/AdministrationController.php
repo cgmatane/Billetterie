@@ -19,7 +19,7 @@ class AdministrationController extends PageController
     {
         $email = $requete->session()->get('utilisateur.email');
         $this->donneesDynamiques = [
-            'email'=>$email
+            'email'=>$email,
         ];
     }
 

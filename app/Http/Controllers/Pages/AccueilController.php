@@ -31,7 +31,7 @@ class AccueilController extends PageController
     protected function setDonneesDynamiques(Request $requete = null) {
         // A decommenter quand vous chercherez a vous connecter a la BD
         //On recupere la date d'aujourdhui (mois ecrit en francais)
-        /*setlocale(LC_TIME, "fr");
+        setlocale(LC_TIME, "fr");
         $dateAujourdhui = strftime('%d %B'); //jour mois en francais
 
         //On recupere la station d'id 2 dans la DB (sous forme d'objet)
@@ -63,7 +63,6 @@ class AccueilController extends PageController
             'date_aujourdhui'=>$dateAujourdhui,
             'trajets'=>$trajetsVue,
         );
-        */
         if ($requete->session()->has('ticket.date'))
             $this->donneesDynamiques['date'] = $requete->session()->get('ticket.date');
         if ($requete->session()->has('ticket.depart'))

@@ -10,6 +10,10 @@ class Navire extends Model
                                         (par defaut la valeur de $table est le nom de la classe en snake case suivit d'un s)*/
     protected $primaryKey = 'id_navire';
 
+    protected $guarded = ['id_navire'];
+
+    public $timestamps = false;
+
     public function getTrajets() {
         return Trajet::where('id_navire',$this->id_navire)->get();
     }

@@ -15,14 +15,21 @@ class Ticket extends Model
     public $timestamps = false;
 
     public function programmation() {
-        return $this->hasOne('App\Programmation', 'id_ticket', 'id_ticket');
+        return Programmation::where('id_programmation', $this->id_programmation)->first();
+        //return $this->hasOne('App\Programmation', 'id_ticket', 'id_ticket');
     }
 
     public function acheteur() {
-        return $this->hasOne('App\Acheteur', 'id_ticket', 'id_ticket');
+        return Acheteur::where('id_acheteur', $this->id_acheteur)->first();
+        //return $this->hasOne('App\Acheteur', 'id_ticket', 'id_ticket');
     }
 
     public function commande() {
-        return $this->hasOne('App\Commande', 'id_ticket', 'id_ticket');
+        return Commande::where('id_commande', $this->id_commande)->first();
+        //return $this->hasOne('App\Commande', 'id_ticket', 'id_ticket');
+    }
+
+    public function getDependances($recursif = true) {
+        return array();
     }
 }

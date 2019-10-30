@@ -23,6 +23,21 @@ class TypeVehicule extends Model
     public $timestamps = false;
 
     public function vehicules() {
-        return $this->hasMany('App\Vehicule', 'id_type_vehicule', 'id_type_vehicule');
+        return Vehicule::where('id_type_vehicule', $this->id_type_vehicule)->get();
+        //return $this->hasMany('App\Vehicule', 'id_type_vehicule', 'id_type_vehicule');
+    }
+
+    public function getDependances($recursif = true) {
+        $dependances = [];
+
+        $dependancesObjets = $this->vehicules();
+        if (!$recursif) {
+            return $dependancesObjets;
+        }
+        foreach ($dependancesObjets as $dependanceObjet) {
+            array_push($dependances, ['dependancePrimaire' => $dependanceObjet, 'dependancesSecondaires' => []]);
+            array_push($dependances[count($dependances)-1]['dependancesSecondaires'],$dependanceObjet->getDependances());
+        }
+        return $dependances;
     }
 }

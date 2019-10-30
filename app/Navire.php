@@ -15,10 +15,20 @@ class Navire extends Model
     public $timestamps = false;
 
     public function trajets() {
-        return $this->hasMany('App\Trajet', 'id_navire', 'id_navire');
+        return Trajet::where('id_navire', $this->id_navire)->get();
+        //return $this->hasMany('App\Trajet', 'id_navire', 'id_navire');
     }
 
-    public function getDependances(){
-        return Trajet::where('id_navire',$this->id_navire)->get();
+    public function getDependances($recursif = true) {
+        $dependances = [];
+        $dependancesObjets = $this->trajets();
+        if (!$recursif) {
+            return $dependancesObjets;
+        }
+        foreach ($dependancesObjets as $dependanceObjet) {
+            array_push($dependances, ['dependancePrimaire' => $dependanceObjet, 'dependancesSecondaires' => []]);
+            array_push($dependances[count($dependances)-1]['dependancesSecondaires'], $dependanceObjet->getDependances());
+        }
+        return $dependances;
     }
 }

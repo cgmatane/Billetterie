@@ -14,20 +14,36 @@ class Commande extends Model
     public $timestamps = false;
 
     public function acheteur() {
-        return $this->belongsTo('App\Acheteur', 'id_acheteur', 'id_acheteur');
+        return Acheteur::find($this->id_commande);
+        //return $this->belongsTo('App\Acheteur', 'id_acheteur', 'id_acheteur');
     }
 
     public function vehicule() {
-        return $this->belongsTo('App\Vehicule', 'id_vehicule', 'id_vehicule');
+        return Vehicule::find($this->id_commande);
+        //return $this->belongsTo('App\Vehicule', 'id_vehicule', 'id_vehicule');
     }
 
-    public function passagers()
-    {
-        return $this->getAcheteur()->first()->passagers();
-    }
+    //public function passagers() {
+    //    return $this->acheteur()->first()->passagers();
+    //}
 
     public function tickets() {
-        return $this->hasMany('App\Ticket', 'id_commande', 'id_commande');
+        return Ticket::where('id_commande', $this->id_commande)->get();
+        //return $this->hasMany('App\Ticket', 'id_commande', 'id_commande');
+    }
+
+    public function getDependances($recursif = true) {
+        $dependances = [];
+
+        $dependancesObjets = $this->tickets();
+        if (!$recursif) {
+            return $dependancesObjets;
+        }
+        foreach ($dependancesObjets as $dependanceObjet) {
+            array_push($dependances, ['dependancePrimaire' => $dependanceObjet, 'dependancesSecondaires' => []]);
+            array_push($dependances[count($dependances)-1]['dependancesSecondaires'],$dependanceObjet->getDependances());
+        }
+        return $dependances;
     }
 
 }

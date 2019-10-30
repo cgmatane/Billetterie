@@ -15,21 +15,37 @@ class Trajet extends Model
     public $timestamps = false;
 
     public function stationDepart() {
-        return $this->belongsTo('App\Station', 'id_station_arrivee', 'id_station');
+        return Station::find($this->id_station_depart);
+        //return $this->belongsTo('App\Station', 'id_station_depart', 'id_station');
     }
 
     public function stationArrivee() {
-        return $this->belongsTo('App\Station', 'id_station_depart', 'id_station');
+        return Station::find($this->id_station_arrivee);
+        //return $this->belongsTo('App\Station', 'id_station_arrivee', 'id_station');
     }
 
     public function navire() {
-        return $this->belongsTo('App\Navire', 'id_navire', 'id_navire');
+        return Navire::find($this->id_navire);
+        //return $this->belongsTo('App\Navire', 'id_navire', 'id_navire');
     }
 
-    public function getProgrammations() {
-        return Programmation::where('id_trajet',$this->id_trajet)->get()->all();
+    public function programmations() {
+        return Programmation::where('id_trajet', $this->id_trajet)->get();
+        //return $this->hasMany('App\Programmation', 'id_trajet', 'id_trajet');
     }
-    public function getDependances(){
-        return Programmation::where('id_trajet',$this->id_trajet)->get()->all();
+
+
+    public function getDependances($recursif = true) {
+        $dependances = [];
+
+        $dependancesObjets = $this->programmations();
+        if (!$recursif) {
+            return $dependancesObjets;
+        }
+        foreach ($dependancesObjets as $dependanceObjet) {
+            array_push($dependances, ['dependancePrimaire' => $dependanceObjet, 'dependancesSecondaires' => []]);
+            array_push($dependances[count($dependances)-1]['dependancesSecondaires'],$dependanceObjet->getDependances());
+        }
+        return $dependances;
     }
 }

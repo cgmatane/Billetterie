@@ -15,10 +15,26 @@ class Vehicule extends Model
     public $timestamps = false;
 
     public function typeVehicule() {
-        return $this->belongsTo('App\TypeVehicule', 'id_type_vehicule', 'id_type_vehicule');
+        return TypeVehicule::find($this->id_type_vehicule);
+        //return $this->belongsTo('App\TypeVehicule', 'id_type_vehicule', 'id_type_vehicule');
     }
 
     public function commandes() {
-        return $this->hasMany('App\Commande', 'id_vehicule', 'id_vehicule');
+        return Commande::where('id_vehicule', $this->id_vehicule)->get();
+        //return $this->hasMany('App\Commande', 'id_vehicule', 'id_vehicule');
+    }
+
+    public function getDependances($recursif = true) {
+        $dependances = [];
+
+        $dependancesObjets = $this->commandes();
+        if (!$recursif) {
+            return $dependancesObjets;
+        }
+        foreach ($dependancesObjets as $dependanceObjet) {
+            array_push($dependances, ['dependancePrimaire' => $dependanceObjet, 'dependancesSecondaires' => []]);
+            array_push($dependances[count($dependances)-1]['dependancesSecondaires'],$dependanceObjet->getDependances());
+        }
+        return $dependances;
     }
 }

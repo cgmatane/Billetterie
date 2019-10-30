@@ -14,7 +14,12 @@ class Passager extends Model
     public $timestamps = false;
 
     public function acheteur() {
-        return $this->belongsTo('App\Acheteur', 'id_acheteur', 'id_acheteur');
+        return Acheteur::find($this->id_passager);
+        //return $this->belongsTo('App\Acheteur', 'id_acheteur', 'id_acheteur');
+    }
+
+    public function getDependances($recursif = true) {
+        return array();
     }
 }
 

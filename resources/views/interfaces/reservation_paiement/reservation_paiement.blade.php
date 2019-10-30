@@ -16,7 +16,7 @@
         <div class="card-wrapper justify-content-around col-md-6 col-sm-12 mt-3 mb-3"></div>
         <div class="form-container active justify-content-around col-md-6 col-sm-12">
             <div class="row text-center">
-            <form onsubmit="return verifierFormulaire()" action="{{ route('envoieEmail') }}">
+            <form onsubmit="return verifierFormulaire()" action="{{ route('reservation_paiement') }}">
                 <h5>{{ $reservation_paiement_renseigner_informations }}</h5>
                 <input placeholder="numéro de carte" type="tel" name="number" id="numeroCarte" class="col-10 m-2">
                 <div class="alert alert-danger champErreur" id="erreurNumeroCarte" style="display:none">

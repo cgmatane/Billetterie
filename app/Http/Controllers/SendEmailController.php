@@ -17,12 +17,12 @@ class SendEmailController extends Controller
 
     function send(Request $requete)
     {
-        /* Création du pdf */
-        $donnees_pdf = (new ValidationInformationsController())->getDonnees($requete);
-        $donnees_pdf['imageQR'] = $requete->session()->get('ticket.imageQR');
-        $donnees_pdf['codeQR'] = $requete->session()->get('ticket.QR');
+        /* Création du pdf du billet */
+        $donnees_pdf_billet = (new ValidationInformationsController())->getDonnees($requete);
+        $donnees_pdf_billet['imageQR'] = $requete->session()->get('ticket.imageQR');
+        $donnees_pdf_billet['codeQR'] = $requete->session()->get('ticket.QR');
 
-        $pdf = PDF::loadView('pdf-facture', $donnees_pdf)->save('tickets/ticket_'.$donnees_pdf['codeQR'].'.pdf');
+        $pdf_billet = PDF::loadView('pdf-facture', $donnees_pdf_billet)->save('tickets/ticket_'.$donnees_pdf_billet['codeQR'].'.pdf');
 
         $email = $requete->session()->get('ticket.email');
         $noms = $requete->session()->get('ticket.noms');

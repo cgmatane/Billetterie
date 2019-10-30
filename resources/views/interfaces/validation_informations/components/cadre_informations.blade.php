@@ -1,6 +1,6 @@
 <div class="container bg-white {{--text-center--}} shadow-lg mt-3 p-5" style="border-radius: 0.5em;">
     <div class="m-1">
-        <div class="container-fluid border text-justify border-secondary mt-4 mb-2" style="border-radius: 0.5em;">
+        <div class="container-fluid border text-justify border-secondary mt-4 mb-2 pb-2" style="border-radius: 0.5em;">
             <h5 class="mt-2">{{ $validation_informations_traversee }}</h5>
             <div class="row">
                 <div class="col">
@@ -78,7 +78,7 @@
             </table>
         </div>
         @isset($type_vehicule)
-            <div class="container-fluid border border-secondary mb-2" style="border-radius: 0.5em;">
+            <div class="container-fluid border border-secondary mb-2 pb-2" style="border-radius: 0.5em;">
                 <h5 class="mt-2">{{ $validation_informations_vehicule }}</h5>
                 <div class="row">
                     <div class="col">
@@ -103,7 +103,7 @@
             </div>
         @endisset
 
-        <div class="container-fluid border border-secondary mb-2" style="border-radius: 0.5em;">
+        <div class="container-fluid border border-secondary mb-2 pb-2" style="border-radius: 0.5em;">
             <h5 class="mt-2">{{ $validation_informations_vous_contacter }}</h5>
             <div class="row">
                 <div class="col">{{ $validation_informations_courriel }}</div>

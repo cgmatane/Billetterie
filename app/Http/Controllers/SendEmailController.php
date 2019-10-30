@@ -18,11 +18,15 @@ class SendEmailController extends Controller
     function send(Request $requete)
     {
         /* Création du pdf du billet */
-        $donnees_pdf_billet = (new ValidationInformationsController())->getDonnees($requete);
-        $donnees_pdf_billet['imageQR'] = $requete->session()->get('ticket.imageQR');
-        $donnees_pdf_billet['codeQR'] = $requete->session()->get('ticket.QR');
+        $donneesPdfBillet = (new ValidationInformationsController())->getDonnees($requete);
+        $donneesPdfBillet['imageQR'] = $requete->session()->get('ticket.imageQR');
+        $donneesPdfBillet['codeQR'] = $requete->session()->get('ticket.QR');
+        date_default_timezone_set("America/New_York");
+        $donneesPdfBillet['dateEmission'] = date('Y/m/d H:i:s');
 
-        $pdf_billet = PDF::loadView('pdf-facture', $donnees_pdf_billet)->save('tickets/ticket_'.$donnees_pdf_billet['codeQR'].'.pdf');
+        $emplacementPdf = "billets/billet_".$requete->session()->get('ticket.QR').".pdf";
+
+        $pdf_billet = PDF::loadView('pdf_billet', $donneesPdfBillet)->save($emplacementPdf);
 
         $email = $requete->session()->get('ticket.email');
         $noms = $requete->session()->get('ticket.noms');
@@ -33,7 +37,6 @@ class SendEmailController extends Controller
         $heure = $requete->session()->get('ticket.heure');
         $depart = $requete->session()->get('ticket.depart');
         $destination = $requete->session()->get('ticket.destination');
-        $emplacementPdf = "tickets/ticket_".$requete->session()->get('ticket.QR').".pdf";
 
         $data = array(
             'nom'      => $nom ,

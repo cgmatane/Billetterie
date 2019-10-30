@@ -34,7 +34,8 @@
     </style>
 </head>
 <body id="top">
-<h1 class="test-pdf">Facture</h1>
+<h1>Billet {{$codeQR}}</h1>
+<p>Date d'émission : {{$dateEmission}}</p>
 @include('interfaces.validation_informations.components.cadre_informations')
 </body>
 </html>

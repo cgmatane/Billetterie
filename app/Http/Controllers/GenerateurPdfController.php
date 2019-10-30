@@ -16,7 +16,7 @@ class GenerateurPdfController extends Controller
         $donnees_pdf['imageQR'] = $requete->session()->get('ticket.imageQR');
         $donnees_pdf['codeQR'] = $requete->session()->get('ticket.QR');
 
-        $pdf = PDF::loadView('pdf-facture', $donnees_pdf)->save('tickets/ticket_'.$donnees_pdf['codeQR'].'.pdf'); // Décommenter pour enregistrer le pdf sur le SERVEUR
+        $pdf = PDF::loadView('pdf-facture', $donnees_pdf)->save('billets/ticket_'.$donnees_pdf['codeQR'].'.pdf'); // Décommenter pour enregistrer le pdf sur le SERVEUR
 
         return redirect('/confirmation');
     }

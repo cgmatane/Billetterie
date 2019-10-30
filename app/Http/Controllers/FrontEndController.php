@@ -7,9 +7,6 @@ use App\Http\Controllers\Pages as Controllers;
 use App\Statics\Views\DonneesVueGlobales;
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Validator;
-
 define('REPERTOIRE_INTERFACES', 'interfaces');
 
 class FrontEndController extends Controller
@@ -18,7 +15,6 @@ class FrontEndController extends Controller
     private $routes;
     private $donneesStatiquesGlobales;
 
-    #public static final $
 
     public function __construct()
     {
@@ -49,7 +45,7 @@ class FrontEndController extends Controller
             'administration' => array(new Controllers\AdministrationController(),
                 new Controllers\StationController(),
                 new Controllers\TrajetController(),
-                new Controllers\PlanificationController(),
+                new Controllers\ProgrammationController(),
                 new Controllers\NavireController()),
             'requete-qr' => array(new Controllers\RequeteQRController()),
             'pdf-facture' => array(new GenerateurPdfController())

@@ -87,9 +87,10 @@
     <table class="table">
         <thead class="thead-dark">
         <tr>
-            @foreach($gestion_colonnes as $colonne)
-                <th scope="row">{{ $colonne }}</th>
+            @foreach($colonnes as $colonne)
+                <th scope="row">{{ $colonne['nom'] }}</th>
             @endforeach
+            <th scope="row">Actions</th>
         </tr>
         </thead>
         <tbody style="font-size: 1.2em;">

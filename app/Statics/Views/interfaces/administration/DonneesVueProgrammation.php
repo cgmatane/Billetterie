@@ -4,7 +4,7 @@ namespace App\Statics\Views\interfaces\administration;
 
 use App\Statics\Views\DonneesVue;
 
-class DonneesVuePlanification extends DonneesVue
+class DonneesVueProgrammation extends DonneesVue
 {
     public function __construct()
     {

@@ -21,8 +21,8 @@
             </li>
 
 
-            <li class="collapsed {{ (request()->is('administration/planification')) ? 'active' : '' }}">
-                <a href="{{route('administration.planification')}}"><i class="fas fa-clock-o"></i> Planification</a>
+            <li class="collapsed {{ (request()->is('administration/programmation')) ? 'active' : '' }}">
+                <a href="{{route('administration.programmation')}}"><i class="fas fa-clock-o"></i> Programmation</a>
             </li>
 
             <li>

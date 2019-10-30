@@ -142,7 +142,7 @@ function getHTMLDeClesEtrangeresPourTable(nomTable, attributLie, idCleSelectionn
     HTML = '<select name="'+nomTable+'|'+attributLie+'">';
 
     for (let id in clesEtrangeres[nomTable]['ids']) {
-        HTML += '<option value="'+id+'"'+((idCleSelectionne === parseInt(id))?' selected':'')+'>' + clesEtrangeres[nomTable]['ids'][id] + '</option>';
+        HTML += '<option value="'+id+'"'+((idCleSelectionne == parseInt(id))?' selected':'')+'>' + clesEtrangeres[nomTable]['ids'][id] + '</option>';
     }
     HTML += '</select>';
     return HTML;

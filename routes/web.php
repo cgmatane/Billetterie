@@ -40,7 +40,7 @@ Route::get('/administration/trajet')->name('administration.trajet');
 
 Route::get('/administration/navire')->name('administration.navire');
 
-Route::get('/administration/planification')->name('administration.planification');
+Route::get('/administration/programmation')->name('administration.programmation');
 
 Route::get('/date')->name('choix_date');
 

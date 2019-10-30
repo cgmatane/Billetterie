@@ -1,86 +1,81 @@
 <?php
 
+
 namespace App\Http\Controllers\Pages;
 
-use App;
+
 use App\Http\Controllers\PageController;
+
 use App\Statics\Views\interfaces\administration\DonneesVueStation;
 use Illuminate\Http\Request;
+use App;
 
 class StationController extends PageController
 {
+
+    private $attributsColonnes;
+    private $entreesClesEtrangeres;
+
     public function __construct() {
         parent::__construct();
         $this->setNomPage('administration/station');
         $this->setDonneesStatiques(new DonneesVueStation());
-    }
-
-    protected function setDonneesDynamiques(Request $requete = null)
-    {
-        $email = $requete->session()->get('utilisateur.email');
-        $valeurs = App\Station::all()->sortBy("id_station");
-        $this->donneesDynamiques = [
-            'email'=>$email,
-            'valeurs'=>$valeurs,
-            'attributs' => [
-                'id_station',
-                'nom',
-            ]
+        $this->attributsColonnes = $this->getAttributsColonnes();
+        $this->entreesClesEtrangeres = [
+            'passager'=>['attributs_lies'=>['id_passager'], 'cles_etrangeres'=>[]],
         ];
     }
+
     public function gererValidation(Request $requete)
     {
-
-        switch ($requete->get('submit')){
-            case "ajouter" :
-                $this->gererAjout($requete);
-                break;
-            case "modifier" :
-                dd($requete->get('submit'));
-                break;
-            case "supprimer" :
-                if (!$tableauVue = $this->gererSupression($requete)){
-                    return back();
-                }else{
-                    return back()->with('cascades',$tableauVue);
+        if ($requete->method() == "POST") {
+            try {
+                $donnees = [];
+                foreach ($this->attributsColonnes as $attribut) {
+                    $donnees[$attribut] = $requete->input($attribut);
+                }
+                if ($requete->input('edition') == '1') {
+                    $entree = App\Station::find((int)$requete->input($this->attributsColonnes[0]));
+                    $entree->update($donnees);
+                }
+                if ($requete->input('edition') == '0') {
+                    $entree = new App\Station();
+                    $result = $entree->create($donnees);
+                    $result->save();
                 }
 
-                break;
-            default :
-                break;
+                if ($requete->input('submit') == 'supprimer') {
+                    $this->gererSupression($requete);
+                }
+
+            }
+            catch (\Exception $e) {
+            }
         }
-
-
+        return redirect(route("administration.station"));
     }
 
-    private function gererAjout(Request $requete){
-        $station = new App\Station();
-        $station->nom = htmlentities($requete->nom);
-        $station->save();
-    }
-    private function gererModification(Request $requete){
-
-
-    }
     private function gererSupression(Request $requete){
-        $station = App\Station::where('id_station', $requete->id)->get()->first();
+
         switch ($requete->type){
             case "no-cascade":
-                $trajets = $station->getDependances();
-                $planifications = [];
-                foreach ($trajets as $trajet){
-                    $planifications += $trajet->getDependances();
+                $entree = App\Station::find((int)$requete->input('id'));
+                try {
+                    $dependances = $entree->getDependances();
                 }
-                if (!$trajets && !$planifications){
-                    $station->delete();
+                catch (\Exception $e) {
+                    dd($e->getMessage());
+                }
+
+                if (count($dependances) == 0){
+                    $entree->delete();
                     return null;
                 }else{
-                    return $this->creerTableauPourVue($trajets,$planifications,$station);
+
                 }
                 break;
             case "cascade" :
-                $station->delete();
-                return null;
+                /* TODO */
                 break;
             default:
                 break;
@@ -88,15 +83,39 @@ class StationController extends PageController
         }
     }
 
-    private function creerTableauPourVue($trajets,$planifications,$station){
-        return $tableauVue = [
-            "trajets" => $trajets,
-            "planifications" => $planifications,
-            "id" => $station->id_station,
-        ];
 
+    protected function getAttributsColonnes() {
+        return array_keys(App\Station::firstOrNew([])->getAttributes());
     }
 
+    protected function setDonneesDynamiques(Request $requete = null)
+    {
+        $email = $requete->session()->get('utilisateur.email');
+        $entrees = $this->getEntreesSimplifiesDeModeles(App\Station::all()->sortBy($this->attributsColonnes[0]));
+        $this->donneesDynamiques = [
+            'email'=>$email,
+            'entrees'=>$entrees,
+            'colonnes'=>[
+                ['attribut'=>$this->attributsColonnes[0],'nom'=>'#', 'type'=>'id'],
+                ['attribut'=>$this->attributsColonnes[1], 'nom'=>'Nom','type'=>'text'],
+            ],
+            'tables_cles_etrangeres'=>[
 
+            ]
+        ];
+    }
+
+    protected function getEntreesSimplifiesDeModeles($modeles) {
+        $entrees = [];
+        foreach ($modeles as $modele) {
+            $modeleId = $modele->getAttributes()[$this->attributsColonnes[0]];
+            $entrees[$modeleId] = [];
+            foreach (array_slice($modele->getAttributes(), 1) as $attribut=>$valeur) {
+                $entrees[$modeleId][$attribut] = $valeur;
+            }
+        }
+        return $entrees;
+    }
 
 }
+

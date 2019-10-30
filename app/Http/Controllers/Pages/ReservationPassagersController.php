@@ -120,8 +120,9 @@ class ReservationPassagersController extends PageController
         $requete->session()->put('ticket.email', $validatedData['email']);
         $requete->session()->put('ticket.numero', $validatedData['numero']);
 
+        $imageQR = "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=" . $codeQR;
+        $requete->session()->put("ticket.imageQR", $imageQR);
+
         return redirect(route('validation_informations'));
     }
-
-
 }

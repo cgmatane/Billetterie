@@ -107,8 +107,6 @@
         </tbody>
     </table>
     <a class="btn btn-primary btn-lg btn-block" data-target="#myModal1" onclick="remplirModalAjoutEdition()" data-toggle="modal" style="color: white; cursor: pointer;">Ajouter {{ $gestion_type }}</a>
-
-    <a class="btn btn-primary btn-lg btn-block" data-target="#myModal1" data-toggle="modal" style="color: white; cursor: pointer;">Ajouter {{ $gestion_type }}</a>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -119,7 +117,7 @@
                     </button>
                 </div>
                 <div class="modal-body body-supprimer">
-                    <form method="post" action="{{ route("administration.navire") }}">
+                    <form method="post" action="">
                         {{ csrf_field() }}
                         <label>Voulez-vous vraiment supprimer ce champ ?</label>
                         <div class="alert alert-primary" id="supprimer-texte" role="alert"></div>
@@ -144,7 +142,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="post" action="{{ route("administration.navire") }}">
+                <form method="post" action="">
                     {{ csrf_field() }}
 
                     <div class="modal-body">

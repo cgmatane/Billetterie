@@ -27,7 +27,7 @@ class Programmation extends Model
     public function getDependances($recursif = true) {
         $dependances = [];
 
-        $dependancesObjets = $this->tickets();
+        $dependancesObjets = (array)$this->tickets();
         if (!$recursif) {
             return $dependancesObjets;
         }

@@ -30,7 +30,7 @@ class TypeVehicule extends Model
     public function getDependances($recursif = true) {
         $dependances = [];
 
-        $dependancesObjets = $this->vehicules();
+        $dependancesObjets = (array)$this->vehicules();
         if (!$recursif) {
             return $dependancesObjets;
         }

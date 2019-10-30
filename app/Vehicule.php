@@ -27,7 +27,7 @@ class Vehicule extends Model
     public function getDependances($recursif = true) {
         $dependances = [];
 
-        $dependancesObjets = $this->commandes();
+        $dependancesObjets = (array)$this->commandes();
         if (!$recursif) {
             return $dependancesObjets;
         }

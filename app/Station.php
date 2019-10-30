@@ -26,8 +26,7 @@ class Station extends Model
 
     public function getDependances($recursif = true) {
         $dependances = [];
-
-        $dependancesObjets = array_merge($this->trajetsPartantDeStation(), $this->trajetsArrivantAStation());
+        $dependancesObjets = array_merge((array)$this->trajetsPartantDeStation(), (array)$this->trajetsArrivantAStation());
         if (!$recursif) {
             return $dependancesObjets;
         }

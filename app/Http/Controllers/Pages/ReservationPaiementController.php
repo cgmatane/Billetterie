@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\PageController;
 use App\Statics\Views\interfaces\reservation_paiement\DonneesVueReservationPaiement;
+use Illuminate\Http\Request;
 
 class ReservationPaiementController extends PageController
 {
@@ -13,5 +14,14 @@ class ReservationPaiementController extends PageController
         parent::__construct();
         $this->setNomPage('paiement');
         $this->setDonneesStatiques(new DonneesVueReservationPaiement());
+    }
+
+    public function gererValidation(Request $requete) {
+        $validatedData = $this->validate($requete, [
+            'number' => 'required',
+            'name' => 'required',
+            'expiry' => 'required',
+            'cvc' => 'required',
+        ]);
     }
 }

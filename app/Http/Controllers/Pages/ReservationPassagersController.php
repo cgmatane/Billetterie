@@ -29,7 +29,7 @@ class ReservationPassagersController extends PageController
         ]);
         $codeQR = "";
         for($i = 0; $i < 7; $i++){
-            $chiffreAleatoire = rand(1,26);
+            $chiffreAleatoire = rand(1,36);
             switch($chiffreAleatoire) {
                 case 1:
                     $codeQR .= 'A';
@@ -109,6 +109,34 @@ class ReservationPassagersController extends PageController
                 case 26:
                     $codeQR .= 'Z';
                 break;
+                case 27:
+                    $codeQR .= '1';
+                break;
+                case 28:
+                    $codeQR .= '2';
+                break;
+                case 29:
+                    $codeQR .= '3';
+                break;
+                case 30:
+                    $codeQR .= '4';
+                break;
+                case 31:
+                    $codeQR .= '5';
+                break;
+                case 32:
+                    $codeQR .= '6';
+                break;
+                case 33:
+                    $codeQR .= '7';
+                break;
+                case 34:
+                    $codeQR .= '8';
+                break;
+                case 35:
+                    $codeQR .= '9';
+                break;
+                
             }
         }
 

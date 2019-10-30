@@ -21,7 +21,7 @@ class Navire extends Model
 
     public function getDependances($recursif = true) {
         $dependances = [];
-        $dependancesObjets = (array)$this->trajets();
+        $dependancesObjets = $this->trajets();
         if (!$recursif) {
             return $dependancesObjets;
         }

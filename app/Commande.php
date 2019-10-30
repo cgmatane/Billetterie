@@ -35,7 +35,7 @@ class Commande extends Model
     public function getDependances($recursif = true) {
         $dependances = [];
 
-        $dependancesObjets = (array)$this->tickets();
+        $dependancesObjets = $this->tickets();
         if (!$recursif) {
             return $dependancesObjets;
         }

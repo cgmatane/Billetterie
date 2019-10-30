@@ -26,7 +26,7 @@ class Acheteur extends Model
     public function getDependances($recursif = true) {
         $dependances = [];
 
-        $dependancesObjets = array_merge((array)$this->passagers(), (array)$this->commandes());
+        $dependancesObjets = $this->passagers()->merge($this->commandes());
         if (!$recursif) {
             return $dependancesObjets;
         }

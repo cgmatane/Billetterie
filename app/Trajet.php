@@ -38,7 +38,7 @@ class Trajet extends Model
     public function getDependances($recursif = true) {
         $dependances = [];
 
-        $dependancesObjets = (array)$this->programmations();
+        $dependancesObjets = $this->programmations();
         if (!$recursif) {
             return $dependancesObjets;
         }

@@ -24,9 +24,11 @@ class SendEmailController extends Controller
         date_default_timezone_set("America/New_York");
         $donneesPdfBillet['dateEmission'] = date('Y/m/d H:i:s');
 
-        $emplacementPdf = "billets/billet_".$requete->session()->get('ticket.QR').".pdf";
+        $emplacementPdfBillet = "billets/billet_".$requete->session()->get('ticket.QR').".pdf";
+        $emplacementPdfFacture = "factures/facture_".$requete->session()->get('ticket.QR').".pdf";
 
-        $pdf_billet = PDF::loadView('pdf_billet', $donneesPdfBillet)->save($emplacementPdf);
+        $pdf_billet = PDF::loadView('pdf_billet', $donneesPdfBillet)->save($emplacementPdfBillet);
+        $pdf_facture = PDF::loadView('pdf_facture', $donneesPdfBillet)->save($emplacementPdfFacture);
 
         $email = $requete->session()->get('ticket.email');
         $noms = $requete->session()->get('ticket.noms');
@@ -45,13 +47,13 @@ class SendEmailController extends Controller
             'heure'      => $heure,
             'depart'      => $depart,
             'destination'      => $destination,
-            'emplacementPdf'      => $emplacementPdf
+            'emplacementPdf'      => $emplacementPdfBillet
             //'message'   =>   $request->message
         );
 
         Mail::to($email)->send(new SendMail($data));
-        if (file_exists($emplacementPdf)) {
-            unlink($emplacementPdf);
+        if (file_exists($emplacementPdfBillet)) {
+            unlink($emplacementPdfBillet);
         }
         return redirect('/confirmation');
 

@@ -25,10 +25,8 @@ class SendEmailController extends Controller
         $donneesPdfBillet['dateEmission'] = date('Y/m/d H:i:s');
 
         $emplacementPdfBillet = "billets/billet_".$requete->session()->get('ticket.QR').".pdf";
-        $emplacementPdfFacture = "factures/facture_".$requete->session()->get('ticket.QR').".pdf";
-
         $pdf_billet = PDF::loadView('pdf_billet', $donneesPdfBillet)->save($emplacementPdfBillet);
-        $pdf_facture = PDF::loadView('pdf_facture', $donneesPdfBillet)->save($emplacementPdfFacture);
+
 
         $email = $requete->session()->get('ticket.email');
         $noms = $requete->session()->get('ticket.noms');
@@ -40,6 +38,23 @@ class SendEmailController extends Controller
         $depart = $requete->session()->get('ticket.depart');
         $destination = $requete->session()->get('ticket.destination');
 
+        /* Création du pdf de la facture */
+        $donneesPdfFacture = array(
+            'donneesPdfFacture' => array(
+                'nomClient' => $nom,
+                'prenomClient' => $prenom,
+                'montantCommande' => 45,
+                'numeroCarte' => $requete->session()->get('paiement.carte'),
+                'titulaireCarte' => $requete->session()->get('paiement.nom'),
+                'datePaiement' =>  $requete->session()->get('paiement.date')
+            )
+        );
+
+        $emplacementPdfFacture = "factures/facture_".$requete->session()->get('ticket.QR').".pdf";
+
+        // génération du pdf
+        $pdf_facture = PDF::loadView('pdf_facture', $donneesPdfFacture)->save($emplacementPdfFacture);
+
         $data = array(
             'nom'      => $nom ,
             'prenom'      => $prenom,
@@ -47,15 +62,27 @@ class SendEmailController extends Controller
             'heure'      => $heure,
             'depart'      => $depart,
             'destination'      => $destination,
-            'emplacementPdf'      => $emplacementPdfBillet
+            'emplacementPdfBillet'      => $emplacementPdfBillet,
+            'emplacementPdfFacture'      => $emplacementPdfFacture
             //'message'   =>   $request->message
         );
 
         Mail::to($email)->send(new SendMail($data));
-        if (file_exists($emplacementPdfBillet)) {
-            unlink($emplacementPdfBillet);
-        }
-        return redirect('/confirmation');
 
+        /* Suppression des pdf */
+        $this->supprimerFichier($emplacementPdfBillet);
+        $this->supprimerFichier($emplacementPdfFacture);
+        return redirect(route('reservation_confirmation'));
+
+    }
+
+    /**
+     * @param string $emplacementFichier
+     */
+    public function supprimerFichier(string $emplacementFichier): void
+    {
+        if (file_exists($emplacementFichier)) {
+            unlink($emplacementFichier);
+        }
     }
 }

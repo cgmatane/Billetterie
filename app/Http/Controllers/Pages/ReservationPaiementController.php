@@ -27,7 +27,8 @@ class ReservationPaiementController extends PageController
 
         $requete->session()->put('paiement.carte', self::anonymiserNumeroCarte($validatedData['number']));
         $requete->session()->put('paiement.nom', $validatedData['name']);
-
+        date_default_timezone_set("America/New_York");
+        $requete->session()->put('paiement.date', date('Y/m/d H:i:s'));
         return redirect(route('envoieEmail'));
     }
 

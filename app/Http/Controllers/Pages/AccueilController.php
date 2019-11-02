@@ -24,6 +24,7 @@ class AccueilController extends PageController
         $requete->session()->put('ticket.heure', $heure);
         $destination = $requete->input('destination');
         $requete->session()->put('ticket.destination', $destination);
+        $requete->session()->put('ticket.type_vehicule', null);
         return redirect(route('reservation_choix_vehicule'));
     }
 

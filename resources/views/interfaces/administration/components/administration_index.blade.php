@@ -8,8 +8,6 @@
         @yield('contenu')
     </div>
 
-
-    @include('interfaces.administration.components.sidebar')
     @include('interfaces.administration.components.foot')
 
 

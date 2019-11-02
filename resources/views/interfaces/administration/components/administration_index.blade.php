@@ -4,7 +4,7 @@
     @endcomponent
     @include('interfaces.administration.components.sidebar')
 
-    <div class="container container-admin">
+    <div class="container-admin">
         @yield('contenu')
     </div>
 

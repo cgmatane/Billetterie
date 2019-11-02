@@ -481,11 +481,15 @@ body {
     padding-left: 15px ;
     max-width: 70%;
 }
+.nav-side-menu .menu-list .menu-content {
+    display: block;
+}
 @media (max-width: 767px) {
     .nav-side-menu {
         position: relative;
         width: 100%;
         margin-bottom: 10px;
+        top:0;
     }
     .brand {
         text-align: left !important;
@@ -494,12 +498,10 @@ body {
         line-height: 50px !important;
     }
     .container-admin{
-        margin-left: auto;
+        margin-left: 0px;
         margin-bottom: 15px;
+        max-width: 100%;
+        padding: 0px;
     }
 }
-@media (min-width: 767px) {
-    .nav-side-menu .menu-list .menu-content {
-        display: block;
-    }
-}
+

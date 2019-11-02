@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Programmation extends Model
+class Programmation extends ModeleParent
 {
     protected $table = 'programmation'; /*Definit le nom de la table de la BD correspondant a associer au modele
                                         (par defaut la valeur de $table est le nom de la classe en snake case suivit d'un s)*/
@@ -24,18 +24,9 @@ class Programmation extends Model
         //return $this->hasMany('App\Ticket', 'id_programmation', 'id_programmation');
     }
 
-    public function getDependances($recursif = true) {
-        $dependances = [];
-
-        $dependancesObjets = $this->tickets();
-        if (!$recursif) {
-            return $dependancesObjets;
-        }
-        foreach ($dependancesObjets as $dependanceObjet) {
-            array_push($dependances, ['dependancePrimaire' => $dependanceObjet, 'dependancesSecondaires' => []]);
-            array_push($dependances[count($dependances)-1]['dependancesSecondaires'],$dependanceObjet->getDependances());
-        }
-        return $dependances;
+    protected function getDependancesDirectes()
+    {
+        return $this->tickets();
     }
 
 }

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Station extends Model
+class Station extends ModeleParent
 {
     protected $table = 'station'; /*Definit le nom de la table de la BD correspondant a associer au modele
                                         (par defaut la valeur de $table est le nom de la classe en snake case suivit d'un s)*/
@@ -24,16 +24,8 @@ class Station extends Model
         //return $this->hasMany('App\Trajet', 'id_station_arrivee', 'id_trajet');
     }
 
-    public function getDependances($recursif = true) {
-        $dependances = [];
-        $dependancesObjets = $this->trajetsPartantDeStation()->merge($this->trajetsArrivantAStation());
-        if (!$recursif) {
-            return $dependancesObjets;
-        }
-        foreach ($dependancesObjets as $dependanceObjet) {
-            array_push($dependances, ['dependancePrimaire' => $dependanceObjet, 'dependancesSecondaires' => []]);
-            array_push($dependances[count($dependances)-1]['dependancesSecondaires'],$dependanceObjet->getDependances());
-        }
-        return $dependances;
+    protected function getDependancesDirectes()
+    {
+        return $this->trajetsPartantDeStation()->merge($this->trajetsArrivantAStation());
     }
 }

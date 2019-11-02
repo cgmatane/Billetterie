@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Commande extends Model
+class Commande extends ModeleParent
 {
     protected $table = 'commande';
     protected $primaryKey = 'id_commande';
@@ -32,18 +32,9 @@ class Commande extends Model
         //return $this->hasMany('App\Ticket', 'id_commande', 'id_commande');
     }
 
-    public function getDependances($recursif = true) {
-        $dependances = [];
-
-        $dependancesObjets = $this->tickets();
-        if (!$recursif) {
-            return $dependancesObjets;
-        }
-        foreach ($dependancesObjets as $dependanceObjet) {
-            array_push($dependances, ['dependancePrimaire' => $dependanceObjet, 'dependancesSecondaires' => []]);
-            array_push($dependances[count($dependances)-1]['dependancesSecondaires'],$dependanceObjet->getDependances());
-        }
-        return $dependances;
+    protected function getDependancesDirectes()
+    {
+        return $this->tickets();
     }
 
 }

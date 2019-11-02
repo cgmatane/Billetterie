@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ticket extends Model
+class Ticket extends ModeleParent
 {
     protected $table = 'ticket'; /*Definit le nom de la table de la BD correspondant a associer au modele
                                         (par defaut la valeur de $table est le nom de la classe en snake case suivit d'un s)*/
@@ -29,7 +29,8 @@ class Ticket extends Model
         //return $this->hasOne('App\Commande', 'id_ticket', 'id_ticket');
     }
 
-    public function getDependances($recursif = true) {
+    protected function getDependancesDirectes()
+    {
         return array();
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 
 
-class TypeVehicule extends Model
+class TypeVehicule extends ModeleParent
 {
     const PIETON = 1;
     const VOITURE = 2;
@@ -27,17 +27,8 @@ class TypeVehicule extends Model
         //return $this->hasMany('App\Vehicule', 'id_type_vehicule', 'id_type_vehicule');
     }
 
-    public function getDependances($recursif = true) {
-        $dependances = [];
-
-        $dependancesObjets = $this->vehicules();
-        if (!$recursif) {
-            return $dependancesObjets;
-        }
-        foreach ($dependancesObjets as $dependanceObjet) {
-            array_push($dependances, ['dependancePrimaire' => $dependanceObjet, 'dependancesSecondaires' => []]);
-            array_push($dependances[count($dependances)-1]['dependancesSecondaires'],$dependanceObjet->getDependances());
-        }
-        return $dependances;
+    protected function getDependancesDirectes()
+    {
+        return $this->vehicules();
     }
 }

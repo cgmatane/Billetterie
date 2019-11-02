@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Passager extends Model
+class Passager extends ModeleParent
 {
     protected $table = 'passager';
     protected $primaryKey = 'id_passager';
@@ -18,7 +18,8 @@ class Passager extends Model
         //return $this->belongsTo('App\Acheteur', 'id_acheteur', 'id_acheteur');
     }
 
-    public function getDependances($recursif = true) {
+    protected function getDependancesDirectes()
+    {
         return array();
     }
 }

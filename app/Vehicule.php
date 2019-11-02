@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Vehicule extends Model
+class Vehicule extends ModeleParent
 {
     protected $table = 'vehicule'; /*Definit le nom de la table de la BD correspondant a associer au modele
                                         (par defaut la valeur de $table est le nom de la classe en snake case suivit d'un s)*/
@@ -24,17 +24,8 @@ class Vehicule extends Model
         //return $this->hasMany('App\Commande', 'id_vehicule', 'id_vehicule');
     }
 
-    public function getDependances($recursif = true) {
-        $dependances = [];
-
-        $dependancesObjets = $this->commandes();
-        if (!$recursif) {
-            return $dependancesObjets;
-        }
-        foreach ($dependancesObjets as $dependanceObjet) {
-            array_push($dependances, ['dependancePrimaire' => $dependanceObjet, 'dependancesSecondaires' => []]);
-            array_push($dependances[count($dependances)-1]['dependancesSecondaires'],$dependanceObjet->getDependances());
-        }
-        return $dependances;
+    protected function getDependancesDirectes()
+    {
+        return $this->commandes();
     }
 }

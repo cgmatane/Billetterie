@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Acheteur extends Model
+class Acheteur extends ModeleParent
 {
     protected $table = 'acheteur';
     protected $primaryKey = 'id_acheteur';
@@ -23,18 +23,9 @@ class Acheteur extends Model
         //return $this->hasMany('App\Commande', 'id_acheteur', 'id_acheteur');
     }
 
-    public function getDependances($recursif = true) {
-        $dependances = [];
-
-        $dependancesObjets = $this->passagers()->merge($this->commandes());
-        if (!$recursif) {
-            return $dependancesObjets;
-        }
-        foreach ($dependancesObjets as $dependanceObjet) {
-            array_push($dependances, ['dependancePrimaire' => $dependanceObjet, 'dependancesSecondaires' => []]);
-            array_push($dependances[count($dependances)-1]['dependancesSecondaires'],$dependanceObjet->getDependances());
-        }
-        return $dependances;
+    protected function getDependancesDirectes()
+    {
+        return $this->passagers()->merge($this->commandes());
     }
 }
 

@@ -92,9 +92,28 @@
                         </small>
                     </div>
                 </div>
-                @if ($type_vehicule == "Voiture avec remorque")
-                    <div> YUWFUGWUOGWFULYGFWYUWFGOFWGYWFOUIGPWFIUGFW</div>
-                @endif
+                @isset($type_vehicule)
+                        <div class="row">
+                            <div class="form-group col" id="champImmatriculation">
+                                <input type="text" class="form-control"
+                                       style="border-width:medium" id="valeurImmatriculation"
+                                       placeholder="{{ $reservation_passagers_immatriculation }}">
+                                <!--<div class="alert alert-danger champErreur" id="erreurCourriel" style="display:none">
+                                    <small class="texteErreur"></small>
+                                </div>  -->
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                @endisset
 
 
             </fieldset>

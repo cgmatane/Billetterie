@@ -15,6 +15,7 @@ class DonneesVueReservationPassagers extends DonneesVue
         $this->setDonneeVue('prenom', 'Prénom');
         $this->setDonneeVue('courriel', 'Courriel');
         $this->setDonneeVue('numero', 'Numéro de téléphone');
+        $this->setDonneeVue('immatriculation', 'numéro d\'immatriculation de votre véhicule');
         $this->setDonneeVue('tel_necessaire', '(nécessaire en cas d\'annulation ou de retard)');
         $this->setDonneeVue('confirmation_animaux','Je confirme ne pas voyager avec des animaux exotiques');
         $this->setDonneeVue('confirmation_matieres','Je confirme ne pas transporter de matières dangereuses');

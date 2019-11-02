@@ -92,7 +92,8 @@
                         </small>
                     </div>
                 </div>
-                @isset($type_vehicule)
+                @if($type_vehicule != "pas de véhicule" || !isset($type_vehicule))
+                    wertytgfdsdf
                         <div class="row">
                             <div class="form-group col" id="champImmatriculation">
                                 <input type="text" class="form-control"
@@ -113,7 +114,7 @@
 
 
 
-                @endisset
+                @endif
 
 
             </fieldset>

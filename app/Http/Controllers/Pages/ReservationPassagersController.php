@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Pages;
 use App\Http\Controllers\PageController;
 use App\Http\Requests\ReservationPassagerRequest;
 use App\Statics\Views\interfaces\reservation_passagers\DonneesVueReservationPassagers;
+use App\TypeVehicule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -136,7 +137,7 @@ class ReservationPassagersController extends PageController
                 case 35:
                     $codeQR .= '9';
                 break;
-                
+
             }
         }
 
@@ -152,5 +153,33 @@ class ReservationPassagersController extends PageController
         $requete->session()->put("ticket.imageQR", $imageQR);
 
         return redirect(route('validation_informations'));
+    }
+
+    protected function setDonneesDynamiques(Request $requete = null)
+    {
+        switch($requete->session()->get('ticket.type_vehicule')) {
+            case TypeVehicule::PIETON:
+                $typeVehicule = null;
+                break;
+            case TypeVehicule::VOITURE:
+                $typeVehicule = "Voiture";
+                break;
+            case TypeVehicule::VOITURE_AVEC_REMORQUE:
+                $typeVehicule = "Voiture avec remorque";
+                break;
+            case TypeVehicule::CAMIONETTE:
+                $typeVehicule = "Camionette";
+                break;
+            case TypeVehicule::POIDS_LOURD:
+                $typeVehicule = "Poids lourd";
+                break;
+            default :
+                $typeVehicule = "pas de véhicule";
+                break;
+        }
+
+        $this->donneesDynamiques = [
+            'type_vehicule'=>$typeVehicule,
+        ];
     }
 }

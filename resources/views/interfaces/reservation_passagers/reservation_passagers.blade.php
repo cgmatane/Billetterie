@@ -92,6 +92,10 @@
                         </small>
                     </div>
                 </div>
+                @if ($type_vehicule == "Voiture avec remorque")
+                    <div> YUWFUGWUOGWFULYGFWYUWFGOFWGYWFOUIGPWFIUGFW</div>
+                @endif
+
 
             </fieldset>
             <div class="row">
@@ -132,6 +136,7 @@
                     </div>
                 </div>
             </div>
+
             <button type="submit" class="btn btn-outline-success my-4 btn-block">
                 {{ $reservation_passagers_paiement}}
             </button>

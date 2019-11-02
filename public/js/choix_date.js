@@ -43,9 +43,7 @@ var vanillaCalendar = {
         this.activeDates = document.querySelectorAll('[data-calendar-status="active"]');
         for (var e = 0; e < this.activeDates.length; e++)
             this.activeDates[e].addEventListener("click", function (e) {
-                window.location = '/date?date=' + this.dataset.calendarDate,
-                    t.removeActiveClass(),
-                    this.classList.add("vcal-date--selected")
+                window.location = '/date?date=' + this.dataset.calendarDate
             })
     },
     createMonth: function () {

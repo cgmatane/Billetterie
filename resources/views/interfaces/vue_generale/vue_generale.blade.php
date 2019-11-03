@@ -21,7 +21,6 @@
             <table class="table" style="font-size: 16px">
                 <thead class="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Date de départ</th>
                     <th scope="col">Date d'arrivé</th>
@@ -33,27 +32,25 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <th scope="row">1</th>
                     <td>Matane - Godbou</td>
                     <td>2019-11-02 22:00</td>
                     <td>2019-11-03 01:00</td>
                     <td><div class="progress progress-striped">
                             <div class="progress-bar bg-info" role="progressbar" style="width: 90%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">400/500</div>
                         </div>
-                        <div class="progress progress-striped">
+                        <div class="progress progress-striped" style="margin-top: 2px;">
                             <div class="progress-bar bg-success" role="progressbar" style="width: 55%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">100/180</div>
                         </div></td>
                 </tr>
                 <tr>
-                    <th scope="row">2</th>
                     <td>Matane - Godbou</td>
                     <td>2019-11-02 22:00</td>
                     <td>2019-11-03 01:00</td>
                     <td><div class="progress progress-striped">
                             <div class="progress-bar bg-info" role="progressbar" style="width: 90%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">400/500</div>
                         </div>
-                        <div class="progress progress-striped">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 55%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">100/180</div>
+                        <div class="progress progress-striped" style="margin-top: 2px;">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 55%; font-size: 1.3em " aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">100/180</div>
                         </div></td>
                 </tr>
                 </tbody>

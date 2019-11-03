@@ -18,10 +18,20 @@ class VueGeneraleController extends PageController
 
     protected function setDonneesDynamiques(Request $requete = null)
     {
+        $donneesRemplissageProgrammation = [];
         $email = $requete->session()->get('utilisateur.email');
-        $donneesProgrammation =
+        $donneesProgrammation = Programmation::get()->take(5)->sortBy('date_depart')->all();
+        foreach ($donneesProgrammation as $donneeProgrammation){
+            $donneeRemplissage = [];
+            $donneeRemplissage['nombrePassagers'] = $donneeProgrammation->getNombrePassagers();
+            $donneeRemplissage['nombrePlacePassagers'] = $donneeProgrammation->getNombrePlacePassagers();
+            array_push($donneesRemplissageProgrammation,$donneeRemplissage);
+        }
+        dd($donneesRemplissageProgrammation);
         $this->donneesDynamiques = [
-            'email'=>$email
+            'email'=>$email,
+            'donneesProgrammation'=> $donneesProgrammation,
+            'donneesRemplissageProgramation'=> $donneesRemplissageProgrammation
         ];
     }
 

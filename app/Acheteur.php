@@ -17,7 +17,9 @@ class Acheteur extends ModeleParent
         return Passager::where('id_acheteur', $this->id_acheteur)->get();
         //return $this->hasMany('App\Passager', 'id_acheteur', 'id_acheteur');
     }
-
+    public function getnombrePassagers() {
+        return Passager::where('id_acheteur', $this->id_acheteur)->count();
+    }
     public function commandes() {
         return Commande::where('id_acheteur', $this->id_acheteur)->get();
         //return $this->hasMany('App\Commande', 'id_acheteur', 'id_acheteur');

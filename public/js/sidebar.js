@@ -7,9 +7,9 @@ function myFunction() {
     console.log(x);
 
 
-    if (x > 5){
-        navSide.style.top = "0" ;
+    if (x < 55){
+        navSide.style.top = (55-x)+"px" ;
     }else{
-        navSide.style.top = "55px" ;
+        navSide.style.top = "0" ;
     }
 }

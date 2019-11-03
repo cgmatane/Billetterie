@@ -15,7 +15,8 @@ class Programmation extends ModeleParent
     public $timestamps = false;
 
     public function trajet() {
-        return Trajet::find($this->id_programmation);
+        return Trajet::where('id_trajet', $this->id_trajet)->first();
+        //return Trajet::find($this->id_programmation);
         //return $this->belongsTo('App\Trajet', 'id_trajet', 'id_trajet');
     }
 

@@ -23,6 +23,8 @@ class VueGeneraleController extends PageController
         foreach ($donneesProgrammation as $donneeProgrammation){
             $donneeProgrammation['nombrePassagers'] = $donneeProgrammation->getNombrePassagers();
             $donneeProgrammation['nombrePlacesPassagers'] = $donneeProgrammation->getNombrePlacesPassagers();
+            $donneeProgrammation['nombreVehicules'] = $donneeProgrammation->getNombreVehicules();
+            $donneeProgrammation['nombrePlacesVehicules'] = $donneeProgrammation->getNombrePlacesVehicules();
         }
         $this->donneesDynamiques = [
             'email'=>$email,

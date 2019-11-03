@@ -7,7 +7,6 @@
 @endsection
 
 @section('contenu')
-    <div>
         <div id="introduction" >
             <h1>Interface d'administration de la STQ</h1>
             <p>C'est ici que ce fait la gestion des stations, des trajets, des navires et des programmations.</p>
@@ -26,7 +25,7 @@
                     <th scope="col">Date d'arrivé</th>
                     <th scope="col">
                             <div class="leg bg-info">Passagers</div>
-                            <div class="leg bg-success">Vehicules</div>
+                            <div class="leg bg-success">Véhicules</div>
                     </th>
                 </tr>
                 </thead>
@@ -40,7 +39,7 @@
                                 <div class="progress-bar bg-info" role="progressbar"  data-nombre="{{$donneeProgrammation['nombrePassagers']}}" data-total="{{ $donneeProgrammation['nombrePlacesPassagers'] }}"  aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <div class="progress progress-striped" id="progress-bottom">
-                                <div class="progress-bar bg-success" role="progressbar" data-nombre="100" data-total="180" aria-valuemin="0" aria-valuemax="100">100/180</div>
+                                <div class="progress-bar bg-success" role="progressbar"  data-nombre="{{$donneeProgrammation['nombreVehicules']}}" data-total="{{ $donneeProgrammation['nombrePlacesVehicules'] }}"  aria-valuemin="0" aria-valuemax="100"></div>
                             </div></td>
                     </tr>
                 @endforeach
@@ -79,7 +78,5 @@
                 </div>
             </div>
         </div>
-
-    </div>
     <script type="text/javascript" src="{{URL::asset('js/vue_generale.js')}}"></script>
 @endsection

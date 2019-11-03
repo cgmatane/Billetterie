@@ -513,6 +513,7 @@ display: block;
 .progress{
     width: 100%; !important;
     border: #95999c solid 1px;
+    font-size: 0.8em;
 }
 .article{
     width: 90%;

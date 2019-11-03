@@ -30,20 +30,38 @@ class Programmation extends ModeleParent
     }
 
     public function getNombrePassagers(){
-        $nombreDePassager = 0;
+        $nombreDePassagers = 0;
         $tickets = $this->tickets();
         foreach ($tickets as $ticket){
             $commande = $ticket->commande();
             $acheteur = $commande->acheteur();
-            $nombreDePassager += $acheteur->getnombrePassagers();
+            $nombreDePassagers += $acheteur->getnombrePassagers();
         }
-        return $nombreDePassager;
+        return $nombreDePassagers;
     }
 
     public function getNombrePlacesPassagers(){
         $trajet = $this->trajet();
         $navire = $trajet->navire();
         return $navire['nombre_place_pieton'];
+    }
+    public function getNombreVehicules(){
+        $nombreDeVehicules = 0;
+        $tickets = $this->tickets();
+        foreach ($tickets as $ticket){
+            $commande = $ticket->commande();
+            if (isset($commande['id_vehicule'])){
+                $nombreDeVehicules++;
+            }
+
+        }
+        return $nombreDeVehicules;
+    }
+
+    public function getNombrePlacesVehicules(){
+        $trajet = $this->trajet();
+        $navire = $trajet->navire();
+        return $navire['nombre_place_vehicule'];
     }
 
 }

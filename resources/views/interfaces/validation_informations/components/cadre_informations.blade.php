@@ -100,6 +100,14 @@
                         @endif
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col">
+                        numéro d'immatriculation
+                    </div>
+                    <div class="col">
+                        {{ $immatriculation }}
+                    </div>
+                </div>
             </div>
         @endisset
 

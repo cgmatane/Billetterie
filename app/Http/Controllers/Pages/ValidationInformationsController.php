@@ -30,6 +30,7 @@ class ValidationInformationsController extends PageController
         $email = $requete->session()->get('ticket.email');
         $numero = $requete->session()->get('ticket.numero');
         $poidsEleve = $requete->session()->get('ticket.poids_eleve');
+        $immatriculation = $requete->session()->get('ticket.immatriculation');
         switch($requete->session()->get('ticket.type_vehicule')) {
             case TypeVehicule::PIETON:
                 $typeVehicule = null;
@@ -63,6 +64,7 @@ class ValidationInformationsController extends PageController
             'email'=>$email,
             'numero'=>$numero,
             'poids_eleve'=>$poidsEleve,
+            'immatriculation'=>$immatriculation,
         ];
     }
 

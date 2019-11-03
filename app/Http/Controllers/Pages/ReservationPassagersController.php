@@ -21,13 +21,25 @@ class ReservationPassagersController extends PageController
 
     public function gererValidation(Request $requete)
     {
-        $validatedData = $this->validate($requete, [
-            'email' => 'required|email',
-            'numero' => 'required',
-            'nom.*' => 'required',
-            'prenom.*' => 'required',
-            'age.*' => 'required',
-        ]);
+        if ($requete->session()->get('ticket.type_vehicule') == null ) {
+            $validatedData = $this->validate($requete, [
+                'email' => 'required|email',
+                'numero' => 'required',
+                'nom.*' => 'required',
+                'prenom.*' => 'required',
+                'age.*' => 'required',
+            ]);
+        }else{
+            $validatedData = $this->validate($requete, [
+                'email' => 'required|email',
+                'numero' => 'required',
+                'nom.*' => 'required',
+                'prenom.*' => 'required',
+                'age.*' => 'required',
+                'immatriculation' => 'required',
+            ]);
+            $requete->session()->put('ticket.immatriculation', $validatedData['immatriculation']);
+        }
         $codeQR = "";
         for($i = 0; $i < 7; $i++){
             $chiffreAleatoire = rand(1,36);
@@ -149,8 +161,10 @@ class ReservationPassagersController extends PageController
         $requete->session()->put('ticket.email', $validatedData['email']);
         $requete->session()->put('ticket.numero', $validatedData['numero']);
 
+
         $imageQR = "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=" . $codeQR;
         $requete->session()->put("ticket.imageQR", $imageQR);
+
 
         return redirect(route('validation_informations'));
     }

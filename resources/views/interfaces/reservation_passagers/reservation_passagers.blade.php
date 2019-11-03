@@ -93,10 +93,9 @@
                     </div>
                 </div>
                 @if($type_vehicule != "pas de véhicule" || !isset($type_vehicule))
-                    wertytgfdsdf
                         <div class="row">
                             <div class="form-group col" id="champImmatriculation">
-                                <input type="text" class="form-control"
+                                <input name="immatriculation" type="text" class="form-control"
                                        style="border-width:medium" id="valeurImmatriculation"
                                        placeholder="{{ $reservation_passagers_immatriculation }}">
                                 <!--<div class="alert alert-danger champErreur" id="erreurCourriel" style="display:none">

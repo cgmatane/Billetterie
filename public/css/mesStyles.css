@@ -488,7 +488,7 @@ display: block;
     position: relative;
     width: 100%;
     margin-bottom: 10px;
-    top:0;
+    top:0 !important;
 }
     .brand {
     text-align: left !important;

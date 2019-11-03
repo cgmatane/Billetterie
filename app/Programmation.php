@@ -40,7 +40,7 @@ class Programmation extends ModeleParent
         return $nombreDePassager;
     }
 
-    public function getNombrePlacePassagers(){
+    public function getNombrePlacesPassagers(){
         $trajet = $this->trajet();
         $navire = $trajet->navire();
         return $navire['nombre_place_pieton'];

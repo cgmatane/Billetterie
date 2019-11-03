@@ -29,4 +29,21 @@ class Programmation extends ModeleParent
         return $this->tickets();
     }
 
+    public function getNombrePassagers(){
+        $nombreDePassager = 0;
+        $tickets = $this->tickets();
+        foreach ($tickets as $ticket){
+            $commande = $ticket->commande();
+            $acheteur = $commande->acheteur();
+            $nombreDePassager += $acheteur->getnombrePassagers();
+        }
+        return $nombreDePassager;
+    }
+
+    public function getNombrePlacePassagers(){
+        $trajet = $this->trajet();
+        $navire = $trajet->navire();
+        return $navire['nombre_place_pieton'];
+    }
+
 }

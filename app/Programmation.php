@@ -14,6 +14,11 @@ class Programmation extends ModeleParent
 
     public $timestamps = false;
 
+    public function getNomAffiche()
+    {
+        return $this->nom;
+    }
+
     public function trajet() {
         return Trajet::where('id_trajet', $this->id_trajet)->first();
         //return Trajet::find($this->id_programmation);
@@ -23,11 +28,6 @@ class Programmation extends ModeleParent
     public function tickets() {
         return Ticket::where('id_programmation', $this->id_programmation)->get();
         //return $this->hasMany('App\Ticket', 'id_programmation', 'id_programmation');
-    }
-
-    protected function getDependancesDirectes()
-    {
-        return $this->tickets();
     }
 
     public function getNombrePassagers(){
@@ -63,6 +63,12 @@ class Programmation extends ModeleParent
         $trajet = $this->trajet();
         $navire = $trajet->navire();
         return $navire['nombre_place_vehicule'];
+    }
+
+
+    protected function getDependancesDirectes()
+    {
+        return [$this->tickets()];
     }
 
 }

@@ -22,6 +22,11 @@ class TypeVehicule extends ModeleParent
 
     public $timestamps = false;
 
+    public function getNomAffiche()
+    {
+        return $this->nom;
+    }
+
     public function vehicules() {
         return Vehicule::where('id_type_vehicule', $this->id_type_vehicule)->get();
         //return $this->hasMany('App\Vehicule', 'id_type_vehicule', 'id_type_vehicule');
@@ -29,6 +34,6 @@ class TypeVehicule extends ModeleParent
 
     protected function getDependancesDirectes()
     {
-        return $this->vehicules();
+        return [$this->vehicules()];
     }
 }

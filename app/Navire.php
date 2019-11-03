@@ -14,6 +14,11 @@ class Navire extends ModeleParent
 
     public $timestamps = false;
 
+    public function getNomAffiche()
+    {
+        return $this->nom;
+    }
+
     public function trajets() {
         return Trajet::where('id_navire', $this->id_navire)->get();
         //return $this->hasMany('App\Trajet', 'id_navire', 'id_navire');
@@ -21,6 +26,6 @@ class Navire extends ModeleParent
 
     protected function getDependancesDirectes()
     {
-        return $this->trajets();
+        return [$this->trajets()];
     }
 }

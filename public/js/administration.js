@@ -18,7 +18,13 @@ function setEntrees() {
         entrees[id] = [];
         let DOMValeurs = DOMEntrees[i].querySelector('.valeurs').children;
         for (let j = 0;j<DOMValeurs.length;j++) {
-            entrees[id].push(DOMValeurs[j].innerHTML);
+            let entree = DOMValeurs[j].innerHTML;
+            if (colonnes[j+1]['type'][0] === 'date') {
+                let dateFormatee = new Date(entree);
+                dateFormatee.setMonth(dateFormatee.getMonth()+1);
+                entree = (dateFormatee.getDate()<10?'0':'')+dateFormatee.getDate() + '/' + (dateFormatee.getMonth()<10?'0':'')+dateFormatee.getMonth() + '/' + dateFormatee.getFullYear();
+            }
+            entrees[id].push(entree);
         }
     }
 }
@@ -128,7 +134,17 @@ function getHTMLFormulaireAjouterEditerEntree(id) {
                 HTML += '<input type="text" name="'+colonnes[i]['attribut']+'" value="'+((id>-1)?entree[i-1]:'')+'" placeholder="'+colonnes[i]['nom']+'"'+'>';
                 break;
             case 'bool':
-                HTML += '<input type="checkbox" name="'+colonnes[i]['attribut']+'"'+((id>-1 && entree[i-1] === '1')?' checked':'')+ '>';
+                HTML += '<input type="hidden" name="'+colonnes[i]['attribut']+'" value="0">';
+                HTML += '<input type="checkbox" name="'+colonnes[i]['attribut']+'"'+((id>-1 && entree[i-1] === '1')?' checked':'')+ ' value="1">';
+                break;
+            case 'date':
+                let valeur = '';
+                if (id>-1) {
+                    valeur = entree[i-1];
+                    valeur = valeur.split('/');
+                    valeur = valeur[2]+"-"+(valeur[1].length===1?'0':'')+valeur[1]+"-"+(valeur[0].length===1?'0':'')+valeur[0];
+                }
+                HTML += '<input type="date" name="'+colonnes[i]['attribut']+'" value="'+valeur+'">';
                 break;
             default:
                 HTML += '<input type="'+type[0]+'" name="'+colonnes[i]['attribut']+'" value="'+((id>-1)?entree[i-1]:'')+'">';
@@ -139,7 +155,7 @@ function getHTMLFormulaireAjouterEditerEntree(id) {
 }
 
 function getHTMLDeClesEtrangeresPourTable(nomTable, attributLie, idCleSelectionne = -1) {
-    HTML = '<select name="'+nomTable+'|'+attributLie+'">';
+    HTML = '<select name="'+attributLie+'">';
 
     for (let id in clesEtrangeres[nomTable]['ids']) {
         HTML += '<option value="'+id+'"'+((idCleSelectionne == parseInt(id))?' selected':'')+'>' + clesEtrangeres[nomTable]['ids'][id] + '</option>';

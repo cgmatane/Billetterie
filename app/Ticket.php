@@ -14,6 +14,11 @@ class Ticket extends ModeleParent
 
     public $timestamps = false;
 
+    public function getNomAffiche()
+    {
+        return "Ticket ". $this->id_ticket;
+    }
+
     public function programmation() {
         return Programmation::where('id_programmation', $this->id_programmation)->first();
         //return $this->hasOne('App\Programmation', 'id_ticket', 'id_ticket');

@@ -14,6 +14,11 @@ class Trajet extends ModeleParent
 
     public $timestamps = false;
 
+    public function getNomAffiche()
+    {
+        return $this->stationDepart()->getNomAffiche() . '-' . $this->stationArrivee()->getNomAffiche();
+    }
+
     public function stationDepart() {
         return Station::find($this->id_station_depart);
         //return $this->belongsTo('App\Station', 'id_station_depart', 'id_station');
@@ -35,6 +40,6 @@ class Trajet extends ModeleParent
     }
 
     protected function getDependancesDirectes() {
-        return $this->programmations();
+        return [$this->programmations()];
     }
 }

@@ -13,13 +13,20 @@ class Acheteur extends ModeleParent
 
     public $timestamps = false;
 
+    public function getNomAffiche()
+    {
+        return $this->nom;
+    }
+
+    public function getNombrePassagers() {
+        return Passager::where('id_acheteur', $this->id_acheteur)->count();
+    }
+
     public function passagers() {
         return Passager::where('id_acheteur', $this->id_acheteur)->get();
         //return $this->hasMany('App\Passager', 'id_acheteur', 'id_acheteur');
     }
-    public function getnombrePassagers() {
-        return Passager::where('id_acheteur', $this->id_acheteur)->count();
-    }
+
     public function commandes() {
         return Commande::where('id_acheteur', $this->id_acheteur)->get();
         //return $this->hasMany('App\Commande', 'id_acheteur', 'id_acheteur');
@@ -27,7 +34,7 @@ class Acheteur extends ModeleParent
 
     protected function getDependancesDirectes()
     {
-        return $this->passagers()->merge($this->commandes());
+        return [$this->passagers(),$this->commandes()];
     }
 }
 

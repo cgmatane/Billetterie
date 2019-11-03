@@ -13,6 +13,12 @@ class Commande extends ModeleParent
 
     public $timestamps = false;
 
+
+    public function getNomAffiche()
+    {
+        return $this->nom;
+    }
+
     public function acheteur() {
         return Acheteur::find($this->id_commande);
         //return $this->belongsTo('App\Acheteur', 'id_acheteur', 'id_acheteur');
@@ -34,7 +40,7 @@ class Commande extends ModeleParent
 
     protected function getDependancesDirectes()
     {
-        return $this->tickets();
+        return [$this->tickets()];
     }
 
 }

@@ -31,6 +31,7 @@ class ReservationChoixVehiculeController extends PageController
             case self::CHOIX_PIETON:
                 $requete->session()->put('ticket.typeVehicule', TypeVehicule::PIETON);
                 $requete->session()->put('ticket.poids_lourd', false);
+                $requete->session()->put('ticket.immatriculation', null);
                 return redirect(route('reservation_passagers'));
                 break;
         }

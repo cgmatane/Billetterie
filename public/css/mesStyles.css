@@ -376,7 +376,10 @@ body {
     font-size: 30px;
     padding-left: 10px;
 }
-
+.progress{
+    width: 100%; !important;
+    border: #95999c solid 1px;
+}
 .auth {
     font-size: 15px;
     padding-right: 10px;

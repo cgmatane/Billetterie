@@ -13,41 +13,50 @@
             <p>C'est ici que ce fait la gestion des stations, des trajets, des navires et des programmations.</p>
         </div>
 
-        <h2>Tableau de bord</h2>
+        <div style=" width: 90%; margin: 0 auto;"><h2>Tableau de bord</h2></div>
         <div class="article" style="width: 90%; padding: 20px; background-color: #DCDEE6; margin: 20px auto 10px auto; border-radius: 10px;">
             <h3>Programmation</h3>
             <p class="lead">Voici les 5 prochains trajets qui vont être effectués </p>
             <hr class="my-4">
-            <table class="table">
+            <table class="table" style="font-size: 16px">
                 <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Date de départ</th>
+                    <th scope="col">Date d'arrivé</th>
+                    <th scope="col">
+                            <div class="bg-info" style="width: 100px; display : inline-block;color: white; text-align: center;">Passagers</div>
+                            <div class="bg-success" style="width: 100px;display : inline-block;color: white; text-align: center">Vehicules</div>
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>Matane - Godbou</td>
+                    <td>2019-11-02 22:00</td>
+                    <td>2019-11-03 01:00</td>
+                    <td><div class="progress progress-striped">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 90%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">400/500</div>
+                        </div>
+                        <div class="progress progress-striped">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 55%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">100/180</div>
+                        </div></td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
+                    <td>Matane - Godbou</td>
+                    <td>2019-11-02 22:00</td>
+                    <td>2019-11-03 01:00</td>
+                    <td><div class="progress progress-striped">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 90%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">400/500</div>
+                        </div>
+                        <div class="progress progress-striped">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 55%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">100/180</div>
+                        </div></td>
                 </tr>
                 </tbody>
-
             </table>
             <div class="lien" style="text-align: right;">
                 <a href="#">Gérer les programmations ></a>

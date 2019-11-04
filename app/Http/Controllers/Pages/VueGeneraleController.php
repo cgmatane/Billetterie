@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Pages;
 
 
 use App\Http\Controllers\PageController;
+use App\Navire;
 use App\Programmation;
 use App\Statics\Views\interfaces\vue_generale\DonneesVueVueGenerale;
+use App\Station;
+use App\Trajet;
 use Illuminate\Http\Request;
 
 class VueGeneraleController extends PageController
@@ -26,9 +29,26 @@ class VueGeneraleController extends PageController
             $donneeProgrammation['nombreVehicules'] = $donneeProgrammation->getNombreVehicules();
             $donneeProgrammation['nombrePlacesVehicules'] = $donneeProgrammation->getNombrePlacesVehicules();
         }
+        $donneesStats = [];
+        $donneesStation = [
+            'titre' => 'station',
+            'nombre' => Station::all()->count(),
+            ];
+        array_push($donneesStats,$donneesStation);
+        $donneesTrajet = [
+            'titre' => 'trajet',
+            'nombre' => Trajet::all()->count(),
+        ];
+        array_push($donneesStats,$donneesTrajet);
+        $donneesNavire = [
+            'titre' => 'navire',
+            'nombre' => Navire::all()->count(),
+        ];
+        array_push($donneesStats,$donneesNavire);
         $this->donneesDynamiques = [
             'email'=>$email,
             'donneesProgrammation'=> $donneesProgrammation,
+            'donneesStats' => $donneesStats
 
         ];
     }

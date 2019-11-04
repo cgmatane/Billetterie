@@ -559,6 +559,9 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
 }
+.stat>h3{
+    text-transform: capitalize;
+}
 
 .stat {
     width: 30%;
@@ -566,6 +569,7 @@ body {
     background-color: #DCDEE6;
     padding: 20px;
     border-radius: 10px;
+    margin: 5px auto;
 }
 
 .lien {
@@ -573,10 +577,14 @@ body {
 }
 
 .nombre {
+    max-width: 120px;
+    max-height: 120px;
+    font-size: 25px ;
     width: 50%;
     margin: 10px auto;
     border-radius: 100%;
     padding: 50px 0px;
+    line-height: 0;
     text-align: center;
     border: #1b1e21 solid 1px;
 }

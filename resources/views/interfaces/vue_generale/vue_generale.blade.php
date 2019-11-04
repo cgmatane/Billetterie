@@ -50,33 +50,17 @@
             </div>
         </div>
         <div class="statistique">
-            <div class="stat">
-                <h3>Station</h3>
-                <p class="lead">Nombres de stations</p>
-                <hr class="my-4">
-                <p class="nombre">5</p>
-                <div class="lien">
-                    <a href="{{route('administration.station')}}">Gérer les stations ></a>
+            @foreach($donneesStats as $donneeStats)
+                <div class="stat">
+                    <h3>{{$donneeStats['titre']}}</h3>
+                    <p class="lead">Nombres de {{$donneeStats['titre']}}s</p>
+                    <hr class="my-4">
+                    <p class="nombre">{{$donneeStats['nombre']}}</p>
+                    <div class="lien">
+                        <a href="{{route("administration.".$donneeStats['titre']."")}}">Gérer les {{$donneeStats['titre']}}s ></a>
+                    </div>
                 </div>
-            </div>
-            <div class="stat">
-                <h3>Trajet</h3>
-                <p class="lead">Nombres de trajets</p>
-                <hr class="my-4">
-                <p class="nombre">5</p>
-                <div class="lien" style="text-align: right;">
-                    <a href="{{route('administration.trajet')}}">Gérer les trajets ></a>
-                </div>
-            </div>
-            <div class="stat">
-                <h3>Navire</h3>
-                <p class="lead">Nombres de navires</p>
-                <hr class="my-4">
-                <p class="nombre">5</p>
-                <div class="lien">
-                    <a href="{{route('administration.navire')}}">Gérer les navires ></a>
-                </div>
-            </div>
+            @endforeach
         </div>
     <script type="text/javascript" src="{{URL::asset('js/vue_generale.js')}}"></script>
 @endsection

@@ -11,7 +11,7 @@ class DonneesVueProgrammation extends DonneesVue
         parent::__construct();
         $this->nomVue = 'gestion';
         $this->setDonneeVue('titre','Administration');
-        $this->setDonneeVue('type','planification');
+        $this->setDonneeVue('type','programmation');
         $colonnes = [
             '#',
             'Nom',

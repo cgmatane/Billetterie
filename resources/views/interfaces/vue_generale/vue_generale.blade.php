@@ -46,7 +46,7 @@
                 </tbody>
             </table>
             <div class="lien">
-                <a href="#">Gérer les programmations ></a>
+                <a href="{{route('administration.programmation')}}">Gérer les programmations ></a>
             </div>
         </div>
         <div class="statistique">
@@ -56,7 +56,7 @@
                 <hr class="my-4">
                 <p class="nombre">5</p>
                 <div class="lien">
-                    <a href="#">Gérer les stations ></a>
+                    <a href="{{route('administration.station')}}">Gérer les stations ></a>
                 </div>
             </div>
             <div class="stat">
@@ -65,7 +65,7 @@
                 <hr class="my-4">
                 <p class="nombre">5</p>
                 <div class="lien" style="text-align: right;">
-                    <a href="#">Gérer les trajets ></a>
+                    <a href="{{route('administration.trajet')}}">Gérer les trajets ></a>
                 </div>
             </div>
             <div class="stat">
@@ -74,7 +74,7 @@
                 <hr class="my-4">
                 <p class="nombre">5</p>
                 <div class="lien">
-                    <a href="#">Gérer les navires ></a>
+                    <a href="{{route('administration.navire')}}">Gérer les navires ></a>
                 </div>
             </div>
         </div>

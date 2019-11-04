@@ -24,7 +24,7 @@ class TypeVehicule extends ModeleParent
 
     public function getNomAffiche()
     {
-        return $this->nom;
+        return "Véhicule type ".$this->nom;
     }
 
     public function vehicules() {

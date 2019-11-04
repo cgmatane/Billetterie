@@ -16,7 +16,7 @@ class Station extends ModeleParent
 
     public function getNomAffiche()
     {
-        return $this->nom;
+        return "Station ".$this->nom;
     }
 
     public function trajetsPartantDeStation() {

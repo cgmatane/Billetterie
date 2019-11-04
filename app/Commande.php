@@ -16,7 +16,7 @@ class Commande extends ModeleParent
 
     public function getNomAffiche()
     {
-        return $this->nom;
+        return "Commande ".$this->nom;
     }
 
     public function acheteur() {

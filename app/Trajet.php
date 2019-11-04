@@ -16,7 +16,7 @@ class Trajet extends ModeleParent
 
     public function getNomAffiche()
     {
-        return $this->stationDepart()->getNomAffiche() . '-' . $this->stationArrivee()->getNomAffiche();
+        return "Trajet ".$this->stationDepart()->getNomAffiche() . '->' . $this->stationArrivee()->getNomAffiche();
     }
 
     public function stationDepart() {

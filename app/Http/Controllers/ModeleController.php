@@ -40,13 +40,11 @@ abstract class ModeleController extends PageController
                 }
 
                 if ($requete->input('submit') == 'supprimer') {
-                    $this->gererSupression($requete);
+                    $this->gererSuppression($requete);
                 }
 
             }
-            catch (\Exception $e) {
-                dd($e->getMessage());
-            }
+            catch (\Exception $e) {}
         }
         return redirect($this->getNomPage());
     }
@@ -82,26 +80,23 @@ abstract class ModeleController extends PageController
         return $colonnes;
     }
 
-    private function gererSupression(Request $requete){
+    private function gererSuppression(Request $requete){
 
+        $id = (int)$requete->input('id');
+        $entree = $this->getModeleParId($id);
         switch ($requete->type){
             case "no-cascade":
-                $entree = $this->getModeleParId((int)$requete->input('id'));
-                try {
-                    $dependances = $entree->getDependances();
-                }
-                catch (\Exception $e) {
-                }
-
-                if (count($dependances) == 0){
+                if (!$entree->possedeDependances()){
                     $entree->delete();
                     return null;
                 }else{
+                    $requete->session()->flash('idModeleSupprime', $id);
+                    return;
                     //return $this->creerTableauPourVue($trajets,$planifications,$entree);
                 }
                 break;
             case "cascade" :
-                /* TODO */
+                $entree->delete();
                 break;
             default:
                 break;
@@ -115,11 +110,20 @@ abstract class ModeleController extends PageController
         $entrees = $this->getEntreesSimplifiesDeModeles($this->getModeles()->sortBy($this->attributsColonnes[0]));
         $colonnes = $this->getColonnes();
         $this->setClesEtrangeres();
+        $dependancesModeleASupprimer = [];
+        $idModeleASupprimer = -1;
+        if ((int)$requete->session()->get('idModeleSupprime') > 0) {
+            $idModeleASupprimer = $requete->session()->get('idModeleSupprime');
+            $dependancesModeleASupprimer = $this->getModeleParId($idModeleASupprimer)->getDependances();
+            $requete->session()->forget('idModeleSupprime');
+        }
         $this->donneesDynamiques = [
             'email'=>$email,
             'entrees'=>$entrees,
             'colonnes'=>$colonnes,
             'tables_cles_etrangeres'=>$this->entreesClesEtrangeres,
+            'id_modele_a_supprimer'=>$idModeleASupprimer,
+            'dependances_modele_a_supprimer'=>$dependancesModeleASupprimer,
         ];
     }
 
@@ -132,5 +136,4 @@ abstract class ModeleController extends PageController
     abstract protected function getModeleParId($id);
 
     abstract protected function getNouveauModele();
-
 }

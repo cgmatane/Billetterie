@@ -9,8 +9,10 @@
 @section('contenu')
 
 
-    {{--
-    @if($messages = \Illuminate\Support\Facades\Session::get('cascades'))
+    @if($id_modele_a_supprimer > -1)
+
+
+        {{--
         @if($messages["trajets"])
             @foreach($messages["trajets"] as $message)
                 <strong>{{$message->id_trajet}}</strong>
@@ -23,6 +25,7 @@
                 <strong>{{$message->id_programation}}</strong>
             @endforeach
         @endif
+        --}}
         <div class="modal" id="myModal11" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -33,31 +36,19 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="{{ route("administration.station") }}">
+                        <form method="post" action="">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <div class="alert alert-danger" id="confirmer-texte" role="alert">
                                     <label>La suppression de ce champ entrainera la suppression des champs suivants :</label>
-                                    @if($messages["trajets"])
-                                        <strong>Trajets :</strong>
-                                        <ul>
-                                        @foreach($messages["trajets"] as $message)
-                                            <li>#{{$message->id_trajet}}</li>
-                                        @endforeach
-                                        </ul>
-                                        <br>
-                                    @endif
-                                    @if($messages["planifications"])
-                                        <strong>Planifications :</strong>
-                                        <ul>
-                                        @foreach($messages["planifications"] as $message)
-                                            <li>#{{$message->id_programmation}}</li>
-                                        @endforeach
-                                        </ul>
-                                    @endif
+                                    <div>
+                                    @foreach($dependances_modele_a_supprimer as $dependance_modele_a_supprimer)
+                                        <strong style="display:block;">{!! $dependance_modele_a_supprimer !!}</strong>
+                                    @endforeach
+                                    </div>
                                 </div>
-                                <input type="text" name="id" id="confirmer-id" value="{{$messages["id"]}}" style="visibility: hidden;">
-                                <input type="text" value="cascade" name="type" style="visibility: hidden;">
+                                <input type="text" name="id" id="confirmer-id" value="{{$id_modele_a_supprimer}}" style="display:none;">
+                                <input type="text" value="cascade" name="type" style="display:none;">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
@@ -81,7 +72,6 @@
         </script>
 
     @endif
-        --}}
 
     <div class="contenu-table">
         <h1>Gestion des {{ $gestion_type }}s</h1>

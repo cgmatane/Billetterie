@@ -35,19 +35,33 @@ abstract class ModeleParent extends Model
         return $colonnes;
     }
 
-    public function getDependances($recursif = true) {
-        $dependances = [];
+    public function possedeDependances() {
+        $dependancesTables = $this->getDependancesDirectes();
+        foreach ($dependancesTables as $dependancesTable) {
+            if (count($dependancesTable) > 0)
+                return true;
+        }
+        return false;
+    }
+
+    public function getDependances(&$dependances = [], $profondeur = 0) {
 
         $dependancesTables = $this->getDependancesDirectes();
-        if (!$recursif) {
-            return $dependancesTables;
-        }
         foreach ($dependancesTables as $dependancesTable) {
             foreach ($dependancesTable as $dependanceObjet) {
-                array_push($dependances, ['dependancePrimaire' => $dependanceObjet, 'dependancesSecondaires' => []]);
-                $dependances[count($dependances)-1]['dependancesSecondaires'] = $dependanceObjet->getDependances();
+                $nomDependanceCourante = "";
+                for ($i = 0;$i<$profondeur;$i++) {
+                    $nomDependanceCourante .= "&nbsp;&nbsp;&nbsp;&nbsp;";
+                }
+                $nomDependanceCourante .= $dependanceObjet->getNomAffiche();
+                array_push($dependances, $nomDependanceCourante);
+                $dependanceObjet->getDependances($dependances, $profondeur+1);
+                //array_push($dependances, ['dependancePrimaire' => $dependanceObjet->getNomAffiche(), 'dependancesSecondaires' => []]);
+                //$dependances[count($dependances)-1]['dependancesSecondaires'] = $dependanceObjet->getDependances();
             }
         }
+
+
 
         return $dependances;
     }

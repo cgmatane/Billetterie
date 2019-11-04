@@ -16,7 +16,7 @@ class Navire extends ModeleParent
 
     public function getNomAffiche()
     {
-        return $this->nom;
+        return "Navire ".$this->nom;
     }
 
     public function trajets() {

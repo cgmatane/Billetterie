@@ -15,7 +15,7 @@ class Acheteur extends ModeleParent
 
     public function getNomAffiche()
     {
-        return $this->nom;
+        return "Acheteur ".$this->nom;
     }
 
     public function getNombrePassagers() {

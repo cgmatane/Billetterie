@@ -15,7 +15,7 @@ class Passager extends ModeleParent
 
     public function getNomAffiche()
     {
-        return $this->nom;
+        return "Passager ".$this->nom;
     }
 
     public function acheteur() {

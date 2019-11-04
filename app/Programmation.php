@@ -16,7 +16,7 @@ class Programmation extends ModeleParent
 
     public function getNomAffiche()
     {
-        return $this->nom;
+        return "Programmation ".$this->nom;
     }
 
     public function trajet() {

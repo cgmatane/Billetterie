@@ -51,7 +51,7 @@ class Programmation extends ModeleParent
         $tickets = $this->tickets();
         foreach ($tickets as $ticket){
             $commande = $ticket->commande();
-            if (isset($commande['id_vehicule'])){
+            if ($commande->vehicule()){
                 $nombreDeVehicules++;
             }
 

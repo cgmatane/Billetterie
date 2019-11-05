@@ -88,7 +88,8 @@ class ChoixDateController extends PageController
             return redirect(route('choix_date'));
         }
 
-        $dateDepart = $jour.(" ").$mois;
+        // On caste le jour en entier pour retirer l'eventuel 0 parasite au début du nombre
+        $dateDepart = (int)$jour.(" ").$mois;
         $requete->session()->put('ticket.date', $dateDepart);
         return redirect(route('index'));
     }

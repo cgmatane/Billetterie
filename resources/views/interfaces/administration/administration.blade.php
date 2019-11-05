@@ -11,21 +11,6 @@
 
     @if($id_modele_a_supprimer > -1)
 
-
-        {{--
-        @if($messages["trajets"])
-            @foreach($messages["trajets"] as $message)
-                <strong>{{$message->id_trajet}}</strong>
-            @endforeach
-            <br>
-        @endif
-
-        @if($messages["planifications"])
-            @foreach($messages["planifications"] as $message)
-                <strong>{{$message->id_programation}}</strong>
-            @endforeach
-        @endif
-        --}}
         <div class="modal" id="myModal11" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">

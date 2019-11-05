@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 define('REPERTOIRE_INTERFACES', 'interfaces');
 
+
+//Format date en francais
+setlocale(LC_TIME, "fr");
+
+//Timezone pour le Quebec
+date_default_timezone_set("America/Toronto");
+
 class FrontEndController extends Controller
 {
 

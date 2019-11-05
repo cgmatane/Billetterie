@@ -4,9 +4,11 @@
 namespace App\Http\Controllers\Pages;
 
 
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PageController;
 use App\Statics\Views\interfaces\accueil\DonneesVueAccueil;
 use App\Station;
+use DateTime;
 use Illuminate\Http\Request;
 
 
@@ -30,13 +32,24 @@ class AccueilController extends PageController
 
     //On va injecter des donnees venant de la DB dans la vue
     protected function setDonneesDynamiques(Request $requete = null) {
-        // A decommenter quand vous chercherez a vous connecter a la BD
-        //On recupere la date d'aujourdhui (mois ecrit en francais)
-        setlocale(LC_TIME, "fr");
-        $dateAujourdhui = strftime('%d %B'); //jour mois en francais
 
-        //On recupere la station d'id 2 dans la DB (sous forme d'objet)
-        $stationDepart = Station::find(2);
+        if ($requete->session()->has('ticket.date')) {
+            $date = $requete->session()->get('ticket.date');
+        }
+        else {
+            $date = (int)strftime('%d') . strftime('%B');
+            $requete->session()->put('ticket.date', $date);
+        }
+
+        if ($requete->session()->has('ticket.depart')) {
+            $nomStationDepart = $requete->session()->get('ticket.depart');
+            $stationDepart = Station::where('nom', $nomStationDepart)->first();
+        }
+        else {
+            $stationDepart = Station::all()->first();
+            $nomStationDepart = $stationDepart->nom;
+            $requete->session()->put('ticket.depart', $nomStationDepart);
+        }
 
         //On recupere tous les trajets partant de cette station (liste d'objets, voir methode dans la classe Station)
         $trajets = $stationDepart->trajetsPartantDeStation();
@@ -61,12 +74,9 @@ class AccueilController extends PageController
 
         //On injecte aux donnees la date d'aujourd'hui en francais (affiché en haut de la vue) et les trajets
         $this->donneesDynamiques = array(
-            'date_aujourdhui'=>$dateAujourdhui,
+            'date'=>$date,
             'trajets'=>$trajetsVue,
+            'depart'=>$nomStationDepart,
         );
-        if ($requete->session()->has('ticket.date'))
-            $this->donneesDynamiques['date'] = $requete->session()->get('ticket.date');
-        if ($requete->session()->has('ticket.depart'))
-            $this->donneesDynamiques['depart'] = $requete->session()->get('ticket.depart');
     }
 }

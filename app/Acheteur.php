@@ -27,6 +27,10 @@ class Acheteur extends ModeleParent
         //return $this->hasMany('App\Passager', 'id_acheteur', 'id_acheteur');
     }
 
+    public function relationPassagers() {
+        return $this->hasMany('App\Passager', 'id_acheteur', 'id_acheteur');
+    }
+
     public function commandes() {
         return Commande::where('id_acheteur', $this->id_acheteur)->get();
         //return $this->hasMany('App\Commande', 'id_acheteur', 'id_acheteur');

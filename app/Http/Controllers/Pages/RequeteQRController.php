@@ -17,7 +17,7 @@ class RequeteQRController extends PageController
 //        $this->setDonneesStatiques(new DonneesVueConnexion());
     }
 
-    protected function setDonneesDynamiques(Request $requete = null)
+    public function gererValidation(Request $requete)
     {
         // AHEIFBG
         // UGJANGT
@@ -30,7 +30,7 @@ class RequeteQRController extends PageController
             } else {
                 $commande->passagers;
                 if ($commande->id_vehicule != null) {
-                    $commande->vehicule;
+                    $commande->relationVehicule;
                 }
                 echo $commande->toJSON();
             }

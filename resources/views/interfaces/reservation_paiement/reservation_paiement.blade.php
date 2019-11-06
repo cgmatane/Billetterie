@@ -1,7 +1,7 @@
 @extends('interfaces.index')
 
 @section('contenu')
-<body id="top" style="background-color: #d3d3d3">
+<body id="top">
 <div class="row">
 </div>
 <div class="container">
@@ -19,19 +19,19 @@
             <form onsubmit="return verifierFormulaire()" action="{{ route('reservation_paiement') }}">
                 <h5>{{ $reservation_paiement_renseigner_informations }}</h5>
                 <input placeholder="numéro de carte" type="tel" name="number" id="numeroCarte" class="col-10 m-2">
-                <div class="alert alert-danger champErreur" id="erreurNumeroCarte" style="display:none">
+                <div class="alert alert-danger champErreur hidden" id="erreurNumeroCarte">
                     <small class="texteErreur"></small>
                 </div>
                 <input placeholder="nom tel qu'il est inscrit" onkeyup="this.value = this.value.toUpperCase();" type="text" name="name" id="nom" class="col-10 m-2">
-                <div class="alert alert-danger champErreur" id="erreurNom" style="display:none">
+                <div class="alert alert-danger champErreur hidden" id="erreurNom">
                     <small class="texteErreur"></small>
                 </div>
                 <input placeholder="date d'expiration" type="tel" name="expiry" id="dateExpiration" class="col-10 m-2">
-                <div class="alert alert-danger champErreur" id="erreurDateExpiration" style="display:none">
+                <div class="alert alert-danger champErreur hidden" id="erreurDateExpiration">
                     <small class="texteErreur"></small>
                 </div>
                 <input placeholder="CVC" type="number" name="cvc" id="numeroCvc" class="col-10 m-2">
-                <div class="alert alert-danger champErreur" id="erreurNumeroCvc" style="display:none">
+                <div class="alert alert-danger champErreur hidden" id="erreurNumeroCvc">
                     <small class="texteErreur"></small>
                 </div>
                 <div class="row text-center justify-content-center">

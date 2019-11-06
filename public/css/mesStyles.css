@@ -602,3 +602,32 @@ body {
     margin-bottom: 0px;
 }
 
+#boutonChoix {
+    text-decoration:none;
+    color: #1b1e21;
+    font-size: xx-large;
+    border-radius: 0.5em;
+}
+
+#vert {
+    color: Green;
+}
+
+#tomato {
+    color: Tomato;
+}
+
+#top {
+    background-color: #d3d3d3;
+    margin: 0;
+}
+
+#texteHaut {
+    font-size: xx-large;
+    color: midnightblue;
+}
+
+#footerChoixMultiples {
+    margin-top: -50px;
+}
+

@@ -589,3 +589,16 @@ body {
     border: #1b1e21 solid 1px;
 }
 
+#imageFond {
+    background: url(/img/fond.jpg) 0 0 fixed no-repeat;
+    background-size: 100% 100%;
+}
+
+#midnightBlue {
+    background-color: midnightblue;
+}
+
+#noMargin {
+    margin-bottom: 0px;
+}
+

@@ -37,6 +37,7 @@ class AccueilController extends PageController
             $date = $requete->session()->get('ticket.date');
         }
         else {
+            setlocale (LC_TIME, "fr_FR");
             $date = (int)strftime('%d')." ".strftime('%B');
             $requete->session()->put('ticket.date', $date);
         }

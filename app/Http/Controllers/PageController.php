@@ -15,6 +15,22 @@ abstract class PageController extends Controller
     private $donneesStatiques;
     protected $donneesDynamiques;
 
+    public const MOIS = [
+        "",
+        "Janvier",
+        "Février",
+        "Mars",
+        "Avril",
+        "Mai",
+        "Juin",
+        "Juillet",
+        "Août",
+        "Septembre",
+        "Octobre",
+        "Novembre",
+        "Décembre"
+    ];
+
     public function __construct() {
         $this->init();
     }

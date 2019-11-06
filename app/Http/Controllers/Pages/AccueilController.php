@@ -37,7 +37,7 @@ class AccueilController extends PageController
             $date = $requete->session()->get('ticket.date');
         }
         else {
-            $date = (int)strftime('%d') . strftime('%B');
+            $date = (int)strftime('%d')." ".strftime('%B');
             $requete->session()->put('ticket.date', $date);
         }
 

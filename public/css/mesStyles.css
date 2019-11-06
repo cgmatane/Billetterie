@@ -643,3 +643,7 @@ body {
     border: #1b1e21 dashed thin;
     display:none;
 }
+
+#textDecoration {
+    text-decoration: none;
+}

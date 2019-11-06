@@ -72,7 +72,7 @@ class SendEmailController extends Controller
         /* Suppression des pdf */
         $this->supprimerFichier($emplacementPdfBillet);
         $this->supprimerFichier($emplacementPdfFacture);
-        return redirect(route('reservation_confirmation'));
+        return redirect(route('index'));
 
     }
 

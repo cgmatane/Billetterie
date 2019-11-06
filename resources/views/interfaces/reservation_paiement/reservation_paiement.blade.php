@@ -51,6 +51,7 @@
     </script>
 </div>
 
+
 <div class="container-fluid">
     @component('global_components.zone_bas_de_page')
     @endcomponent

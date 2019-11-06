@@ -631,3 +631,15 @@ body {
     margin-top: -50px;
 }
 
+.bordure {
+    border-width: medium;
+}
+
+.hidden {
+    display: none;
+}
+
+#passager {
+    border: #1b1e21 dashed thin;
+    display:none;
+}

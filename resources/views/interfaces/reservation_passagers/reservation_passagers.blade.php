@@ -2,7 +2,7 @@
 
 @section('contenu')
 
-    <body id="top" style="background-color: #d3d3d3;">
+    <body id="top">
     <div class="container">
 
 
@@ -10,28 +10,28 @@
               action="{{ route('reservation_passagers') }}"
               onsubmit="return validerFormulaire()">
 
-            <p class="h2 mb-4 font-weight-bold mb-5" style="color: midnightblue">
+            <p class="h2 mb-4 font-weight-bold mb-5" id="texteHaut">
                 {{ $reservation_passagers_renseigner_informations }}
             </p>
 
             <span id="passagers">
-                <fieldset class="passager mb-2" id="passager" style="border: #1b1e21 dashed thin;display:none;">
+                <fieldset class="passager mb-2" id="passager">
                     <div class="legendePassager">Passager</div>
                     <div class="row p-0 m-2">
                         <div class="col-sm px-0">
                             <div class="form-group champNom" id="champNom">
-                                <input type="text" id="valeurNom" class="form-control" style="border-width:medium"
+                                <input type="text" id="valeurNom" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_nom }}">
-                                <div class="alert alert-danger champErreur" id="erreurNom" style="display:none">
+                                <div class="alert alert-danger champErreur hidden" id="erreurNom">
                                     <small class="texteErreur"></small>
                                  </div>
                             </div>
                         </div>
                         <div class="col-sm px-0">
                             <div class="form-group champPrenom" id="champPrenom">
-                                <input type="text" id="valeurPrenom" class="form-control"
-                                       style="border-width:medium" placeholder="{{ $reservation_passagers_prenom }}">
-                                <div class="alert alert-danger champErreur" id="erreurPrenom" style="display:none">
+                                <input type="text" id="valeurPrenom" class="form-control medium"
+                                       placeholder="{{ $reservation_passagers_prenom }}">
+                                <div class="alert alert-danger champErreur hidden" id="erreurPrenom">
                                     <small class="texteErreur"></small>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                         onclick="ajouterPassager();">
                     {{ $reservation_passagers_ajouter_passager }}
                 </button>
-                <button type="button" id="boutonRetirerPassager" class="btn btn-danger pull-right" style="display:none"
+                <button type="button" id="boutonRetirerPassager" class="btn btn-danger pull-right hidden"
                         onclick="supprimerPassager();">
                     {{ $reservation_passagers_retirer_passager }}
                 </button>
@@ -70,21 +70,21 @@
             <fieldset class="mt-3">
                 <div class="row">
                     <div class="form-group col" id="champCourriel">
-                        <input name="email" type="text" class="form-control"
-                               style="border-width:medium" id="valeurCourriel"
+                        <input name="email" type="text" class="form-control medium"
+                               id="valeurCourriel"
                                placeholder="{{ $reservation_passagers_courriel }}">
-                        <div class="alert alert-danger champErreur" id="erreurCourriel" style="display:none">
+                        <div class="alert alert-danger champErreur hidden" id="erreurCourriel">
                             <small class="texteErreur"></small>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col" id="champTelephone">
-                        <input name="numero" type="tel" class="form-control"
-                               style="border-width:medium" id="valeurTelephone"
+                        <input name="numero" type="tel" class="form-control medium"
+                               id="valeurTelephone"
                                placeholder="{{ $reservation_passagers_numero }}"
                                aria-describedby="defaultRegisterFormPhoneHelpBlock">
-                        <div class="alert alert-danger champErreur" id="erreurTelephone" style="display:none">
+                        <div class="alert alert-danger champErreur hidden" id="erreurTelephone">
                             <small class="texteErreur"></small>
                         </div>
                         <small class="form-text text-muted mb-4">
@@ -95,31 +95,21 @@
                 @if($type_vehicule != "pas de véhicule" || !isset($type_vehicule))
                         <div class="row">
                             <div class="form-group col" id="champImmatriculation">
-                                <input name="immatriculation" type="text" class="form-control"
-                                       style="border-width:medium" id="valeurImmatriculation"
+                                <input name="immatriculation" type="text" class="form-control medium"
+                                       id="valeurImmatriculation"
                                        placeholder="{{ $reservation_passagers_immatriculation }}">
                                 <!--<div class="alert alert-danger champErreur" id="erreurCourriel" style="display:none">
                                     <small class="texteErreur"></small>
                                 </div>  -->
                             </div>
                         </div>
-
-
-
-
-
-
-
-
-
-
                 @endif
 
 
             </fieldset>
             <div class="row">
                 <div class="form-group col" id="checkboxMatieres">
-                    <input type="checkbox" id="checkbox" style="display: none;">
+                    <input type="checkbox" id="checkbox" class="hidden">
                     <label for="checkbox" class="check">
                         <svg width="18px" height="18px" viewBox="0 0 18 18">
                             <path
@@ -131,14 +121,14 @@
                         {{$reservation_passagers_confirmation_matieres }}
                     </label>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalMatiereDangereuse">?</button>
-                    <div class="alert alert-danger champErreur" style="display:none">
+                    <div class="alert alert-danger champErreur hidden">
                         <small class="texteErreur"></small>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col" id="checkboxAnimaux">
-                    <input type="checkbox" id="checkbox2" style="display: none;">
+                    <input type="checkbox" id="checkbox2" class="hidden">
                     <label for="checkbox2" class="check">
                         <svg width="18px" height="18px" viewBox="0 0 18 18">
                             <path
@@ -150,7 +140,7 @@
                         {{$reservation_passagers_confirmation_animaux }}
                     </label>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalAnimauxExotiques">?</button>
-                    <div class="alert alert-danger champErreur" style="display:none">
+                    <div class="alert alert-danger champErreur hidden">
                         <small class="texteErreur"></small>
                     </div>
                 </div>

@@ -1,4 +1,1 @@
-$(window).load(function()
-{
-    $("#preloaders").fadeOut(2000);
-});
+document.getElementById("preloaders").style.display = "none";

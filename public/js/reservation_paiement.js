@@ -1,3 +1,5 @@
+
+
 function verifierFormulaire() {
 
     let numeroCarteBleueValide = verifierNumeroCarteBleue();
@@ -6,6 +8,7 @@ function verifierFormulaire() {
     let cvcValide = verifierCvc();
 
     if (numeroCarteBleueValide && nomValide && dateExpirationValide && cvcValide)
+        document.getElementById("preloaders").style.display = "block";
         return true;
 
     return false;

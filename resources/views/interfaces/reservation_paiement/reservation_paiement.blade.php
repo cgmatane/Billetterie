@@ -49,6 +49,7 @@
             container: '.card-wrapper'
         });
     </script>
+    <div id = "preloaders" class = "preloader"> </div>
 </div>
 
 
@@ -60,4 +61,6 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{URL::asset('js/reservation_paiement.js')}}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="{{URL::asset('js/loader.js')}}"></script>
 @endsection

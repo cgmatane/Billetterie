@@ -41,6 +41,14 @@ class AccueilController extends PageController
             $requete->session()->put('ticket.date', $date);
         }
 
+        if ($requete->session()->has('ticket.email')) {
+            $messageValidation = $requete->session()->get('ticket.email');
+        }
+        else {
+            $messageValidation = "";
+        }
+
+
         if ($requete->session()->has('ticket.depart')) {
             $nomStationDepart = $requete->session()->get('ticket.depart');
             $stationDepart = Station::where('nom', $nomStationDepart)->first();
@@ -77,6 +85,7 @@ class AccueilController extends PageController
             'date'=>$date,
             'trajets'=>$trajetsVue,
             'depart'=>$nomStationDepart,
+            'validation'=>$messageValidation,
         );
     }
 }

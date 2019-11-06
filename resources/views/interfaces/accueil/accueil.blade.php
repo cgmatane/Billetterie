@@ -6,7 +6,11 @@
     <div class="text-center row justify-content-center" style="margin-bottom: 0;">
         <div class="col-sm-6 col-xs-8 shadow-lg rounded-lg  mt-6" style="background-color: midnightblue">
             @component('interfaces.accueil.components.titre_principal')
-
+                @if($validation != "")
+                    <div class="alert alert-success" style="margin-top: 10px" role="alert">
+                        Commande passée avec succès !
+                    </div>
+                @endif
 
                 {{ $accueil_depart }}
                 @if(empty($depart))
@@ -95,3 +99,8 @@
 </div>
 
 @endsection
+
+    <script>
+        console.log("HELLO");
+        $("#test").modal('show');
+    </script>

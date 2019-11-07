@@ -34,10 +34,7 @@
     <script src="resource/js/myscript.js"></script>
 
     -->
-    <script src="/resources/js/app.js"></script>
     <script src="/js/app.js"></script>
-
-
 
     <title>Billetterie - STQ</title>
     <!--

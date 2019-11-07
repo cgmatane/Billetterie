@@ -18,19 +18,23 @@
             <div class="row text-center">
             <form onsubmit="return verifierFormulaire()" action="{{ route('reservation_paiement') }}">
                 <h5>{{ $reservation_paiement_renseigner_informations }}</h5>
-                <input placeholder="numéro de carte" type="tel" name="number" id="numeroCarte" class="col-10 m-2">
+                <label for="numeroCarte" class="d-none">{{$reservation_paiement_numero_carte}}</label>
+                <input placeholder="{{$reservation_paiement_numero_carte}}" type="tel" name="number" id="numeroCarte" class="col-10 m-2">
                 <div class="alert alert-danger champErreur hidden" id="erreurNumeroCarte">
                     <small class="texteErreur"></small>
                 </div>
-                <input placeholder="nom tel qu'il est inscrit" onkeyup="this.value = this.value.toUpperCase();" type="text" name="name" id="nom" class="col-10 m-2">
+                <label for="nom" class="d-none">{{$reservation_paiement_nom}}</label>
+                <input placeholder="{{$reservation_paiement_nom}}" onkeyup="this.value = this.value.toUpperCase();" type="text" name="name" id="nom" class="col-10 m-2">
                 <div class="alert alert-danger champErreur hidden" id="erreurNom">
                     <small class="texteErreur"></small>
                 </div>
-                <input placeholder="date d'expiration" type="tel" name="expiry" id="dateExpiration" class="col-10 m-2">
+                <label for="dateExpiration" class="d-none">{{ $reservation_paiement_date_expiration }}</label>
+                <input placeholder="{{ $reservation_paiement_date_expiration }}" type="tel" name="expiry" id="dateExpiration" class="col-10 m-2">
                 <div class="alert alert-danger champErreur hidden" id="erreurDateExpiration">
                     <small class="texteErreur"></small>
                 </div>
-                <input placeholder="CVC" type="number" name="cvc" id="numeroCvc" class="col-10 m-2">
+                <label for="numeroCvc" class="d-none">{{ $reservation_paiement_cvc }}</label>
+                <input placeholder="{{ $reservation_paiement_cvc }}" type="number" name="cvc" id="numeroCvc" class="col-10 m-2">
                 <div class="alert alert-danger champErreur hidden" id="erreurNumeroCvc">
                     <small class="texteErreur"></small>
                 </div>

@@ -17,7 +17,7 @@
                     <div class="row p-0 m-2">
                         <div class="col-sm px-0">
                             <div class="form-group champNom" id="champNom">
-                                <label for="valeurNom" class="d-none">Nom</label>
+                                <label for="valeurNom" class="d-none">{{ $reservation_passagers_nom }}</label>
                                 <input type="text" id="valeurNom" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_nom }}">
                                 <div class="alert alert-danger champErreur hidden" id="erreurNom">
@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-sm px-0">
                             <div class="form-group champPrenom" id="champPrenom">
-                                <label for="valeurPrenom" class="d-none">Prenom</label>
+                                <label for="valeurPrenom" class="d-none">{{ $reservation_passagers_prenom }}</label>
                                 <input type="text" id="valeurPrenom" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_prenom }}">
                                 <div class="alert alert-danger champErreur hidden" id="erreurPrenom">
@@ -70,7 +70,7 @@
             <fieldset class="mt-3">
                 <div class="row">
                     <div class="form-group col" id="champCourriel">
-                        <label for="valeurCourriel" class="d-none">Courriel</label>
+                        <label for="valeurCourriel" class="d-none">{{ $reservation_passagers_courriel }}</label>
                         <input name="email" type="text" class="form-control medium"
                                id="valeurCourriel"
                                placeholder="{{ $reservation_passagers_courriel }}">
@@ -81,7 +81,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group col" id="champTelephone">
-                        <label for="valeurTelephone" class="d-none">Telephone</label>
+                        <label for="valeurTelephone" class="d-none">{{ $reservation_passagers_numero }}</label>
                         <input name="numero" type="tel" class="form-control medium"
                                id="valeurTelephone"
                                placeholder="{{ $reservation_passagers_numero }}"
@@ -97,7 +97,7 @@
                 @if($type_vehicule != "pas de véhicule" || !isset($type_vehicule))
                         <div class="row">
                             <div class="form-group col" id="champImmatriculation">
-                                <label for="valeurImmatriculation"></label>
+                                <label for="valeurImmatriculation">{{ $reservation_passagers_immatriculation }}</label>
                                 <input name="immatriculation" type="text" class="form-control medium"
                                        id="valeurImmatriculation"
                                        placeholder="{{ $reservation_passagers_immatriculation }}">

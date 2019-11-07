@@ -37,4 +37,4 @@
     <link rel="icon" href="resource/image/icon_bookshelf.svg" />
     -->
 </head>
-<body id="top">
+<body>

@@ -1,4 +1,4 @@
-@include('global_components.head')
+@include('interfaces.administration.components.head')
 @component('interfaces.administration.components.nav')
     @section('titre'){{ $connexion_administration }}@endsection
     @slot('email'){{ $connexion_connexion }} @endslot

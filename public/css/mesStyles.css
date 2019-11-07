@@ -714,3 +714,8 @@ body {
     text-align: center;
     bottom: 0px;
 }
+
+.svgChargement {
+    margin-left: auto;
+    margin-right: auto;
+}

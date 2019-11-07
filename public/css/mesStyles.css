@@ -702,7 +702,7 @@ body {
     }
 }
 
-.preloader
+.chargement
 {
     z-index: 9999;
     position: fixed;
@@ -713,14 +713,9 @@ body {
     background-color: rgba(248, 248, 248, 0.8);
 }
 
-.envoieDuBiletEnCours
+.messageChargement
 {
-    position: fixed;
-    text-align: center;
-    bottom: 0px;
 }
 
 .svgChargement {
-    margin-left: auto;
-    margin-right: auto;
 }

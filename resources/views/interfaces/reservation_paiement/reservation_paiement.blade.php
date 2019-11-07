@@ -49,7 +49,8 @@
             container: '.card-wrapper'
         });
     </script>
-    <div id = "preloaders" class = "preloader">
+    <div id = "preloaders" class = "chargement">
+        <div class="text-center align-middle">
         <div class="svgChargement">
             <svg class="lds-spinner" width="200px"  height="200px"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="background: none;"><g transform="rotate(0 50 50)">
                     <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#1d0e0b">
@@ -101,7 +102,8 @@
                     </rect>
                 </g></svg>
         </div>
-        <p class="envoieDuBiletEnCours display-1">Votre billet est en cours d'envoie</p>
+        <p class="messageChargement">Votre billet est en cours d'envoie</p>
+        </div>
     </div>
 </div>
 

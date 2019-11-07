@@ -1,9 +1,9 @@
 @extends('interfaces.index')
 
 @section('contenu')
-        <div class="container-fluid" style="background: url(/img/fond.jpg) 0 0 fixed no-repeat;background-size: 100% 100%;">
-            <div class="text-center row justify-content-center" style="margin-bottom: 0;">
-                <div class="col-sm-6 col-xs-8 shadow-lg rounded-lg  mt-6" style="background-color: midnightblue">
+        <div class="container-fluid" id="imageFond">
+            <div class="text-center row justify-content-center" id="noMargin">
+                <div class="col-sm-6 col-xs-8 shadow-lg rounded-lg  mt-6" id="midnightBlue">
                     @component('interfaces.accueil.components.titre_principal')
                         {{ $choix_date_titre }}
                     @endcomponent

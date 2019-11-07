@@ -4,7 +4,7 @@
             <div class="row justify-content-between align-items-center">
                 <div class="col-sm-12 col-md-4 pt-1">
                     <a href="{{ route('index') }}"> <!-- Route à définir -->
-                        <img class="mx-auto pl-5" src="/img/logo-stq.png">
+                        <img class="mx-auto pl-5" src="/img/logo-stq.png" alt="Logo de la STQ">
                     </a>
                 </div>
                 <div class="col-sm-12 col-md-4 text-center">

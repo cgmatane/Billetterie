@@ -49,7 +49,9 @@
             container: '.card-wrapper'
         });
     </script>
-    <div id = "preloaders" class = "preloader"> </div>
+    <div id = "preloaders" class = "preloader">
+        <p class="envoieDuBiletEnCours display-1">Votre billet est en cours d'envoie</p>
+    </div>
 </div>
 
 

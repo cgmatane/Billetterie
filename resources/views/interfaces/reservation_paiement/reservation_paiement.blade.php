@@ -61,5 +61,4 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{URL::asset('js/reservation_paiement.js')}}"></script>
-    <script type="text/javascript" src="{{URL::asset('js/loader.js')}}"></script>
 @endsection

@@ -101,9 +101,9 @@
                                 <input name="immatriculation" type="text" class="form-control medium"
                                        id="valeurImmatriculation"
                                        placeholder="{{ $reservation_passagers_immatriculation }}">
-                                <!--<div class="alert alert-danger champErreur" id="erreurCourriel" style="display:none">
+                                <div class="alert alert-danger champErreur" id="erreurImmatriculation" style="display:none">
                                     <small class="texteErreur"></small>
-                                </div>  -->
+                                </div>
                             </div>
                         </div>
                 @endif

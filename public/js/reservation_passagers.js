@@ -77,6 +77,15 @@ function validerFormulaire() {
     else {
         setMessageErreurChamp(champ);
     }
+    champ = document.getElementById('champImmatriculation');
+    if (champ) {
+        if (!immatriculationValide(champ)) {
+            erreur = true;
+        }
+        else {
+            setMessageErreurChamp(champ);
+        }
+    }
     champ = document.getElementById('checkboxMatieres');
     if (!estChampValide(champ)) {
         erreur = true;
@@ -126,6 +135,28 @@ function telephoneValide(champ) {
 
         surlignerInput(input, true);
         setMessageErreurChamp(champ, 'Le numero de telephone est invalide');
+        return false;
+    }
+
+    surlignerInput(input, false);
+    setMessageErreurChamp(champ);
+    return true;
+}
+
+function immatriculationValide(champ) {
+
+    input = champ.getElementsByTagName('input')[0];
+
+    if(input.value.length < 4 || input.value.length > 7) {
+
+        surlignerInput(input, true);
+        setMessageErreurChamp(champ, 'La plaque est invalide');
+        return false;
+    }
+
+    if (!(/^[0-9A-Z\s]*$/.test(input.value))) {
+        surlignerInput(input, true);
+        setMessageErreurChamp(champ, 'La plaque est invalide');
         return false;
     }
 

@@ -647,6 +647,18 @@ body {
 #textDecoration {
     text-decoration: none;
 }
+
+#footerInformation {
+    width: 100%;
+    height: 300px;
+    background-color: midnightblue;
+    border-radius: 20px;
+}
+
+#retourInformation {
+    margin-top: 12%;
+}
+
 .preloader
 {
     position: fixed;

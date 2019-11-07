@@ -17,7 +17,7 @@
         <div class="form-container active justify-content-around col-md-6 col-sm-12">
             <div class="row text-center">
             <form onsubmit="return verifierFormulaire()" action="{{ route('reservation_paiement') }}">
-                <h5>{{ $reservation_paiement_renseigner_informations }}</h5>
+                <h3 class="h4">{{ $reservation_paiement_renseigner_informations }}</h3>
                 <label for="numeroCarte" class="d-none">{{$reservation_paiement_numero_carte}}</label>
                 <input placeholder="{{$reservation_paiement_numero_carte}}" type="tel" name="number" id="numeroCarte" class="col-10 m-2">
                 <div class="alert alert-danger champErreur hidden" id="erreurNumeroCarte">

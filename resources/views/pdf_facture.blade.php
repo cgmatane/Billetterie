@@ -32,7 +32,7 @@
         }
         </style>
 </head>
-<body id="top">
+<body>
 <div>
     <img src="{{public_path('/img/logo-stq.png')}}">
     <div>1410, rue de Matane-sur-Mer</div>

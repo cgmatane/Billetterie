@@ -19,6 +19,10 @@ class Station extends ModeleParent
         return "Station ".$this->nom;
     }
 
+    public function getNom() {
+        return $this->nom;
+    }
+
     public function trajetsPartantDeStation() {
         return Trajet::where('id_station_depart', $this->id_station)->get();
         //return $this->hasMany('App\Trajet', 'id_station_depart', 'id_trajet');

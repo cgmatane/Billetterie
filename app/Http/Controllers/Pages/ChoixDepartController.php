@@ -6,6 +6,8 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\PageController;
 use App\Statics\Views\interfaces\choix_depart\DonneesVueChoixDepart;
+use App\Station;
+use FontLib\Table\Type\name;
 use Illuminate\Http\Request;
 
 class ChoixDepartController extends PageController
@@ -25,10 +27,10 @@ class ChoixDepartController extends PageController
 
     protected function setDonneesDynamiques(Request $requete = null) {
         $this->donneesDynamiques['type_information'] = 'depart';
-        $this->donneesDynamiques['tab_items'] = [
-            "Matane",
-            "Godbout",
-            "Baie Comeau",
-        ];
+        $stations = Station::all();
+        $this->donneesDynamiques['tab_items'] = [];
+        foreach ($stations as $station) {
+            array_push($this->donneesDynamiques['tab_items'], $station->getNom());
+        }
     }
 }

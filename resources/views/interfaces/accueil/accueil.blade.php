@@ -7,7 +7,14 @@
         <div class="col-sm-6 col-xs-8 shadow-lg rounded-lg  mt-6" id="midnightBlue">
             @component('interfaces.accueil.components.titre_principal')
                 @if($validation != "")
-                    {{-- Modal a implémenter --}}
+                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+                    <script>
+                        Swal.fire(
+                            'Commande validée !',
+                            'Un mail vous a été envoyé !',
+                            'success'
+                        )
+                    </script>
                 @endif
 
                 {{ $accueil_depart }}

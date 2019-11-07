@@ -102,7 +102,7 @@
                     </rect>
                 </g></svg>
         </div>
-        <p class="messageChargement">Votre billet est en cours d'envoie</p>
+        <p class="messageChargement">Votre billet est en cours d'envoi</p>
         </div>
     </div>
 </div>

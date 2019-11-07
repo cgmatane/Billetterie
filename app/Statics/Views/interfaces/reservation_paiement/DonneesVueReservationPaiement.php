@@ -17,7 +17,7 @@ class DonneesVueReservationPaiement extends DonneesVue
         $this->setDonneeVue('payer','JE VALIDE MON PAIEMENT');
         $this->setDonneeVue('nom',"nom tel qu'il est inscrit");
         $this->setDonneeVue('numero_carte',"numéro de carte");
-        $this->setDonneeVue('date_expiration',"numéro de carte");
+        $this->setDonneeVue('date_expiration',"date d'expiration");
         $this->setDonneeVue('cvc',"CVC");
     }
 }

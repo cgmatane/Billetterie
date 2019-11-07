@@ -2,10 +2,7 @@
 
 @section('contenu')
 
-    <body id="top">
     <div class="container">
-
-
         <form class="text-center border border-light p-5 mt-5 mb-5" method="get"
               action="{{ route('reservation_passagers') }}"
               onsubmit="return validerFormulaire()">
@@ -20,6 +17,7 @@
                     <div class="row p-0 m-2">
                         <div class="col-sm px-0">
                             <div class="form-group champNom" id="champNom">
+                                <label for="valeurNom" class="d-none">Nom</label>
                                 <input type="text" id="valeurNom" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_nom }}">
                                 <div class="alert alert-danger champErreur hidden" id="erreurNom">
@@ -29,6 +27,7 @@
                         </div>
                         <div class="col-sm px-0">
                             <div class="form-group champPrenom" id="champPrenom">
+                                <label for="valeurPrenom" class="d-none">Prenom</label>
                                 <input type="text" id="valeurPrenom" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_prenom }}">
                                 <div class="alert alert-danger champErreur hidden" id="erreurPrenom">
@@ -38,7 +37,8 @@
                         </div>
                         <div class="col-sm-3 px-0">
                             <div class="form-group champAge" id="champAge">
-                                <select class="browser-default custom-select">
+                                <label for="valeurAge" class="d-none">Age</label>
+                                <select class="browser-default custom-select" id="valeurAge">
                                     @foreach($reservation_passagers_intervalles_age as $cle => $intervalle_age)
                                         <option value="{{ $intervalle_age }}"
                                             @if ($cle == $reservation_passagers_index_intervalle_age_par_defaut)
@@ -70,6 +70,7 @@
             <fieldset class="mt-3">
                 <div class="row">
                     <div class="form-group col" id="champCourriel">
+                        <label for="valeurCourriel" class="d-none">Courriel</label>
                         <input name="email" type="text" class="form-control medium"
                                id="valeurCourriel"
                                placeholder="{{ $reservation_passagers_courriel }}">
@@ -80,6 +81,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group col" id="champTelephone">
+                        <label for="valeurTelephone" class="d-none">Telephone</label>
                         <input name="numero" type="tel" class="form-control medium"
                                id="valeurTelephone"
                                placeholder="{{ $reservation_passagers_numero }}"
@@ -95,6 +97,7 @@
                 @if($type_vehicule != "pas de véhicule" || !isset($type_vehicule))
                         <div class="row">
                             <div class="form-group col" id="champImmatriculation">
+                                <label for="valeurImmatriculation"></label>
                                 <input name="immatriculation" type="text" class="form-control medium"
                                        id="valeurImmatriculation"
                                        placeholder="{{ $reservation_passagers_immatriculation }}">
@@ -156,7 +159,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ $reservation_passagers_infos_matiere_dangereuse_titre }}</h5>
+                    <h2 class="modal-title">{{ $reservation_passagers_infos_matiere_dangereuse_titre }}</h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -173,7 +176,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ $reservation_passagers_infos_animaux_exotiques_titre }}</h5>
+                    <h2 class="modal-title">{{ $reservation_passagers_infos_animaux_exotiques_titre }}</h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

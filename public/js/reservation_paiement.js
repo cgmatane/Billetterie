@@ -1,4 +1,4 @@
-document.getElementById("preloaders").style.display = "none";
+document.getElementById("preloaders").style.display = "block";
 
 function verifierFormulaire() {
 

@@ -716,3 +716,7 @@ body {
 .svgChargement {
     margin-top: 15%;
 }
+
+.messageChargement{
+    font-size: 2em;
+}

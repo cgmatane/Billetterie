@@ -1,5 +1,5 @@
     @include('interfaces.administration.components.head')
-    @component('interfaces.administration.components.nav')
+    @component('interfaces.administration.components.header')
         @slot('email'){{ $email}} @endslot
     @endcomponent
     @include('interfaces.administration.components.sidebar')

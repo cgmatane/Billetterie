@@ -25,6 +25,10 @@ class TrajetController extends ModeleController
             ['Station départ', 'cle|station'],
             ['Station arrivée', 'cle|station'],
             ['Navire', 'cle|navire'],
+            ['Date de départ', 'date'],
+            ['Date d\'arrivée', 'date'],
+            ['Nom', 'text'],
+            ['Annulé', 'bool'],
         ];
         return $typesColonnes;
     }

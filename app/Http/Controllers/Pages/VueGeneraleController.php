@@ -22,6 +22,7 @@ class VueGeneraleController extends PageController
     protected function setDonneesDynamiques(Request $requete = null)
     {
         $email = $requete->session()->get('utilisateur.email');
+        /* TODO remplacer par autre chose
         $donneesProgrammation = Programmation::get()->take(5)->sortBy('date_depart')->all();
         foreach ($donneesProgrammation as $donneeProgrammation){
             $donneeProgrammation['nombrePassagers'] = $donneeProgrammation->getNombrePassagers();
@@ -29,6 +30,7 @@ class VueGeneraleController extends PageController
             $donneeProgrammation['nombreVehicules'] = $donneeProgrammation->getNombreVehicules();
             $donneeProgrammation['nombrePlacesVehicules'] = $donneeProgrammation->getNombrePlacesVehicules();
         }
+        */
         $donneesStats = [];
         $donneesStation = [
             'titre' => 'station',
@@ -47,7 +49,7 @@ class VueGeneraleController extends PageController
         array_push($donneesStats,$donneesNavire);
         $this->donneesDynamiques = [
             'email'=>$email,
-            'donneesProgrammation'=> $donneesProgrammation,
+            //'donneesProgrammation'=> $donneesProgrammation,
             'donneesStats' => $donneesStats
 
         ];

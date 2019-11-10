@@ -9,10 +9,11 @@
 @section('contenu')
         <div id="introduction" >
             <h1>Interface d'administration de la STQ</h1>
-            <p>C'est ici que ce fait la gestion des stations, des trajets, des navires et des programmations.</p>
+            <p>C'est ici que ce fait la gestion des stations, des trajets et des navires.</p>
         </div>
 
         <div id="tableau-bord" ><h2>Tableau de bord</h2></div>
+        {{--
         <div class="article">
             <h3>Programmation</h3>
             <p class="lead">Voici les 5 prochains trajets qui vont être effectués </p>
@@ -49,6 +50,7 @@
                 <a href="{{route('administration.programmation')}}">Gérer les programmations ></a>
             </div>
         </div>
+        --}}
         <div class="statistique">
             @foreach($donneesStats as $donneeStats)
                 <div class="stat">

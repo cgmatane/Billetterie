@@ -20,11 +20,11 @@
                 <a href="{{route('administration.navire')}}"><i class="fas fa-ship"></i> Navire</a>
             </li>
 
-
+            {{--
             <li class="collapsed {{ (request()->is('administration/programmation')) ? 'active' : '' }}">
                 <a href="{{route('administration.programmation')}}"><i class="fas fa-clock-o"></i> Programmation</a>
             </li>
-
+            --}}
             <li>
                 <a href=""><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
             </li>

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Commande extends ModeleParent
+class ObsoleteCommande extends ModeleParent
 {
     protected $table = 'commande';
     protected $primaryKey = 'id_commande';
@@ -16,16 +16,16 @@ class Commande extends ModeleParent
 
     public function getNomAffiche()
     {
-        return "Commande ".$this->nom;
+        return "ObsoleteCommande ".$this->nom;
     }
 
     public function acheteur() {
-        return Acheteur::find($this->id_commande);
-        //return $this->belongsTo('App\Acheteur', 'id_acheteur', 'id_acheteur');
+        return ObsoleteAcheteur::find($this->id_commande);
+        //return $this->belongsTo('App\ObsoleteAcheteur', 'id_acheteur', 'id_acheteur');
     }
 
     public function relationAcheteur() {
-        return $this->belongsTo('App\Acheteur', 'id_acheteur', 'id_acheteur');
+        return $this->belongsTo('App\ObsoleteAcheteur', 'id_acheteur', 'id_acheteur');
     }
 
     public function vehicule() {

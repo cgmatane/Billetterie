@@ -34,12 +34,12 @@ class Trajet extends ModeleParent
         //return $this->belongsTo('App\Navire', 'id_navire', 'id_navire');
     }
 
-    public function programmations() {
-        return Programmation::where('id_trajet', $this->id_trajet)->get();
-        //return $this->hasMany('App\Programmation', 'id_trajet', 'id_trajet');
+    public function tickets() {
+        return Ticket::where('id_ticket', $this->id_ticket)->get();
+        //return $this->hasMany('App\ObsoleteProgrammation', 'id_trajet', 'id_trajet');
     }
 
     protected function getDependancesDirectes() {
-        return [$this->programmations()];
+        return [$this->tickets()];
     }
 }

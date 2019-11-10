@@ -46,17 +46,17 @@ class ProgrammationController extends ModeleController
 
     protected function getModeles()
     {
-        return App\Programmation::all();
+        return App\ObsoleteProgrammation::all();
     }
 
     protected function getModeleParId($id)
     {
-        return App\Programmation::find($id);
+        return App\ObsoleteProgrammation::find($id);
     }
 
     protected function getNouveauModele()
     {
-        return new App\Programmation();
+        return new App\ObsoleteProgrammation();
     }
 
 }

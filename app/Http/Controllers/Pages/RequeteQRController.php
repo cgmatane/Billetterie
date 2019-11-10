@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 
-use App\Commande;
+use App\ObsoleteCommande;
 use App\Http\Controllers\PageController;
 
 use App\Statics\Views\interfaces\connexion\DonneesVueConnexion;
@@ -24,7 +24,7 @@ class RequeteQRController extends PageController
         if (isset($_GET['qr'])) {
             $qr = htmlentities($_GET['qr']);
 
-            $commande = Commande::where('qrcode', $qr)->first();
+            $commande = ObsoleteCommande::where('qrcode', $qr)->first();
             if ($commande == null) {
                 echo "{}";
             } else {

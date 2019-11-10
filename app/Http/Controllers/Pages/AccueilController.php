@@ -68,16 +68,13 @@ class AccueilController extends PageController
 
         //Pour chaque trajet...
         foreach($trajets as $trajet) {
-            //Pour chaque programmations du trajet courant.... (voir MCD pour plus de comprehension)
-            foreach($trajet->programmations() as $programmation) {
-                //Si la programmation n'est pas annule et que la date de la programmation est celle du jour selectionne...
-                if (!$programmation->annulation and date("Y-m-d") == date('Y-m-d', strtotime($programmation->date_depart))) {
-                    $trajetVue = array(
-                        'stationArrivee' => $trajet->stationArrivee()->nom,
-                        'heureDepart' => date('H:i', strtotime($programmation->date_depart))
-                    );
-                    array_push($trajetsVue, $trajetVue);
-                }
+                //Si le trajet n'est pas annule et que la date du trajet est celle du jour selectionne...
+            if (!$trajet->annulation and date("Y-m-d") == date('Y-m-d', strtotime($trajet->date_depart))) {
+                $trajetVue = array(
+                    'stationArrivee' => $trajet->stationArrivee()->nom,
+                    'heureDepart' => date('H:i', strtotime($trajet->date_depart))
+                );
+                array_push($trajetsVue, $trajetVue);
             }
         }
 

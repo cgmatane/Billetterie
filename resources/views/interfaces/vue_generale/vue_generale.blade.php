@@ -15,7 +15,7 @@
         <div id="tableau-bord" ><h2>Tableau de bord</h2></div>
         {{--
         <div class="article">
-            <h3>Programmation</h3>
+            <h3>ObsoleteProgrammation</h3>
             <p class="lead">Voici les 5 prochains trajets qui vont être effectués </p>
             <hr class="my-4">
             <table class="table" id="table-prog">

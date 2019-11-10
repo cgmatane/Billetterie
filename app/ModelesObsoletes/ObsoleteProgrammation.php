@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Programmation extends ModeleParent
+class ObsoleteProgrammation extends ModeleParent
 {
     protected $table = 'programmation'; /*Definit le nom de la table de la BD correspondant a associer au modele
                                         (par defaut la valeur de $table est le nom de la classe en snake case suivit d'un s)*/
@@ -16,7 +16,7 @@ class Programmation extends ModeleParent
 
     public function getNomAffiche()
     {
-        return "Programmation ".$this->nom;
+        return "ObsoleteProgrammation ".$this->nom;
     }
 
     public function trajet() {

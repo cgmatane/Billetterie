@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\PageController;
 use App\Navire;
-use App\Programmation;
+use App\ObsoleteProgrammation;
 use App\Statics\Views\interfaces\vue_generale\DonneesVueVueGenerale;
 use App\Station;
 use App\Trajet;
@@ -23,7 +23,7 @@ class VueGeneraleController extends PageController
     {
         $email = $requete->session()->get('utilisateur.email');
         /* TODO remplacer par autre chose
-        $donneesProgrammation = Programmation::get()->take(5)->sortBy('date_depart')->all();
+        $donneesProgrammation = ObsoleteProgrammation::get()->take(5)->sortBy('date_depart')->all();
         foreach ($donneesProgrammation as $donneeProgrammation){
             $donneeProgrammation['nombrePassagers'] = $donneeProgrammation->getNombrePassagers();
             $donneeProgrammation['nombrePlacesPassagers'] = $donneeProgrammation->getNombrePlacesPassagers();

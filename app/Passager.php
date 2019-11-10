@@ -18,9 +18,8 @@ class Passager extends ModeleParent
         return "Passager ".$this->nom;
     }
 
-    public function acheteur() {
-        return Acheteur::find($this->id_passager);
-        //return $this->belongsTo('App\Acheteur', 'id_acheteur', 'id_acheteur');
+    public function ticket() {
+        return Ticket::find($this->id_ticket);
     }
 
     protected function getDependancesDirectes()

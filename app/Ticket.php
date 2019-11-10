@@ -19,23 +19,27 @@ class Ticket extends ModeleParent
         return "Ticket ". $this->id_ticket;
     }
 
-    public function programmation() {
-        return Programmation::where('id_programmation', $this->id_programmation)->first();
-        //return $this->hasOne('App\Programmation', 'id_ticket', 'id_ticket');
+    public function trajet() {
+        return Trajet::find($this->id_trajet);
+        //return $this->belongsTo('App\Trajet', 'id_trajet', 'id_trajet');
     }
 
-    public function acheteur() {
-        return Acheteur::where('id_acheteur', $this->id_acheteur)->first();
-        //return $this->hasOne('App\Acheteur', 'id_ticket', 'id_ticket');
+    public function vehicule() {
+        return Vehicule::where('id_ticket', $this->id_ticket)->first();
+        //return $this->belongsTo('App\Vehicule', 'id_vehicule', 'id_vehicule');
     }
 
-    public function commande() {
-        return Commande::where('id_commande', $this->id_commande)->first();
-        //return $this->hasOne('App\Commande', 'id_ticket', 'id_ticket');
+    public function relationVehicule() {
+        return $this->belongsTo('App\Vehicule', 'id_vehicule', 'id_vehicule');
+    }
+
+    public function passagers() {
+        return Passager::where('id_ticket', $this->id_ticket)->get();
+        //return $this->hasOne('App\ObsoleteAcheteur', 'id_ticket', 'id_ticket');
     }
 
     protected function getDependancesDirectes()
     {
-        return array();
+        return [[$this->vehicule()], $this->passagers()];
     }
 }

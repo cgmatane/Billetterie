@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Acheteur extends ModeleParent
+class ObsoleteAcheteur extends ModeleParent
 {
     protected $table = 'acheteur';
     protected $primaryKey = 'id_acheteur';
@@ -15,7 +15,7 @@ class Acheteur extends ModeleParent
 
     public function getNomAffiche()
     {
-        return "Acheteur ".$this->nom;
+        return "ObsoleteAcheteur ".$this->nom;
     }
 
     public function getNombrePassagers() {
@@ -32,8 +32,8 @@ class Acheteur extends ModeleParent
     }
 
     public function commandes() {
-        return Commande::where('id_acheteur', $this->id_acheteur)->get();
-        //return $this->hasMany('App\Commande', 'id_acheteur', 'id_acheteur');
+        return ObsoleteCommande::where('id_acheteur', $this->id_acheteur)->get();
+        //return $this->hasMany('App\ObsoleteCommande', 'id_acheteur', 'id_acheteur');
     }
 
     protected function getDependancesDirectes()

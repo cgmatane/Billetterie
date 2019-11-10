@@ -24,9 +24,13 @@ class Vehicule extends ModeleParent
         //return $this->belongsTo('App\TypeVehicule', 'id_type_vehicule', 'id_type_vehicule');
     }
 
+    public function ticket() {
+        return Ticket::find($this->id_ticket);
+    }
+
     public function commandes() {
-        return Commande::where('id_vehicule', $this->id_vehicule)->get();
-        //return $this->hasMany('App\Commande', 'id_vehicule', 'id_vehicule');
+        return ObsoleteCommande::where('id_vehicule', $this->id_vehicule)->get();
+        //return $this->hasMany('App\ObsoleteCommande', 'id_vehicule', 'id_vehicule');
     }
 
     protected function getDependancesDirectes()

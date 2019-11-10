@@ -22,7 +22,7 @@
 
             {{--
             <li class="collapsed {{ (request()->is('administration/programmation')) ? 'active' : '' }}">
-                <a href="{{route('administration.programmation')}}"><i class="fas fa-clock-o"></i> Programmation</a>
+                <a href="{{route('administration.programmation')}}"><i class="fas fa-clock-o"></i> ObsoleteProgrammation</a>
             </li>
             --}}
             <li>

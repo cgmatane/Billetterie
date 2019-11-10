@@ -33,7 +33,7 @@
         }
     </style>
 </head>
-<body id="top">
+<body>
 <h1>Billet {{$codeQR}}</h1>
 <p>Date d'émission : {{$dateEmission}}</p>
 @include('interfaces.validation_informations.components.cadre_informations')

@@ -613,6 +613,11 @@ body {
     border-radius: 0.5em;
 }
 
+.boutonChoix:hover {
+    text-decoration: none;
+    color: black;
+}
+
 #vert {
     color: Green;
 }
@@ -665,7 +670,7 @@ body {
 
 @media screen and (min-width: 768px) {
     #zoneDeDroite {
-        loat: right;
+        float: right;
         margin-right: 3%;
         margin-top: 200px
     }
@@ -697,7 +702,7 @@ body {
     }
 }
 
-.preloader
+.chargement
 {
     z-index: 9999;
     position: fixed;
@@ -708,9 +713,10 @@ body {
     background-color: rgba(248, 248, 248, 0.8);
 }
 
-.envoieDuBiletEnCours
-{
-    position: fixed;
-    text-align: center;
-    bottom: 0px;
+.svgChargement {
+    margin-top: 15%;
+}
+
+.messageChargement{
+    font-size: 2em;
 }

@@ -10,8 +10,8 @@
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
                     <script>
                         Swal.fire(
-                            'ObsoleteCommande validée !',
-                            'Un mail vous a été envoyé !',
+                            'Commande validée !',
+                            'Un mail vous a été envoyé.',
                             'success'
                         )
                     </script>

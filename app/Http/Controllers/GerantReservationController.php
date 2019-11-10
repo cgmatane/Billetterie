@@ -8,15 +8,17 @@ use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
-class SendEmailController extends Controller
+class GerantReservationController extends Controller
 {
-    function index()
+
+    function gerer(Request $requete)
     {
-        return view('reservation_confirmation');
+        $this->envoyerPDF($requete);
+        $this->creerBillet($requete);
+        return redirect(route('index'));
     }
 
-    function send(Request $requete)
-    {
+    private function envoyerPDF($requete) {
         /* Création du pdf du billet */
         $donneesPdfBillet = (new ValidationInformationsController())->getDonnees($requete);
         $donneesPdfBillet['imageQR'] = $requete->session()->get('ticket.imageQR');
@@ -70,19 +72,22 @@ class SendEmailController extends Controller
         Mail::to($email)->send(new SendMail($data));
 
         /* Suppression des pdf */
-        $this->supprimerFichier($emplacementPdfBillet);
-        $this->supprimerFichier($emplacementPdfFacture);
-        return redirect(route('index'));
+        $this->supprimerPDF($emplacementPdfBillet);
+        $this->supprimerPDF($emplacementPdfFacture);
+    }
+
+    private function creerBillet($requete) {
 
     }
 
+
     /**
-     * @param string $emplacementFichier
+     * @param string $emplacementPDF
      */
-    public function supprimerFichier(string $emplacementFichier): void
+    private function supprimerPDF(string $emplacementPDF): void
     {
-        if (file_exists($emplacementFichier)) {
-            unlink($emplacementFichier);
+        if (file_exists($emplacementPDF)) {
+            unlink($emplacementPDF);
         }
     }
 }

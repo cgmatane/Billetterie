@@ -22,7 +22,7 @@ Route::get('/administration', function() {
     return redirect('/administration/vue_generale');
 });
 
-Route::get('/sendemail/envoie', 'SendEmailController@send')->name('envoieEmail');
+Route::get('/gerant_reservation', 'GerantReservationController@gerer')->name('gerant_reservation');
 
 Route::get('affichage-pdf', 'GenerateurPdfController@creerPdf');
 

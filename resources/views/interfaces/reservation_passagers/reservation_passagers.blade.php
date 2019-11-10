@@ -71,7 +71,7 @@
                 <div class="row">
                     <div class="form-group col" id="champCourriel">
                         <label for="valeurCourriel" class="d-none">{{ $reservation_passagers_courriel }}</label>
-                        <input name="email" type="text" class="form-control medium"
+                        <input name="mail" type="text" class="form-control medium"
                                id="valeurCourriel"
                                placeholder="{{ $reservation_passagers_courriel }}">
                         <div class="alert alert-danger champErreur hidden" id="erreurCourriel">

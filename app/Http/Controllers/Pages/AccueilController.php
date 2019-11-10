@@ -22,10 +22,7 @@ class AccueilController extends PageController
 
     public function gererValidation(Request $requete)
     {
-        $heure = $requete->input('heure');
-        $requete->session()->put('ticket.heure', $heure);
-        $destination = $requete->input('destination');
-        $requete->session()->put('ticket.destination', $destination);
+        $requete->session()->put('ticket.trajet', $requete->input('idTrajet'));
         $requete->session()->put('ticket.type_vehicule', null);
         return redirect(route('reservation_choix_vehicule'));
     }
@@ -42,8 +39,8 @@ class AccueilController extends PageController
             $requete->session()->put('ticket.date', $date);
         }
 
-        if ($requete->session()->has('ticket.email')) {
-            $messageValidation = $requete->session()->get('ticket.email');
+        if ($requete->session()->has('ticket.mail')) {
+            $messageValidation = $requete->session()->get('ticket.mail');
         }
         else {
             $messageValidation = "";
@@ -71,8 +68,9 @@ class AccueilController extends PageController
                 //Si le trajet n'est pas annule et que la date du trajet est celle du jour selectionne...
             if (!$trajet->annulation and date("Y-m-d") == date('Y-m-d', strtotime($trajet->date_depart))) {
                 $trajetVue = array(
+                    'id' => $trajet->id_trajet,
                     'stationArrivee' => $trajet->stationArrivee()->nom,
-                    'heureDepart' => date('H:i', strtotime($trajet->date_depart))
+                    'heureDepart' => date('H:i', strtotime($trajet->date_depart)),
                 );
                 array_push($trajetsVue, $trajetVue);
             }

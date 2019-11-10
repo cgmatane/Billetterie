@@ -41,6 +41,7 @@
             @isset($trajets)
                 @foreach ($trajets as $trajet)
                     @component('interfaces.accueil.components.bouton_choix_trajet')
+                        @slot('id') {{ $trajet['id'] }} @endslot
                         @slot('destination') {{ $trajet['stationArrivee'] }} @endslot
                         @slot('heure') {{ $trajet['heureDepart'] }} @endslot
                     @endcomponent
@@ -49,31 +50,37 @@
 
 
             @component('interfaces.accueil.components.bouton_choix_trajet')
+                @slot('id') 1 @endslot
                 @slot('destination') Godbout @endslot
                 @slot('heure') 10h00 @endslot
             @endcomponent
 
             @component('interfaces.accueil.components.bouton_choix_trajet')
+                @slot('id') 1 @endslot
                 @slot('destination') Godbout @endslot
                 @slot('heure') 13h30 @endslot
             @endcomponent
 
             @component('interfaces.accueil.components.bouton_choix_trajet')
+                @slot('id') 1 @endslot
                 @slot('destination') Godbout @endslot
                 @slot('heure') 16h00 @endslot
             @endcomponent
 
             @component('interfaces.accueil.components.bouton_choix_trajet')
+                @slot('id') 1 @endslot
                 @slot('destination') Baie-Comeau @endslot
                 @slot('heure') 10h45 @endslot
             @endcomponent
 
             @component('interfaces.accueil.components.bouton_choix_trajet')
+                @slot('id') 1 @endslot
                 @slot('destination') Baie-Comeau @endslot
                 @slot('heure') 13h30 @endslot
             @endcomponent
 
             @component('interfaces.accueil.components.bouton_choix_trajet')
+                @slot('id') 1 @endslot
                 @slot('destination') Baie-Comeau @endslot
                 @slot('heure') 15h30 @endslot
             @endcomponent

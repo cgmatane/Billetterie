@@ -23,7 +23,7 @@ class ReservationPassagersController extends PageController
     {
         if ($requete->session()->get('ticket.type_vehicule') == null ) {
             $validatedData = $this->validate($requete, [
-                'email' => 'required|email',
+                'mail' => 'required|email',
                 'numero' => 'required',
                 'nom.*' => 'required',
                 'prenom.*' => 'required',
@@ -31,7 +31,7 @@ class ReservationPassagersController extends PageController
             ]);
         }else{
             $validatedData = $this->validate($requete, [
-                'email' => 'required|email',
+                'mail' => 'required|email',
                 'numero' => 'required',
                 'nom.*' => 'required',
                 'prenom.*' => 'required',
@@ -158,7 +158,7 @@ class ReservationPassagersController extends PageController
         $requete->session()->put('ticket.prenoms', $validatedData['prenom']);
         $requete->session()->put('ticket.ages', $validatedData['age']);
 
-        $requete->session()->put('ticket.email', $validatedData['email']);
+        $requete->session()->put('ticket.mail', $validatedData['mail']);
         $requete->session()->put('ticket.numero', $validatedData['numero']);
 
 

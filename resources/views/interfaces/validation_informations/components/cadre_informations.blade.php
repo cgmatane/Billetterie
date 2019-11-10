@@ -32,7 +32,7 @@
                     {{ $validation_informations_arrivee }}
                 </div>
                 <div class="col">
-                    {{ $destination }}
+                    {{ $arrivee }}
                 </div>
             </div>
 
@@ -115,7 +115,7 @@
             <h2 class="mt-2 h4">{{ $validation_informations_vous_contacter }}</h2>
             <div class="row">
                 <div class="col">{{ $validation_informations_courriel }}</div>
-                <div class="col">{{ $email }}</div>
+                <div class="col">{{ $mail }}</div>
             </div>
             <div class="row">
                 <div class="col">{{ $validation_informations_numero_telephone }}</div>

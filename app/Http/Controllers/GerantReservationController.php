@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Pages\ValidationInformationsController;
 use App\Mail\SendMail;
+use App\Ticket;
+use App\Passager;
+use App\Vehicule;
 use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -30,7 +33,7 @@ class GerantReservationController extends Controller
         $pdf_billet = PDF::loadView('pdf_billet', $donneesPdfBillet)->save($emplacementPdfBillet);
 
 
-        $email = $requete->session()->get('ticket.email');
+        $mail = $requete->session()->get('ticket.mail');
         $noms = $requete->session()->get('ticket.noms');
         $nom = $noms[0];
         $prenoms = $requete->session()->get('ticket.prenoms');
@@ -38,7 +41,7 @@ class GerantReservationController extends Controller
         $date = $requete->session()->get('ticket.date');
         $heure = $requete->session()->get('ticket.heure');
         $depart = $requete->session()->get('ticket.depart');
-        $destination = $requete->session()->get('ticket.destination');
+        $arrivee = $requete->session()->get('ticket.arrivee');
 
         /* Création du pdf de la facture */
         $donneesPdfFacture = array(
@@ -63,13 +66,13 @@ class GerantReservationController extends Controller
             'date'      => $date,
             'heure'      => $heure,
             'depart'      => $depart,
-            'destination'      => $destination,
+            'arrivee'      => $arrivee,
             'emplacementPdfBillet'      => $emplacementPdfBillet,
             'emplacementPdfFacture'      => $emplacementPdfFacture
             //'message'   =>   $request->message
         );
 
-        Mail::to($email)->send(new SendMail($data));
+        Mail::to($mail)->send(new SendMail($data));
 
         /* Suppression des pdf */
         $this->supprimerPDF($emplacementPdfBillet);
@@ -77,7 +80,32 @@ class GerantReservationController extends Controller
     }
 
     private function creerBillet($requete) {
-
+        $ticket = new Ticket();
+        $ticket->qrcode = $requete->session()->get('ticket.QR');
+        $ticket->id_trajet = $requete->session()->get('ticket.trajet');
+        $ticket->prix = 55; // TODO gerer prix
+        $ticket->date_achat = date('Y-m-d');
+        $ticket->nombre_bagage = 0; // TODO gerer nombre bagages
+        $ticket->nombre_animal = 0; // TODO gerer nombre animaux (a priori supprimer la colonne)
+        $ticket->telephone = $requete->session()->get('ticket.numero');
+        $ticket->mail = $requete->session()->get('ticket.mail');
+        $ticket->save();
+        for ($i = 0;$i<count($requete->session()->get('ticket.noms'));$i++) {
+            $passager = new Passager();
+            $passager->nom = $requete->session()->get('ticket.noms')[$i];
+            $passager->prenom = $requete->session()->get('ticket.prenoms')[$i];
+            $passager->date_naissance = date('Y-m-d'); // TODO remplacer par intervalle naissance
+            $passager->id_ticket = $ticket->id_ticket;
+            $passager->save();
+        }
+        $vehicule = new Vehicule();
+        $vehicule->type_vehicule = 1; //TODO retirer mockup
+        $vehicule->couleur = "Noir"; //TODO retirer mockup
+        $vehicule->immatriculation = $requete->session()->get('ticket.immatriculation')!=null?$requete->session()->get('ticket.immatriculation'):"N/A";
+        $vehicule->modele = "206"; //TODO retirer mockup
+        $vehicule->marque = "Peugeot"; //TODO retirer mockup
+        $vehicule->id_ticket = $ticket->id_ticket;
+        $vehicule->save();
     }
 
 

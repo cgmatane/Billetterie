@@ -35,11 +35,38 @@ class Trajet extends ModeleParent
     }
 
     public function tickets() {
-        return Ticket::where('id_ticket', $this->id_ticket)->get();
+        return Ticket::where('id_trajet', $this->id_trajet)->get();
         //return $this->hasMany('App\ObsoleteProgrammation', 'id_trajet', 'id_trajet');
+    }
+
+    public function getNombrePassagers(){
+        $nombrePassagers = 0;
+        $tickets = $this->tickets();
+        foreach ($tickets as $ticket){
+            $nombrePassagers += $ticket->getNombrePassagers();
+        }
+        return $nombrePassagers;
+    }
+    public function getNombrePlacesPassagers(){
+        $navire =  $this->navire();
+        return $navire->getNombrePlacesPassagers();
+    }
+    public function getNombreVehicules(){
+        $nombreVehicules = 0;
+        $tickets = $this->tickets();
+        foreach ($tickets as $ticket){
+            $nombreVehicules += $ticket->getNombreVehicules();
+        }
+        return $nombreVehicules;
+    }
+    public function getNombrePlacesVehicules(){
+        $navire =  $this->navire();
+        return $navire->getNombrePlacesVehicules();
     }
 
     protected function getDependancesDirectes() {
         return [$this->tickets()];
     }
+
+
 }

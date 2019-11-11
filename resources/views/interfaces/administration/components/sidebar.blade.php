@@ -12,13 +12,14 @@
                 <a href="{{route('administration.station')}}"><i class="fas fa-map-pin"></i> Station</a>
             </li>
 
+            <li class="collapsed {{ (request()->is('administration/navire')) ? 'active' : '' }}">
+                <a href="{{route('administration.navire')}}"><i class="fas fa-ship"></i> Navire</a>
+            </li>
+
             <li class="collapsed {{ (request()->is('administration/trajet')) ? 'active' : '' }}">
                 <a href="{{route('administration.trajet')}}"><i class="fas fa-route"></i> Trajet</a>
             </li>
 
-            <li class="collapsed {{ (request()->is('administration/navire')) ? 'active' : '' }}">
-                <a href="{{route('administration.navire')}}"><i class="fas fa-ship"></i> Navire</a>
-            </li>
 
             {{--
             <li class="collapsed {{ (request()->is('administration/programmation')) ? 'active' : '' }}">

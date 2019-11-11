@@ -9,13 +9,12 @@
 @section('contenu')
         <div id="introduction" >
             <h1>Interface d'administration de la STQ</h1>
-            <p>C'est ici que ce fait la gestion des stations, des trajets et des navires.</p>
+            <p>C'est ici que ce fait la gestion des stations, des navires et des trajets.</p>
         </div>
 
-        <div id="tableau-bord" ><h2>Tableau de bord</h2></div>
-        {{--
+        <div id="tableau-bord" class="titre-gen" ><h2>Tableau de bord</h2></div>
         <div class="article">
-            <h3>ObsoleteProgrammation</h3>
+            <h3>Trajets</h3>
             <p class="lead">Voici les 5 prochains trajets qui vont être effectués </p>
             <hr class="my-4">
             <table class="table" id="table-prog">
@@ -31,26 +30,26 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($donneesProgrammation as $donneeProgrammation )
+                @foreach($donneesTrajet as $donneeTrajet )
                     <tr>
-                        <td>{{ $donneeProgrammation['nom'] }}</td>
-                        <td>{{ $donneeProgrammation['date_depart'] }}</td>
-                        <td>{{ $donneeProgrammation['date_arrivee'] }}</td>
+                        <td>{{ $donneeTrajet['nom'] }}</td>
+                        <td>{{ $donneeTrajet['date_depart'] }}</td>
+                        <td>{{ $donneeTrajet['date_arrivee'] }}</td>
                         <td><div class="progress progress-striped">
-                                <div class="progress-bar bg-info" role="progressbar"  data-nombre="{{$donneeProgrammation['nombrePassagers']}}" data-total="{{ $donneeProgrammation['nombrePlacesPassagers'] }}"  aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-info" role="progressbar"  data-nombre="{{$donneeTrajet['nombrePassagers']}}" data-total="{{ $donneeTrajet['nombrePlacesPassagers'] }}"  aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <div class="progress progress-striped" id="progress-bottom">
-                                <div class="progress-bar bg-success" role="progressbar"  data-nombre="{{$donneeProgrammation['nombreVehicules']}}" data-total="{{ $donneeProgrammation['nombrePlacesVehicules'] }}"  aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-success" role="progressbar"  data-nombre="{{$donneeTrajet['nombreVehicules']}}" data-total="{{ $donneeTrajet['nombrePlacesVehicules'] }}"  aria-valuemin="0" aria-valuemax="100"></div>
                             </div></td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
             <div class="lien">
-                <a href="{{route('administration.programmation')}}">Gérer les programmations ></a>
+                <a href="{{route('administration.trajet')}}">Gérer les trajets ></a>
             </div>
         </div>
-        --}}
+
         <div class="statistique">
             @foreach($donneesStats as $donneeStats)
                 <div class="stat">
@@ -64,5 +63,23 @@
                 </div>
             @endforeach
         </div>
+
+        <div id="information-generale" class="titre-gen" ><h2>Informations générales</h2></div>
+        <div class="article" id="article-generale">
+            <h3>Historique</h3>
+            <p class="lead">Voici les informations générales de la STQ</p>
+            <hr class="my-4">
+            <div class="flex-donnee">
+                @foreach($donneesGenerales as $donneeGenerale)
+                    <div class="donnee">
+                            <h3>{{$donneeGenerale['titre']}}</h3>
+                            <p class="lead">Nombre total de {{$donneeGenerale['titre']}}s transportés</p>
+                            <p class="nombre-generale">{{$donneeGenerale['nombre']}}</p>
+                    </div>
+
+                @endforeach
+            </div>
+        </div>
+
     <script type="text/javascript" src="{{URL::asset('js/vue_generale.js')}}"></script>
 @endsection

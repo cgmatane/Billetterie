@@ -24,6 +24,13 @@ class Navire extends ModeleParent
         //return $this->hasMany('App\Trajet', 'id_navire', 'id_navire');
     }
 
+    public function getNombrePlacesPassagers(){
+        return $this->nombre_place_pieton;
+    }
+    public function getNombrePlacesVehicules(){
+        return $this->nombre_place_vehicule;
+    }
+
     protected function getDependancesDirectes()
     {
         return [$this->trajets()];

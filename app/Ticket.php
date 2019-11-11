@@ -38,6 +38,13 @@ class Ticket extends ModeleParent
         //return $this->hasOne('App\ObsoleteAcheteur', 'id_ticket', 'id_ticket');
     }
 
+    public function getNombreVehicules() {
+        return Vehicule::where('id_ticket', $this->id_ticket)->count();
+    }
+    public function getNombrePassagers() {
+        return Passager::where('id_ticket', $this->id_ticket)->count();
+    }
+
     protected function getDependancesDirectes()
     {
         return [[$this->vehicule()], $this->passagers()];

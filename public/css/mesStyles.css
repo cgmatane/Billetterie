@@ -521,7 +521,7 @@ body {
     text-align: center;
 }
 
-#tableau-bord {
+.titre-gen{
     width: 90%;
     margin: 0 auto;
 }
@@ -592,7 +592,24 @@ body {
     text-align: center;
     border: #1b1e21 solid 1px;
 }
+.donnee{
+    display: inline-block;
 
+}
+.donnee>h3{
+    text-transform: capitalize;
+}
+.flex-donnee{
+    display: flex;
+    justify-content: space-around;
+}
+.nombre-generale{
+    text-align: center;
+    font-size: 25px ;
+}
+#article-generale{
+    margin-bottom: 50px;
+}
 #imageFond {
     background: url(/img/fond.jpg) 0 0 fixed no-repeat;
     background-size: 100% 100%;

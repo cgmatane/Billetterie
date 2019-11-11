@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Pages;
 
 
-use App\ObsoleteCommande;
 use App\Http\Controllers\PageController;
 
-use App\Statics\Views\interfaces\connexion\DonneesVueConnexion;
+use App\Ticket;
 use Illuminate\Http\Request;
 
 class RequeteQRController extends PageController
@@ -24,15 +23,15 @@ class RequeteQRController extends PageController
         if (isset($_GET['qr'])) {
             $qr = htmlentities($_GET['qr']);
 
-            $commande = ObsoleteCommande::where('qrcode', $qr)->first();
-            if ($commande == null) {
+            $ticket = Ticket::where('qrcode', $qr)->first();
+            if ($ticket == null) {
                 echo "{}";
             } else {
-                $commande->passagers;
-                if ($commande->id_vehicule != null) {
-                    $commande->relationVehicule;
-                }
-                echo $commande->toJSON();
+                $ticket->relationPassagers;
+                /*if ($commande->id_vehicule != null) {*/
+                    $ticket->relationVehicule;
+//                }
+                echo $ticket->toJSON();
             }
         } else {
             echo '{}';

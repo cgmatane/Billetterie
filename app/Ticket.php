@@ -30,7 +30,11 @@ class Ticket extends ModeleParent
     }
 
     public function relationVehicule() {
-        return $this->belongsTo('App\Vehicule', 'id_vehicule', 'id_vehicule');
+        return $this->belongsTo('App\Vehicule', 'id_ticket', 'id_ticket');
+    }
+
+    public function relationPassagers() {
+        return $this->hasMany('App\Passager', 'id_ticket', 'id_ticket');
     }
 
     public function passagers() {

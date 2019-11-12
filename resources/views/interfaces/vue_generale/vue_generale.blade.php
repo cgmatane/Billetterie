@@ -15,14 +15,14 @@
         <div id="tableau-bord" class="titre-gen" ><h2>Tableau de bord</h2></div>
         <div class="article">
             <h3>Trajets</h3>
-            <p class="lead">Voici les 5 prochains trajets qui vont être effectués </p>
+            <p class="lead">Voici les 5 trajets à venir :</p>
             <hr class="my-4">
             <table class="table" id="table-prog">
                 <thead class="thead-dark">
                 <tr>
                     <th scope="col">Trajet</th>
                     <th scope="col">Date de départ</th>
-                    <th scope="col">Date d'arrivé</th>
+                    <th scope="col">Date d'arrivée</th>
                     <th scope="col">
                             <div class="leg bg-info">Passagers</div>
                             <div class="leg bg-success">Véhicules</div>

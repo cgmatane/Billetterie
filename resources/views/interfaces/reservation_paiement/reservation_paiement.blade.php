@@ -53,6 +53,7 @@
             container: '.card-wrapper'
         });
     </script>
+    <noscript>{{ $global_activer_javascript }}</noscript>
     <div id = "preloaders" class = "chargement">
         <div class="text-center align-middle">
         <div class="svgChargement">
@@ -120,4 +121,5 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{URL::asset('js/reservation_paiement.js')}}"></script>
+    <noscript>{{$global_activer_javascript}}</noscript>
 @endsection

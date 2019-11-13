@@ -38,8 +38,10 @@ abstract class ModeleParent extends Model
     public function possedeDependances() {
         $dependancesTables = $this->getDependancesDirectes();
         foreach ($dependancesTables as $dependancesTable) {
-            if (count($dependancesTable) > 0)
-                return true;
+            foreach ($dependancesTable as $dependancesObjet) {
+                if ($dependancesObjet != null)
+                    return true;
+            }
         }
         return false;
     }
@@ -49,6 +51,8 @@ abstract class ModeleParent extends Model
         $dependancesTables = $this->getDependancesDirectes();
         foreach ($dependancesTables as $dependancesTable) {
             foreach ($dependancesTable as $dependanceObjet) {
+                if ($dependanceObjet == null)
+                    continue;
                 $nomDependanceCourante = "";
                 for ($i = 0;$i<$profondeur;$i++) {
                     $nomDependanceCourante .= "&nbsp;&nbsp;&nbsp;&nbsp;";

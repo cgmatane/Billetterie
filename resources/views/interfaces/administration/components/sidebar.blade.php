@@ -20,6 +20,17 @@
                 <a href="{{route('administration.trajet')}}"><i class="fas fa-route"></i> Trajet</a>
             </li>
 
+            <li class="collapsed {{ (request()->is('administration/ticket')) ? 'active' : '' }}">
+                <a href="{{route('administration.ticket')}}"><i class="fas fa-id-card"></i> Ticket</a>
+            </li>
+
+            <li class="collapsed {{ (request()->is('administration/passager')) ? 'active' : '' }}">
+                <a href="{{route('administration.passager')}}"><i class="fas fa-user"></i> Passager</a>
+            </li>
+
+            <li class="collapsed {{ (request()->is('administration/vehicule')) ? 'active' : '' }}">
+                <a href="{{route('administration.vehicule')}}"><i class="fas fa-car"></i> Véhicule</a>
+            </li>
 
             {{--
             <li class="collapsed {{ (request()->is('administration/programmation')) ? 'active' : '' }}">

@@ -52,8 +52,11 @@ class FrontEndController extends Controller
             'administration' => array(new Controllers\AdministrationController(),
                 new Controllers\StationController(),
                 new Controllers\TrajetController(),
-                //new Controllers\ProgrammationController(),
+                new Controllers\TicketController(),
+                new Controllers\PassagerController(),
+                new Controllers\VehiculeController(),
                 new Controllers\NavireController()),
+
             'requete-qr' => array(new Controllers\RequeteQRController()),
             'pdf-facture' => array(new GenerateurPdfController())
             );

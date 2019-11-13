@@ -12,13 +12,18 @@ abstract class ModeleController extends PageController
 
     private $entreesClesEtrangeres;
     private $attributsColonnes;
-    protected $nomsTypesColonnes;
+    protected $ajoutable;
+    protected $editable;
+    protected $supprimmable;
 
     public function __construct()
     {
         parent::__construct();
         $this->attributsColonnes = $this->getNouveauModele()->getColonnes();
         $this->entreesClesEtrangeres = [];
+        $this->ajoutable = true;
+        $this->editable = true;
+        $this->supprimmable = true;
     }
 
     public function gererValidation(Request $requete)
@@ -92,7 +97,6 @@ abstract class ModeleController extends PageController
                 }else{
                     $requete->session()->flash('idModeleSupprime', $id);
                     return;
-                    //return $this->creerTableauPourVue($trajets,$planifications,$entree);
                 }
                 break;
             case "cascade" :
@@ -124,6 +128,9 @@ abstract class ModeleController extends PageController
             'tables_cles_etrangeres'=>$this->entreesClesEtrangeres,
             'id_modele_a_supprimer'=>$idModeleASupprimer,
             'dependances_modele_a_supprimer'=>$dependancesModeleASupprimer,
+            'ajoutable'=>$this->ajoutable,
+            'editable'=>$this->editable,
+            'supprimmable'=>$this->supprimmable,
         ];
     }
 

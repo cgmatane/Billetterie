@@ -1,11 +1,12 @@
 let entrees = [];
 let colonnes = [];
 let clesEtrangeres = [];
-
+let parametres = [];
 (function init() {
     setColonnes();
     setClesEtrangeres();
     setEntrees();
+    setParametres();
     supprimerContenuCache();
     document.querySelector('table').querySelector('tbody').innerHTML = getHTMLDeEntrees();
 })();
@@ -55,8 +56,10 @@ function getHTMLDeEntrees() {
             HTML += '<td>' + valeurSortante + '</td>';
         }
         HTML += '<td>';
-        HTML += '<a data-target="#myModal1" data-toggle="modal" onclick="remplirModalAjoutEdition('+id+')"><i class="fas fa-edit mr-3"></i></a>';
-        HTML += '<a data-target="#myModal" data-toggle="modal" onclick="remplirModalSuppression('+id+')"><i class="fas fa-trash-alt"></i></a>';
+        if (parametres['editable'] === '1')
+            HTML += '<a data-target="#modal-ajout-edition" data-toggle="modal" onclick="remplirModalAjoutEdition('+id+')"><i class="fas fa-edit mr-3"></i></a>';
+        if (parametres['supprimmable'] === '1')
+            HTML += '<a data-target="#modal-suppression" data-toggle="modal" onclick="remplirModalSuppression('+id+')"><i class="fas fa-trash-alt"></i></a>';
         HTML += '</td></tr>';
     }
     return HTML;
@@ -97,13 +100,20 @@ function setClesEtrangeres() {
     }
 }
 
+function setParametres() {
+    parametres = [];
+    parametres['ajoutable'] = document.getElementById('ajoutable').innerHTML;
+    parametres['editable'] = document.getElementById('editable').innerHTML;
+    parametres['supprimmable'] = document.getElementById('supprimmable').innerHTML;
+}
+
 function supprimerContenuCache() {
     DOMContenuCache = document.getElementById('donnees-masquees');
     DOMContenuCache.parentNode.removeChild(DOMContenuCache);
 }
 
 function remplirModalAjoutEdition(id = -1) {
-    DOMFormulaire = document.getElementById('myModal1').querySelector('form').querySelector('.modal-body');
+    DOMFormulaire = document.getElementById('modal-ajout-edition').querySelector('form').querySelector('.modal-body');
     DOMFormulaire.innerHTML =getHTMLFormulaireAjouterEditerEntree(id);
 }
 

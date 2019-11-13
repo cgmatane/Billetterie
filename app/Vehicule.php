@@ -16,7 +16,7 @@ class Vehicule extends ModeleParent
 
     public function getNomAffiche()
     {
-        return "Véhicule ".$this->nom;
+        return "Véhicule ".$this->marque." modèle ".$this->modele . " couleur ".$this->couleur;
     }
 
     public function typeVehicule() {
@@ -28,13 +28,8 @@ class Vehicule extends ModeleParent
         return Ticket::find($this->id_ticket);
     }
 
-    public function commandes() {
-        return ObsoleteCommande::where('id_vehicule', $this->id_vehicule)->get();
-        //return $this->hasMany('App\ObsoleteCommande', 'id_vehicule', 'id_vehicule');
-    }
-
     protected function getDependancesDirectes()
     {
-        return [$this->commandes()];
+        return array();
     }
 }

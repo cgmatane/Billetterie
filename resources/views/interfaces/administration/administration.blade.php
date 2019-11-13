@@ -11,7 +11,7 @@
 
     @if($id_modele_a_supprimer > -1)
 
-        <div class="modal" id="myModal11" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal" id="modal-suppression-cascade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -51,7 +51,7 @@
 
             jQuery(document).ready(function ($) {
                 jQuery.noConflict();
-                $('#myModal11').modal('show');
+                $('#modal-suppression-cascade').modal('show');
             });
 
         </script>
@@ -66,25 +66,18 @@
                 @foreach($colonnes as $colonne)
                     <th scope="row">{{ $colonne['nom'] }}</th>
                 @endforeach
-                <th scope="row">Actions</th>
+                @if ($editable or $supprimmable)
+                    <th scope="row">Actions</th>
+                @endif
             </tr>
             </thead>
             <tbody style="font-size: 1.2em;">
-            {{--
-                @foreach($valeurs as $valeur)
-                    <tr>
-                        <th scope="row">{{ $valeur[$attributs[0]] }}</th>
-                        @for($i=1; $i< sizeof($attributs) ; $i++ )
-                            <td> {{ $valeur[$attributs[$i]] }}</td>
-                        @endfor
-                        <td><a href=""><i class="fas fa-edit mr-3"></i></a><a style="color: #3490dc; cursor: pointer;" data-target="#myModal" data-toggle="modal" class="open-supprimer" data-id="{{$valeur[$attributs[0]] }}"><i class="fas fa-trash-alt"></i></a></td>
-                    </tr>
-                @endforeach
-                --}}
             </tbody>
         </table>
-        <a class="btn btn-primary btn-lg btn-block" data-target="#myModal1" onclick="remplirModalAjoutEdition()" data-toggle="modal" style="color: white; cursor: pointer;">Ajouter {{ $gestion_type }}</a>
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        @if ($ajoutable)
+            <a class="btn btn-primary btn-lg btn-block" data-target="#modal-ajout-edition" onclick="remplirModalAjoutEdition()" data-toggle="modal" style="color: white; cursor: pointer;">Ajouter {{ $gestion_type }}</a>
+        @endif
+        <div class="modal fade" id="modal-suppression" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -110,7 +103,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="modal-ajout-edition" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -136,7 +129,6 @@
                 </div>
             </div>
         </div>
-
         <div id = "donnees-masquees" style="display:none">
             <div id = "entrees">
                 @foreach($entrees as $id=>$entree)
@@ -179,6 +171,9 @@
                     </div>
                 @endforeach
             </div>
+            <div id="ajoutable">{{ $ajoutable }}</div>
+            <div id="editable">{{ $editable }}</div>
+            <div id="supprimmable">{{ $supprimmable }}</div>
         </div>
         <script type="text/javascript" src="{{URL::asset('js/administration.js')}}"></script>
     </div>

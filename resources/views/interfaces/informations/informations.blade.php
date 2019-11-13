@@ -2,13 +2,12 @@
 @extends('interfaces.index')
 
 @section('contenu')
-    <body id="top">
     <div class="container-fluid">
         <div class="row mt-5 mb-5">
             <div class="col-12">
-                <h1 class="text-center font-weight-bold" id="texteHaut">
+                <h2 class="text-center font-weight-bold" id="texteHaut">
                     {{ $informations_titre }}
-                </h1>
+                </h2>
             </div>
         </div>
         <div class="text-center row justify-content-center mb-5">

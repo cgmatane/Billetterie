@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Pages as Controllers;
 
 use App\Statics\Views\DonneesVueGlobales;
+use App\Ticket;
 use Illuminate\Http\Request;
 
 define('REPERTOIRE_INTERFACES', 'interfaces');
@@ -67,6 +68,7 @@ class FrontEndController extends Controller
     }
 
     public function manager(Request $requete, $nomRoute = '') {
+        dd(Ticket::genererCodeQR());
         if (count($requete->all()) > 0)
             return $this->managerResultatFormulaire($requete, $nomRoute);
 

@@ -11,7 +11,7 @@
                 {{ $reservation_passagers_renseigner_informations }}
             </p>
 
-            <span id="passagers">
+            <div id="passagers">
                 <fieldset class="passager mb-2" id="passager">
                     <div class="legendePassager">Passager</div>
                     <div class="row p-0 m-2">
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                 </fieldset>
-            </span>
+            </div>
 
             <div class="text-right">
                 <button type="button" id="boutonAjouterPassager" class="btn btn-success"
@@ -85,7 +85,7 @@
                         <input name="numero" type="tel" class="form-control medium"
                                id="valeurTelephone"
                                placeholder="{{ $reservation_passagers_numero }}"
-                               aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                        >
                         <div class="alert alert-danger champErreur hidden" id="erreurTelephone">
                             <small class="texteErreur"></small>
                         </div>
@@ -155,7 +155,7 @@
         </form>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="modalMatiereDangereuse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalMatiereDangereuse" tabindex="-1" role="dialog" aria-labelledby="checkbox" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -172,7 +172,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="modalAnimauxExotiques" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalAnimauxExotiques" tabindex="-1" role="dialog" aria-labelledby="checkbox2" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -194,6 +194,6 @@
     @endsection
 
     @section('scripts')
-        <script type="text/javascript" src="{{URL::asset('js/reservation_passagers.js')}}"></script>
+        <script src="{{URL::asset('js/reservation_passagers.js')}}"></script>
         <noscript>{{ $global_activer_javascript }}</noscript>
 @endsection

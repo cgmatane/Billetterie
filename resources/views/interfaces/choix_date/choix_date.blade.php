@@ -58,4 +58,5 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{URL::asset('js/choix_date.js')}}"></script>
+    <noscript>{{ $global_activer_javascript }}</noscript>
 @endsection

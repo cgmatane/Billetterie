@@ -18,5 +18,8 @@ class DonneesVueGlobales extends DonneesVue
         $this->setDonneeVue('retour_choix_precedent','Retour choix précédent');
         $this->setDonneeVue('retour_accueil', 'Accueil');
         $this->setDonneeVue('retour_au_debut', 'Recommencer');
+        $this->setDonneeVue('titre', 'Billetterie - STQ');
+        $this->setDonneeVue('activer_javascript', 'Ce site a besoin de javascript');
+
     }
 }

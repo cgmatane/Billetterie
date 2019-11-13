@@ -57,7 +57,7 @@ function verifierNom() {
 
     if (valeurNomSepare.length !== 2 || !(/^[A-Z\s]*$/.test(valeurNomEntier))) {
         afficherErreur(idDivErreurNom,
-            "Ce champ doit être composé d'un nom et d'un prénom sans chiffres");
+            "Ce champ doit être composé d'un nom et d'un prénom");
         return false;
     }
 
@@ -117,7 +117,7 @@ function verifierCvc() {
     }
 
     afficherErreur(idDivErreurCvc,
-        "Le CVC doi être composé de trois chiffres");
+        "Le CVC doit être composé de trois chiffres");
     return false;
 }
 

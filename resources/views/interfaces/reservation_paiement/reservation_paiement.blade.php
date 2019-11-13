@@ -25,7 +25,7 @@
                 </div>
                 <label for="nom" class="d-none">{{$reservation_paiement_nom}}</label>
                 <input placeholder="{{$reservation_paiement_nom}}" onkeyup="this.value = this.value.toUpperCase();" type="text" name="name" id="nom" class="col-10 m-2">
-                <div class="alert alert-danger champErreur hidden" id="erreurNom">
+                <div class="alert alert-danger justify-content-center champErreur hidden" id="erreurNom">
                     <small class="texteErreur"></small>
                 </div>
                 <label for="dateExpiration" class="d-none">{{ $reservation_paiement_date_expiration }}</label>

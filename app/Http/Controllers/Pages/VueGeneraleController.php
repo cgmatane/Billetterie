@@ -9,6 +9,7 @@ use App\ObsoleteProgrammation;
 use App\Passager;
 use App\Statics\Views\interfaces\vue_generale\DonneesVueVueGenerale;
 use App\Station;
+use App\Ticket;
 use App\Trajet;
 use App\Vehicule;
 use Illuminate\Http\Request;
@@ -37,25 +38,27 @@ class VueGeneraleController extends PageController
         $donneesStation = [
             'titre' => 'station',
             'nombre' => Station::all()->count(),
-            ];
-        array_push($donneesStats,$donneesStation);
+        ];
         $donneesNavire = [
             'titre' => 'navire',
             'nombre' => Navire::all()->count(),
         ];
-        array_push($donneesStats,$donneesNavire);
+        array_push($donneesStats,$donneesStation,$donneesNavire);
 
         $donneesGenerales = [];
+        $donneesTicket = [
+            'titre' => 'ticket',
+            'nombre' => Ticket::all()->count(),
+        ];
         $donneesPassager = [
             'titre' => 'passager',
             'nombre' => Passager::all()->count(),
         ];
-        array_push($donneesGenerales,$donneesPassager);
         $donneesVehicule = [
-            'titre' => 'véhicule',
+            'titre' => 'vehicule',
             'nombre' => Vehicule::all()->count(),
         ];
-        array_push($donneesGenerales,$donneesVehicule);
+        array_push($donneesGenerales,$donneesTicket,$donneesPassager,$donneesVehicule);
 
 
         $this->donneesDynamiques = [

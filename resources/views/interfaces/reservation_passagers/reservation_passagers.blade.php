@@ -195,4 +195,5 @@
 
     @section('scripts')
         <script type="text/javascript" src="{{URL::asset('js/reservation_passagers.js')}}"></script>
+        <noscript>{{ $global_activer_javascript }}</noscript>
 @endsection

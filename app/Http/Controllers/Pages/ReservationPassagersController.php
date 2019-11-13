@@ -42,8 +42,8 @@ class ReservationPassagersController extends PageController
             $requete->session()->put('ticket.immatriculation', $validatedData['immatriculation']);
         }
 
-
-        $requete->session()->put('ticket.QR', Ticket::genererCodeQR());
+        $codeQR = Ticket::genererCodeQR();
+        $requete->session()->put('ticket.QR', $codeQR);
         $requete->session()->put('ticket.noms', $validatedData['nom']);
         $requete->session()->put('ticket.prenoms', $validatedData['prenom']);
         $requete->session()->put('ticket.ages', $validatedData['age']);

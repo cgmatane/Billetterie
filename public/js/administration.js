@@ -133,7 +133,7 @@ function getHTMLFormulaireAjouterEditerEntree(id) {
     HTML += '<input type="hidden" name="'+colonnes[0]['attribut']+'" value="'+id+'">';
     for (let i = 1;i<colonnes.length;i++) {
         HTML += '<div class="form-group">';
-        HTML+= '<label for="' + colonnes[i]['attribut'] + '">' + colonnes[i]['nom'] + '</label>';
+        HTML+= '<label for="' + colonnes[i]['attribut'] + '">' + colonnes[i]['nom'] + '</label>&nbsp;&nbsp;&nbsp;';
         let type = colonnes[i]['type'];
         switch (type[0]) {
             case 'cle':

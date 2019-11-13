@@ -7,9 +7,10 @@ function verifierFormulaire() {
     let dateExpirationValide = verifierDateExpiration();
     let cvcValide = verifierCvc();
 
-    if (numeroCarteBleueValide && nomValide && dateExpirationValide && cvcValide)
+    if (numeroCarteBleueValide && nomValide && dateExpirationValide && cvcValide) {
         document.getElementById("preloaders").style.display = "block";
         return true;
+    }
 
     return false;
 }

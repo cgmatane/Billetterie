@@ -68,7 +68,6 @@ class FrontEndController extends Controller
     }
 
     public function manager(Request $requete, $nomRoute = '') {
-        dd(Ticket::genererCodeQR());
         if (count($requete->all()) > 0)
             return $this->managerResultatFormulaire($requete, $nomRoute);
 

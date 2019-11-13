@@ -670,6 +670,11 @@ body {
     display:none;
 }
 
+#boutonPaiement {
+    display: block;
+    width: 80%;
+}
+
 #textDecoration {
     text-decoration: none;
 }

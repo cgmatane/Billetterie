@@ -21,7 +21,7 @@
             </li>
 
             <li class="collapsed {{ (request()->is('administration/ticket')) ? 'active' : '' }}">
-                <a href="{{route('administration.ticket')}}"><i class="fas fa-id-card"></i> Ticket</a>
+                <a href="{{route('administration.ticket')}}"><i class="fas fa-credit-card"></i> Ticket</a>
             </li>
 
             <li class="collapsed {{ (request()->is('administration/passager')) ? 'active' : '' }}">
@@ -32,11 +32,6 @@
                 <a href="{{route('administration.vehicule')}}"><i class="fas fa-car"></i> Véhicule</a>
             </li>
 
-            {{--
-            <li class="collapsed {{ (request()->is('administration/programmation')) ? 'active' : '' }}">
-                <a href="{{route('administration.programmation')}}"><i class="fas fa-clock-o"></i> ObsoleteProgrammation</a>
-            </li>
-            --}}
             <li>
                 <a href=""><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
             </li>

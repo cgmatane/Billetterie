@@ -21,7 +21,7 @@
                                 <input type="text" id="valeurNom" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_nom }}">
                                 <div class="alert alert-danger champErreur hidden" id="erreurNom">
-                                    <small class="texteErreur"></small>
+                                    <small class="texteErreur">Le nom est invalide</small>
                                  </div>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                                 <input type="text" id="valeurPrenom" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_prenom }}">
                                 <div class="alert alert-danger champErreur hidden" id="erreurPrenom">
-                                    <small class="texteErreur"></small>
+                                    <small class="texteErreur">Le prénom est invalide</small>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                                 <input type="text" id="valeurImmatriculation" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_immatriculation }}">
                                 <div class="alert alert-danger champErreur hidden" id="erreurImmatriculation">
-                                    <small class="texteErreur"></small>
+                                    <small class="texteErreur">L'immatriculation est invalide</small>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                                 <input type="text" id="valeurMarqueVehicule" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_marque_vehicule }}">
                                 <div class="alert alert-danger champErreur hidden" id="erreurMarqueVehicule">
-                                    <small class="texteErreur"></small>
+                                    <small class="texteErreur">La marque du véhicule est invalide</small>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                                 <input type="text" id="valeurCouleurVehicule" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_couleur_vehicule }}">
                                 <div class="alert alert-danger champErreur hidden" id="erreurCouleurVehicule">
-                                    <small class="texteErreur"></small>
+                                    <small class="texteErreur">La couleur du véhicule est invalide</small>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +112,7 @@
                                id="valeurCourriel"
                                placeholder="{{ $reservation_passagers_courriel }}">
                         <div class="alert alert-danger champErreur hidden" id="erreurCourriel">
-                            <small class="texteErreur"></small>
+                            <small class="texteErreur">Le courriel est invalide</small>
                         </div>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                                placeholder="{{ $reservation_passagers_numero }}"
                         >
                         <div class="alert alert-danger champErreur hidden" id="erreurTelephone">
-                            <small class="texteErreur"></small>
+                            <small class="texteErreur">Le numéro de téléphone est invalide</small>
                         </div>
                         <small class="form-text text-muted mb-4">
                             {{ $reservation_passagers_tel_necessaire }}
@@ -148,7 +148,7 @@
                     </label>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalMatiereDangereuse">?</button>
                     <div class="alert alert-danger champErreur hidden">
-                        <small class="texteErreur"></small>
+                        <small class="texteErreur">Vous devez confirmer que vous ne transportez pas de matériaux dangereux</small>
                     </div>
                 </div>
             </div>
@@ -167,7 +167,7 @@
                     </label>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalAnimauxExotiques">?</button>
                     <div class="alert alert-danger champErreur hidden">
-                        <small class="texteErreur"></small>
+                        <small class="texteErreur">Vous devez confirmer que vous ne voyagez pas avec des animaux exotiques</small>
                     </div>
                 </div>
             </div>

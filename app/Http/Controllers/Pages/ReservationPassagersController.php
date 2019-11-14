@@ -22,7 +22,7 @@ class ReservationPassagersController extends PageController
 
     public function gererValidation(Request $requete)
     {
-        if ($requete->session()->get('ticket.type_vehicule') == null ) {
+        if ($requete->session()->get('ticket.type_vehicule') == null) {
             $validatedData = $this->validate($requete, [
                 'mail' => 'required|email',
                 'numero' => 'required',
@@ -30,7 +30,7 @@ class ReservationPassagersController extends PageController
                 'prenom.*' => 'required',
                 'age.*' => 'required',
             ]);
-        }else{
+        }else {
             $validatedData = $this->validate($requete, [
                 'mail' => 'required|email',
                 'numero' => 'required',
@@ -38,23 +38,20 @@ class ReservationPassagersController extends PageController
                 'prenom.*' => 'required',
                 'age.*' => 'required',
                 'immatriculation' => 'required',
+                'marqueVehicule' => 'required',
+                'couleurVehicule' => 'required',
             ]);
             $requete->session()->put('ticket.immatriculation', $validatedData['immatriculation']);
+            $requete->session()->put('ticket.couleurVehicule', $validatedData['couleurVehicule']);
+            $requete->session()->put('ticket.marqueVehicule', $validatedData['marqueVehicule']);
         }
 
-        $codeQR = Ticket::genererCodeQR();
-        $requete->session()->put('ticket.QR', $codeQR);
         $requete->session()->put('ticket.noms', $validatedData['nom']);
         $requete->session()->put('ticket.prenoms', $validatedData['prenom']);
         $requete->session()->put('ticket.ages', $validatedData['age']);
 
         $requete->session()->put('ticket.mail', $validatedData['mail']);
         $requete->session()->put('ticket.numero', $validatedData['numero']);
-
-
-        $imageQR = "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=" . $codeQR;
-        $requete->session()->put("ticket.imageQR", $imageQR);
-
 
         return redirect(route('validation_informations'));
     }
@@ -84,6 +81,8 @@ class ReservationPassagersController extends PageController
 
         $this->donneesDynamiques = [
             'type_vehicule'=>$typeVehicule,
+            'reservation_passagers_couleur_vehicule' => 'Couleur du véhicule', //TODO Remplacer par vrais statiques (je ne touche pas aux statiques pr l'instant vu que Loïc est en train de refactor
+            'reservation_passagers_marque_vehicule' => 'Marque du véhicule',
         ];
     }
 }

@@ -68,14 +68,14 @@ function validerFormulaire() {
         erreur = true;
     }
     else {
-        setMessageErreurChamp(champ);
+        setMessageErreurChamp(champ, false);
     }
     champ = document.getElementById('champTelephone');
     if (!telephoneValide(champ)) {
         erreur = true;
     }
     else {
-        setMessageErreurChamp(champ);
+        setMessageErreurChamp(champ, false);
     }
     champ = document.getElementById('champImmatriculation');
     if (champ) {
@@ -83,13 +83,28 @@ function validerFormulaire() {
             erreur = true;
         }
         else {
-            setMessageErreurChamp(champ);
+            setMessageErreurChamp(champ, false);
         }
     }
+
+    champ = document.getElementById('champMarqueVehicule');
+    if (champ) {
+        if (!nomValide(champ)) {
+            erreur = true;
+        }
+    }
+
+    champ = document.getElementById('champCouleurVehicule');
+    if (champ) {
+        if (!nomValide(champ)) {
+            erreur = true;
+        }
+    }
+
     champ = document.getElementById('checkboxMatieres');
     if (!estChampValide(champ)) {
         erreur = true;
-        setMessageErreurChamp(champ, 'Vous devez confirmer que vous ne transportez pas de matériaux dangereux pour continuer');
+        setMessageErreurChamp(champ, true);
     }
     else {
         setMessageErreurChamp(champ);
@@ -97,10 +112,10 @@ function validerFormulaire() {
     champ = document.getElementById('checkboxAnimaux');
     if (!estChampValide(champ)) {
         erreur = true;
-        setMessageErreurChamp(champ, 'Vous devez confirmer que vous ne voyagez pas avec des animaux exotiques pour continuer');
+        setMessageErreurChamp(champ, true);
     }
     else {
-        setMessageErreurChamp(champ);
+        setMessageErreurChamp(champ, false);
     }
 
     return !erreur;
@@ -112,18 +127,18 @@ function nomValide(champ) {
     if(!(input.value.length > 0)) {
 
         surlignerInput(input, true);
-        setMessageErreurChamp(champ, 'Veuillez saisir un nom');
+        setMessageErreurChamp(champ, true);
         return false;
     }
     if (!(/^[a-zA-Z\s]*$/.test(input.value))) {
 
         surlignerInput(input, true);
-        setMessageErreurChamp(champ, 'Le nom doit contenir uniquement des lettres');
+        setMessageErreurChamp(champ, true);
         return false;
     }
 
     surlignerInput(input, false);
-    setMessageErreurChamp(champ);
+    setMessageErreurChamp(champ, false);
     return true;
 }
 
@@ -134,12 +149,12 @@ function telephoneValide(champ) {
     if (!(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(input.value))) {
 
         surlignerInput(input, true);
-        setMessageErreurChamp(champ, 'Le numero de telephone est invalide');
+        setMessageErreurChamp(champ, true);
         return false;
     }
 
     surlignerInput(input, false);
-    setMessageErreurChamp(champ);
+    setMessageErreurChamp(champ, false);
     return true;
 }
 
@@ -150,18 +165,18 @@ function immatriculationValide(champ) {
     if(input.value.length < 4 || input.value.length > 7) {
 
         surlignerInput(input, true);
-        setMessageErreurChamp(champ, 'La plaque est invalide');
+        setMessageErreurChamp(champ, true);
         return false;
     }
 
     if (!(/^[0-9A-Z\s]*$/.test(input.value))) {
         surlignerInput(input, true);
-        setMessageErreurChamp(champ, 'La plaque est invalide');
+        setMessageErreurChamp(champ, true);
         return false;
     }
 
     surlignerInput(input, false);
-    setMessageErreurChamp(champ);
+    setMessageErreurChamp(champ, false);
     return true;
 }
 
@@ -172,12 +187,12 @@ function mailValide(champ) {
     if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(input.value))) {
 
         surlignerInput(input, true);
-        setMessageErreurChamp(champ, 'Le mail est invalide');
+        setMessageErreurChamp(champ, true);
         return false;
     }
 
     surlignerInput(input, false);
-    setMessageErreurChamp(champ);
+    setMessageErreurChamp(champ, false);
     return true;
 }
 
@@ -210,12 +225,11 @@ function surlignerInput(champ, erreur)
     }
 }
 
-function setMessageErreurChamp(champ, messageErreur = null) {
-    if (messageErreur == null) {
-        champ.getElementsByClassName('champErreur')[0].style.display = "none";
-        champ.getElementsByClassName('texteErreur')[0].innerHTML = '';
-        return;
+function setMessageErreurChamp(champ, afficher) {
+    if (afficher) {
+        champ.getElementsByClassName('champErreur')[0].style.display = "block";
     }
-    champ.getElementsByClassName('champErreur')[0].style.display = "block";
-    champ.getElementsByClassName('texteErreur')[0].innerHTML = messageErreur;
+    else {
+        champ.getElementsByClassName('champErreur')[0].style.display = "none";
+    }
 }

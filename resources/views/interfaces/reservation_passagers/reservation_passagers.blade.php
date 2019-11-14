@@ -11,7 +11,7 @@
                 {{ $reservation_passagers_renseigner_informations }}
             </p>
 
-            <span id="passagers">
+            <div id="passagers">
                 <fieldset class="passager mb-2" id="passager">
                     <div class="legendePassager">Passager</div>
                     <div class="row p-0 m-2">
@@ -21,7 +21,7 @@
                                 <input type="text" id="valeurNom" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_nom }}">
                                 <div class="alert alert-danger champErreur hidden" id="erreurNom">
-                                    <small class="texteErreur"></small>
+                                    <small class="texteErreur">Le nom est invalide</small>
                                  </div>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                                 <input type="text" id="valeurPrenom" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_prenom }}">
                                 <div class="alert alert-danger champErreur hidden" id="erreurPrenom">
-                                    <small class="texteErreur"></small>
+                                    <small class="texteErreur">Le prénom est invalide</small>
                                 </div>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                 </fieldset>
-            </span>
+            </div>
 
             <div class="text-right">
                 <button type="button" id="boutonAjouterPassager" class="btn btn-success"
@@ -66,8 +66,45 @@
                 </button>
             </div>
 
+            @if($type_vehicule != "pas de véhicule" || !isset($type_vehicule))
+                <fieldset class="vehicule mt-2" id="vehicule">
+                    <div class="row p-0 m-1">
+                        <div class="col-sm px-0">
+                            <div class="form-group champImmatriculation" id="champImmatriculation">
+                                <label for="valeurImmatriculation" class="d-none">{{ $reservation_passagers_immatriculation }}</label>
+                                <input type="text" id="valeurImmatriculation" class="form-control medium"
+                                       placeholder="{{ $reservation_passagers_immatriculation }}" name="immatriculation">
+                                <div class="alert alert-danger champErreur hidden" id="erreurImmatriculation">
+                                    <small class="texteErreur">L'immatriculation est invalide</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm px-0">
+                            <div class="form-group champMarqueVehicule" id="champMarqueVehicule">
+                                <label for="valeurMarqueVehicule" class="d-none">{{ $reservation_passagers_marque_vehicule }}</label>
+                                <input type="text" id="valeurMarqueVehicule" class="form-control medium"
+                                       placeholder="{{ $reservation_passagers_marque_vehicule }}" name="marqueVehicule">
+                                <div class="alert alert-danger champErreur hidden" id="erreurMarqueVehicule">
+                                    <small class="texteErreur">La marque du véhicule est invalide</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm px-0">
+                            <div class="form-group champCouleurVehicule" id="champCouleurVehicule">
+                                <label for="valeurCouleurVehicule" class="d-none">{{ $reservation_passagers_couleur_vehicule }}</label>
+                                <input type="text" id="valeurCouleurVehicule" class="form-control medium"
+                                       placeholder="{{ $reservation_passagers_couleur_vehicule }}" name="couleurVehicule">
+                                <div class="alert alert-danger champErreur hidden" id="erreurCouleurVehicule">
+                                    <small class="texteErreur">La couleur du véhicule est invalide</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            @endif
 
-            <fieldset class="mt-3">
+
+            <fieldset class="mt-1">
                 <div class="row">
                     <div class="form-group col" id="champCourriel">
                         <label for="valeurCourriel" class="d-none">{{ $reservation_passagers_courriel }}</label>
@@ -75,7 +112,7 @@
                                id="valeurCourriel"
                                placeholder="{{ $reservation_passagers_courriel }}">
                         <div class="alert alert-danger champErreur hidden" id="erreurCourriel">
-                            <small class="texteErreur"></small>
+                            <small class="texteErreur">Le courriel est invalide</small>
                         </div>
                     </div>
                 </div>
@@ -85,34 +122,20 @@
                         <input name="numero" type="tel" class="form-control medium"
                                id="valeurTelephone"
                                placeholder="{{ $reservation_passagers_numero }}"
-                               aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                        >
                         <div class="alert alert-danger champErreur hidden" id="erreurTelephone">
-                            <small class="texteErreur"></small>
+                            <small class="texteErreur">Le numéro de téléphone est invalide</small>
                         </div>
                         <small class="form-text text-muted mb-4">
                             {{ $reservation_passagers_tel_necessaire }}
                         </small>
                     </div>
                 </div>
-                @if($type_vehicule != "pas de véhicule" || !isset($type_vehicule))
-                        <div class="row">
-                            <div class="form-group col" id="champImmatriculation">
-                                <label for="valeurImmatriculation">{{ $reservation_passagers_immatriculation }}</label>
-                                <input name="immatriculation" type="text" class="form-control medium"
-                                       id="valeurImmatriculation"
-                                       placeholder="{{ $reservation_passagers_immatriculation }}">
-                                <div class="alert alert-danger champErreur" id="erreurImmatriculation" style="display:none">
-                                    <small class="texteErreur"></small>
-                                </div>
-                            </div>
-                        </div>
-                @endif
-
 
             </fieldset>
             <div class="row">
                 <div class="form-group col" id="checkboxMatieres">
-                    <input type="checkbox" id="checkbox" class="hidden">
+                    <input type="checkbox" id="checkbox" style="z-index:-1;opacity:0;position:absolute;">
                     <label for="checkbox" class="check">
                         <svg width="18px" height="18px" viewBox="0 0 18 18">
                             <path
@@ -125,13 +148,13 @@
                     </label>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalMatiereDangereuse">?</button>
                     <div class="alert alert-danger champErreur hidden">
-                        <small class="texteErreur"></small>
+                        <small class="texteErreur">Vous devez confirmer que vous ne transportez pas de matériaux dangereux</small>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col" id="checkboxAnimaux">
-                    <input type="checkbox" id="checkbox2" class="hidden">
+                    <input type="checkbox" id="checkbox2" style="z-index:-1;opacity:0;position:absolute;">
                     <label for="checkbox2" class="check">
                         <svg width="18px" height="18px" viewBox="0 0 18 18">
                             <path
@@ -144,7 +167,7 @@
                     </label>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalAnimauxExotiques">?</button>
                     <div class="alert alert-danger champErreur hidden">
-                        <small class="texteErreur"></small>
+                        <small class="texteErreur">Vous devez confirmer que vous ne voyagez pas avec des animaux exotiques</small>
                     </div>
                 </div>
             </div>
@@ -155,7 +178,7 @@
         </form>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="modalMatiereDangereuse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalMatiereDangereuse" tabindex="-1" role="dialog" aria-labelledby="checkbox" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -172,7 +195,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="modalAnimauxExotiques" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalAnimauxExotiques" tabindex="-1" role="dialog" aria-labelledby="checkbox2" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -194,5 +217,6 @@
     @endsection
 
     @section('scripts')
-        <script type="text/javascript" src="{{URL::asset('js/reservation_passagers.js')}}"></script>
+        <script src="{{URL::asset('js/reservation_passagers.js')}}"></script>
+        <noscript>{{ $global_activer_javascript }}</noscript>
 @endsection

@@ -1,7 +1,6 @@
 @extends('interfaces.index')
 
 @section('contenu')
-<body id="top">
 <div class="row">
 </div>
 <div class="container">
@@ -53,6 +52,7 @@
             container: '.card-wrapper'
         });
     </script>
+    <noscript>{{ $global_activer_javascript }}</noscript>
     <div id = "preloaders" class = "chargement">
         <div class="text-center align-middle">
         <div class="svgChargement">
@@ -119,5 +119,6 @@
 @endsection
 
 @section('scripts')
-    <script type="text/javascript" src="{{URL::asset('js/reservation_paiement.js')}}"></script>
+    <script src="{{URL::asset('js/reservation_paiement.js')}}"></script>
+    <noscript>{{$global_activer_javascript}}</noscript>
 @endsection

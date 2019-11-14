@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class TypeVehicule extends ModeleParent
 {
-    const PIETON = 1;
-    const VOITURE = 2;
-    const VOITURE_AVEC_REMORQUE = 3;
-    const CAMIONETTE = 4;
-    const POIDS_LOURD = 5;
+    const PIETON = 0;
+    const VOITURE = 1;
+    const VOITURE_AVEC_REMORQUE = 2;
+    const CAMIONETTE = 3;
+    const POIDS_LOURD = 4;
 
     protected $table = 'type_vehicule'; /*Definit le nom de la table de la BD correspondant a associer au modele
                                         (par defaut la valeur de $table est le nom de la classe en snake case suivit d'un s)*/

@@ -130,7 +130,7 @@ function nomValide(champ) {
         setMessageErreurChamp(champ, true);
         return false;
     }
-    if (!(/^[a-zA-Z\s]*$/.test(input.value))) {
+    if (!(/^[A-zÀ-ú\s]*$/.test(input.value))) {
 
         surlignerInput(input, true);
         setMessageErreurChamp(champ, true);

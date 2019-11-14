@@ -112,7 +112,7 @@
             </fieldset>
             <div class="row">
                 <div class="form-group col" id="checkboxMatieres">
-                    <input type="checkbox" id="checkbox" class="hidden">
+                    <input type="checkbox" id="checkbox" style="z-index:-1;opacity:0;position:absolute;">
                     <label for="checkbox" class="check">
                         <svg width="18px" height="18px" viewBox="0 0 18 18">
                             <path
@@ -131,7 +131,7 @@
             </div>
             <div class="row">
                 <div class="form-group col" id="checkboxAnimaux">
-                    <input type="checkbox" id="checkbox2" class="hidden">
+                    <input type="checkbox" id="checkbox2" style="z-index:-1;opacity:0;position:absolute;">
                     <label for="checkbox2" class="check">
                         <svg width="18px" height="18px" viewBox="0 0 18 18">
                             <path

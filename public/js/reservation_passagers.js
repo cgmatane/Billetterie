@@ -86,6 +86,21 @@ function validerFormulaire() {
             setMessageErreurChamp(champ);
         }
     }
+
+    champ = document.getElementById('champMarqueVehicule');
+    if (champ) {
+        if (!nomValide(champ)) {
+            erreur = true;
+        }
+    }
+
+    champ = document.getElementById('champCouleurVehicule');
+    if (champ) {
+        if (!nomValide(champ)) {
+            erreur = true;
+        }
+    }
+
     champ = document.getElementById('checkboxMatieres');
     if (!estChampValide(champ)) {
         erreur = true;

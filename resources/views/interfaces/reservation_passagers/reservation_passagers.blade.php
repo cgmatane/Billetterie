@@ -66,8 +66,45 @@
                 </button>
             </div>
 
+            @if($type_vehicule != "pas de véhicule" || !isset($type_vehicule))
+                <fieldset class="vehicule mt-2" id="vehicule">
+                    <div class="row p-0 m-1">
+                        <div class="col-sm px-0">
+                            <div class="form-group champImmatriculation" id="champImmatriculation">
+                                <label for="valeurImmatriculation" class="d-none">{{ $reservation_passagers_immatriculation }}</label>
+                                <input type="text" id="valeurImmatriculation" class="form-control medium"
+                                       placeholder="{{ $reservation_passagers_immatriculation }}">
+                                <div class="alert alert-danger champErreur hidden" id="erreurImmatriculation">
+                                    <small class="texteErreur"></small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm px-0">
+                            <div class="form-group champMarqueVehicule" id="champMarqueVehicule">
+                                <label for="valeurMarqueVehicule" class="d-none">{{ $reservation_passagers_marque_vehicule }}</label>
+                                <input type="text" id="valeurMarqueVehicule" class="form-control medium"
+                                       placeholder="{{ $reservation_passagers_marque_vehicule }}">
+                                <div class="alert alert-danger champErreur hidden" id="erreurMarqueVehicule">
+                                    <small class="texteErreur"></small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm px-0">
+                            <div class="form-group champCouleurVehicule" id="champCouleurVehicule">
+                                <label for="valeurCouleurVehicule" class="d-none">{{ $reservation_passagers_couleur_vehicule }}</label>
+                                <input type="text" id="valeurCouleurVehicule" class="form-control medium"
+                                       placeholder="{{ $reservation_passagers_couleur_vehicule }}">
+                                <div class="alert alert-danger champErreur hidden" id="erreurCouleurVehicule">
+                                    <small class="texteErreur"></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            @endif
 
-            <fieldset class="mt-3">
+
+            <fieldset class="mt-1">
                 <div class="row">
                     <div class="form-group col" id="champCourriel">
                         <label for="valeurCourriel" class="d-none">{{ $reservation_passagers_courriel }}</label>
@@ -94,20 +131,6 @@
                         </small>
                     </div>
                 </div>
-                @if($type_vehicule != "pas de véhicule" || !isset($type_vehicule))
-                        <div class="row">
-                            <div class="form-group col" id="champImmatriculation">
-                                <label for="valeurImmatriculation">{{ $reservation_passagers_immatriculation }}</label>
-                                <input name="immatriculation" type="text" class="form-control medium"
-                                       id="valeurImmatriculation"
-                                       placeholder="{{ $reservation_passagers_immatriculation }}">
-                                <div class="alert alert-danger champErreur" id="erreurImmatriculation" style="display:none">
-                                    <small class="texteErreur"></small>
-                                </div>
-                            </div>
-                        </div>
-                @endif
-
 
             </fieldset>
             <div class="row">

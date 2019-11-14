@@ -22,7 +22,7 @@ class ReservationPassagersController extends PageController
 
     public function gererValidation(Request $requete)
     {
-        if ($requete->session()->get('ticket.type_vehicule') == null ) {
+        if ($requete->session()->get('ticket.type_vehicule') == null) {
             $validatedData = $this->validate($requete, [
                 'mail' => 'required|email',
                 'numero' => 'required',
@@ -30,7 +30,7 @@ class ReservationPassagersController extends PageController
                 'prenom.*' => 'required',
                 'age.*' => 'required',
             ]);
-        }else{
+        }else {
             $validatedData = $this->validate($requete, [
                 'mail' => 'required|email',
                 'numero' => 'required',

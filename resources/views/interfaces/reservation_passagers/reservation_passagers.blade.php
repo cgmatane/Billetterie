@@ -73,7 +73,7 @@
                             <div class="form-group champImmatriculation" id="champImmatriculation">
                                 <label for="valeurImmatriculation" class="d-none">{{ $reservation_passagers_immatriculation }}</label>
                                 <input type="text" id="valeurImmatriculation" class="form-control medium"
-                                       placeholder="{{ $reservation_passagers_immatriculation }}">
+                                       placeholder="{{ $reservation_passagers_immatriculation }}" name="immatriculation">
                                 <div class="alert alert-danger champErreur hidden" id="erreurImmatriculation">
                                     <small class="texteErreur">L'immatriculation est invalide</small>
                                 </div>
@@ -83,7 +83,7 @@
                             <div class="form-group champMarqueVehicule" id="champMarqueVehicule">
                                 <label for="valeurMarqueVehicule" class="d-none">{{ $reservation_passagers_marque_vehicule }}</label>
                                 <input type="text" id="valeurMarqueVehicule" class="form-control medium"
-                                       placeholder="{{ $reservation_passagers_marque_vehicule }}">
+                                       placeholder="{{ $reservation_passagers_marque_vehicule }}" name="marqueVehicule">
                                 <div class="alert alert-danger champErreur hidden" id="erreurMarqueVehicule">
                                     <small class="texteErreur">La marque du véhicule est invalide</small>
                                 </div>
@@ -93,7 +93,7 @@
                             <div class="form-group champCouleurVehicule" id="champCouleurVehicule">
                                 <label for="valeurCouleurVehicule" class="d-none">{{ $reservation_passagers_couleur_vehicule }}</label>
                                 <input type="text" id="valeurCouleurVehicule" class="form-control medium"
-                                       placeholder="{{ $reservation_passagers_couleur_vehicule }}">
+                                       placeholder="{{ $reservation_passagers_couleur_vehicule }}" name="couleurVehicule">
                                 <div class="alert alert-danger champErreur hidden" id="erreurCouleurVehicule">
                                     <small class="texteErreur">La couleur du véhicule est invalide</small>
                                 </div>

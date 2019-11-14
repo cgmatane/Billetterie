@@ -6,7 +6,9 @@ use App\Http\Controllers\Pages\ValidationInformationsController;
 use App\Mail\SendMail;
 use App\Ticket;
 use App\Passager;
+use App\TypeVehicule;
 use App\Vehicule;
+use MongoDB\BSON\Type;
 use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -98,14 +100,16 @@ class GerantReservationController extends Controller
             $passager->id_ticket = $ticket->id_ticket;
             $passager->save();
         }
-        $vehicule = new Vehicule();
-        $vehicule->type_vehicule = 1; //TODO retirer mockup
-        $vehicule->couleur = "Noir"; //TODO retirer mockup
-        $vehicule->immatriculation = $requete->session()->get('ticket.immatriculation')!=null?$requete->session()->get('ticket.immatriculation'):"N/A";
-        $vehicule->modele = "206"; //TODO retirer mockup
-        $vehicule->marque = "Peugeot"; //TODO retirer mockup
-        $vehicule->id_ticket = $ticket->id_ticket;
-        $vehicule->save();
+        if ($requete->session()->get('ticket.typeVehicule') != TypeVehicule::PIETON) {
+            $vehicule = new Vehicule();
+            $vehicule->type_vehicule = $requete->session()->get('ticket.typeVehicule'); // TODO Synchro constantes TypeVehicule:: avec vrais id de BDD
+            $vehicule->couleur = $requete->session()->get('ticket.couleurVehicule');
+            $vehicule->immatriculation = $requete->session()->get('ticket.immatriculation');
+            //$vehicule->modele = "206"; //TODO retirer ?
+            $vehicule->marque = $requete->session()->get('ticket.marqueVehicule');
+            $vehicule->id_ticket = $ticket->id_ticket;
+            $vehicule->save();
+        }
     }
 
 

@@ -73,7 +73,7 @@
                 @foreach($donneesGenerales as $donneeGenerale)
                     <div class="donnee">
                             <h3>{{$donneeGenerale['titre']}}</h3>
-                            <p class="lead">Nombre total de {{$donneeGenerale['titre']}}s transportés</p>
+                            <p class="lead">Nombre total de {{$donneeGenerale['titre']}}s @if($donneeGenerale['titre'] == 'ticket') achetés  @else  transportés @endif</p>
                             <p class="nombre">{{$donneeGenerale['nombre']}}</p>
                             <div class="lien">
                                 <a href="{{route("administration.".$donneeGenerale['titre']."")}}">Gérer les {{$donneeGenerale['titre']}}s ></a>

@@ -39,8 +39,9 @@ class AccueilController extends PageController
             $requete->session()->put('ticket.date', $date);
         }
 
-        if ($requete->session()->has('ticket.mail')) {
+        if ($requete->session()->get('ticket.mail') != "0") {
             $messageValidation = $requete->session()->get('ticket.mail');
+            $requete->session()->put('ticket.mail', "0");
         }
         else {
             $messageValidation = "";

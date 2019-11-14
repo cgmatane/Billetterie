@@ -46,19 +46,12 @@ class ReservationPassagersController extends PageController
             $requete->session()->put('ticket.marqueVehicule', $validatedData['marqueVehicule']);
         }
 
-        $codeQR = Ticket::genererCodeQR();
-        $requete->session()->put('ticket.QR', $codeQR);
         $requete->session()->put('ticket.noms', $validatedData['nom']);
         $requete->session()->put('ticket.prenoms', $validatedData['prenom']);
         $requete->session()->put('ticket.ages', $validatedData['age']);
 
         $requete->session()->put('ticket.mail', $validatedData['mail']);
         $requete->session()->put('ticket.numero', $validatedData['numero']);
-
-
-        $imageQR = "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=" . $codeQR;
-        $requete->session()->put("ticket.imageQR", $imageQR);
-
 
         return redirect(route('validation_informations'));
     }

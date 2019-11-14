@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Mail;
 
 class GerantReservationController extends Controller
 {
+    private $codeQR;
 
     function gerer(Request $requete)
     {
+        $this->codeQR = Ticket::genererCodeQR();
         $this->envoyerPDF($requete);
         $this->creerBillet($requete);
         return redirect(route('index'));
@@ -26,14 +28,12 @@ class GerantReservationController extends Controller
     private function envoyerPDF($requete) {
         /* Création du pdf du billet */
         $donneesPdfBillet = (new ValidationInformationsController())->getDonnees($requete);
-        $donneesPdfBillet['imageQR'] = $requete->session()->get('ticket.imageQR');
-        $donneesPdfBillet['codeQR'] = $requete->session()->get('ticket.QR');
+        $donneesPdfBillet['imageQR'] = "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=" . $this->codeQR;
+        $donneesPdfBillet['codeQR'] = $this->codeQR;
         date_default_timezone_set("America/New_York");
         $donneesPdfBillet['dateEmission'] = date('Y/m/d H:i:s');
-
-        $emplacementPdfBillet = "billets/billet_".$requete->session()->get('ticket.QR').".pdf";
-        $pdf_billet = PDF::loadView('pdf_billet', $donneesPdfBillet)->save($emplacementPdfBillet);
-
+        $emplacementPdfBillet = "billets/billet_".$this->codeQR.".pdf";
+        PDF::loadView('pdf_billet', $donneesPdfBillet)->save($emplacementPdfBillet);
 
         $mail = $requete->session()->get('ticket.mail');
         $noms = $requete->session()->get('ticket.noms');
@@ -57,10 +57,11 @@ class GerantReservationController extends Controller
             )
         );
 
-        $emplacementPdfFacture = "factures/facture_".$requete->session()->get('ticket.QR').".pdf";
+        $emplacementPdfFacture = "factures/facture_".$this->codeQR.".pdf";
+
 
         // génération du pdf
-        $pdf_facture = PDF::loadView('pdf_facture', $donneesPdfFacture)->save($emplacementPdfFacture);
+        PDF::loadView('pdf_facture', $donneesPdfFacture)->save($emplacementPdfFacture);
 
         $data = array(
             'nom'      => $nom ,
@@ -73,7 +74,6 @@ class GerantReservationController extends Controller
             'emplacementPdfFacture'      => $emplacementPdfFacture
             //'message'   =>   $request->message
         );
-
         Mail::to($mail)->send(new SendMail($data));
 
         /* Suppression des pdf */
@@ -83,7 +83,7 @@ class GerantReservationController extends Controller
 
     private function creerBillet($requete) {
         $ticket = new Ticket();
-        $ticket->qrcode = $requete->session()->get('ticket.QR');
+        $ticket->qrcode = $this->codeQR;
         $ticket->id_trajet = $requete->session()->get('ticket.trajet');
         $ticket->prix = 55; // TODO gerer prix
         $ticket->date_achat = date('Y-m-d');
@@ -100,12 +100,13 @@ class GerantReservationController extends Controller
             $passager->id_ticket = $ticket->id_ticket;
             $passager->save();
         }
-        if ($requete->session()->get('ticket.typeVehicule') != TypeVehicule::PIETON) {
+
+        if ($requete->session()->get('ticket.type_vehicule') != TypeVehicule::PIETON) {
             $vehicule = new Vehicule();
-            $vehicule->type_vehicule = $requete->session()->get('ticket.typeVehicule'); // TODO Synchro constantes TypeVehicule:: avec vrais id de BDD
+            $vehicule->type_vehicule = $requete->session()->get('ticket.type_vehicule'); // TODO Synchro constantes TypeVehicule:: avec vrais id de BDD
             $vehicule->couleur = $requete->session()->get('ticket.couleurVehicule');
             $vehicule->immatriculation = $requete->session()->get('ticket.immatriculation');
-            //$vehicule->modele = "206"; //TODO retirer ?
+            $vehicule->modele = "206"; //TODO retirer ?
             $vehicule->marque = $requete->session()->get('ticket.marqueVehicule');
             $vehicule->id_ticket = $ticket->id_ticket;
             $vehicule->save();

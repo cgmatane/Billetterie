@@ -17,7 +17,7 @@ class PassagerController extends ModeleController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('administration/passager');
-        $this->setDonneesStatiques(new DonneesVuePassager());
+        $this->setDonneesStatiques(new DonneesVuePassager(0));
         $this->ajoutable = false;
         $this->editable = false;
         $this->supprimmable = false;

@@ -6,9 +6,9 @@ use App\Statics\Views\interfaces\choix_deux_options\DonneesVueChoixDeuxOptions;
 
 class DonneesVueReservationChoixVehicule extends DonneesVueChoixDeuxOptions
 {
-    public function __construct()
+    public function __construct($langue)
     {
-        parent::__construct();
+        parent::__construct($langue);
         $this->setDonneeVue('question','Voyagez-vous avec un véhicule ?');
         $this->setDonneeVue('icone1','fas fa-car');
         $this->setDonneeVue('icone2','far fa-times-circle');

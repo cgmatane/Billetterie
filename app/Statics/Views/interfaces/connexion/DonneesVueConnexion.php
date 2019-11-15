@@ -6,11 +6,11 @@ use App\Statics\Views\DonneesVue;
 
 class DonneesVueConnexion extends DonneesVue
 {
-    public function __construct()
+    public function __construct($langue)
     {
-        parent::__construct();
+        parent::__construct($langue);
         $this->nomVue = 'connexion';
-        $this->setDonneeVue('titre','Se connecter !');
+        $this->setDonneeVue('titre',['Se connecter !','login']);
         $this->setDonneeVue('courriel','Courriel');
         $this->setDonneeVue('mot_passe','Mot de passe');
         $this->setDonneeVue('souvenir','Se souvenir de moi');

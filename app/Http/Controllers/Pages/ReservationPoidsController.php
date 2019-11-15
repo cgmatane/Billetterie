@@ -16,7 +16,7 @@ class ReservationPoidsController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('poids');
-        $this->setDonneesStatiques(new DonneesVueReservationPoids());
+        $this->setDonneesStatiques(new DonneesVueReservationPoids(0));
     }
 
     public function gererValidation(Request $requete)

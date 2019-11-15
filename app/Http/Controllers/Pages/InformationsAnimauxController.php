@@ -12,6 +12,6 @@ class InformationsAnimauxController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('infos_animaux');
-        $this->setDonneesStatiques(new DonneesVueInformationsAnimaux());
+        $this->setDonneesStatiques(new DonneesVueInformationsAnimaux(0));
     }
 }

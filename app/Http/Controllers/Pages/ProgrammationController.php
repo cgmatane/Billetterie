@@ -17,7 +17,7 @@ class ProgrammationController extends ModeleController
     {
         parent::__construct();
         $this->setNomPage('administration/programmation');
-        $this->setDonneesStatiques(new DonneesVueProgrammation());
+        $this->setDonneesStatiques(new DonneesVueProgrammation(0));
     }
 
     protected function getTypesColonnes()

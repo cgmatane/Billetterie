@@ -14,7 +14,7 @@ class ChoixDateController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('date');
-        $this->setDonneesStatiques(new DonneesVueChoixDate());
+        $this->setDonneesStatiques(new DonneesVueChoixDate(0));
     }
 
     public function gererValidation(Request $requete)

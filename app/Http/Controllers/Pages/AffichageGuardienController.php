@@ -17,7 +17,7 @@ class AffichageGuardienController extends ModeleController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('administration/guardien');
-        $this->setDonneesStatiques(new DonneesVueAffichageGuardien());
+        $this->setDonneesStatiques(new DonneesVueAffichageGuardien(0));
     }
 
     protected function getTypesColonnes() {
@@ -29,7 +29,7 @@ class AffichageGuardienController extends ModeleController
         ];
         return $typesColonnes;
     }
-    
+
     protected function getModeles() {
         return App\Navire::all();
     }

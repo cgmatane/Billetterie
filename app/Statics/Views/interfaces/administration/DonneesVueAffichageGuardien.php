@@ -7,9 +7,9 @@ use App\Statics\Views\DonneesVue;
 
 class DonneesVueAffichageGuardien extends DonneesVue
 {
-    public function __construct()
+    public function __construct($langue)
     {
-        parent::__construct();
+        parent::__construct($langue);
         $this->nomVue = 'gestion';
         $this->setDonneeVue('titre','Administration');
         $this->setDonneeVue('type','guardien');

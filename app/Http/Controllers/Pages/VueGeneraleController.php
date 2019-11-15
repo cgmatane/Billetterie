@@ -19,7 +19,7 @@ class VueGeneraleController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('administration/vue_generale');
-        $this->setDonneesStatiques(new DonneesVueVueGenerale());
+        $this->setDonneesStatiques(new DonneesVueVueGenerale(0));
     }
 
     protected function setDonneesDynamiques(Request $requete = null)

@@ -12,6 +12,6 @@ class InformationsController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('infos');
-        $this->setDonneesStatiques(new DonneesVueInformationsGenerales());
+        $this->setDonneesStatiques(new DonneesVueInformationsGenerales(0));
     }
 }

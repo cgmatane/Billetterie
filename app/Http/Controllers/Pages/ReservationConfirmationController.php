@@ -13,7 +13,7 @@ class ReservationConfirmationController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('confirmation');
-        $this->setDonneesStatiques(new DonneesVueReservationConfirmation());
+        $this->setDonneesStatiques(new DonneesVueReservationConfirmation(0));
     }
 
     protected function setDonneesDynamiques(Request $requete = null)

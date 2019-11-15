@@ -6,9 +6,9 @@ use App\Statics\Views\DonneesVue;
 
 class DonneesVueReservationPaiement extends DonneesVue
 {
-    public function __construct()
+    public function __construct($langue)
     {
-        parent::__construct();
+        parent::__construct($langue);
         $this->nomVue = 'reservation_paiement';
         $this->setDonneeVue('renseigner_informations','Veuillez renseigner vos informations');
         $this->setDonneeVue('nom_prenom','Nom et prénom : ');

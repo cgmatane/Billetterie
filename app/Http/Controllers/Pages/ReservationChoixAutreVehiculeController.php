@@ -15,7 +15,7 @@ class ReservationChoixAutreVehiculeController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('autre_vehicule');
-        $this->setDonneesStatiques(new DonneesVueReservationChoixAutreVehicule());
+        $this->setDonneesStatiques(new DonneesVueReservationChoixAutreVehicule(0));
     }
 
     public function gererValidation(Request $requete)

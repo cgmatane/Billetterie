@@ -17,7 +17,7 @@ class VehiculeController extends ModeleController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('administration/vehicule');
-        $this->setDonneesStatiques(new DonneesVueVehicule());
+        $this->setDonneesStatiques(new DonneesVueVehicule(0));
         $this->ajoutable = false;
         $this->editable = false;
         $this->supprimmable = false;

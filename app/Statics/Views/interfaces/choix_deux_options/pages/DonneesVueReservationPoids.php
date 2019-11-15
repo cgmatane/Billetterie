@@ -6,9 +6,9 @@ use App\Statics\Views\interfaces\choix_deux_options\DonneesVueChoixDeuxOptions;
 
 class DonneesVueReservationPoids extends DonneesVueChoixDeuxOptions
 {
-    public function __construct()
+    public function __construct($langue)
     {
-        parent::__construct();
+        parent::__construct($langue);
         $this->setDonneeVue('question','Votre véhicule dépasse t-il xxx Kg ?');
         $this->setDonneeVue('icone1','fas fa-weight-hanging');
         $this->setDonneeVue('icone2','far fa-times-circle');

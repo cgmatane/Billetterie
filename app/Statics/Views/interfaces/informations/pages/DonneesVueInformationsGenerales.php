@@ -6,9 +6,9 @@ use App\Statics\Views\interfaces\informations\DonneesVueInformations;
 
 class DonneesVueInformationsGenerales extends DonneesVueInformations
 {
-    public function __construct()
+    public function __construct($langue)
     {
-        parent::__construct();
+        parent::__construct($langue);
         $this->setDonneeVue('titre', 'Informations');
         //Solution temporaire : la statique contient du code HTML car la disposition du texte entre les templates informations est differente
         $this->setDonneeVue('contenu', '<h3> À savoir avant de partir :</h3>

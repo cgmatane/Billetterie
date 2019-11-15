@@ -14,7 +14,7 @@ class ReservationPaiementController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('paiement');
-        $this->setDonneesStatiques(new DonneesVueReservationPaiement());
+        $this->setDonneesStatiques(new DonneesVueReservationPaiement(0));
     }
 
     public function gererValidation(Request $requete) {

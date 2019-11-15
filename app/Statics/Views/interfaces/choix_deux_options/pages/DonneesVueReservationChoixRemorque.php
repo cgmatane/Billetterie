@@ -6,9 +6,9 @@ use App\Statics\Views\interfaces\choix_deux_options\DonneesVueChoixDeuxOptions;
 
 class DonneesVueReservationChoixRemorque extends DonneesVueChoixDeuxOptions
 {
-    public function __construct()
+    public function __construct($langue)
     {
-        parent::__construct();
+        parent::__construct($langue);
         $this->setDonneeVue('question','Votre voiture possède-t-elle une remorque ?');
         $this->setDonneeVue('icone1','');
         $this->setDonneeVue('icone2','');

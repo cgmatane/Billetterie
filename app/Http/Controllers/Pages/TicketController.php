@@ -17,7 +17,7 @@ class TicketController extends ModeleController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('administration/ticket');
-        $this->setDonneesStatiques(new DonneesVueTicket());
+        $this->setDonneesStatiques(new DonneesVueTicket(0));
         $this->ajoutable = false;
         $this->editable = false;
         $this->supprimmable = false;

@@ -14,7 +14,7 @@ class ConnexionController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('administration/connexion');
-        $this->setDonneesStatiques(new DonneesVueConnexion());
+        $this->setDonneesStatiques(new DonneesVueConnexion(0));
     }
 
     public function gererValidation(Request $requete)

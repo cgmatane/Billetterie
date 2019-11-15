@@ -6,9 +6,9 @@ use App\Statics\Views\DonneesVue;
 
 class DonneesVueReservationConfirmation extends DonneesVue
 {
-    public function __construct()
+    public function __construct($langue)
     {
-        parent::__construct();
+        parent::__construct($langue);
         $this->nomVue = 'reservation_confirmation';
         $this->setDonneeVue('commande_validee','ObsoleteCommande validée avec succès !');
         $this->setDonneeVue('billet_email','Votre billet a été envoyé à ');

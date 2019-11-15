@@ -16,7 +16,7 @@ class ValidationInformationsController extends PageController
         parent::__construct();
         $this->setNomPage('validation');
 
-        $this->setDonneesStatiques(new DonneesVueValidationInformations());
+        $this->setDonneesStatiques(new DonneesVueValidationInformations(0));
     }
 
     protected function setDonneesDynamiques(Request $requete = null)

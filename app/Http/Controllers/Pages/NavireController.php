@@ -17,7 +17,7 @@ class NavireController extends ModeleController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('administration/navire');
-        $this->setDonneesStatiques(new DonneesVueNavire());
+        $this->setDonneesStatiques(new DonneesVueNavire(0));
     }
 
     protected function getTypesColonnes() {

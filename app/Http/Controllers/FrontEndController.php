@@ -14,6 +14,9 @@ define('REPERTOIRE_INTERFACES', 'interfaces');
 //Format date en francais
 setlocale(LC_TIME, "fr");
 
+const FR=0;
+const EN=1;
+
 //Timezone pour le Quebec
 date_default_timezone_set("America/Toronto");
 
@@ -65,7 +68,7 @@ class FrontEndController extends Controller
 
         //Les donnees statiques de vues communes a plusieurs interfaces/pages
         $this->donneesStatiquesGlobales =
-            (new DonneesVueGlobales())->getDonneesVue();
+            (new DonneesVueGlobales(FR))->getDonneesVue();
     }
 
     public function manager(Request $requete, $nomRoute = '') {

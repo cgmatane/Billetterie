@@ -12,7 +12,7 @@ class AdministrationController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('administration');
-        $this->setDonneesStatiques(new DonneesVueAdministration());
+        $this->setDonneesStatiques(new DonneesVueAdministration(0));
     }
 
     protected function setDonneesDynamiques(Request $requete = null)

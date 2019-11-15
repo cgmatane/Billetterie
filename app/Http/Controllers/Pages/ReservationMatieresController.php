@@ -13,7 +13,7 @@ class ReservationMatieresController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('matieres');
-        $this->setDonneesStatiques(new DonneesVueReservationMatieres());
+        $this->setDonneesStatiques(new DonneesVueReservationMatieres(0));
     }
 
     public function gererSession(Request $requete) {

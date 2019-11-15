@@ -6,9 +6,9 @@ use App\Statics\Views\DonneesVue;
 
 class DonneesVueChoixDate extends DonneesVue
 {
-    public function __construct()
+    public function __construct($langue)
     {
-        parent::__construct();
+        parent::__construct($langue);
         $this->setDonneeVue('titre', 'Sélectionnez une date de départ');
         $this->setDonneeVue('lundi', 'LUN');
         $this->setDonneeVue('mardi', 'MAR');

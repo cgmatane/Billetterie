@@ -17,7 +17,7 @@ class ReservationPassagersController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('passagers');
-        $this->setDonneesStatiques(new DonneesVueReservationPassagers());
+        $this->setDonneesStatiques(new DonneesVueReservationPassagers(0));
     }
 
     public function gererValidation(Request $requete)

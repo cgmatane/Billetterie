@@ -15,7 +15,7 @@ class ChoixDepartController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('depart');
-        $this->setDonneesStatiques(new DonneesVueChoixDepart());
+        $this->setDonneesStatiques(new DonneesVueChoixDepart(0));
     }
 
     public function gererValidation(Request $requete)

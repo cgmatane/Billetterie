@@ -17,7 +17,7 @@ class StationController extends ModeleController
     {
         parent::__construct();
         $this->setNomPage('administration/station');
-        $this->setDonneesStatiques(new DonneesVueStation());
+        $this->setDonneesStatiques(new DonneesVueStation(0));
     }
 
     protected function getTypesColonnes()

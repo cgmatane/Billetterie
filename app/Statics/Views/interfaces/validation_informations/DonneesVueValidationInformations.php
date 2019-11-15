@@ -8,9 +8,9 @@ use App\Statics\Views\DonneesVue;
 
 class DonneesVueValidationInformations extends DonneesVue
 {
-    public function __construct()
+    public function __construct($langue)
     {
-        parent::__construct();
+        parent::__construct($langue);
         $this->nomVue = 'validation_informations';
         $this->setDonneeVue('recapitulatif_billet','Récapitulatif du billet');
         $this->setDonneeVue('traversee', 'Traversée');

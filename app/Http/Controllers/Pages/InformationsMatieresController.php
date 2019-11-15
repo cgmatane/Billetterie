@@ -12,6 +12,6 @@ class InformationsMatieresController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('infos_matieres');
-        $this->setDonneesStatiques(new DonneesVueInformationsMatieres());
+        $this->setDonneesStatiques(new DonneesVueInformationsMatieres(0));
     }
 }

@@ -43,8 +43,7 @@
                                         <option value="{{ $intervalle_age }}"
                                             @if ($cle == $reservation_passagers_index_intervalle_age_par_defaut)
                                                 selected
-                                            @endif
-                                        >
+                                            @endif>
                                             {{ $intervalle_age }}
                                         </option>
                                     @endforeach

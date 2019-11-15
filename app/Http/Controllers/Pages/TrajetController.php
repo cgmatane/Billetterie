@@ -15,7 +15,7 @@ class TrajetController extends ModeleController
     {
         parent::__construct();
         $this->setNomPage('administration/trajet');
-        $this->setDonneesStatiques(new DonneesVueTrajet());
+        $this->setDonneesStatiques(new DonneesVueTrajet(0));
     }
 
     protected function getTypesColonnes()

@@ -24,8 +24,7 @@
             </div>
         </div>
         <div class="container-fluid" id="footerChoixMultiples">
-            @component('global_components.zone_bas_de_page')
-            @endcomponent
+            @include('global_components.zone_bas_de_page')
         </div>
     </div>
 

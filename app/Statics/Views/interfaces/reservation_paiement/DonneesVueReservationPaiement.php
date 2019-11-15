@@ -10,6 +10,7 @@ class DonneesVueReservationPaiement extends DonneesVue
     {
         parent::__construct($langue);
         $this->nomVue = 'reservation_paiement';
+        $this->setDonneeVue('montant_transaction', ['Montant de la transaction : ', 'h']);
         $this->setDonneeVue('renseigner_informations',['Veuillez renseigner vos informations','h']);
         $this->setDonneeVue('nom_prenom',['Nom et prénom : ','h']);
         $this->setDonneeVue('numero_carte',['Numéro de carte : ','h']);
@@ -18,6 +19,7 @@ class DonneesVueReservationPaiement extends DonneesVue
         $this->setDonneeVue('nom',["nom tel qu'il est inscrit",'h']);
         $this->setDonneeVue('numero_carte',["numéro de carte",'h']);
         $this->setDonneeVue('date_expiration',["date d'expiration",'h']);
+        $this->setDonneeVue('envoi_billet', ['Votre billet est en cours d\'envoi', 'h']);
         $this->setDonneeVue('cvc',["CVC",'h']);
     }
 }

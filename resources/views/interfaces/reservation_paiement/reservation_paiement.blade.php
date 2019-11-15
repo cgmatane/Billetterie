@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-12">
-            <h2 class="text-center text-info font-weight-bold m-5">Montant de la transaction : 55 $CAD</h2>
+            <h2 class="text-center text-info font-weight-bold m-5">{{ $reservation_paiement_montant_transaction }}55 ${{ $global_CAD }}</h2>
         </div>
     </div>
 
@@ -106,15 +106,14 @@
                     </rect>
                 </g></svg>
         </div>
-        <p class="messageChargement">Votre billet est en cours d'envoi</p>
+        <p class="messageChargement">{{ $reservation_paiement_envoi_billet }}</p>
         </div>
     </div>
 </div>
 
 
 <div class="container-fluid">
-    @component('global_components.zone_bas_de_page')
-    @endcomponent
+    @include('global_components.zone_bas_de_page')
 </div>
 @endsection
 

@@ -21,7 +21,7 @@
                                 <input type="text" id="valeurNom" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_nom }}">
                                 <div class="alert alert-danger champErreur hidden" id="erreurNom">
-                                    <small class="texteErreur">Le nom est invalide</small>
+                                    <small class="texteErreur">{{ $reservation_passagers_nom_invalide }}</small>
                                  </div>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                                 <input type="text" id="valeurPrenom" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_prenom }}">
                                 <div class="alert alert-danger champErreur hidden" id="erreurPrenom">
-                                    <small class="texteErreur">Le prénom est invalide</small>
+                                    <small class="texteErreur">{{ $reservation_passagers_prenom_invalide }}</small>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                                 <input type="text" id="valeurImmatriculation" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_immatriculation }}" name="immatriculation">
                                 <div class="alert alert-danger champErreur hidden" id="erreurImmatriculation">
-                                    <small class="texteErreur">L'immatriculation est invalide</small>
+                                    <small class="texteErreur">{{ $reservation_passagers_immatriculation_invalide }}</small>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                                 <input type="text" id="valeurMarqueVehicule" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_marque_vehicule }}" name="marqueVehicule">
                                 <div class="alert alert-danger champErreur hidden" id="erreurMarqueVehicule">
-                                    <small class="texteErreur">La marque du véhicule est invalide</small>
+                                    <small class="texteErreur">{{ $reservation_passagers_marque_vehicule_invalide }}</small>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                                 <input type="text" id="valeurCouleurVehicule" class="form-control medium"
                                        placeholder="{{ $reservation_passagers_couleur_vehicule }}" name="couleurVehicule">
                                 <div class="alert alert-danger champErreur hidden" id="erreurCouleurVehicule">
-                                    <small class="texteErreur">La couleur du véhicule est invalide</small>
+                                    <small class="texteErreur">{{ $reservation_passagers_couleur_vehicule_invalide }}</small>
                                 </div>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                                id="valeurCourriel"
                                placeholder="{{ $reservation_passagers_courriel }}">
                         <div class="alert alert-danger champErreur hidden" id="erreurCourriel">
-                            <small class="texteErreur">Le courriel est invalide</small>
+                            <small class="texteErreur">{{ $reservation_passagers_courriel_invalide }}</small>
                         </div>
                     </div>
                 </div>
@@ -123,7 +123,7 @@
                                placeholder="{{ $reservation_passagers_numero }}"
                         >
                         <div class="alert alert-danger champErreur hidden" id="erreurTelephone">
-                            <small class="texteErreur">Le numéro de téléphone est invalide</small>
+                            <small class="texteErreur">{{ $reservation_passagers_numero_invalide }}</small>
                         </div>
                         <small class="form-text text-muted mb-4">
                             {{ $reservation_passagers_tel_necessaire }}
@@ -147,7 +147,7 @@
                     </label>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalMatiereDangereuse">?</button>
                     <div class="alert alert-danger champErreur hidden">
-                        <small class="texteErreur">Vous devez confirmer que vous ne transportez pas de matériaux dangereux</small>
+                        <small class="texteErreur">{{ $reservation_passagers_confirmation_matieres_invalide }}</small>
                     </div>
                 </div>
             </div>
@@ -166,7 +166,7 @@
                     </label>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalAnimauxExotiques">?</button>
                     <div class="alert alert-danger champErreur hidden">
-                        <small class="texteErreur">Vous devez confirmer que vous ne voyagez pas avec des animaux exotiques</small>
+                        <small class="texteErreur">{{ $reservation_passagers_confirmation_animaux_invalide }}</small>
                     </div>
                 </div>
             </div>
@@ -210,8 +210,7 @@
         </div>
     </div>
     <div class="container-fluid">
-        @component('global_components.zone_bas_de_page')
-        @endcomponent
+        @include('global_components.zone_bas_de_page')
     </div>
     @endsection
 

@@ -20,6 +20,7 @@ class DonneesVueValidationInformations extends DonneesVue
         $this->setDonneeVue('arrivee',['Arrivée :','h']);
         $this->setDonneeVue('prix',['Prix :','h']);
         $this->setDonneeVue('dollar_canadien','CAD');
+        $this->setDonneeVue('immatriculation', 'Numéro d\'immatriculation');
         $this->setDonneeVue('vous_contacter', ['Pour vous contacter','h']);
         $this->setDonneeVue('courriel',['Votre courriel :','h']);
         $this->setDonneeVue('numero_telephone',['Votre numéro de téléphone :','h']);

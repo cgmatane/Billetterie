@@ -7,15 +7,15 @@
                 @component('interfaces.accueil.components.titre_principal')
                     @if($validation != "")
                         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-                        <noscript>{{$global_activer_javascript}}</noscript>
+                        <noscript>{{ $global_activer_javascript }}</noscript>
                         <script>
                             Swal.fire(
-                                'Commande validée !',
-                                'Un mail vous a été envoyé.',
+                                '{{ $accueil_commande_validee }}',
+                                '{{ $accueil_mail_envoye }}',
                                 'success'
                             )
                         </script>
-                        <noscript>{{$global_activer_javascript}}</noscript>
+                        <noscript>{{ $global_activer_javascript }}</noscript>
                     @endif
 
                     {{ $accueil_depart }}

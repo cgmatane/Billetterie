@@ -59,7 +59,7 @@
                 <small class=" col text-center">
                     @component('interfaces.connexion.components.lien_vue_mot_de_passe_oublier')
                         @slot('route'){{ route('index') }}@endslot
-                        @slot('slot') Mot de passe oublié @endslot
+                        @slot('slot') {{ $connexion_mot_de_passe_oublie }} @endslot
                     @endcomponent
                 </small>
             </div>

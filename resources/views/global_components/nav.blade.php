@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="col-sm-12 col-md-4 d-flex align-items-center text-dark ">
-                    <a class="mx-auto btn btn-lg btn-outline-primary" href="{{ route('informations') }}">Informations</a> <!-- Route à définir -->
+                    <a class="mx-auto btn btn-lg btn-outline-primary" href="{{ route('informations') }}">{{ $global_informations }}</a> <!-- Route à définir -->
                 </div>
             </div>
             <div>

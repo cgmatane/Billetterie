@@ -82,8 +82,6 @@ class ReservationPassagersController extends PageController
 
         $this->donneesDynamiques = [
             'type_vehicule'=>$typeVehicule,
-            'reservation_passagers_couleur_vehicule' => 'Couleur du véhicule', //TODO Remplacer par vrais statiques (je ne touche pas aux statiques pr l'instant vu que Loïc est en train de refactor
-            'reservation_passagers_marque_vehicule' => 'Marque du véhicule',
         ];
     }
 }

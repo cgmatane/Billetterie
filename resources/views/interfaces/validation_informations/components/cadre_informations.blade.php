@@ -102,7 +102,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        numéro d'immatriculation
+                        {{ $validation_informations_immatriculation }}
                     </div>
                     <div class="col">
                         {{ $immatriculation }}

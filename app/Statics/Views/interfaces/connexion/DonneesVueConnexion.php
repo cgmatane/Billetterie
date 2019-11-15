@@ -16,5 +16,6 @@ class DonneesVueConnexion extends DonneesVue
         $this->setDonneeVue('souvenir',['Se souvenir de moi','h']);
         $this->setDonneeVue('connexion',['Connexion','h']);
         $this->setDonneeVue('administration',['Administration','h']);
+        $this->setDonneeVue('mot_de_passe_oublie', ['Mot de passe oublié ?', 'h']);
     }
 }

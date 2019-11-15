@@ -28,7 +28,7 @@
 
 
 
-    <title>Administration - STQ</title>
+    <title>Administration - {{ $global_STQ }}</title>
     <!--
     <link rel="icon" href="resource/image/icon_bookshelf.svg" />
     -->

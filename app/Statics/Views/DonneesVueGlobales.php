@@ -19,7 +19,10 @@ class DonneesVueGlobales extends DonneesVue
         $this->setDonneeVue('retour_accueil', ['Accueil','h']);
         $this->setDonneeVue('retour_au_debut', ['Recommencer','h']);
         $this->setDonneeVue('titre', ['Billetterie - STQ','h']);
+        $this->setDonneeVue('informations', ['Informations', 'h']);
+        $this->setDonneeVue('billetterie', ['Billetterie', 'h']);
+        $this->setDonneeVue('STQ', 'STQ');
+        $this->setDonneeVue('CAD', 'CAD');
         $this->setDonneeVue('activer_javascript', ['Ce site a besoin de javascript','h']);
-
     }
 }

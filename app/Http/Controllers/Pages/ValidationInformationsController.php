@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Pages;
 
 
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PageController;
 use App\Statics\Views\interfaces\validation_informations\DonneesVueValidationInformations;
 use App\Trajet;
@@ -16,7 +17,7 @@ class ValidationInformationsController extends PageController
         parent::__construct();
         $this->setNomPage('validation');
 
-        $this->setDonneesStatiques(new DonneesVueValidationInformations(0));
+        $this->setDonneesStatiques(new DonneesVueValidationInformations(FrontEndController::$langueCourante));
     }
 
     protected function setDonneesDynamiques(Request $requete = null)

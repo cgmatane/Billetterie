@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Pages;
 
 
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PageController;
 use App\Http\Requests\ReservationPassagerRequest;
 use App\Statics\Views\interfaces\reservation_passagers\DonneesVueReservationPassagers;
@@ -17,7 +18,7 @@ class ReservationPassagersController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('passagers');
-        $this->setDonneesStatiques(new DonneesVueReservationPassagers(0));
+        $this->setDonneesStatiques(new DonneesVueReservationPassagers(FrontEndController::$langueCourante));
     }
 
     public function gererValidation(Request $requete)

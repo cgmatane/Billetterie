@@ -6,6 +6,7 @@ use App\Http\Controllers\Pages as Controllers;
 
 use App\Statics\Views\DonneesVueGlobales;
 use App\Ticket;
+use http\Cookie;
 use Illuminate\Http\Request;
 
 define('REPERTOIRE_INTERFACES', 'interfaces');
@@ -17,11 +18,13 @@ setlocale(LC_TIME, "fr");
 const FR=0;
 const EN=1;
 
+
 //Timezone pour le Quebec
 date_default_timezone_set("America/Toronto");
 
 class FrontEndController extends Controller
 {
+    public static $langueCourante = FR;
 
     private $routes;
     private $donneesStatiquesGlobales;
@@ -30,6 +33,39 @@ class FrontEndController extends Controller
     public function __construct()
     {
 
+    }
+
+    public function manager(Request $requete, $nomRoute = '') {
+        if ($requete->cookie('langue') != null)
+            FrontEndController::$langueCourante = (int)$requete->cookie('langue');
+
+        $this->setControleurs();
+
+        //Les donnees statiques de vues communes a plusieurs interfaces/pages
+        $this->donneesStatiquesGlobales =
+            (new DonneesVueGlobales(FrontEndController::$langueCourante))->getDonneesVue();
+
+        if (count($requete->all()) > 0)
+            return $this->managerResultatFormulaire($requete, $nomRoute);
+
+        $contexte = $this->getContexteDeNomPage($nomRoute);
+        if ($contexte == null)
+            return '404';
+        $interface = $contexte['interface'];
+        $controleur = $contexte['controleur'];
+
+        return $this->getVue($requete, $interface, $controleur);
+    }
+
+    public function managerResultatFormulaire(Request $requete, $nomRoute = '') {
+        $contexte = $this->getContexteDeNomPage($nomRoute);
+        if ($contexte == null)
+            return '404';
+        $controleur = $contexte['controleur'];
+        return $controleur->gererValidation($requete);
+    }
+
+    private function setControleurs() {
         $this->routes = array(
             'accueil' => array(new Controllers\AccueilController()),
             'choix_depart' => array(new Controllers\ChoixDepartController()),
@@ -64,39 +100,7 @@ class FrontEndController extends Controller
                 new Controllers\AffichageGuardienController()),
             'requete-qr' => array(new Controllers\RequeteQRController()),
             'pdf-facture' => array(new GenerateurPdfController())
-            );
-
-        //Les donnees statiques de vues communes a plusieurs interfaces/pages
-        $this->donneesStatiquesGlobales =
-            (new DonneesVueGlobales(FR))->getDonneesVue();
-    }
-
-    public function manager(Request $requete, $nomRoute = '') {
-        if (count($requete->all()) > 0)
-            return $this->managerResultatFormulaire($requete, $nomRoute);
-
-        $contexte = $this->getContexteDeNomPage($nomRoute);
-        if ($contexte == null)
-            return '404';
-        $interface = $contexte['interface'];
-        $controleur = $contexte['controleur'];
-
-        /*
-        $id_administrateur = Auth::id();
-        if (preg_match('/administration\/(?!connexion)/',$nomRoute) && !isset($id_administrateur)){
-            return redirect('/administration/connexion');
-        }
-        */
-
-        return $this->getVue($requete, $interface, $controleur);
-    }
-
-    public function managerResultatFormulaire(Request $requete, $nomRoute = '') {
-        $contexte = $this->getContexteDeNomPage($nomRoute);
-        if ($contexte == null)
-            return '404';
-        $controleur = $contexte['controleur'];
-        return $controleur->gererValidation($requete);
+        );
     }
 
     private function getVue(Request $requete, $interface, PageController $controleur) {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PageController;
 
 use App\Statics\Views\interfaces\connexion\DonneesVueConnexion;
@@ -14,7 +15,7 @@ class ConnexionController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('administration/connexion');
-        $this->setDonneesStatiques(new DonneesVueConnexion(0));
+        $this->setDonneesStatiques(new DonneesVueConnexion(FrontEndController::$langueCourante));
     }
 
     public function gererValidation(Request $requete)

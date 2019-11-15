@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PageController;
 use App\Navire;
 use App\ObsoleteProgrammation;
@@ -19,7 +20,7 @@ class VueGeneraleController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('administration/vue_generale');
-        $this->setDonneesStatiques(new DonneesVueVueGenerale(0));
+        $this->setDonneesStatiques(new DonneesVueVueGenerale(FrontEndController::$langueCourante));
     }
 
     protected function setDonneesDynamiques(Request $requete = null)

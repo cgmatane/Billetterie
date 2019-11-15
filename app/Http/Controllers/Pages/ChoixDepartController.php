@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Pages;
 
 
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PageController;
 use App\Statics\Views\interfaces\choix_depart\DonneesVueChoixDepart;
 use App\Station;
@@ -15,7 +16,7 @@ class ChoixDepartController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('depart');
-        $this->setDonneesStatiques(new DonneesVueChoixDepart(0));
+        $this->setDonneesStatiques(new DonneesVueChoixDepart(FrontEndController::$langueCourante));
     }
 
     public function gererValidation(Request $requete)

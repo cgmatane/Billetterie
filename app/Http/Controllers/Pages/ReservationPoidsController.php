@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Pages;
 
 
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PageController;
 use App\Statics\Views\interfaces\choix_deux_options\pages\DonneesVueReservationPoids;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class ReservationPoidsController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('poids');
-        $this->setDonneesStatiques(new DonneesVueReservationPoids(0));
+        $this->setDonneesStatiques(new DonneesVueReservationPoids(FrontEndController::$langueCourante));
     }
 
     public function gererValidation(Request $requete)

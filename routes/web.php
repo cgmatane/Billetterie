@@ -22,6 +22,8 @@ Route::get('/administration', function() {
     return redirect('/administration/vue_generale');
 });
 
+Route::get('/changer_langue', 'LangueController@setCookie')->name('changer_langue');
+
 Route::get('/gerant_reservation', 'GerantReservationController@gerer')->name('gerant_reservation');
 
 Route::get('affichage-pdf', 'GenerateurPdfController@creerPdf');

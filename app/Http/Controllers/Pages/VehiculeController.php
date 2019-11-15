@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Pages;
 
 
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\ModeleController;
 
 
@@ -17,7 +18,7 @@ class VehiculeController extends ModeleController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('administration/vehicule');
-        $this->setDonneesStatiques(new DonneesVueVehicule(0));
+        $this->setDonneesStatiques(new DonneesVueVehicule(FrontEndController::$langueCourante));
         $this->ajoutable = false;
         $this->editable = false;
         $this->supprimmable = false;

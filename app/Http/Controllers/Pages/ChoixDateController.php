@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Pages;
 
 
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PageController;
 use App\Statics\Views\interfaces\choix_date\DonneesVueChoixDate;
 use DateTime;
@@ -14,7 +15,7 @@ class ChoixDateController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('date');
-        $this->setDonneesStatiques(new DonneesVueChoixDate(0));
+        $this->setDonneesStatiques(new DonneesVueChoixDate(FrontEndController::$langueCourante));
     }
 
     public function gererValidation(Request $requete)

@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Pages;
 
 
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\ModeleController;
 
 
@@ -15,7 +16,7 @@ class TrajetController extends ModeleController
     {
         parent::__construct();
         $this->setNomPage('administration/trajet');
-        $this->setDonneesStatiques(new DonneesVueTrajet(0));
+        $this->setDonneesStatiques(new DonneesVueTrajet(FrontEndController::$langueCourante));
     }
 
     protected function getTypesColonnes()

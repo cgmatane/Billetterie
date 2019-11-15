@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Pages;
 
 
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PageController;
 use App\Statics\Views\interfaces\reservation_confirmation\DonneesVueReservationConfirmation;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ class ReservationConfirmationController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('confirmation');
-        $this->setDonneesStatiques(new DonneesVueReservationConfirmation(0));
+        $this->setDonneesStatiques(new DonneesVueReservationConfirmation(FrontEndController::$langueCourante));
     }
 
     protected function setDonneesDynamiques(Request $requete = null)

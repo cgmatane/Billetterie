@@ -10,7 +10,7 @@ class DonneesVueVueGenerale extends DonneesVue
     {
         parent::__construct($langue);
         $this->nomVue = 'vue_generale';
-        $this->setDonneeVue('titre','Administration');
+        $this->setDonneeVue('titre',['Administration','h']);
 
 
     }

@@ -2,6 +2,7 @@
 
 
 namespace App\Http\Controllers\Pages;
+use App\Http\Controllers\FrontEndController;
 use App\TypeVehicule;
 use App\Http\Controllers\PageController;
 use App\Statics\Views\interfaces\choix_deux_options\pages\DonneesVueReservationChoixAutreVehicule;
@@ -15,7 +16,7 @@ class ReservationChoixAutreVehiculeController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('autre_vehicule');
-        $this->setDonneesStatiques(new DonneesVueReservationChoixAutreVehicule(0));
+        $this->setDonneesStatiques(new DonneesVueReservationChoixAutreVehicule(FrontEndController::$langueCourante));
     }
 
     public function gererValidation(Request $requete)

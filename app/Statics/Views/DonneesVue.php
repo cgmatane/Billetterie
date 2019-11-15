@@ -3,6 +3,7 @@
 namespace App\Statics\Views;
 
 use Egulias\EmailValidator\Exception\AtextAfterCFWS;
+use Illuminate\Support\Facades\Cookie;
 use mysql_xdevapi\Exception;
 
 abstract class DonneesVue
@@ -21,7 +22,7 @@ abstract class DonneesVue
         */
         $this->nomVue = 'Nom par défaut';
         $this->donneesVue = [];
-        $this->langue =$langue;
+        $this->langue = $langue;
     }
 
     public function getDonneesVue() {

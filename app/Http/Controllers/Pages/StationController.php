@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\ModeleController;
 
 
@@ -17,7 +18,7 @@ class StationController extends ModeleController
     {
         parent::__construct();
         $this->setNomPage('administration/station');
-        $this->setDonneesStatiques(new DonneesVueStation(0));
+        $this->setDonneesStatiques(new DonneesVueStation(FrontEndController::$langueCourante));
     }
 
     protected function getTypesColonnes()

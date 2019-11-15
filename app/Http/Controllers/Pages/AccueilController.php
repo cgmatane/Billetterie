@@ -17,7 +17,7 @@ class AccueilController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('accueil');
-        $this->setDonneesStatiques(new DonneesVueAccueil(0));
+        $this->setDonneesStatiques(new DonneesVueAccueil(FrontEndController::$langueCourante));
     }
 
     public function gererValidation(Request $requete)

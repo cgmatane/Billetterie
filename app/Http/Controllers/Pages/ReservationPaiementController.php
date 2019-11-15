@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Pages;
 
 
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PageController;
 use App\Http\Requests\ReservationPaiementRequest;
 use App\Statics\Views\interfaces\reservation_paiement\DonneesVueReservationPaiement;
@@ -14,7 +15,7 @@ class ReservationPaiementController extends PageController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('paiement');
-        $this->setDonneesStatiques(new DonneesVueReservationPaiement(0));
+        $this->setDonneesStatiques(new DonneesVueReservationPaiement(FrontEndController::$langueCourante));
     }
 
     public function gererValidation(Request $requete) {

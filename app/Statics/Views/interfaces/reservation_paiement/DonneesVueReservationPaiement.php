@@ -10,14 +10,14 @@ class DonneesVueReservationPaiement extends DonneesVue
     {
         parent::__construct($langue);
         $this->nomVue = 'reservation_paiement';
-        $this->setDonneeVue('renseigner_informations','Veuillez renseigner vos informations');
-        $this->setDonneeVue('nom_prenom','Nom et prénom : ');
-        $this->setDonneeVue('numero_carte','Numéro de carte : ');
-        $this->setDonneeVue('code_securite','Code de sécurité : ');
-        $this->setDonneeVue('payer','JE VALIDE MON PAIEMENT');
-        $this->setDonneeVue('nom',"nom tel qu'il est inscrit");
-        $this->setDonneeVue('numero_carte',"numéro de carte");
-        $this->setDonneeVue('date_expiration',"date d'expiration");
-        $this->setDonneeVue('cvc',"CVC");
+        $this->setDonneeVue('renseigner_informations',['Veuillez renseigner vos informations','h']);
+        $this->setDonneeVue('nom_prenom',['Nom et prénom : ','h']);
+        $this->setDonneeVue('numero_carte',['Numéro de carte : ','h']);
+        $this->setDonneeVue('code_securite',['Code de sécurité : ','h']);
+        $this->setDonneeVue('payer',['JE VALIDE MON PAIEMENT','h']);
+        $this->setDonneeVue('nom',["nom tel qu'il est inscrit",'h']);
+        $this->setDonneeVue('numero_carte',["numéro de carte",'h']);
+        $this->setDonneeVue('date_expiration',["date d'expiration",'h']);
+        $this->setDonneeVue('cvc',["CVC",'h']);
     }
 }

@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Pages;
 
 
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\ModeleController;
 
 
@@ -17,7 +18,7 @@ class AffichageGuardienController extends ModeleController
     public function __construct() {
         parent::__construct();
         $this->setNomPage('administration/guardien');
-        $this->setDonneesStatiques(new DonneesVueAffichageGuardien(0));
+        $this->setDonneesStatiques(new DonneesVueAffichageGuardien(FrontEndController::$langueCourante));
     }
 
     protected function getTypesColonnes() {

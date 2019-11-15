@@ -79,9 +79,7 @@ class FrontEndController extends Controller
                 new Controllers\ReservationPoidsController()
             ),
             'informations' => array(
-                new Controllers\InformationsController(),
-                new Controllers\InformationsAnimauxController(),
-                new Controllers\InformationsMatieresController()
+                new Controllers\InformationsController()
             ),
             'reservation_passagers' => array(new Controllers\ReservationPassagersController()),
             'validation_informations' => array(new Controllers\ValidationInformationsController()),

@@ -14,23 +14,23 @@
                 <div class="bg-white col-sm-6 col-xs-8 bg-light pb-5 shadow-lg rounded-lg">
                     <div id="v-cal">
                         <div class="vcal-header">
-                            <button class="vcal-btn" data-calendar-toggle="previous">
+                            <div class="vcal-btn" data-calendar-toggle="previous">
                                 <p class="d-none">précedent</p>
                                 <svg height="24" version="1.1" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
                                 </svg>
-                            </button>
+                            </div>
 
                             <div class="vcal-header__label" data-calendar-label="month">
                             </div>
 
 
-                            <button class="vcal-btn" data-calendar-toggle="next">
+                            <div class="vcal-btn" data-calendar-toggle="next">
                                 <p class="d-none">suivant</p>
                                 <svg height="24" version="1.1" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
                                 </svg>
-                            </button>
+                            </div>
                         </div>
                         <div class="vcal-week">
                             <span>{{ $choix_date_lundi }}</span>

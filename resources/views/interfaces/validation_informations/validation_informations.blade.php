@@ -1,5 +1,7 @@
 @extends('interfaces.index')
 
+@section('titre', $validation_informations_titre_page)
+
 @section('contenu')
     <p class="h2 mb-4 font-weight-bold my-5 text-center" id="texteHaut">{{ $validation_informations_recapitulatif_billet }}</p>
 

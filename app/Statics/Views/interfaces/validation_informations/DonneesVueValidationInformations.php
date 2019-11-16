@@ -35,6 +35,8 @@ class DonneesVueValidationInformations extends DonneesVue
         $this->setDonneeVue('oui',['Oui','Yes']);
         $this->setDonneeVue('non',['Non','No']);
         $this->setDonneeVue('valider_informations_billet',['VALIDER LES INFORMATIONS DE MON BILLET','CONFIRM THE DETAILS OF MY TICKET']);
+        //TODO wt
+        $this->setDonneeVue('titre_page', ['Billetterie - Validation des informations','Ticketing - Details validation']);
 
     }
 }

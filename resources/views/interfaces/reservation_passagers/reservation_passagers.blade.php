@@ -54,15 +54,16 @@
                 </fieldset>
             </div>
 
-            <div class="text-right">
-                <button type="button" id="boutonAjouterPassager" class="btn btn-success"
-                        onclick="ajouterPassager();">
-                    {{ $reservation_passagers_ajouter_passager }}
-                </button>
-                <button type="button" id="boutonRetirerPassager" class="btn btn-danger pull-right hidden"
-                        onclick="supprimerPassager();">
-                    {{ $reservation_passagers_retirer_passager }}
-                </button>
+            <div class="row">
+                <div class="d-xs-none col-8"></div>
+                <div class="col-xs col-lg">
+                    <button type="button" id="boutonAjouterPassager" class="btn btn-success"
+                            onclick="ajouterPassager();">{{ $reservation_passagers_ajouter_passager }}</button>
+                </div>
+                <div class="col-xs-6 col-lg-2" style="display: none;">
+                    <button type="button" id="boutonRetirerPassager" class="btn btn-danger"
+                            onclick="supprimerPassager();">{{ $reservation_passagers_retirer_passager }}</button>
+                </div>
             </div>
 
             @if($type_vehicule != "pas de véhicule" || !isset($type_vehicule))

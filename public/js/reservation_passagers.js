@@ -11,14 +11,14 @@ function onLoad() {
     increment = 0;
     passagerVitrine = document.getElementById('passager');
     divPassagers = document.getElementById('passagers');
-    boutonMoins = document.getElementById('boutonRetirerPassager');
+    boutonMoins = document.getElementById('boutonRetirerPassager').parentElement;
     ajouterPassager();
 }
 
 function ajouterPassager() {
     increment++;
     if (increment === 2) {
-        boutonMoins.style.display = "inline-block";
+        boutonMoins.style.display = "inline";
     }
     let clonePassager = passagerVitrine.cloneNode(true);
     clonePassager.id += separateur+increment;

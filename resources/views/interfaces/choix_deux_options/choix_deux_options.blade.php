@@ -12,14 +12,14 @@
             </div>
             <div class="row text-center">
                 <a href="?dernierChoix=1"
-                   class="bg-white col-5 mx-auto p-5 shadow-lg oui boutonChoix">
-                    <em class="{{ $choix_deux_options_icone1 }}" id="vert"></em>
-                    {{ $choix_deux_options_choix1 }}</a>
+                   class="bg-white col-5 m-auto p-3 p-lg-5 shadow-lg oui boutonChoix" style="word-break: break-word;">
+                    <em class="{{ $choix_deux_options_icone1 }}" id="vert">
+                    </em>{{ $choix_deux_options_choix1 }}</a>
 
                 <a href="?dernierChoix=2"
-                   class="bg-white col-5 mx-auto p-5 shadow-lg non boutonChoix">
-                    <em class="{{ $choix_deux_options_icone2 }} " id="tomato"></em>
-                    {{ $choix_deux_options_choix2 }}</a>
+                   class="bg-white col-5 m-auto p-3 p-lg-5 shadow-lg non boutonChoix" style="word-break: break-word;">
+                    <em class="{{ $choix_deux_options_icone2 }} " id="tomato">
+                    </em>{{ $choix_deux_options_choix2 }}</a>
             </div>
         </div>
         <div class="container-fluid" id="footerChoixMultiples">

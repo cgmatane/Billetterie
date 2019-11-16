@@ -20,7 +20,7 @@ class DonneesVueValidationInformations extends DonneesVue
         $this->setDonneeVue('arrivee',['Arrivée :','Arrival :']);
         $this->setDonneeVue('prix',['Prix :','Price :']);
         $this->setDonneeVue('dollar_canadien','CAD');
-        $this->setDonneeVue('immatriculation', ['Numéro d\'immatriculation', 'Vehicle registration number']);
+        $this->setDonneeVue('immatriculation', ['Numéro d\'immatriculation :', 'Vehicle registration number :']);
         $this->setDonneeVue('vous_contacter', ['Pour vous contacter','To contact you']);
         $this->setDonneeVue('courriel',['Votre courriel :','Your e-mail :']);
         $this->setDonneeVue('numero_telephone',['Votre numéro de téléphone :','Your phone number :']);
@@ -30,6 +30,7 @@ class DonneesVueValidationInformations extends DonneesVue
         $this->setDonneeVue('age',['Âge','Age']);
         $this->setDonneeVue('tarif',['Tarif','Tariff']);
         $this->setDonneeVue('vehicule',['Véhicule','Vehicle']);
+        $this->setDonneeVue('vehicule_soute',['Véhicule :','Vehicle :']);
         $this->setDonneeVue('charge_lourde',['Charge lourde :','Heavy weight :']);
         $this->setDonneeVue('oui',['Oui','Yes']);
         $this->setDonneeVue('non',['Non','No']);

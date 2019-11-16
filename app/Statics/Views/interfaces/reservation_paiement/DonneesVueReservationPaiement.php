@@ -13,11 +13,9 @@ class DonneesVueReservationPaiement extends DonneesVue
         $this->setDonneeVue('montant_transaction', ['Montant de la transaction : ', 'Amount of the transaction : ']);
         $this->setDonneeVue('renseigner_informations',['Veuillez renseigner vos informations','Please fill in your details']);
         $this->setDonneeVue('nom_prenom',['Nom et prénom : ','Name and first name : ']);
-        $this->setDonneeVue('numero_carte',['Numéro de carte : ','Card number : ']);
-        $this->setDonneeVue('code_securite',['Code de sécurité : ','Security code : ']);
         $this->setDonneeVue('payer',['JE VALIDE MON PAIEMENT','I CONFIRM MY PAYMENT']);
         $this->setDonneeVue('nom',["Nom tel qu'il est inscrit",'Name as registered']);
-        $this->setDonneeVue('numero_carte',["Numéro de carte : ",'Card number : ']);
+        $this->setDonneeVue('numero_carte',["Numéro de carte",'Card number']);
         $this->setDonneeVue('date_expiration',["date d'expiration",'expiration date']);
         $this->setDonneeVue('envoi_billet', ['Votre billet est en cours d\'envoi', 'Your ticket is being sent']);
         $this->setDonneeVue('cvc','CVC');

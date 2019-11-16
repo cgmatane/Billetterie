@@ -1,6 +1,8 @@
 
 @extends('interfaces.index')
 
+@section('titre', $informations_titre_page)
+
 @section('contenu')
     <div class="container-fluid">
         <div class="row mt-5 mb-5">

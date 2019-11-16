@@ -17,5 +17,6 @@ class DonneesVueInformationsGenerales extends DonneesVueInformations
         $this->setDonneeVue('plus_dinfos', ['Plus d\'infos sur le site de ', 'More info of this website : ']);
         $this->setDonneeVue('quebec_meteo', ['Québec météo','Quebec meteo']);
         $this->setDonneeVue('presentation_embarquement', ['Vous devez vous présenter à l\'embarquement 15 minutes avant l\'heure de départ','You have to get aboard 15 minutes before the hour of departure']);
+        $this->setDonneeVue('titre_page', ['Billetterie - Informations','Ticketing - Informations']);
     }
 }

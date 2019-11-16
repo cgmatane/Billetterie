@@ -9,7 +9,7 @@ class DonneesVueChoixDepart extends DonneesVue
     public function __construct($langue)
     {
         parent::__construct($langue);
-        $this->setDonneeVue('titre', ['Sélectionnez un lieu de départ','h']);
         $this->nomVue = 'choix_depart';
+        $this->setDonneeVue('titre', ['Sélectionnez un lieu de départ','Select a place of departure']);
     }
 }

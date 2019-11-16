@@ -13,16 +13,16 @@ class DonneesVueGlobales extends DonneesVue
     {
         parent::__construct($langue);
         $this->nomVue = 'global';
-        $this->setDonneeVue('traverse',['Matane Côte-Nord','h']);
-        $this->setDonneeVue('retour_precedent', ['Retour','h']);
-        $this->setDonneeVue('retour_choix_precedent',['Retour choix précédent','h']);
-        $this->setDonneeVue('retour_accueil', ['Accueil','h']);
-        $this->setDonneeVue('retour_au_debut', ['Recommencer','h']);
-        $this->setDonneeVue('titre', ['Billetterie - STQ','h']);
-        $this->setDonneeVue('informations', ['Informations', 'h']);
-        $this->setDonneeVue('billetterie', ['Billetterie', 'h']);
+        $this->setDonneeVue('traverse','Matane Côte-Nord');
+        $this->setDonneeVue('retour_precedent', ['Retour','Return']);
+        $this->setDonneeVue('retour_choix_precedent',['Retour choix précédent','Back to previous choice']);
+        $this->setDonneeVue('retour_accueil', ['Accueil','Home']);
+        $this->setDonneeVue('retour_au_debut', ['Recommencer','Start over']);
+        $this->setDonneeVue('titre', ['Billetterie - STQ','Ticketing - STQ']);
+        $this->setDonneeVue('informations', ['Informations', 'Informations']);
+        $this->setDonneeVue('billetterie', ['Billetterie', 'Ticketing']);
         $this->setDonneeVue('STQ', 'STQ');
         $this->setDonneeVue('CAD', 'CAD');
-        $this->setDonneeVue('activer_javascript', ['Ce site a besoin de javascript','h']);
+        $this->setDonneeVue('activer_javascript', ['Ce site a besoin de Javascript','This website requires Javascript']);
     }
 }

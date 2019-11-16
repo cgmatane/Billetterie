@@ -9,11 +9,11 @@ class DonneesVueReservationChoixAutreVehicule extends DonneesVueChoixDeuxOptions
     public function __construct($langue)
     {
         parent::__construct($langue);
-        $this->setDonneeVue('question',['De quel type est votre véhicule ?','h']);
-        $this->setDonneeVue('icone1',['','h']);
-        $this->setDonneeVue('icone2',['','h']);
-        $this->setDonneeVue('choix1', ['Camionnette','h']);
-        $this->setDonneeVue('choix2', ['Poids lourd','h']);
+        $this->setDonneeVue('question',['De quel type est votre véhicule ?','What is the type of your vehicule']);
+        $this->setDonneeVue('icone1','');
+        $this->setDonneeVue('icone2','');
+        $this->setDonneeVue('choix1', ['Camionnette','Transporter']);
+        $this->setDonneeVue('choix2', ['Poids lourd','Truck']);
         $this->setDonneeVue('lien_choix1', route('reservation_poids'));
         $this->setDonneeVue('lien_choix2', route('reservation_poids'));
     }

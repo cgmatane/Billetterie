@@ -9,7 +9,7 @@ class DonneesVueReservationMatieres extends DonneesVueChoixDeuxOptions
     public function __construct($langue)
     {
         parent::__construct($langue);
-        $this->setDonneeVue('question',['Voyagerez-vous avec des matières dangereuses ?','h']);
+        $this->setDonneeVue('question',['Voyagerez-vous avec des matières dangereuses ?','Do you travel with dangerous materials ?']);
         $this->setDonneeVue('icone1','fas fa-skull-crossbones ');
         $this->setDonneeVue('icone2','far fa-times-circle');
         $this->setDonneeVue('lien_choix1', route('informations_matieres'));

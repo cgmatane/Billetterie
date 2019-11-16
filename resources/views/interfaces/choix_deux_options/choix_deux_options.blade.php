@@ -1,7 +1,6 @@
 @extends('interfaces.index')
 
 @section('contenu')
-    {{session('test')}}
     <div class="container-fluid">
         <div class="container mt-5">
             <div class="row">

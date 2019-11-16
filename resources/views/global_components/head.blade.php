@@ -11,7 +11,7 @@
     <title> @yield('titre')</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="{{URL::asset('/img/favicon.ico')}}" />
-    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('/css/bootstrap.css') }}">
 
     <link rel="stylesheet" href="{{URL::asset('/css/mesStyles.css')}}">
 

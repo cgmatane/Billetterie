@@ -14,5 +14,6 @@ class DonneesVueReservationPoids extends DonneesVueChoixDeuxOptions
         $this->setDonneeVue('icone2','far fa-times-circle');
         $this->setDonneeVue('lien_choix1', route('reservation_matieres'));
         $this->setDonneeVue('lien_choix2', route('reservation_matieres'));
+        $this->setDonneeVue('titre_page', ['Billetterie - Dépassement de poids','Ticketing - Overweight']);
     }
 }

@@ -14,5 +14,6 @@ class DonneesVueReservationChoixRemorque extends DonneesVueChoixDeuxOptions
         $this->setDonneeVue('icone2','');
         $this->setDonneeVue('lien_choix1', route('reservation_poids'));
         $this->setDonneeVue('lien_choix2', route('reservation_poids'));
+        $this->setDonneeVue('titre_page', ['Billetterie - Remorque','Ticketing - Trailer']);
     }
 }

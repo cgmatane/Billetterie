@@ -14,5 +14,6 @@ class DonneesVueReservationMatieres extends DonneesVueChoixDeuxOptions
         $this->setDonneeVue('icone2','far fa-times-circle');
         $this->setDonneeVue('lien_choix1', route('informations_matieres'));
         $this->setDonneeVue('lien_choix2', route('reservation_passagers'));
+        $this->setDonneeVue('titre_page', ['Billetterie - Matières dangereuses','Ticketing - Dangerous materials']);
     }
 }

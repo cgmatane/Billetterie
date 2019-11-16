@@ -14,5 +14,6 @@ class DonneesVueReservationChoixVoiture extends DonneesVueChoixDeuxOptions
         $this->setDonneeVue('icone2','far fa-times-circle');
         $this->setDonneeVue('lien_choix1', route('reservation_choix_remorque'));
         $this->setDonneeVue('lien_choix2', route('reservation_choix_autre_vehicule'));
+        $this->setDonneeVue('titre_page', ['Billetterie - Voiture','Ticketing - Car']);
     }
 }

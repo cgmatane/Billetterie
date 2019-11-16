@@ -1,5 +1,6 @@
 @extends('interfaces.index')
 
+@section('titre', $choix_deux_options_titre_page)
 @section('contenu')
     <div class="container-fluid">
         <div class="container mt-5">

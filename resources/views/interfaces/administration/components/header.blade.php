@@ -1,4 +1,5 @@
 <header class="nav-admin">
-    <div class="brand float-left"><img alt="logo-stq" src="/img/logo-stq.png">@yield('titre')</div>
-    <div class="auth float-right">{{ $email }}</div>
+    <div class="brand"><img alt="logo-stq" src="/img/logo-stq.png"></div>
+    <div class="administration-titre">@yield('titre')</div>
+    <div class="auth">{{ $email }}</div>
 </header>

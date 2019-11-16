@@ -1,6 +1,6 @@
 @extends('interfaces.index')
 
-@section('titre', $accueil_depart)
+@section('titre', $global_titre)
 
 @section('contenu')
     <div class="container-fluid" id="imageFond">

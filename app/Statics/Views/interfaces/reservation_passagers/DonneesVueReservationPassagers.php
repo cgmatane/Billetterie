@@ -41,5 +41,6 @@ class DonneesVueReservationPassagers extends DonneesVue
         $this->setDonneeVue('infos_animaux_exotiques_titre', ['Information animaux exotiques','Informations exotic pets']);
         $this->setDonneeVue('infos_animaux_exotiques', ['Afin de garantir la sécurité des passagers à bord du traversier,
         si vous voyagez avec un animal autre que chat ou chien.','To garanty the security of the passengers abroad, you don\'t travel with animals other than cat or dog.']); //TODO wt
+        $this->setDonneeVue('titre_page', ['Billetterie - Informations passager','Ticketing - Passenger details']);
     }
 }

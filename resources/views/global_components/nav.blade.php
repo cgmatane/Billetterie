@@ -15,9 +15,22 @@
                     <a class="mx-auto btn btn-lg btn-outline-primary" href="{{ route('informations') }}">{{ $global_informations }}</a> <!-- Route à définir -->
                 </div>
             </div>
+            <!--
             <div>
                 <a href="{{ route('changer_langue') }}?langue=0&provenance={{ Request::url() }}"> FR </a>
                 <a href="{{ route('changer_langue') }}?langue=1&provenance={{ Request::url() }}"> EN </a>
+            </div>
+            -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Changer de langue
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{{ route('changer_langue') }}?langue=0&provenance={{ Request::url() }}">
+                        Francais</a>
+                    <a class="dropdown-item" href="{{ route('changer_langue') }}?langue=1&provenance={{ Request::url() }}">
+                        English</a>
+                </div>
             </div>
         </header>
     </div>

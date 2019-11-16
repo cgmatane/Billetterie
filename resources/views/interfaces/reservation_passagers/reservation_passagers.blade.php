@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            @if($type_vehicule != "pas de véhicule" || !isset($type_vehicule))
+            @if(isset($type_vehicule) && $type_vehicule != "pas de véhicule")
                 <fieldset class="vehicule mt-2" id="vehicule">
                     <div class="row p-0 m-1">
                         <div class="col-sm px-0">

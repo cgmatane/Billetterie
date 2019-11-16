@@ -1,5 +1,6 @@
 @extends('interfaces.index')
 
+@section('titre', $choix_date_titre_page)
 @section('contenu')
         <div class="container-fluid" id="imageFond">
             <div class="text-center row justify-content-center" id="noMargin">

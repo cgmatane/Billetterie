@@ -1,5 +1,7 @@
 @extends('interfaces.index')
 
+@section('titre', $accueil_depart)
+
 @section('contenu')
     <div class="container-fluid" id="imageFond">
         <div class="text-center row justify-content-center" id="noMargin">

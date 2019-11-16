@@ -1,5 +1,7 @@
 @extends('interfaces.index')
 
+@section('titre', $reservation_paiement_titre_page)
+
 @section('contenu')
 <div class="row">
 </div>

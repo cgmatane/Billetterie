@@ -19,5 +19,6 @@ class DonneesVueReservationPaiement extends DonneesVue
         $this->setDonneeVue('date_expiration',["date d'expiration",'expiration date']);
         $this->setDonneeVue('envoi_billet', ['Votre billet est en cours d\'envoi', 'Your ticket is being sent']);
         $this->setDonneeVue('cvc','CVC');
+        $this->setDonneeVue('titre_page', ['Billetterie - Paiement','Ticketing - Payment']);
     }
 }

@@ -38,7 +38,7 @@
                         <td><div class="progress progress-striped">
                                 <div class="progress-bar bg-info" role="progressbar"  data-nombre="{{$donneeTrajet['nombrePassagers']}}" data-total="{{ $donneeTrajet['nombrePlacesPassagers'] }}"  aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <div class="progress progress-striped" id="progress-bottom">
+                            <div class="progress progress-striped progress-bottom">
                                 <div class="progress-bar bg-success" role="progressbar"  data-nombre="{{$donneeTrajet['nombreVehicules']}}" data-total="{{ $donneeTrajet['nombrePlacesVehicules'] }}"  aria-valuemin="0" aria-valuemax="100"></div>
                             </div></td>
                     </tr>
@@ -84,5 +84,6 @@
             </div>
         </div>
 
-    <script type="text/javascript" src="{{URL::asset('js/vue_generale.js')}}"></script>
+    <script src="{{URL::asset('js/vue_generale.js')}}"></script>
+    <noscript> {{ $global_activer_javascript }}</noscript>
 @endsection

@@ -29,6 +29,9 @@ Tout `<script>` doit être suivi d'un `</noscript>`
 508 : OK | W3C : 
 
 ## paiement
-508 : OK | W3C : 
+508 : OK | W3C :
+
+## administration vue generale
+508 : OK | W3C : `viewport warning`
 
 

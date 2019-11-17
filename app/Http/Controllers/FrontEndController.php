@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Pages as Controllers;
 
 use App\Statics\Views\DonneesVueGlobales;
-use App\Ticket;
-use http\Cookie;
 use Illuminate\Http\Request;
 
 define('REPERTOIRE_INTERFACES', 'interfaces');
@@ -25,9 +23,9 @@ date_default_timezone_set("America/Toronto");
 class FrontEndController extends Controller
 {
     public static $langueCourante = FR;
+    public static $DONNEES_STATIQUES_GLOBALES;
 
     private $routes;
-    private $donneesStatiquesGlobales;
 
 
     public function __construct()
@@ -42,8 +40,8 @@ class FrontEndController extends Controller
         $this->setControleurs();
 
         //Les donnees statiques de vues communes a plusieurs interfaces/pages
-        $this->donneesStatiquesGlobales =
-            (new DonneesVueGlobales(FrontEndController::$langueCourante))->getDonneesVue();
+
+        FrontEndController::$DONNEES_STATIQUES_GLOBALES = (new DonneesVueGlobales(FrontEndController::$langueCourante))->getDonneesVue();
 
         if (count($requete->all()) > 0)
             return $this->managerResultatFormulaire($requete, $nomRoute);
@@ -102,7 +100,7 @@ class FrontEndController extends Controller
 
     private function getVue(Request $requete, $interface, PageController $controleur) {
         $requete->session()->put('derniere_URL', $interface);
-        $donneesVue = array_merge($this->donneesStatiquesGlobales, $controleur->getDonnees($requete));
+        $donneesVue = array_merge(FrontEndController::$DONNEES_STATIQUES_GLOBALES, $controleur->getDonnees($requete));
         return view(REPERTOIRE_INTERFACES . '.' . $interface . '.' . $interface, $donneesVue);
     }
 

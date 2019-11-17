@@ -8,7 +8,6 @@ use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PageController;
 use App\Statics\Views\interfaces\accueil\DonneesVueAccueil;
 use App\Station;
-use DateTime;
 use Illuminate\Http\Request;
 
 
@@ -29,18 +28,18 @@ class AccueilController extends PageController
     //On va injecter des donnees venant de la DB dans la vue
     protected function setDonneesDynamiques(Request $requete = null) {
 
+        if ($requete->session()->has('ticket.mail')) {
+            $mail = $requete->session()->get('ticket.mail');
+            $requete->session()->flush();
+        }
+
         if ($requete->session()->has('ticket.date')) {
             $date = $requete->session()->get('ticket.date');
         }
         else {
-            setlocale (LC_TIME, "fr_FR");
-            $date = (int)strftime('%d')." ".self::MOIS[strftime("%m")];
+            $date = date('d-m-Y');
+            //$date = (int)strftime('%d')." ".FrontEndController::$DONNEES_STATIQUES_GLOBALES['global_mois'][strftime('%m')-1];
             $requete->session()->put('ticket.date', $date);
-        }
-
-        if ($requete->session()->has('ticket.mail')) {
-            $mail = $requete->session()->get('ticket.mail');
-            $requete->session()->flush();
         }
 
         if ($requete->session()->has('ticket.depart')) {
@@ -74,12 +73,18 @@ class AccueilController extends PageController
 
         //On injecte aux donnees la date d'aujourd'hui en francais (affiché en haut de la vue) et les trajets
         $this->donneesDynamiques = array(
-            'date'=>$date,
+            'date'=>$this->getDateTraduite($date),
             'trajets'=>$trajetsVue,
             'depart'=>$nomStationDepart,
         );
         if (isset($mail)) {
             $this->donneesDynamiques['mail'] = $mail;
         }
+    }
+
+    function getDateTraduite($date) {
+        $dateSplitte = explode('-', $date);
+        $mois = FrontEndController::$DONNEES_STATIQUES_GLOBALES['global_mois'][$dateSplitte[1]-1];
+        return $dateSplitte[0] ." " . $mois . " " . $dateSplitte[2];
     }
 }

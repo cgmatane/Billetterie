@@ -22,66 +22,54 @@ class ChoixDateController extends PageController
     {
         $date = $requete->input('date');
         $tabDate = explode(" ", $date);
-        $mois = $tabDate[1];
-        $moisCommande = "01";
-        switch ($mois) {
+        switch ($tabDate[1]) {
             case "Jan":
-                $mois = "Janvier";
-                $moisCommande = "01";
+                $mois = "01";
                 break;
             case "Feb":
-                $mois = "Fevrier";
-                $moisCommande = "02";
+                $mois = "02";
                 break;
             case "Mar":
-                $mois = "Mars";
-                $moisCommande = "03";
+                $mois = "03";
                 break;
             case "Apr":
-                $mois = "Avril";
-                $moisCommande = "04";
+                $mois = "04";
                 break;
             case "May":
-                $mois = "Mai";
-                $moisCommande = "05";
+                $mois = "05";
                 break;
             case "Jun":
-                $mois = "Juin";
-                $moisCommande = "06";
+                $mois = "06";
                 break;
             case "Jul":
-                $mois = "Juillet";
-                $moisCommande = "07";
+                $mois = "07";
                 break;
             case "Aug":
-                $mois = "Août";
-                $moisCommande = "08";
+                $mois = "08";
                 break;
             case "Sep":
-                $mois = "Septembre";
-                $moisCommande = "09";
+                $mois = "09";
                 break;
             case "Oct":
-                $mois = "Octobre";
-                $moisCommande = "10";
+                $mois = "10";
                 break;
             case "Nov":
-                $mois = "Novembre";
-                $moisCommande = "11";
+                $mois = "11";
                 break;
             case "Dec":
-                $mois = "Decembre";
-                $moisCommande = "12";
+                $mois = "12";
+                break;
+            default:
+                return redirect(route('choix_date'));
                 break;
         }
         $jour = $tabDate[2];
         $annee = $tabDate[3];
 
-        $dateCommandeString = $annee.("-").$moisCommande.("-").$jour;
+        $dateCommandeString = $jour.("-").$mois.("-").$annee;
         try {
             $dateCommande = new DateTime($dateCommandeString);
-        } catch (\Exception $e) {
-        }
+        } catch (\Exception $e) {}
         $dateDuJour = new DateTime("now");
         $interval = date_diff($dateDuJour , $dateCommande);
 
@@ -89,19 +77,12 @@ class ChoixDateController extends PageController
             return redirect(route('choix_date'));
         }
 
-        // On caste le jour en entier pour retirer l'eventuel 0 parasite au début du nombre
-        $dateDepart = (int)$jour.(" ").$mois;
-        $requete->session()->put('ticket.date', $dateDepart);
+        $requete->session()->put('ticket.date', $dateCommandeString);
         return redirect(route('index'));
     }
 
 
     protected function setDonneesDynamiques(Request $requete = null) {
         $this->donneesDynamiques['type_information'] = 'date';
-        $this->donneesDynamiques['tab_items'] = [
-            "4 Septembre",
-            "5 Septembre",
-            "6 Septembre",
-        ];
     }
 }

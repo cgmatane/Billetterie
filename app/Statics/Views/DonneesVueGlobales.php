@@ -24,5 +24,9 @@ class DonneesVueGlobales extends DonneesVue
         $this->setDonneeVue('STQ', 'STQ');
         $this->setDonneeVue('CAD', 'CAD');
         $this->setDonneeVue('activer_javascript', ['Ce site a besoin de Javascript','This website requires Javascript']);
+        $this->setDonneeVue('mois', [
+            ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+            ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        ]);
     }
 }

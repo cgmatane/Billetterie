@@ -66,14 +66,15 @@ class ChoixDateController extends PageController
         $jour = $tabDate[2];
         $annee = $tabDate[3];
 
-        $dateCommandeString = $jour.("-").$mois.("-").$annee;
+        $dateCommandeString = $jour . ("-") . $mois . ("-") . $annee;
         try {
             $dateCommande = new DateTime($dateCommandeString);
         } catch (\Exception $e) {}
         $dateDuJour = new DateTime("now");
         $interval = date_diff($dateDuJour , $dateCommande);
 
-        if ($interval->format('%a')>90){
+        $differenceJours = $interval->format('%a');
+        if ($differenceJours > 90 || $differenceJours < 0){
             return redirect(route('choix_date'));
         }
 

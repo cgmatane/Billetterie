@@ -28,7 +28,7 @@ class AccueilController extends PageController
     //On va injecter des donnees venant de la DB dans la vue
     protected function setDonneesDynamiques(Request $requete = null) {
 
-        if ($requete->session()->has('ticket.mail')) {
+        if ($requete->session()->has('commande_terminee')) {
             $mail = $requete->session()->get('ticket.mail');
             $requete->session()->flush();
         }
@@ -38,7 +38,6 @@ class AccueilController extends PageController
         }
         else {
             $date = date('d-m-Y');
-            //$date = (int)strftime('%d')." ".FrontEndController::$DONNEES_STATIQUES_GLOBALES['global_mois'][strftime('%m')-1];
             $requete->session()->put('ticket.date', $date);
         }
 

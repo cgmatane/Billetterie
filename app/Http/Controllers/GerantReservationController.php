@@ -22,6 +22,7 @@ class GerantReservationController extends Controller
         $this->codeQR = Ticket::genererCodeQR();
         $this->envoyerPDF($requete);
         $this->creerBillet($requete);
+        $requete->session()->put('commande_terminee',true);
         return redirect(route('index'));
     }
 

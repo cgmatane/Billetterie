@@ -19,7 +19,7 @@ class DonneesVueAccueil extends DonneesVue
         $this->setDonneeVue('choix_autre_date',['Choisir une autre date','Choose another date']);
         $this->setDonneeVue('choix_autre_depart',['Choisir un autre départ','Choose another departure']);
         $this->setDonneeVue('commande_validee', ['Commande validée !', 'Validated command !']);
-        $this->setDonneeVue('mail_envoye', ['Un mail vous a été envoyé.', 'A mail has been sent to you.']);
+        $this->setDonneeVue('mail_envoye', ['Un mail vous a été envoyé à l\'adresse : ', 'A mail has been sent to the following address : ']);
 
     }
 }

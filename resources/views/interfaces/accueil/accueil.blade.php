@@ -7,30 +7,7 @@
         <div class="text-center row justify-content-center" id="noMargin">
             <div class="col-sm-6 col-xs-8 shadow-lg rounded-lg  mt-6" id="midnightBlue">
                 @component('interfaces.accueil.components.titre_principal')
-                    @if($validation != "")
-                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-                        <noscript>{{ $global_activer_javascript }}</noscript>
-                        <script>
-                            Swal.fire(
-                                '{{ $accueil_commande_validee }}',
-                                '{{ $accueil_mail_envoye }}',
-                                'success'
-                            )
-                        </script>
-                        <noscript>{{ $global_activer_javascript }}</noscript>
-                    @endif
-
-                    {{ $accueil_depart }}
-                    @if(empty($depart))
-                        Matane
-                    @else
-                        {{ $depart }}
-                    @endif
-                    @if(empty($date))
-                        4 Septembre
-                    @else
-                        {{ $date }}
-                    @endif
+                    {{ $accueil_depart }} {{ $depart }} {{ $date }}
                 @endcomponent
             </div>
         </div>
@@ -112,5 +89,17 @@
             </div>
         </div>
     </div>
+    @isset($mail)
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <noscript>{{ $global_activer_javascript }}</noscript>
+        <script>
+            Swal.fire(
+                '{{ $accueil_commande_validee }}',
+                '{{ $accueil_mail_envoye }} {{ $mail }}',
+                'success'
+            )
+        </script>
+        <noscript>{{ $global_activer_javascript }}</noscript>
+    @endisset
 
 @endsection

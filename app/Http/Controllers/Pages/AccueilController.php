@@ -23,7 +23,6 @@ class AccueilController extends PageController
     public function gererValidation(Request $requete)
     {
         $requete->session()->put('ticket.trajet', $requete->input('idTrajet'));
-        $requete->session()->put('ticket.type_vehicule', null);
         return redirect(route('reservation_choix_vehicule'));
     }
 
@@ -39,14 +38,10 @@ class AccueilController extends PageController
             $requete->session()->put('ticket.date', $date);
         }
 
-        if ($requete->session()->get('ticket.mail') != "0") {
-            $messageValidation = $requete->session()->get('ticket.mail');
-            $requete->session()->put('ticket.mail', "0");
+        if ($requete->session()->has('ticket.mail')) {
+            $mail = $requete->session()->get('ticket.mail');
+            $requete->session()->flush();
         }
-        else {
-            $messageValidation = "";
-        }
-
 
         if ($requete->session()->has('ticket.depart')) {
             $nomStationDepart = $requete->session()->get('ticket.depart');
@@ -82,7 +77,9 @@ class AccueilController extends PageController
             'date'=>$date,
             'trajets'=>$trajetsVue,
             'depart'=>$nomStationDepart,
-            'validation'=>$messageValidation,
         );
+        if (isset($mail)) {
+            $this->donneesDynamiques['mail'] = $mail;
+        }
     }
 }

@@ -11,6 +11,7 @@ class DonneesVueReservationPassagers extends DonneesVue
         parent::__construct($langue);
         $this->nomVue = 'reservation_passagers';
         $this->setDonneeVue('renseigner_informations', ['Renseigner vos informations','Fill in your details']);
+        $this->setDonneeVue('passager', ['Passager', 'Passenger']);
         $this->setDonneeVue('nom', ['Nom','Name']);
         $this->setDonneeVue('prenom', ['Prénom','First name']);
         $this->setDonneeVue('courriel', ['Courriel','E-mail']);

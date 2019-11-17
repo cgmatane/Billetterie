@@ -15,7 +15,7 @@
 
             <div id="passagers">
                 <fieldset class="passager mb-2" id="passager">
-                    <div class="legendePassager">Passager</div>
+                    <div class="legendePassager">{{ $reservation_passagers_passager }}</div>
                     <div class="row p-0 m-2">
                         <div class="col-sm px-0">
                             <div class="form-group champNom" id="champNom">

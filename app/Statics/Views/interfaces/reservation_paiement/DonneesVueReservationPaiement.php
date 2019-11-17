@@ -16,8 +16,8 @@ class DonneesVueReservationPaiement extends DonneesVue
         $this->setDonneeVue('payer',['JE VALIDE MON PAIEMENT','I CONFIRM MY PAYMENT']);
         $this->setDonneeVue('nom',["Nom tel qu'il est inscrit",'Name as registered']);
         $this->setDonneeVue('numero_carte',["Numéro de carte",'Card number']);
-        $this->setDonneeVue('date_expiration',["date d'expiration",'expiration date']);
-        $this->setDonneeVue('envoi_billet', ['Votre billet est en cours d\'envoi', 'Your ticket is being sent']);
+        $this->setDonneeVue('date_expiration',["Date d'expiration",'Expiration date']);
+        $this->setDonneeVue('envoi_billet', ['Votre billet est en cours d\'envoi...', 'Your ticket is being sent...']);
         $this->setDonneeVue('cvc','CVC');
         $this->setDonneeVue('titre_page', ['Billetterie - Paiement','Ticketing - Payment']);
     }

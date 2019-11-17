@@ -27,10 +27,10 @@ class DonneesVueReservationPassagers extends DonneesVue
         $this->setDonneeVue('marque_vehicule_invalide', ['La marque du véhicule est invalide', 'The vehicle brand is invalid']);
         $this->setDonneeVue('couleur_vehicule_invalide', ['La couleur du véhicule est invalide', 'The vehicle color is invalid']);
         $this->setDonneeVue('tel_necessaire', ['(nécessaire en cas d\'annulation ou de retard)','(mandatory in case of annulation or delay)']);
-        $this->setDonneeVue('confirmation_animaux',['Je confirme ne pas voyager avec des animaux exotiques','I confirm that I don\'t travel with any exotic pet']);
-        $this->setDonneeVue('confirmation_matieres',['Je confirme ne pas transporter de matières dangereuses','I confirm that I don\'t travel with any kind of dangerous materials']);
-        $this->setDonneeVue('confirmation_animaux_invalide',['Vous devez confirmer que vous ne voyagez pas avec des animaux exotiques','You have to confirm that you don\'t travel with any exotic pet']);
-        $this->setDonneeVue('confirmation_matieres_invalide',['Vous devez confirmer que vous ne transportez pas de matériaux dangereux','You have to confirm that you don\'t travel with any kind of dangerous materials']);
+        $this->setDonneeVue('confirmation_animaux',['Je confirme ne pas voyager avec des animaux exotiques','I confirm that I won\'t travel with any exotic pet']);
+        $this->setDonneeVue('confirmation_matieres',['Je confirme ne pas transporter de matières dangereuses','I confirm that I won\'t travel with any kind of dangerous materials']);
+        $this->setDonneeVue('confirmation_animaux_invalide',['Vous devez confirmer que vous ne voyagez pas avec des animaux exotiques','You have to confirm that you won\'t be travelling with any exotic pet']);
+        $this->setDonneeVue('confirmation_matieres_invalide',['Vous devez confirmer que vous ne transportez pas de matériaux dangereux','You have to confirm that you won\'t be travelling with any kind of dangerous materials']);
         $this->setDonneeVue('paiement', ['PROCÉDER AU PAIEMENT','PROCEED TO PAYMENT']);
         $this->setDonneeVue('intervalles_age', [['moins de 18 ans', 'entre 18 et 60 ans', 'plus de 60 ans'],['Less than 18 years old', 'Between 18 and 60 years old', 'More than 60 years old']]);
         $this->setDonneeVue('index_intervalle_age_par_defaut', 1);
@@ -41,7 +41,7 @@ class DonneesVueReservationPassagers extends DonneesVue
         il est interdit de transporter des matières dangereuses.','To garanty the security of the passengers abroad, it is strictly forbidden to carry dangerous materials in your vehicle']);
         $this->setDonneeVue('infos_animaux_exotiques_titre', ['Information animaux exotiques','Informations exotic pets']);
         $this->setDonneeVue('infos_animaux_exotiques', ['Afin de garantir la sécurité des passagers à bord du traversier,
-        si vous voyagez avec un animal autre que chat ou chien.','To garanty the security of the passengers abroad, you don\'t travel with animals other than cat or dog.']); //TODO wt
+        si vous voyagez avec un animal autre que chat ou chien, contactez un employé de la STQ.','To garanty the security of the other passengers, if you are planning to travel with an animal other than dog or cat, please contact an employee of the STQ.']); //TODO wt
         $this->setDonneeVue('titre_page', ['Billetterie - Informations passager','Ticketing - Passenger details']);
     }
 }

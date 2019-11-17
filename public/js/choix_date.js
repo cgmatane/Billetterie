@@ -3,6 +3,7 @@ var vanillaCalendar = {
     next: document.querySelectorAll('[data-calendar-toggle="next"]')[0],
     previous: document.querySelectorAll('[data-calendar-toggle="previous"]')[0],
     label: document.querySelectorAll('[data-calendar-label="month"]')[0],
+    strmonths: document.querySelectorAll('.mois'),
     activeDates: null, date: new Date, todaysDate: new Date,
     init: function (t) {
         this.options = t, this.date.setDate(1), this.createMonth(), this.createListeners()
@@ -54,7 +55,7 @@ var vanillaCalendar = {
             this.label.innerHTML = this.monthsAsString(this.date.getMonth()) + " " + this.date.getFullYear(),
             this.dateClicked()
     }, monthsAsString: function (t) {
-        return ["Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Decembre"][t]
+        return this.strmonths[t].innerHTML;
     },
     clearCalendar: function () {
         vanillaCalendar.month.innerHTML = ""

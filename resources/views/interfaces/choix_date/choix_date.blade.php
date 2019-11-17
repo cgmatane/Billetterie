@@ -22,6 +22,7 @@
                             </div>
 
                             <div class="vcal-header__label" data-calendar-label="month">
+
                             </div>
 
 
@@ -56,6 +57,12 @@
                 @endcomponent
             </div>
         </div>
+
+        <span class="d-none">
+            @foreach($global_mois as $mois)
+                <span class="mois">{{ $mois }}</span>
+            @endforeach
+        </span>
 
 @endsection
 

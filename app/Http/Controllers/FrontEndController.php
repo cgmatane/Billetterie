@@ -49,7 +49,6 @@ class FrontEndController extends Controller
 
         $id_administrateur = Auth::id();
         if (preg_match('/administration\/(?!connexion)/',$nomRoute) && !isset($id_administrateur)){
-            $requete->session()->forget('utilisateur.email');
             return redirect('/administration/connexion');
         }
 

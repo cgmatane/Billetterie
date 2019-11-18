@@ -465,7 +465,7 @@ body {
     height: 100%;
 }
 .nav-side-menu li label{
-    margin-left : 11px;
+    padding-left : 11px;
     cursor: pointer;
     width: 100%;
     height: 100%;

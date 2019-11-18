@@ -45,6 +45,7 @@ class ConnexionController extends PageController
             }
         }else if ($requete->input('submit') == 'deconnexion'){
             Auth::logout();
+            $requete->session()->forget('utilisateur.email');
             return redirect('/administration/connexion');
         }else{
             return redirect('/administration/connexion');

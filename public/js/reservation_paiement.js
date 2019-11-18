@@ -20,15 +20,17 @@ function verifierNumeroCarteBleue() {
     const nombreDeChiffreMasterCard = 19;
     const nombreDeChiffreVisa = [19,23];
 
-    const idDivErreurNumeroCarte = "erreurNumeroCarte";
+    let idDivErreurNumeroCarte = "erreurTypeCarte";
+
+    effacerErreur(idDivErreurNumeroCarte);
+    effacerErreur("erreurNumeroCarte");
 
     let valeurNumeroCarteBleue = document.getElementById('numeroCarte');
     let nombreDeChiffreCarteBleue = valeurNumeroCarteBleue.value.length;
     let typeDeLaCarte = typeDeCarte(valeurNumeroCarteBleue.className);
 
     if (typeDeLaCarte === "rien") {
-        afficherErreur(idDivErreurNumeroCarte,
-            "La carte n'est ni une mastercard ni une carte visa");
+        afficherErreure(idDivErreurNumeroCarte);
         return false;
     }
 
@@ -43,8 +45,9 @@ function verifierNumeroCarteBleue() {
         return true;
     }
 
-    afficherErreur(idDivErreurNumeroCarte,
-        "Le numero de carte ne contient pas le bon nombre de numéros");
+    idDivErreurNumeroCarte = "erreurNumeroCarte";
+
+    afficherErreure(idDivErreurNumeroCarte);
     return false;
 }
 
@@ -139,6 +142,11 @@ function afficherErreur(idDuDiv, messageErreur) {
 
     document.getElementById(idDuDiv).style.display = "block";
     document.getElementById(idDuDiv).innerHTML = messageErreur;
+}
+
+function afficherErreure(idDuDiv) {
+
+    document.getElementById(idDuDiv).style.display = "block";
 }
 
 function effacerErreur(idDuDiv) {

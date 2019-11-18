@@ -30,7 +30,7 @@
                 <label for="nom" class="d-none">{{$reservation_paiement_nom}}</label>
                 <input placeholder="{{$reservation_paiement_nom}}" onkeyup="this.value = this.value.toUpperCase();" type="text" name="name" id="nom" class="col-10 m-2">
                 <div class="alert alert-danger justify-content-center champErreur hidden" id="erreurNom">
-                    <small class="texteErreur"></small>
+                    <small class="texteErreur">{{ $reservation_paiement_erreurNom }}</small>
                 </div>
                 <label for="dateExpiration" class="d-none">{{ $reservation_paiement_date_expiration }}</label>
                 <input placeholder="{{ $reservation_paiement_date_expiration }}" type="tel" name="expiry" id="dateExpiration" class="col-10 m-2">
@@ -46,7 +46,7 @@
                 <label for="numeroCvc" class="d-none">{{ $reservation_paiement_cvc }}</label>
                 <input placeholder="{{ $reservation_paiement_cvc }}" type="number" name="cvc" id="numeroCvc" class="col-10 m-2">
                 <div class="alert alert-danger champErreur hidden" id="erreurNumeroCvc">
-                    <small class="texteErreur"></small>
+                    <small class="texteErreur">{{ $reservation_paiement_erreurCvc }}</small>
                 </div>
                 <div class="row text-center justify-content-center">
                     <button type="submit" class="btn btn-outline-success my-4" id="boutonPaiement">

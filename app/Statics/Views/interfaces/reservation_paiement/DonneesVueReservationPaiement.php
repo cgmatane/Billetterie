@@ -30,5 +30,9 @@ class DonneesVueReservationPaiement extends DonneesVue
             'The value of the year entered is less than the current year']);
         $this->setDonneeVue('erreurDateExpirationType', ['Ce champ doit être de la forme : MM / AAAA',
             'This field must be of the form: MM / YYYY']);
+        $this->setDonneeVue('erreurCvc', ['Le CVC doit être composé de trois chiffres',
+            'CVC must be three digits']);
+        $this->setDonneeVue('erreurNom', ['Ce champ doit être composé d\'un nom et d\'un prénom',
+            'This field must be composed of a name and a first name']);
     }
 }

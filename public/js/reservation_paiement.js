@@ -59,8 +59,7 @@ function verifierNom() {
     let valeurNomSepare = valeurNomEntier.split(" ");
 
     if (valeurNomSepare.length !== 2 || !(/^[A-Z\s]*$/.test(valeurNomEntier))) {
-        afficherErreur(idDivErreurNom,
-            "Ce champ doit être composé d'un nom et d'un prénom");
+        afficherErreur(idDivErreurNom);
         return false;
     }
 
@@ -69,8 +68,6 @@ function verifierNom() {
 }
 
 function verifierDateExpiration() {
-
-    const idDivErreurDateExpiration = "erreurDateExpiration";
 
     effacerErreur("erreurDateExpirationMois");
     effacerErreur("erreurDateExpirationAnnee");
@@ -102,7 +99,6 @@ function verifierDateExpiration() {
         return false;
     }
 
-    effacerErreur(idDivErreurDateExpiration);
     return true;
 }
 
@@ -120,8 +116,7 @@ function verifierCvc() {
         return true;
     }
 
-    afficherErreur(idDivErreurCvc,
-        "Le CVC doit être composé de trois chiffres");
+    afficherErreur(idDivErreurCvc);
     return false;
 }
 
@@ -139,7 +134,7 @@ function typeDeCarte(valeurDeLaClasse) {
     return "rien";
 }
 
-function afficherErreur(idDuDiv, messageErreur) {
+function afficherErreur(idDuDiv) {
 
     document.getElementById(idDuDiv).style.display = "block";
 }

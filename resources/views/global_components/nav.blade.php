@@ -9,12 +9,12 @@
                 </div>
                 <div class="col-md-12 col-lg-4 text-center">
                     <h1 class="text-center text-dark text-dark">{{ $global_traverse }}</h1>
-                </div>
+            </div>
 
-                <div class="col-md-12 col-lg-2 align-items-center text-dark ">
+                <div class="col-md-12 col-lg-2 text-center p-3">
                     <a class="mx-auto btn btn-lg btn-outline-param" href="{{ route('informations') }}">{{ $global_informations }}</a> <!-- Route à définir -->
                 </div>
-                <div class="dropdown col-md-12 col-lg-2 align-items-center text-dark">
+                <div class="dropdown col-md-12 col-lg-2 text-center p-3">
                     <button class="btn btn-outline-param dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Changer de langue
                     </button>

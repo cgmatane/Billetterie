@@ -221,7 +221,7 @@ body {
     border-width: medium;
 }
 
-.btn-outline-retour:hover {
+.btn-outline-retour:hover, .btn-outline-retour:focus {
     color: #fff;
     background-color: #FFB74A;
     border-color: #FFB74A;
@@ -240,7 +240,7 @@ body {
     background-color: #d3d3d3;
 }
 
-.btn-outline-retour-menu:hover {
+.btn-outline-retour-menu:hover, .btn-outline-retour-menu:focus {
     color: #fff;
     background-color: #761b18;
     border-color: #761b18;

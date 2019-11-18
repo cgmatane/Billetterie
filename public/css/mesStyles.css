@@ -183,7 +183,7 @@ body {
     border-width: medium;
 }
 
-.btn-outline-success:hover {
+.btn-outline-success:hover, .btn-outline-success:focus {
     color: white;
     background-color: #6ACE71;
     border-color: #6ACE71;
@@ -208,13 +208,7 @@ body {
     border-width: medium;
 }
 
-.btn-outline-param:hover {
-    color: #fff;
-    background-color: midnightblue;
-    border-color: midnightblue;
-}
-
-.btn-outline-param:focus {
+.btn-outline-param:hover, .btn-outline-param:focus {
     color: #fff;
     background-color: midnightblue;
     border-color: midnightblue;

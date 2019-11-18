@@ -30,7 +30,7 @@ function verifierNumeroCarteBleue() {
     let typeDeLaCarte = typeDeCarte(valeurNumeroCarteBleue.className);
 
     if (typeDeLaCarte === "rien") {
-        afficherErreure(idDivErreurNumeroCarte);
+        afficherErreur(idDivErreurNumeroCarte);
         return false;
     }
 
@@ -47,7 +47,7 @@ function verifierNumeroCarteBleue() {
 
     idDivErreurNumeroCarte = "erreurNumeroCarte";
 
-    afficherErreure(idDivErreurNumeroCarte);
+    afficherErreur(idDivErreurNumeroCarte);
     return false;
 }
 
@@ -72,13 +72,16 @@ function verifierDateExpiration() {
 
     const idDivErreurDateExpiration = "erreurDateExpiration";
 
+    effacerErreur("erreurDateExpirationMois");
+    effacerErreur("erreurDateExpirationAnnee");
+    effacerErreur("erreurDateExpirationType");
+
     let valeurDateExpiration = document.getElementById('dateExpiration').value;
     let valeurDateExpirationSepare = valeurDateExpiration.split(" ");
 
     if (valeurDateExpirationSepare.length !== 3 || valeurDateExpirationSepare[2].length !== 4) {
 
-        afficherErreur(idDivErreurDateExpiration,
-            "Ce champ doit être de la forme : MM / AAAA");
+        afficherErreur("erreurDateExpirationType");
         return false;
     }
 
@@ -90,14 +93,12 @@ function verifierDateExpiration() {
 
     if (valeurAnnee < valeurAnneeActuelle) {
 
-        afficherErreur(idDivErreurDateExpiration,
-            "La valeur de l'année saisie est inférieure à l'année actuelle");
+        afficherErreur("erreurDateExpirationAnnee");
         return false;
     }
     else if (valeurAnnee === valeurAnneeActuelle && valeurMois <= valeurMoisActuelle) {
 
-        afficherErreur(idDivErreurDateExpiration,
-            "La valeur du mois saisie est inférieure au mois actuel");
+        afficherErreur("erreurDateExpirationMois");
         return false;
     }
 
@@ -139,12 +140,6 @@ function typeDeCarte(valeurDeLaClasse) {
 }
 
 function afficherErreur(idDuDiv, messageErreur) {
-
-    document.getElementById(idDuDiv).style.display = "block";
-    document.getElementById(idDuDiv).innerHTML = messageErreur;
-}
-
-function afficherErreure(idDuDiv) {
 
     document.getElementById(idDuDiv).style.display = "block";
 }

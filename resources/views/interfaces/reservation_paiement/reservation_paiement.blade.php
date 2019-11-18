@@ -34,8 +34,14 @@
                 </div>
                 <label for="dateExpiration" class="d-none">{{ $reservation_paiement_date_expiration }}</label>
                 <input placeholder="{{ $reservation_paiement_date_expiration }}" type="tel" name="expiry" id="dateExpiration" class="col-10 m-2">
-                <div class="alert alert-danger champErreur hidden" id="erreurDateExpiration">
-                    <small class="texteErreur"></small>
+                <div class="alert alert-danger champErreur hidden" id="erreurDateExpirationMois">
+                    <small class="texteErreur">{{ $reservation_paiement_erreurDateExpirationMois }}</small>
+                </div>
+                <div class="alert alert-danger champErreur hidden" id="erreurDateExpirationAnnee">
+                    <small class="texteErreur">{{ $reservation_paiement_erreurDateExpirationAnnee }}</small>
+                </div>
+                <div class="alert alert-danger champErreur hidden" id="erreurDateExpirationType">
+                    <small class="texteErreur">{{ $reservation_paiement_erreurDateExpirationType }}</small>
                 </div>
                 <label for="numeroCvc" class="d-none">{{ $reservation_paiement_cvc }}</label>
                 <input placeholder="{{ $reservation_paiement_cvc }}" type="number" name="cvc" id="numeroCvc" class="col-10 m-2">

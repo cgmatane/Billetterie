@@ -24,5 +24,11 @@ class DonneesVueReservationPaiement extends DonneesVue
             'The card number does not contain the correct number of numbers']);
         $this->setDonneeVue('erreurTypeCarte', ['La carte n\'est ni une mastercard ni une carte visa',
             'The card is neither a mastercard nor a visa card']);
+        $this->setDonneeVue('erreurDateExpirationMois', ['La valeur du mois saisie est inférieure au mois actuel',
+            'The value of the month entered is less than the current month']);
+        $this->setDonneeVue('erreurDateExpirationAnnee', ['La valeur de l\'année saisie est inférieure à l\'année actuelle',
+            'The value of the year entered is less than the current year']);
+        $this->setDonneeVue('erreurDateExpirationType', ['Ce champ doit être de la forme : MM / AAAA',
+            'This field must be of the form: MM / YYYY']);
     }
 }

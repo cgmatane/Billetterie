@@ -12,6 +12,20 @@ function onLoad() {
     passagerVitrine = document.getElementById('passager');
     divPassagers = document.getElementById('passagers');
     boutonMoins = document.getElementById('boutonRetirerPassager').parentElement;
+    let checkboxMateriaux = document.getElementById('checkbox');
+    let checkboxAnimaux = document.getElementById('checkbox2');
+    checkboxMateriaux.onfocusin = (function() {
+       this.parentNode.getElementsByTagName("svg")[0].style.stroke = 'green';
+    });
+    checkboxMateriaux.onblur = (function() {
+        this.parentNode.getElementsByTagName("svg")[0].style.stroke = '#1b1e21';
+    });
+    checkboxAnimaux.onfocusin = (function() {
+        this.parentNode.getElementsByTagName("svg")[0].style.stroke = 'green';
+    });
+    checkboxAnimaux.onblur = (function() {
+        this.parentNode.getElementsByTagName("svg")[0].style.stroke = '#1b1e21';
+    });
     ajouterPassager();
 }
 

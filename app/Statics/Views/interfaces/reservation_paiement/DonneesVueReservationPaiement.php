@@ -20,5 +20,9 @@ class DonneesVueReservationPaiement extends DonneesVue
         $this->setDonneeVue('envoi_billet', ['Votre billet est en cours d\'envoi...', 'Your ticket is being sent...']);
         $this->setDonneeVue('cvc','CVC');
         $this->setDonneeVue('titre_page', ['Billetterie - Paiement','Ticketing - Payment']);
+        $this->setDonneeVue('erreurNumeroCarte', ['Le numero de carte ne contient pas le bon nombre de numéros',
+            'The card number does not contain the correct number of numbers']);
+        $this->setDonneeVue('erreurTypeCarte', ['La carte n\'est ni une mastercard ni une carte visa',
+            'The card is neither a mastercard nor a visa card']);
     }
 }

@@ -21,8 +21,11 @@
                 <h3 class="h4">{{ $reservation_paiement_renseigner_informations }}</h3>
                 <label for="numeroCarte" class="d-none">{{$reservation_paiement_numero_carte}}</label>
                 <input placeholder="{{$reservation_paiement_numero_carte}}" type="tel" name="number" id="numeroCarte" class="col-10 m-2">
+                <div class="alert alert-danger champErreur hidden" id="erreurTypeCarte">
+                    <small class="texteErreur">{{ $reservation_paiement_erreurTypeCarte }}</small>
+                </div>
                 <div class="alert alert-danger champErreur hidden" id="erreurNumeroCarte">
-                    <small class="texteErreur"></small>
+                    <small class="texteErreur">{{ $reservation_paiement_erreurNumeroCarte }}</small>
                 </div>
                 <label for="nom" class="d-none">{{$reservation_paiement_nom}}</label>
                 <input placeholder="{{$reservation_paiement_nom}}" onkeyup="this.value = this.value.toUpperCase();" type="text" name="name" id="nom" class="col-10 m-2">

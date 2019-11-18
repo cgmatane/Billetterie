@@ -250,7 +250,7 @@ body {
     border: 5px solid rgba(74, 213, 69, 0.1);
 }
 
-.oui:hover {
+.oui:hover, .oui:focus {
     border: 5px solid rgba(74, 213, 69, 1);
 }
 
@@ -258,7 +258,7 @@ body {
     border: 5px solid rgba(227, 89, 89, 0.1);
 }
 
-.non:hover {
+.non:hover, .non:focus {
     border: 5px solid rgba(227, 89, 89, 1);
 }
 

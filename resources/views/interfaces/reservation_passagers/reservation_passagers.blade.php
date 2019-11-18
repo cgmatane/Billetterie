@@ -14,7 +14,7 @@
             </p>
 
             <div id="passagers">
-                <fieldset class="passager mb-2" id="passager">
+                <div class="passager mb-2" id="passager">
                     <div class="legendePassager">{{ $reservation_passagers_passager }}</div>
                     <div class="row p-0 m-2">
                         <div class="col-sm px-0">
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                </fieldset>
+                </div>
             </div>
 
             <div class="row">
@@ -69,7 +69,7 @@
             </div>
 
             @if(isset($type_vehicule) && $type_vehicule != "pas de véhicule")
-                <fieldset class="vehicule mt-2" id="vehicule">
+                <div class="vehicule mt-2" id="vehicule">
                     <div class="row p-0 m-1">
                         <div class="col-sm px-0">
                             <div class="form-group champImmatriculation" id="champImmatriculation">
@@ -102,11 +102,11 @@
                             </div>
                         </div>
                     </div>
-                </fieldset>
+                </div>
             @endif
 
 
-            <fieldset class="mt-1">
+            <div class="mt-1">
                 <div class="row">
                     <div class="form-group col" id="champCourriel">
                         <label for="valeurCourriel" class="d-none">{{ $reservation_passagers_courriel }}</label>
@@ -134,7 +134,7 @@
                     </div>
                 </div>
 
-            </fieldset>
+            </div>
             <div class="row">
                 <div class="form-group col" id="checkboxMatieres">
                     <input type="checkbox" id="checkbox" style="z-index:-1;opacity:0;position:absolute;">

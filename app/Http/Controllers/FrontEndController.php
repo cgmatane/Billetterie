@@ -6,6 +6,7 @@ use App\Http\Controllers\Pages as Controllers;
 
 use App\Statics\Views\DonneesVueGlobales;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 define('REPERTOIRE_INTERFACES', 'interfaces');
 
@@ -45,6 +46,12 @@ class FrontEndController extends Controller
 
         if (count($requete->all()) > 0)
             return $this->managerResultatFormulaire($requete, $nomRoute);
+
+        $id_administrateur = Auth::id();
+        if (preg_match('/administration\/(?!connexion)/',$nomRoute) && !isset($id_administrateur)){
+            $requete->session()->forget('utilisateur.email');
+            return redirect('/administration/connexion');
+        }
 
         $contexte = $this->getContexteDeNomPage($nomRoute);
         if ($contexte == null)

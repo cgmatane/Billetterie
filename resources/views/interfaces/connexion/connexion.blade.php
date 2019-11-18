@@ -53,7 +53,7 @@
                 <label class="form-check-label" for="checkbox">{{ $connexion_souvenir}}</label>
             </div>
             <div class="col text-center">
-                <button type="submit" class="btn btn-primary btn-lg">{{ $connexion_connexion }}</button>
+                <button type="submit" name="submit" value="connexion" class="btn btn-primary btn-lg">{{ $connexion_connexion }}</button>
             </div>
             <div class="row">
                 <small class=" col text-center">

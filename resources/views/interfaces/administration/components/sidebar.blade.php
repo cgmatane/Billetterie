@@ -35,7 +35,11 @@
                 <a href="{{route('administration.guardien')}}"><i class="fas fa-address-card"></i>Surveillance Guardien</a>
             </li>
             <li>
-                <a href=""><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                <form method="post" action="{{ route('administration.connexion') }}">
+                    {{ csrf_field() }}
+                    <label for="deconnexion"><i class='fas fa-sign-out-alt'></i> Déconnexion</label>
+                    <input type="submit" value="deconnexion" name="submit" class="hidden" id="deconnexion">
+                </form>
             </li>
 
         </ul>

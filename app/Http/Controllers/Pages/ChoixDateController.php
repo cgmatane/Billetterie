@@ -22,49 +22,57 @@ class ChoixDateController extends PageController
     {
         $date = $requete->input('date');
         $tabDate = explode(" ", $date);
-        switch ($tabDate[1]) {
-            case "Jan":
-                $mois = "01";
-                break;
-            case "Feb":
-                $mois = "02";
-                break;
-            case "Mar":
-                $mois = "03";
-                break;
-            case "Apr":
-                $mois = "04";
-                break;
-            case "May":
-                $mois = "05";
-                break;
-            case "Jun":
-                $mois = "06";
-                break;
-            case "Jul":
-                $mois = "07";
-                break;
-            case "Aug":
-                $mois = "08";
-                break;
-            case "Sep":
-                $mois = "09";
-                break;
-            case "Oct":
-                $mois = "10";
-                break;
-            case "Nov":
-                $mois = "11";
-                break;
-            case "Dec":
-                $mois = "12";
-                break;
-            default:
-                return redirect(route('choix_date'));
-                break;
+        if (count($tabDate) > 1) {
+            switch ($tabDate[1]) {
+                case "Jan":
+                    $mois = "01";
+                    break;
+                case "Feb":
+                    $mois = "02";
+                    break;
+                case "Mar":
+                    $mois = "03";
+                    break;
+                case "Apr":
+                    $mois = "04";
+                    break;
+                case "May":
+                    $mois = "05";
+                    break;
+                case "Jun":
+                    $mois = "06";
+                    break;
+                case "Jul":
+                    $mois = "07";
+                    break;
+                case "Aug":
+                    $mois = "08";
+                    break;
+                case "Sep":
+                    $mois = "09";
+                    break;
+                case "Oct":
+                    $mois = "10";
+                    break;
+                case "Nov":
+                    $mois = "11";
+                    break;
+                case "Dec":
+                    $mois = "12";
+                    break;
+                default:
+                    return redirect(route('choix_date'));
+                    break;
+            }
+            $jour = $tabDate[2];
+            $annee = $tabDate[3];
         }
-        $jour = $tabDate[2];
-        $annee = $tabDate[3];
+        else {
+            $tabDate = explode("-", $date);
+            $annee = $tabDate[0];
+            $mois = $tabDate[1];
+            $jour = $tabDate[2];
+        }
 
         $dateCommandeString = $jour . ("-") . $mois . ("-") . $annee;
         try {

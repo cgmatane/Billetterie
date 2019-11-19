@@ -10,6 +10,11 @@
                     @endcomponent
                 </div>
             </div>
+            <label class="d-none" for="date508">Date de départ</label>
+            <form>
+                <input type="date" name="date" style="opacity:0;position:absolute;" onfocus="this.style.opacity=1;" onblur="this.style.opacity=0;">
+                <input type="submit" class="d-none">
+            </form>
             <div class="text-center row justify-content-center">
                 <div class="bg-white col-sm-6 col-xs-8 bg-light pb-5 shadow-lg rounded-lg">
                     <div id="v-cal">

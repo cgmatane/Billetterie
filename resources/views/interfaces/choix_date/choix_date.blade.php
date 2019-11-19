@@ -10,7 +10,7 @@
                     @endcomponent
                 </div>
             </div>
-            <label class="d-none" for="date508">Date de départ</label>
+            <label class="d-none" for="date508">{{ $choix_date_date_depart }}</label>
             <form onsubmit="return soumettreFormulaire508(this);">
                 <input type="date" name="date" style="opacity:0;position:absolute;" onfocus="this.style.opacity=1;" onblur="this.style.opacity=0;">
                 <input type="submit" class="d-none">

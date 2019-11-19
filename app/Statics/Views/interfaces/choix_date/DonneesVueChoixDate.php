@@ -17,6 +17,7 @@ class DonneesVueChoixDate extends DonneesVue
         $this->setDonneeVue('vendredi', ['VEN','FRI']);
         $this->setDonneeVue('samedi', ['SAM','SAT']);
         $this->setDonneeVue('dimanche', ['DIM','SUN']);
+        $this->setDonneeVue('date_depart', ['Date de départ', 'Departure date']);
         $this->setDonneeVue('titre_page', ['Billetterie - Date de départ','Ticketing - Date of departure']);
         $this->nomVue = 'choix_date';
     }

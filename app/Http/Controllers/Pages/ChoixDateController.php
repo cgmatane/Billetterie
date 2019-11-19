@@ -81,7 +81,7 @@ class ChoixDateController extends PageController
         $dateDuJour = new DateTime("now");
         $interval = date_diff($dateDuJour , $dateCommande);
 
-        $differenceJours = $interval->format('%a');
+        $differenceJours = $interval->format('%r%a');
         if ($differenceJours > 90 || $differenceJours < 0){
             return redirect(route('choix_date'));
         }

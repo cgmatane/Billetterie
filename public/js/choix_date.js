@@ -69,3 +69,8 @@ window.addEventListener('load', function () {
         disablePastDays: true
     });
 });
+
+function soumettreFormulaire508(formulaire) {
+    let date = formulaire.querySelector('input[type=date]').value;
+    return date.match(/^\d\d\d\d-\d\d-\d\d$/) !== null;
+}

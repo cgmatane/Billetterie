@@ -530,7 +530,11 @@ body {
 #introduction {
     text-align: center;
 }
-
+.td-pasTrajet{
+    display:block;
+    box-sizing:border-box;
+    clear:both
+}
 .titre-gen{
     width: 90%;
     margin: 0 auto;

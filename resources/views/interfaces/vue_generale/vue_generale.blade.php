@@ -30,6 +30,9 @@
                 </tr>
                 </thead>
                 <tbody>
+                @if(!$donneesTrajet)
+                    <tr><td class="td-pasTrajet">Pas de trajets plannifiés</td></tr>
+                @endif
                 @foreach($donneesTrajet as $donneeTrajet )
                     <tr>
                         <td>{{ $donneeTrajet['nom'] }}</td>

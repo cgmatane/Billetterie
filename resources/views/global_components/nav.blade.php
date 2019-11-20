@@ -16,7 +16,7 @@
                 </div>
                 <div class="dropdown col-md-12 col-lg-2 text-center p-3">
                     <button class="btn btn-outline-param dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Changer de langue
+                        {{ $global_changer_langue }}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="{{ route('changer_langue') }}?langue=0&provenance={{ Request::url() }}">

@@ -16,7 +16,7 @@
             <div id="passagers">
                 <div class="passager mb-2" id="passager">
                     <div class="legendePassager">{{ $reservation_passagers_passager }}</div>
-                    <div class="row p-0 m-2">
+                    <div class="row p-0 my-2 mx-0">
                         <div class="col-sm px-0">
                             <div class="form-group champNom" id="champNom">
                                 <label for="valeurNom" class="d-none">{{ $reservation_passagers_nom }}</label>
@@ -70,7 +70,7 @@
 
             @if(isset($type_vehicule) && $type_vehicule != "pas de véhicule")
                 <div class="vehicule mt-2" id="vehicule">
-                    <div class="row p-0 m-1">
+                    <div class="row p-0 my-1 mx-0">
                         <div class="col-sm px-0">
                             <div class="form-group champImmatriculation" id="champImmatriculation">
                                 <label for="valeurImmatriculation" class="d-none">{{ $reservation_passagers_immatriculation }}</label>

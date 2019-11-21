@@ -27,7 +27,6 @@
                         @endcomponent
                     @endforeach
                 @endisset
-
             </div>
         </div>
         <div class="text-center row justify-content-center">

@@ -27,7 +27,7 @@ class VueGeneraleController extends PageController
     {
         $email = $requete->session()->get('utilisateur.email');
 
-        $donneesTrajet = Trajet::get()->where('date_depart', '>=', date('Y-m-d HH:mm:ss'))->take(5)->sortBy('date_depart')->all();
+        $donneesTrajet = Trajet::get()->where('date_depart', '>=', date('Y-m-d HH:mm:ss'))->where('annulation', false)->take(5)->sortBy('date_depart')->all();
         foreach ($donneesTrajet as $donneeTrajet){
             $donneeTrajet['nombrePassagers'] = $donneeTrajet->getNombrePassagers();
             $donneeTrajet['nombrePlacesPassagers'] = $donneeTrajet->getNombrePlacesPassagers();

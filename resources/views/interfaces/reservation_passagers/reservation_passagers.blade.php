@@ -138,13 +138,13 @@
             <div class="row">
                 <div class="form-group col" id="checkboxMatieres">
                     <input type="checkbox" id="checkbox" style="z-index:-1;opacity:0;position:absolute;">
-                    <label for="checkbox" class="check">
+                    <span class="check">
                         <svg width="18px" height="18px" viewBox="0 0 18 18">
                             <path
                                 d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
                             <polyline points="1 9 7 14 15 4"></polyline>
                         </svg>
-                    </label>
+                    </span>
                     <label class="form-check-label" for="checkbox">
                         {{$reservation_passagers_confirmation_matieres }}
                     </label>
@@ -157,13 +157,13 @@
             <div class="row">
                 <div class="form-group col" id="checkboxAnimaux">
                     <input type="checkbox" id="checkbox2" style="z-index:-1;opacity:0;position:absolute;">
-                    <label for="checkbox2" class="check">
+                    <span class="check">
                         <svg width="18px" height="18px" viewBox="0 0 18 18">
                             <path
                                 d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
                             <polyline points="1 9 7 14 15 4"></polyline>
                         </svg>
-                    </label>
+                    </span>
                     <label class="form-check-label" for="checkbox2">
                         {{$reservation_passagers_confirmation_animaux }}
                     </label>

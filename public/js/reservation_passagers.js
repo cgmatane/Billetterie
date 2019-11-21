@@ -27,6 +27,14 @@ function onLoad() {
         this.parentNode.getElementsByTagName("svg")[0].style.stroke = '#1b1e21';
     });
     ajouterPassager();
+
+    let checkboxs = document.getElementsByClassName('check');
+    for (let i = 0;i<checkboxs.length;i++) {
+        checkboxs[i].onclick = function(evt) {
+            evt.stopPropagation();
+            checkboxs[i].parentNode.querySelector('input').checked = !checkboxs[i].parentNode.querySelector('input').checked;
+        }
+    }
 }
 
 function ajouterPassager() {

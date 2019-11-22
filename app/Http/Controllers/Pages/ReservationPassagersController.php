@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Pages;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PageController;
 use App\Http\Requests\ReservationPassagerRequest;
+use App\IntervalleAge;
 use App\Statics\Views\interfaces\reservation_passagers\DonneesVueReservationPassagers;
 use App\Ticket;
 use App\TypeVehicule;
@@ -80,8 +81,20 @@ class ReservationPassagersController extends PageController
                 break;
         }
 
+        $intervallesAge = IntervalleAge::all();
+
+        $intervallesAgeVue = array();
+        for ($i = 0;$i<count($intervallesAge);$i++) {
+            $intervalleAgeVue = array();
+            $intervalleAgeVue['id'] = $intervallesAge[$i]->id_intervalle_age;
+            $intervalleAgeVue['age_min'] = $intervallesAge[$i]->age_min;
+            $intervalleAgeVue['age_max'] = $intervallesAge[$i]->age_max;
+            array_push($intervallesAgeVue, $intervalleAgeVue);
+        }
+
         $this->donneesDynamiques = [
             'type_vehicule'=>$typeVehicule,
+            'intervalles_age'=>$intervallesAgeVue,
         ];
     }
 }

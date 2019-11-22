@@ -29,7 +29,6 @@ class PassagerController extends ModeleController
             ['#', 'id'],
             ['Nom', 'text'],
             ['Prénom', 'text'],
-            ['Date de naissance', 'date'],
             ['Ticket', 'cle|ticket'],
             ['Intervalle âge', 'cle|intervalle_age'],
         ];

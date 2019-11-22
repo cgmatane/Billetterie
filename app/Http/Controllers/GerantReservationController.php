@@ -13,13 +13,15 @@ use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
+
 class GerantReservationController extends Controller
 {
     private $codeQR;
-
+    private $numeroFacture;
     function gerer(Request $requete)
     {
         $this->codeQR = Ticket::genererCodeQR();
+        $this->numeroFacture = Ticket::all()->last()->numero_facture + rand(1, 10); //ID unique car supérieur à celle de la derniere entrée
         $this->envoyerPDF($requete);
         $this->creerBillet($requete);
         $requete->session()->put('commande_terminee',true);
@@ -49,6 +51,7 @@ class GerantReservationController extends Controller
         /* Création du pdf de la facture */
         $donneesPdfFacture = array(
             'donneesPdfFacture' => array(
+                'numeroFacture' => $this->numeroFacture,
                 'nomClient' => $nom,
                 'prenomClient' => $prenom,
                 'montantCommande' => 45,
@@ -58,7 +61,7 @@ class GerantReservationController extends Controller
             )
         );
 
-        $emplacementPdfFacture = "factures/facture_".$this->codeQR.".pdf";
+        $emplacementPdfFacture = "factures/facture_".$this->numeroFacture.".pdf";
 
 
         // génération du pdf
@@ -88,16 +91,16 @@ class GerantReservationController extends Controller
         $ticket->id_trajet = $requete->session()->get('ticket.trajet');
         $ticket->prix = 55; // TODO gerer prix
         $ticket->date_achat = date('Y-m-d');
-        $ticket->nombre_bagage = 0; // TODO gerer nombre bagages
-        $ticket->nombre_animal = 0; // TODO gerer nombre animaux (a priori supprimer la colonne)
         $ticket->telephone = $requete->session()->get('ticket.numero');
         $ticket->mail = $requete->session()->get('ticket.mail');
+        $ticket->numero_facture = $this->numeroFacture;
+        $ticket->commentaires = "N/A";
         $ticket->save();
         for ($i = 0;$i<count($requete->session()->get('ticket.noms'));$i++) {
             $passager = new Passager();
             $passager->nom = $requete->session()->get('ticket.noms')[$i];
             $passager->prenom = $requete->session()->get('ticket.prenoms')[$i];
-            $passager->date_naissance = date('Y-m-d'); // TODO remplacer par intervalle naissance
+            $passager->id_intervalle_age = (int)($requete->session()->get('ticket.ages')[$i]);
             $passager->id_ticket = $ticket->id_ticket;
             $passager->save();
         }
@@ -107,7 +110,6 @@ class GerantReservationController extends Controller
             $vehicule->type_vehicule = $requete->session()->get('ticket.type_vehicule'); // TODO Synchro constantes TypeVehicule:: avec vrais id de BDD
             $vehicule->couleur = $requete->session()->get('ticket.couleurVehicule');
             $vehicule->immatriculation = $requete->session()->get('ticket.immatriculation');
-            $vehicule->modele = "206"; //TODO retirer ?
             $vehicule->marque = $requete->session()->get('ticket.marqueVehicule');
             $vehicule->id_ticket = $ticket->id_ticket;
             $vehicule->save();

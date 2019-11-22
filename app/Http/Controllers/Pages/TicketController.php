@@ -31,10 +31,10 @@ class TicketController extends ModeleController
             ['Prix', 'number'],
             ['Identifiant QR', 'text'],
             ['Date d\'achat', 'date'],
-            ['Nombre de bagages', 'number'],
-            ['Nombres d\'animaux', 'number'],
             ['Téléphone', 'number'],
             ['Courriel', 'text'],
+            ['Numéro de facture', 'number'],
+            ['Commentaires', 'text'],
         ];
         return $typesColonnes;
     }

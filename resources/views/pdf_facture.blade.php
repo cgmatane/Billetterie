@@ -39,7 +39,7 @@
     <div>Matane (Québec) G4W 3M6</div>
 </div>
 
-<h2 class="text-center"> Facture n°321</h2>
+<h2 class="text-center"> Facture n°{{ $donneesPdfFacture['numeroFacture'] }}</h2>
 
 <div class="row ml-0">
     <div class="col"><strong>Client :</strong></div>

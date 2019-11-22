@@ -39,14 +39,20 @@
                         </div>
                         <div class="col-sm-3 px-0">
                             <div class="form-group champAge" id="champAge">
-                                <label for="valeurAge" class="d-none">Age</label>
+                                <label for="valeurAge" class="d-none">{{ $reservation_passagers_age }}</label>
                                 <select class="browser-default custom-select" id="valeurAge">
-                                    @foreach($reservation_passagers_intervalles_age as $cle => $intervalle_age)
-                                        <option value="{{ $intervalle_age }}"
-                                            @if ($cle == $reservation_passagers_index_intervalle_age_par_defaut)
+                                    @foreach($intervalles_age as $intervalle_age)
+                                        <option value="{{ $intervalle_age['id'] }}"
+                                            @if ($intervalle_age['id'] == $reservation_passagers_index_intervalle_age_par_defaut)
                                                 selected
                                             @endif>
-                                            {{ $intervalle_age }}
+                                            @if ($intervalle_age['age_min'] <= 0)
+                                                {{ $reservation_passagers_moins_de }} {{ $intervalle_age['age_max'] + 1 }} {{ $reservation_passagers_ans }}
+                                            @elseif ($intervalle_age['age_max'] >= 500)
+                                                {{ $reservation_passagers_plus_de }} {{ $intervalle_age['age_min'] - 1 }} {{ $reservation_passagers_ans }}
+                                            @else
+                                                {{ $reservation_passagers_entre }} {{ $intervalle_age['age_min'] }} {{ $reservation_passagers_et }} {{ $intervalle_age['age_max'] }} {{ $reservation_passagers_ans }}
+                                            @endif
                                         </option>
                                     @endforeach
                                 </select>

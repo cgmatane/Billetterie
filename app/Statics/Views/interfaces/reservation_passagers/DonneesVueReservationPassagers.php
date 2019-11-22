@@ -13,6 +13,7 @@ class DonneesVueReservationPassagers extends DonneesVue
         $this->setDonneeVue('renseigner_informations', ['Renseigner vos informations','Fill in your details']);
         $this->setDonneeVue('passager', ['Passager', 'Passenger']);
         $this->setDonneeVue('nom', ['Nom','Name']);
+        $this->setDonneeVue('age', ['Âge', 'Age']);
         $this->setDonneeVue('prenom', ['Prénom','First name']);
         $this->setDonneeVue('courriel', ['Courriel','E-mail']);
         $this->setDonneeVue('numero', ['Numéro de téléphone','Phone number']);
@@ -33,7 +34,12 @@ class DonneesVueReservationPassagers extends DonneesVue
         $this->setDonneeVue('confirmation_matieres_invalide',['Vous devez confirmer que vous ne transportez pas de matériaux dangereux','You have to confirm that you won\'t be travelling with any kind of dangerous materials']);
         $this->setDonneeVue('paiement', ['PROCÉDER AU PAIEMENT','PROCEED TO PAYMENT']);
         $this->setDonneeVue('intervalles_age', [['moins de 18 ans', 'entre 18 et 60 ans', 'plus de 60 ans'],['Less than 18 years old', 'Between 18 and 60 years old', 'More than 60 years old']]);
-        $this->setDonneeVue('index_intervalle_age_par_defaut', 1);
+        $this->setDonneeVue('moins_de', ['Moins de', 'Less than']);
+        $this->setDonneeVue('plus_de', ['Plus de', 'More than']);
+        $this->setDonneeVue('entre', ['Entre', 'Between']);
+        $this->setDonneeVue('et', ['et', 'and']);
+        $this->setDonneeVue('ans', ['ans', 'years old']);
+        $this->setDonneeVue('index_intervalle_age_par_defaut', 2);
         $this->setDonneeVue('ajouter_passager', ['Ajouter un passager','Add a passenger']);
         $this->setDonneeVue('retirer_passager', ['Retirer un passager','Remove a passenger']);
         $this->setDonneeVue('infos_matiere_dangereuse_titre', ['Information matières dangereuses','Informations dangerous materials']);

@@ -30,7 +30,6 @@ class VehiculeController extends ModeleController
             ['Type du véhicule', 'cle|type_vehicule'],
             ['Couleur', 'text'],
             ['Immatriculation', 'text'],
-            ['Modèle', 'text'],
             ['Marque', 'text'],
             ['Ticket', 'cle|ticket'],
         ];

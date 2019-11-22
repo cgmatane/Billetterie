@@ -32,21 +32,15 @@
         <div class="text-center row justify-content-center">
             <div class="col-sm-6 col-xs-8 p-0">
                 <div class="col-sm-5 col-xs-12 float-left">
-                    @component('interfaces.accueil.components.bouton_changer_parametres_depart')
-                        @slot('route')
-                            {{ route('choix_date') }}
-                        @endslot
-                        {{ $accueil_choix_autre_date }}
-                    @endcomponent
+                    <a class="btn btn-outline-param my-3 my-sm-5 p-3 " style="font-size: 1.5em" href="{{ route('choix_date') }}">
+                            {{ $accueil_choix_autre_date }}
+                    </a>
                 </div>
 
                 <div class="col-sm-5 col-xs-12 float-right">
-                    @component('interfaces.accueil.components.bouton_changer_parametres_depart')
-                        @slot('route')
-                            {{ route('choix_depart') }}
-                        @endslot
-                        {{ $accueil_choix_autre_depart }}
-                    @endcomponent
+                    <a class="btn btn-outline-param mt-3 mb-5 my-sm-5 p-3 " style="font-size: 1.5em" href="{{ route('choix_depart') }}">
+                            {{ $accueil_choix_autre_depart }}
+                    </a>
                 </div>
             </div>
         </div>

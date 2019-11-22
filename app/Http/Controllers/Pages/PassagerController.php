@@ -31,6 +31,7 @@ class PassagerController extends ModeleController
             ['Prénom', 'text'],
             ['Date de naissance', 'date'],
             ['Ticket', 'cle|ticket'],
+            ['Intervalle âge', 'cle|intervalle_age'],
         ];
         return $typesColonnes;
     }
@@ -40,6 +41,15 @@ class PassagerController extends ModeleController
         $attributsLies = ['id_ticket'];
         $nomEntrees = [];
         $entrees = App\Ticket::get();
+        foreach ($entrees as $entree) {
+            $nomEntrees[$entree->getAttributes()[array_key_first($entree->getAttributes())]] = $entree->getNomAffiche();
+        }
+        $this->ajouterTableClesEtrangeres($nomTable, $attributsLies, $nomEntrees);
+
+        $nomTable = 'intervalle_age';
+        $attributsLies = ['id_intervalle_age'];
+        $nomEntrees = [];
+        $entrees = App\IntervalleAge::get();
         foreach ($entrees as $entree) {
             $nomEntrees[$entree->getAttributes()[array_key_first($entree->getAttributes())]] = $entree->getNomAffiche();
         }

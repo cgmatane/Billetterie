@@ -22,6 +22,12 @@ class Passager extends ModeleParent
         return Ticket::find($this->id_ticket);
     }
 
+    public function intervalleAge() {
+        return IntervalleAge::find($this->id_intervalle_age);
+        //return $this->belongsTo('App\TypeVehicule', 'id_type_vehicule', 'id_type_vehicule');
+    }
+
+
     protected function getDependancesDirectes()
     {
         return array();

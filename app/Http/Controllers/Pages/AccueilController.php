@@ -64,7 +64,7 @@ class AccueilController extends PageController
                 $trajetVue = array(
                     'id' => $trajet->id_trajet,
                     'stationArrivee' => $trajet->stationArrivee()->nom,
-                    'heureDepart' => date('H:i', strtotime($trajet->date_depart)),
+                    'heureDepart' => date('H\hi', strtotime($trajet->date_depart)),
                 );
                 array_push($trajetsVue, $trajetVue);
             }

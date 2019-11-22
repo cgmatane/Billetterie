@@ -70,6 +70,12 @@ class AccueilController extends PageController
             }
         }
 
+        usort($trajetsVue, function($a, $b) {
+            if ($a['stationArrivee'] == $b['stationArrivee'])
+                return $a['heureDepart'] > $b['heureDepart'];
+            return ($a['stationArrivee'] > $b['stationArrivee']);
+        });
+
         //On injecte aux donnees la date d'aujourd'hui en francais (affiché en haut de la vue) et les trajets
         $this->donneesDynamiques = array(
             'date'=>$this->getDateTraduite($date),

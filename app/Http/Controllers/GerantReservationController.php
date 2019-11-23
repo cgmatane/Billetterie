@@ -93,8 +93,8 @@ class GerantReservationController extends Controller
         $ticket->date_achat = date('Y-m-d');
         $ticket->telephone = $requete->session()->get('ticket.numero');
         $ticket->mail = $requete->session()->get('ticket.mail');
+        $ticket->commentaires = $requete->session()->get('ticket.commentaires');
         $ticket->numero_facture = $this->numeroFacture;
-        $ticket->commentaires = "N/A";
         $ticket->save();
         for ($i = 0;$i<count($requete->session()->get('ticket.noms'));$i++) {
             $passager = new Passager();

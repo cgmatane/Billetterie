@@ -6,13 +6,11 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PageController;
-use App\Http\Requests\ReservationPassagerRequest;
 use App\IntervalleAge;
 use App\Statics\Views\interfaces\reservation_passagers\DonneesVueReservationPassagers;
-use App\Ticket;
+use Illuminate\Support\Facades\Auth;
 use App\TypeVehicule;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class ReservationPassagersController extends PageController
 {
@@ -55,6 +53,12 @@ class ReservationPassagersController extends PageController
         $requete->session()->put('ticket.mail', $validatedData['mail']);
         $requete->session()->put('ticket.numero', $validatedData['numero']);
 
+        if ($requete->input('commentaires') != null && Auth::id() != null)
+            $commentaires = $requete->input('commentaires');
+        else
+            $commentaires = "N/A";
+        $requete->session()->put('ticket.commentaires', $commentaires);
+
         return redirect(route('validation_informations'));
     }
 
@@ -92,9 +96,11 @@ class ReservationPassagersController extends PageController
             array_push($intervallesAgeVue, $intervalleAgeVue);
         }
 
+        $estAdministrateur = Auth::id() != null;
         $this->donneesDynamiques = [
             'type_vehicule'=>$typeVehicule,
             'intervalles_age'=>$intervallesAgeVue,
+            'est_admin'=>$estAdministrateur,
         ];
     }
 }

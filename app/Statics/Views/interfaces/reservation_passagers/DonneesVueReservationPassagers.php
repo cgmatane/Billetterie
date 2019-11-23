@@ -20,6 +20,7 @@ class DonneesVueReservationPassagers extends DonneesVue
         $this->setDonneeVue('immatriculation', ['Numéro d\'immatriculation de votre véhicule','Vehicle registration number']);
         $this->setDonneeVue('marque_vehicule', ['Marque de votre véhicule', 'Vehicle brand']);
         $this->setDonneeVue('couleur_vehicule', ['Couleur de votre véhicule', 'Vehicle color']);
+        $this->setDonneeVue('commentaires', ['Commentaires', 'Commentaries']);
         $this->setDonneeVue('nom_invalide', ['Le nom est invalide','The name is invalid']);
         $this->setDonneeVue('prenom_invalide', ['Le prénom est invalide','The first name is invalid']);
         $this->setDonneeVue('courriel_invalide', ['Le courriel est invalide','The e-mail is invalid']);

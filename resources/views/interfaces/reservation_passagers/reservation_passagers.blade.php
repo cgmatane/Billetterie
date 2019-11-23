@@ -141,9 +141,10 @@
                 </div>
 
             </div>
-            <div class="row">
+
+            <div class="row" @if($est_admin)style="visibility: hidden;position:absolute;" @endif>
                 <div class="form-group col" id="checkboxMatieres">
-                    <input type="checkbox" id="checkbox" style="z-index:-1;opacity:0;position:absolute;">
+                    <input type="checkbox" id="checkbox" style="z-index:-1;opacity:0;position:absolute;" @if($est_admin) checked @endif>
                     <span class="check">
                         <svg width="18px" height="18px" viewBox="0 0 18 18">
                             <path
@@ -160,9 +161,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" @if($est_admin)style="visibility: hidden;position:absolute;" @endif>
                 <div class="form-group col" id="checkboxAnimaux">
-                    <input type="checkbox" id="checkbox2" style="z-index:-1;opacity:0;position:absolute;">
+                    <input type="checkbox" id="checkbox2" style="z-index:-1;opacity:0;position:absolute;" @if($est_admin) checked @endif>
                     <span class="check">
                         <svg width="18px" height="18px" viewBox="0 0 18 18">
                             <path
@@ -179,6 +180,18 @@
                     </div>
                 </div>
             </div>
+
+            @if($est_admin)
+                <div class="row">
+                    <div class="form-group col" id="champCommentaires">
+                        <label for="valeurCommentaires" class="d-none">{{ $reservation_passagers_commentaires }}</label>
+                        <input name="commentaires" type="text" class="form-control medium"
+                               id="valeurCommentaires"
+                               placeholder="{{ $reservation_passagers_commentaires }}"
+                        >
+                    </div>
+                </div>
+            @endif
 
             <button type="submit" class="btn btn-outline-success my-4 btn-block">
                 {{ $reservation_passagers_paiement}}

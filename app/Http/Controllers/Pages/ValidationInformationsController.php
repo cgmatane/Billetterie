@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PageController;
+use App\IntervalleAge;
 use App\Statics\Views\interfaces\validation_informations\DonneesVueValidationInformations;
 use App\Trajet;
 use App\TypeVehicule;
@@ -30,7 +31,12 @@ class ValidationInformationsController extends PageController
         $dateArrivee = date('d/m/Y h\hi',strtotime($trajet->date_arrivee));
         $noms = $requete->session()->get('ticket.noms');
         $prenoms = $requete->session()->get('ticket.prenoms');
-        $ages = $requete->session()->get('ticket.ages');
+        $intervalles_age = $requete->session()->get('ticket.ages');
+        $ages = [];
+        foreach ($intervalles_age as $intervalle_age) {
+            $age = IntervalleAge::find($intervalle_age);
+            array_push($ages, ['age_min'=>$age->age_min, 'age_max'=>$age->age_max]);
+        }
         $mail = $requete->session()->get('ticket.mail');
         $numero = $requete->session()->get('ticket.numero');
         $poidsEleve = $requete->session()->get('ticket.poids_eleve');

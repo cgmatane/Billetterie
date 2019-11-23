@@ -28,6 +28,11 @@ class DonneesVueValidationInformations extends DonneesVue
         $this->setDonneeVue('nom',['Nom','Name']);
         $this->setDonneeVue('prenom',['Prénom','First name']);
         $this->setDonneeVue('age',['Âge','Age']);
+        $this->setDonneeVue('moins_de', ['Moins de', 'Less than']);
+        $this->setDonneeVue('plus_de', ['Plus de', 'More than']);
+        $this->setDonneeVue('entre', ['Entre', 'Between']);
+        $this->setDonneeVue('et', ['et', 'and']);
+        $this->setDonneeVue('ans', ['ans', 'years old']);
         $this->setDonneeVue('tarif',['Tarif','Tariff']);
         $this->setDonneeVue('vehicule',['Véhicule','Vehicle']);
         $this->setDonneeVue('vehicule_soute',['Véhicule :','Vehicle :']);
@@ -35,7 +40,6 @@ class DonneesVueValidationInformations extends DonneesVue
         $this->setDonneeVue('oui',['Oui','Yes']);
         $this->setDonneeVue('non',['Non','No']);
         $this->setDonneeVue('valider_informations_billet',['VALIDER LES INFORMATIONS DE MON BILLET','CONFIRM THE DETAILS OF MY TICKET']);
-        //TODO wt
         $this->setDonneeVue('titre_page', ['Billetterie - Validation des informations','Ticketing - Details validation']);
 
     }

@@ -68,7 +68,15 @@
                     <tr>
                         <td>{{ $noms[$i] }}</td>
                         <td>{{ $prenoms[$i] }}</td>
-                        <td>{{ $ages[$i] }}</td>
+                        <td>
+                            @if ($ages[$i]['age_min'] <= 0)
+                                {{ $validation_informations_moins_de }} {{ $ages[$i]['age_max'] + 1 }} {{ $validation_informations_ans }}
+                            @elseif ($ages[$i]['age_max'] >= 500)
+                                {{ $validation_informations_plus_de }} {{ $ages[$i]['age_min'] - 1 }} {{ $validation_informations_ans }}
+                            @else
+                                {{ $validation_informations_entre }} {{ $ages[$i]['age_min'] }} {{ $validation_informations_et }} {{ $ages[$i]['age_max'] }} {{ $validation_informations_ans }}
+                            @endif
+                            </td>
                         <td>20.00 {{ $validation_informations_dollar_canadien }}</td> {{-- temporaire --}}
                     </tr>
                 @endfor

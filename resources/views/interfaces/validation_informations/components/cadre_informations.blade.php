@@ -41,7 +41,7 @@
                     {{ $validation_informations_prix }}
                 </div>
                 <div class="col">
-                    XXX {{ $validation_informations_dollar_canadien }}
+                    {{ $prix }} {{ $validation_informations_dollar_canadien }}
                 </div>
             </div>
             @isset($imageQR)
@@ -77,7 +77,7 @@
                                 {{ $validation_informations_entre }} {{ $ages[$i]['age_min'] }} {{ $validation_informations_et }} {{ $ages[$i]['age_max'] }} {{ $validation_informations_ans }}
                             @endif
                             </td>
-                        <td>20.00 {{ $validation_informations_dollar_canadien }}</td> {{-- temporaire --}}
+                        <td>{{ $tarifs_passagers[$i] }} {{ $validation_informations_dollar_canadien }}</td>
                     </tr>
                 @endfor
 
@@ -114,6 +114,14 @@
                     </div>
                     <div class="col">
                         {{ $immatriculation }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ $validation_informations_tarif }}
+                    </div>
+                    <div class="col">
+                        {{ $tarif_vehicule }}
                     </div>
                 </div>
             </div>

@@ -10,6 +10,7 @@ use App\IntervalleAge;
 use App\Statics\Views\interfaces\validation_informations\DonneesVueValidationInformations;
 use App\Trajet;
 use App\TypeVehicule;
+use App\Vehicule;
 use Illuminate\Http\Request;
 
 class ValidationInformationsController extends PageController
@@ -33,9 +34,11 @@ class ValidationInformationsController extends PageController
         $prenoms = $requete->session()->get('ticket.prenoms');
         $intervalles_age = $requete->session()->get('ticket.ages');
         $ages = [];
+        $tarifsPassagers = [];
         foreach ($intervalles_age as $intervalle_age) {
             $age = IntervalleAge::find($intervalle_age);
             array_push($ages, ['age_min'=>$age->age_min, 'age_max'=>$age->age_max]);
+            array_push($tarifsPassagers, $age->tarif);
         }
         $mail = $requete->session()->get('ticket.mail');
         $numero = $requete->session()->get('ticket.numero');
@@ -61,8 +64,20 @@ class ValidationInformationsController extends PageController
                 $typeVehicule = "pas de véhicule";
                 break;
         }
+        $tarifVehicule = 0;
+        $tarifVehicule += TypeVehicule::find($requete->session()->get('ticket.type_vehicule'))->tarif;
+        if ($requete->session()->get('poids_eleve'))
+            $tarifVehicule += Vehicule::SUPPLEMENT_POIDS_ELEVE;
+
+        $prix = 0;
+
+        foreach($tarifsPassagers as $tarifPassager) {
+            $prix += $tarifPassager;
+        }
+        $prix += $tarifVehicule;
 
         $this->donneesDynamiques = [
+            'prix'=>$prix,
             'type_vehicule'=>$typeVehicule,
             'depart'=>$depart,
             'date_depart'=>$dateDepart,
@@ -71,10 +86,12 @@ class ValidationInformationsController extends PageController
             'noms'=>$noms,
             'prenoms'=>$prenoms,
             'ages'=>$ages,
+            'tarifs_passagers'=>$tarifsPassagers,
             'mail'=>$mail,
             'numero'=>$numero,
             'poids_eleve'=>$poidsEleve,
             'immatriculation'=>$immatriculation,
+            'tarif_vehicule'=>$tarifVehicule,
         ];
     }
 

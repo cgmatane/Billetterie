@@ -16,14 +16,11 @@ use Illuminate\Support\Facades\Mail;
 
 class GerantReservationController extends Controller
 {
-    private $codeQR;
-    private $numeroFacture;
     private $ticket;
 
     function gerer(Request $requete)
     {
-        $this->codeQR = Ticket::genererCodeQR();
-        $this->numeroFacture = Ticket::all()->last()->numero_facture + rand(1, 10); //ID unique car supérieur à celle de la derniere entrée
+
         $this->creerBillet($requete);
         $this->envoyerPDF($requete);
         $requete->session()->put('commande_terminee',true);
@@ -33,11 +30,11 @@ class GerantReservationController extends Controller
     private function envoyerPDF($requete) {
         /* Création du pdf du billet */
         $donneesPdfBillet = (new ValidationInformationsController())->getDonnees($requete);
-        $donneesPdfBillet['imageQR'] = "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=" . $this->codeQR;
-        $donneesPdfBillet['codeQR'] = $this->codeQR;
+        $donneesPdfBillet['imageQR'] = "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=" . $this->ticket->codeQR;
+        $donneesPdfBillet['codeQR'] = $this->ticket->codeQR;
         date_default_timezone_set("America/New_York");
         $donneesPdfBillet['dateEmission'] = date('Y/m/d H:i:s');
-        $emplacementPdfBillet = "billets/billet_".$this->codeQR.".pdf";
+        $emplacementPdfBillet = "billets/billet_".$this->ticket->codeQR.".pdf";
         PDF::loadView('pdf_billet', $donneesPdfBillet)->save($emplacementPdfBillet);
 
         $mail = $requete->session()->get('ticket.mail');
@@ -54,7 +51,7 @@ class GerantReservationController extends Controller
         /* Création du pdf de la facture */
         $donneesPdfFacture = array(
             'donneesPdfFacture' => array(
-                'numeroFacture' => $this->numeroFacture,
+                'numeroFacture' => $this->ticket->numero_facture,
                 'nomClient' => $nom,
                 'prenomClient' => $prenom,
                 'montantCommande' => $tarif,
@@ -64,7 +61,7 @@ class GerantReservationController extends Controller
             )
         );
 
-        $emplacementPdfFacture = "factures/facture_".$this->numeroFacture.".pdf";
+        $emplacementPdfFacture = "factures/facture_".$this->ticket->numero_facture.".pdf";
 
 
         // génération du pdf
@@ -90,7 +87,7 @@ class GerantReservationController extends Controller
 
     private function creerBillet($requete) {
         $this->ticket = new Ticket();
-        $this->ticket->qrcode = $this->codeQR;
+        $this->ticket->qrcode = Ticket::genererCodeQR();
         $this->ticket->id_trajet = $requete->session()->get('ticket.trajet');
         //On calcule le prix apres avoir insere les passagers et vehicules, parce que la colonne est NOT NULL on ajoute une valeur par defaut
         $this->ticket->prix = 0;
@@ -98,7 +95,7 @@ class GerantReservationController extends Controller
         $this->ticket->telephone = $requete->session()->get('ticket.numero');
         $this->ticket->mail = $requete->session()->get('ticket.mail');
         $this->ticket->commentaires = $requete->session()->get('ticket.commentaires');
-        $this->ticket->numero_facture = $this->numeroFacture;
+        $this->ticket->numero_facture = Ticket::genererNumeroFacture();;
         $this->ticket->save();
         for ($i = 0;$i<count($requete->session()->get('ticket.noms'));$i++) {
             $passager = new Passager();

@@ -64,6 +64,10 @@ class Ticket extends ModeleParent
         return $tarif;
     }
 
+    public static function genererNumeroFacture() {
+        return Ticket::all()->last()->numero_facture + rand(1, 10);
+    }
+
     public static function genererCodeQR() {
         do {
             $codeQR = "";

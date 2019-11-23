@@ -49,6 +49,21 @@ class Ticket extends ModeleParent
         return Passager::where('id_ticket', $this->id_ticket)->count();
     }
 
+    public function getTarif() {
+        $tarif = 0;
+        $passagers = $this->passagers();
+        for ($i = 0;$i<count($passagers);$i++) {
+            $tarif += $passagers[$i]->intervalleAge()->tarif;
+        }
+        $vehicule = $this->vehicule();
+        if ($vehicule != null) {
+            $tarif += (int)($vehicule->typeVehicule()->tarif);
+            if ($vehicule->poids_eleve)
+                $tarif += Vehicule::SUPPLEMENT_POIDS_ELEVE;
+        }
+        return $tarif;
+    }
+
     public static function genererCodeQR() {
         do {
             $codeQR = "";

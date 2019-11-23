@@ -18,12 +18,14 @@ class GerantReservationController extends Controller
 {
     private $codeQR;
     private $numeroFacture;
+    private $ticket;
+
     function gerer(Request $requete)
     {
         $this->codeQR = Ticket::genererCodeQR();
         $this->numeroFacture = Ticket::all()->last()->numero_facture + rand(1, 10); //ID unique car supérieur à celle de la derniere entrée
-        $this->envoyerPDF($requete);
         $this->creerBillet($requete);
+        $this->envoyerPDF($requete);
         $requete->session()->put('commande_terminee',true);
         return redirect(route('index'));
     }
@@ -43,6 +45,7 @@ class GerantReservationController extends Controller
         $nom = $noms[0];
         $prenoms = $requete->session()->get('ticket.prenoms');
         $prenom = $prenoms[0];
+        $tarif = $this->ticket->prix;
         $date = $requete->session()->get('ticket.date');
         $heure = $requete->session()->get('ticket.heure');
         $depart = $requete->session()->get('ticket.depart');
@@ -54,7 +57,7 @@ class GerantReservationController extends Controller
                 'numeroFacture' => $this->numeroFacture,
                 'nomClient' => $nom,
                 'prenomClient' => $prenom,
-                'montantCommande' => 45,
+                'montantCommande' => $tarif,
                 'numeroCarte' => $requete->session()->get('paiement.carte'),
                 'titulaireCarte' => $requete->session()->get('paiement.nom'),
                 'datePaiement' =>  $requete->session()->get('paiement.date')
@@ -86,22 +89,23 @@ class GerantReservationController extends Controller
     }
 
     private function creerBillet($requete) {
-        $ticket = new Ticket();
-        $ticket->qrcode = $this->codeQR;
-        $ticket->id_trajet = $requete->session()->get('ticket.trajet');
-        $ticket->prix = 55; // TODO gerer prix
-        $ticket->date_achat = date('Y-m-d');
-        $ticket->telephone = $requete->session()->get('ticket.numero');
-        $ticket->mail = $requete->session()->get('ticket.mail');
-        $ticket->commentaires = $requete->session()->get('ticket.commentaires');
-        $ticket->numero_facture = $this->numeroFacture;
-        $ticket->save();
+        $this->ticket = new Ticket();
+        $this->ticket->qrcode = $this->codeQR;
+        $this->ticket->id_trajet = $requete->session()->get('ticket.trajet');
+        //On calcule le prix apres avoir insere les passagers et vehicules, parce que la colonne est NOT NULL on ajoute une valeur par defaut
+        $this->ticket->prix = 0;
+        $this->ticket->date_achat = date('Y-m-d');
+        $this->ticket->telephone = $requete->session()->get('ticket.numero');
+        $this->ticket->mail = $requete->session()->get('ticket.mail');
+        $this->ticket->commentaires = $requete->session()->get('ticket.commentaires');
+        $this->ticket->numero_facture = $this->numeroFacture;
+        $this->ticket->save();
         for ($i = 0;$i<count($requete->session()->get('ticket.noms'));$i++) {
             $passager = new Passager();
             $passager->nom = $requete->session()->get('ticket.noms')[$i];
             $passager->prenom = $requete->session()->get('ticket.prenoms')[$i];
             $passager->id_intervalle_age = (int)($requete->session()->get('ticket.ages')[$i]);
-            $passager->id_ticket = $ticket->id_ticket;
+            $passager->id_ticket = $this->ticket->id_ticket;
             $passager->save();
         }
 
@@ -111,9 +115,14 @@ class GerantReservationController extends Controller
             $vehicule->couleur = $requete->session()->get('ticket.couleurVehicule');
             $vehicule->immatriculation = $requete->session()->get('ticket.immatriculation');
             $vehicule->marque = $requete->session()->get('ticket.marqueVehicule');
-            $vehicule->id_ticket = $ticket->id_ticket;
+            $vehicule->poids_eleve = $requete->session()->get('ticket.poids_eleve');
+            $vehicule->id_ticket = $this->ticket->id_ticket;
             $vehicule->save();
         }
+
+        //On ne peut calculer le prix qu'apres avoir ajouté les passagers et le vehicule
+        $this->ticket->prix = $this->ticket->getTarif();
+        $this->ticket->save();
     }
 
 

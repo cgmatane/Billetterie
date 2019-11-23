@@ -14,14 +14,16 @@ class Vehicule extends ModeleParent
 
     public $timestamps = false;
 
+    const SUPPLEMENT_POIDS_ELEVE = 8.00;
+
     public function getNomAffiche()
     {
         return "Véhicule ".$this->marque." modèle ".$this->modele . " couleur ".$this->couleur;
     }
 
     public function typeVehicule() {
-        return TypeVehicule::find($this->id_type_vehicule);
-        //return $this->belongsTo('App\TypeVehicule', 'id_type_vehicule', 'id_type_vehicule');
+        return TypeVehicule::find($this->type_vehicule);
+        //return $this->belongsTo('App\TypeVehicule', 'type_vehicule', 'type_vehicule');
     }
 
     public function ticket() {

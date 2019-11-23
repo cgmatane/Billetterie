@@ -1,10 +1,10 @@
-<div class="container bg-white {{--text-center--}} shadow-lg mt-3 p-5" style="border-radius: 0.5em;">
+<div class="container bg-white shadow-lg mt-3 p-5" style="border-radius: 0.5em;">
     <div class="m-1">
         <div class="container-fluid border text-justify border-secondary mt-4 mb-2 pb-2" style="border-radius: 0.5em;">
             <h2 class="mt-2 h4">{{ $validation_informations_traversee }}</h2>
             <div class="row">
                 <div class="col">
-                    {{ $validation_informations_date  }}
+                    {{ $validation_informations_date }}
                 </div>
                 <div class="col">
                     {{ $date }}
@@ -12,7 +12,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    {{ $validation_informations_depart  }}
+                    {{ $validation_informations_depart }}
                 </div>
                 <div class="col">
                     {{ $depart }}
@@ -21,7 +21,7 @@
 
             <div class="row">
                 <div class="col">
-                    {{ $validation_informations_heure_depart  }}
+                    {{ $validation_informations_heure_depart }}
                 </div>
                 <div class="col">
                     {{ $heure }}
@@ -38,7 +38,7 @@
 
             <div class="row">
                 <div class="col">
-                    {{ $validation_informations_prix  }}
+                    {{ $validation_informations_prix }}
                 </div>
                 <div class="col">
                     XXX {{ $validation_informations_dollar_canadien }}

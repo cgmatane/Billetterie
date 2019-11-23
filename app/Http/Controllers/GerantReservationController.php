@@ -30,11 +30,11 @@ class GerantReservationController extends Controller
     private function envoyerPDF($requete) {
         /* Création du pdf du billet */
         $donneesPdfBillet = (new ValidationInformationsController())->getDonnees($requete);
-        $donneesPdfBillet['imageQR'] = "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=" . $this->ticket->codeQR;
-        $donneesPdfBillet['codeQR'] = $this->ticket->codeQR;
+        $donneesPdfBillet['imageQR'] = "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=" . $this->ticket->qrcode;
+        $donneesPdfBillet['codeQR'] = $this->ticket->qrcode;
         date_default_timezone_set("America/New_York");
         $donneesPdfBillet['dateEmission'] = date('Y/m/d H:i:s');
-        $emplacementPdfBillet = "billets/billet_".$this->ticket->codeQR.".pdf";
+        $emplacementPdfBillet = "billets/billet_".$this->ticket->qrcode.".pdf";
         PDF::loadView('pdf_billet', $donneesPdfBillet)->save($emplacementPdfBillet);
 
         $mail = $requete->session()->get('ticket.mail');
@@ -46,7 +46,6 @@ class GerantReservationController extends Controller
         $depart = $requete->session()->get('ticket.depart');
         $arrivee = $requete->session()->get('ticket.arrivee');
         $dateDepart = date('d/m/Y h\hi',strtotime($this->ticket->trajet()->date_depart));;
-        $dateArrivee = date('d/m/Y h\hi',strtotime($this->ticket->trajet()->date_arrivee));;
 
         /* Création du pdf de la facture */
         $donneesPdfFacture = array(

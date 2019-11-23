@@ -24,9 +24,10 @@ class ValidationInformationsController extends PageController
     {
         $date = $requete->session()->get('ticket.date');
         $trajet = Trajet::find($requete->session()->get('ticket.trajet'));
-        $heure = $trajet->date_depart;
         $depart = $trajet->stationDepart()->nom;
+        $dateDepart = date('d/m/Y h\hi',strtotime($trajet->date_depart));
         $arrivee = $trajet->stationArrivee()->nom;
+        $dateArrivee = date('d/m/Y h\hi',strtotime($trajet->date_arrivee));
         $noms = $requete->session()->get('ticket.noms');
         $prenoms = $requete->session()->get('ticket.prenoms');
         $ages = $requete->session()->get('ticket.ages');
@@ -57,10 +58,10 @@ class ValidationInformationsController extends PageController
 
         $this->donneesDynamiques = [
             'type_vehicule'=>$typeVehicule,
-            'date'=>$date,
-            'heure'=>$heure,
             'depart'=>$depart,
+            'date_depart'=>$dateDepart,
             'arrivee'=>$arrivee,
+            'date_arrivee'=>$dateArrivee,
             'noms'=>$noms,
             'prenoms'=>$prenoms,
             'ages'=>$ages,

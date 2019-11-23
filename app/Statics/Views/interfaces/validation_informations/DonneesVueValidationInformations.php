@@ -14,9 +14,9 @@ class DonneesVueValidationInformations extends DonneesVue
         $this->nomVue = 'validation_informations';
         $this->setDonneeVue('recapitulatif_billet',['Récapitulatif du billet','Summary of the ticket']);
         $this->setDonneeVue('traversee', ['Traversée','Voyage']);
-        $this->setDonneeVue('date',['Date :','Date :']);
+        $this->setDonneeVue('date_depart',['Date de départ :','Departure date :']);
         $this->setDonneeVue('depart',['Départ :','Departure :']);
-        $this->setDonneeVue('heure_depart',['Heure de départ :','Hour of departure :']);
+        $this->setDonneeVue('date_arrivee',['Date d\'arrivée :','Date of arrival :']);
         $this->setDonneeVue('arrivee',['Arrivée :','Arrival :']);
         $this->setDonneeVue('prix',['Prix :','Price :']);
         $this->setDonneeVue('dollar_canadien','CAD');

@@ -2,39 +2,39 @@
     <div class="m-1">
         <div class="container-fluid border text-justify border-secondary mt-4 mb-2 pb-2" style="border-radius: 0.5em;">
             <h2 class="mt-2 h4">{{ $validation_informations_traversee }}</h2>
-            <div class="row">
-                <div class="col">
-                    {{ $validation_informations_date }}
+                <div class="row">
+                    <div class="col">
+                        {{ $validation_informations_depart }}
+                    </div>
+                    <div class="col">
+                        {{ $depart }}
+                    </div>
                 </div>
-                <div class="col">
-                    {{ $date }}
+                <div class="row">
+                    <div class="col">
+                        {{ $validation_informations_arrivee }}
+                    </div>
+                    <div class="col">
+                        {{ $arrivee }}
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    {{ $validation_informations_depart }}
-                </div>
-                <div class="col">
-                    {{ $depart }}
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col">
-                    {{ $validation_informations_heure_depart }}
+                <div class="row">
+                    <div class="col">
+                        {{ $validation_informations_date_depart }}
+                    </div>
+                    <div class="col">
+                        {{ $date_depart }}
+                    </div>
                 </div>
-                <div class="col">
-                    {{ $heure }}
+                <div class="row">
+                    <div class="col">
+                        {{ $validation_informations_date_arrivee }}
+                    </div>
+                    <div class="col">
+                        {{ $date_arrivee }}
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    {{ $validation_informations_arrivee }}
-                </div>
-                <div class="col">
-                    {{ $arrivee }}
-                </div>
-            </div>
 
             <div class="row">
                 <div class="col">

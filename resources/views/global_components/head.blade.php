@@ -8,7 +8,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">--}}
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title> @yield('titre')</title>
+    <title>@yield('titre')</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="{{URL::asset('/img/favicon.ico')}}" />
     <link rel="stylesheet" href="{{ URL::asset('/css/bootstrap.css') }}">
@@ -17,6 +17,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Muli:400,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Paytone+One&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>

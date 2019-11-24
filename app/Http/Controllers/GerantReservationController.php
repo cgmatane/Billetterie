@@ -23,7 +23,8 @@ class GerantReservationController extends Controller
 
     function gerer(Request $requete)
     {
-
+        if ($requete->cookie('langue') != null)
+            FrontEndController::$langueCourante = (int)$requete->cookie('langue');
         $this->creerBillet($requete);
         $this->envoyerPDF($requete);
         $requete->session()->put('commande_terminee',true);

@@ -65,9 +65,11 @@ class ValidationInformationsController extends PageController
                 break;
         }
         $tarifVehicule = 0;
-        $tarifVehicule += TypeVehicule::find($requete->session()->get('ticket.type_vehicule'))->tarif;
-        if ($requete->session()->get('poids_eleve'))
-            $tarifVehicule += Vehicule::SUPPLEMENT_POIDS_ELEVE;
+        if ($requete->session()->get('ticket.type_vehicule')) {
+            $tarifVehicule += TypeVehicule::find($requete->session()->get('ticket.type_vehicule'))->tarif;
+            if ($requete->session()->get('poids_eleve'))
+                $tarifVehicule += Vehicule::SUPPLEMENT_POIDS_ELEVE;
+        }
 
         $prix = 0;
 

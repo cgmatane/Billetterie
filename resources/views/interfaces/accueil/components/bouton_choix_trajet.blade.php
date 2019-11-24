@@ -7,7 +7,7 @@
         </p>
     </div>
 </a>
-    <div class="align-middle d-inline-block">
+    <div id="myBtn" class="align-middle d-inline-block">
         <i class="fa fa-info-circle float-right fa-2x" style="color:blue"></i>
     </div>
 </div>

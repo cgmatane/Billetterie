@@ -46,9 +46,9 @@ class GerantReservationController extends Controller
         $prenoms = $requete->session()->get('ticket.prenoms');
         $prenom = $prenoms[0];
         $tarif = $this->ticket->prix;
-        $depart = $requete->session()->get('ticket.depart');
-        $arrivee = $requete->session()->get('ticket.arrivee');
-        $dateDepart = date('d/m/Y h\hi',strtotime($this->ticket->trajet()->date_depart));;
+        $depart = $this->ticket->trajet()->stationDepart()->nom;
+        $arrivee = $this->ticket->trajet()->stationArrivee()->nom;
+        $dateDepart = date('d/m/Y h\hi',strtotime($this->ticket->trajet()->date_depart));
 
         /* Création du pdf de la facture */
         $donneesPdfFacture = array(

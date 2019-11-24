@@ -35,35 +35,35 @@
 <body>
 <div>
     <img src="{{public_path('/img/logo-stq.png')}}">
-    <div>1410, rue de Matane-sur-Mer</div>
-    <div>Matane (Québec) G4W 3M6</div>
+    <div>{{ $pdf_facture_adresse_1 }}</div>
+    <div>{{ $pdf_facture_adresse_2 }}</div>
 </div>
 
-<h2 class="text-center"> Facture n°{{ $donneesPdfFacture['numeroFacture'] }}</h2>
+<h2 class="text-center">{{ $pdf_facture_facture_numero }}{{ $donneesPdfFacture['numeroFacture'] }}</h2>
 
 <div class="row ml-0">
-    <div class="col"><strong>Client :</strong></div>
+    <div class="col"><strong>{{ $pdf_facture_client  }}</strong></div>
     <div class="col"> {{ $donneesPdfFacture['nomClient'] }} {{ $donneesPdfFacture['prenomClient'] }}</div>
 </div>
 
 <div class="container bg-white shadow-lg mt-3" style="border-radius: 0.5em;">
     <div class="m-1">
         <div class="container-fluid border text-justify border-secondary mt-4 mb-2 py-2" style="border-radius: 0.5em;">
-            <h4> Rappel de la transaction :</h4>
+            <h4> {{ $pdf_facture_rappel_transaction }}</h4>
             <div class="row">
-                <div class="col">Montant :</div>
+                <div class="col">{{ $pdf_facture_montant }}</div>
                 <div class="col">{{ $donneesPdfFacture['montantCommande'] }}$</div>
             </div>
             <div class="row">
-                <div class="col">Carte :</div>
+                <div class="col">{{ $pdf_facture_carte }}</div>
                 <div class="col">{{ $donneesPdfFacture['numeroCarte'] }}</div>
             </div>
             <div class="row">
-                <div class="col">Titulaire :</div>
+                <div class="col">{{ $pdf_facture_titulaire }}</div>
                 <div class="col">{{ $donneesPdfFacture['titulaireCarte'] }}</div>
             </div>
             <div class="row">
-                <div class="col">Date/heure :</div>
+                <div class="col">{{ $pdf_facture_date_heure }}</div>
                 <div class="col">{{ $donneesPdfFacture['datePaiement'] }}</div>
             </div>
         </div>

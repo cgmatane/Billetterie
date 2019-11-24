@@ -34,8 +34,8 @@
     </style>
 </head>
 <body>
-<h1>Billet {{$codeQR}}</h1>
-<p>Date d'émission : {{$dateEmission}}</p>
+<h1>{{ $pdf_billet_billet }} {{$codeQR}}</h1>
+<p>{{ $pdf_billet_date_emission }} {{ $dateEmission }}</p>
 @include('interfaces.validation_informations.components.cadre_informations')
 </body>
 </html>

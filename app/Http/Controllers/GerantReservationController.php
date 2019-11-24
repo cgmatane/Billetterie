@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Pages\ValidationInformationsController;
 use App\Mail\SendMail;
+use App\Statics\Views\interfaces\dynamic_email_template\DonneesVueDynamicEmailTemplate;
+use App\Statics\Views\interfaces\pdf_billet\DonneesVuePDFBillet;
+use App\Statics\Views\interfaces\pdf_facture\DonneesVuePDFFacture;
 use App\Ticket;
 use App\Passager;
 use App\TypeVehicule;
@@ -35,7 +38,7 @@ class GerantReservationController extends Controller
         date_default_timezone_set("America/New_York");
         $donneesPdfBillet['dateEmission'] = date('Y/m/d H:i:s');
         $emplacementPdfBillet = "billets/billet_".$this->ticket->qrcode.".pdf";
-        PDF::loadView('pdf_billet', $donneesPdfBillet)->save($emplacementPdfBillet);
+        PDF::loadView('pdf_billet', array_merge($donneesPdfBillet, (new DonneesVuePDFBillet(FrontEndController::$langueCourante))->getDonneesVue()))->save($emplacementPdfBillet);
 
         $mail = $requete->session()->get('ticket.mail');
         $noms = $requete->session()->get('ticket.noms');
@@ -64,7 +67,7 @@ class GerantReservationController extends Controller
 
 
         // génération du pdf
-        PDF::loadView('pdf_facture', $donneesPdfFacture)->save($emplacementPdfFacture);
+        PDF::loadView('pdf_facture', array_merge($donneesPdfFacture, (new DonneesVuePDFFacture(FrontEndController::$langueCourante))->getDonneesVue()))->save($emplacementPdfFacture);
 
         $data = array(
             'nom'      => $nom ,
@@ -77,7 +80,7 @@ class GerantReservationController extends Controller
             'emplacementPdfFacture'      => $emplacementPdfFacture
             //'message'   =>   $request->message
         );
-        Mail::to($mail)->send(new SendMail($data));
+        Mail::to($mail)->send(new SendMail(array_merge($data, (new DonneesVueDynamicEmailTemplate(FrontEndController::$langueCourante))->getDonneesVue())));
 
         /* Suppression des pdf */
         $this->supprimerPDF($emplacementPdfBillet);

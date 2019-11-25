@@ -96,9 +96,8 @@ class FrontEndController extends Controller
                 new Controllers\TicketController(),
                 new Controllers\PassagerController(),
                 new Controllers\VehiculeController(),
-                new Controllers\NavireController(),
-
-                new Controllers\AffichageGuardienController()),
+                new Controllers\NavireController()),
+            'gardien' => array(new Controllers\GardienController()),
             'requete-qr' => array(new Controllers\RequeteQRController()),
             'pdf-facture' => array(new GenerateurPdfController())
         );

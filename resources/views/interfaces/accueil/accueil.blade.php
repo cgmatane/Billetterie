@@ -23,6 +23,7 @@
                             @slot('id') {{ $trajet['id'] }} @endslot
                             @slot('destination') {{ $trajet['stationArrivee'] }} @endslot
                             @slot('heure') {{ $trajet['heureDepart'] }} @endslot
+                            @if($trajet['plusBeaucoupDePlace']) @slot('plusBeaucoupDePlace') @endslot @endif
                         @endcomponent
                     @endforeach
                 @endisset

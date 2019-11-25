@@ -59,12 +59,20 @@ class AccueilController extends PageController
 
         //Pour chaque trajet...
         foreach($trajets as $trajet) {
-                //Si le trajet n'est pas annule et que la date du trajet est celle du jour selectionne...
-            if (!$trajet->annulation and date("Y-m-d", strtotime($date)) == date('Y-m-d', strtotime($trajet->date_depart))) {
+            $nombrePlacesPassagersDisponible = $trajet->getNombrePlacesPassagers() - $trajet->getNombrePassagers();
+            $nombrePlacesVehiculesDisponible = $trajet->getNombrePlacesVehicules() - $trajet->getNombreVehicules();
+//            dd($nombrePlacesVehiculesDisponible);
+            //Si le trajet n'est pas annule et que la date du trajet est celle du jour selectionne et qu'il reste de la place
+            if (!$trajet->annulation
+                and date("Y-m-d", strtotime($date)) == date('Y-m-d', strtotime($trajet->date_depart))
+                and $nombrePlacesPassagersDisponible > 0
+                and $nombrePlacesVehiculesDisponible > 0) {
                 $trajetVue = array(
                     'id' => $trajet->id_trajet,
                     'stationArrivee' => $trajet->stationArrivee()->nom,
                     'heureDepart' => date('H\hi', strtotime($trajet->date_depart)),
+                    'plusBeaucoupDePlace' => ($nombrePlacesPassagersDisponible < 25
+                        || $nombrePlacesVehiculesDisponible < 20),
                 );
                 array_push($trajetsVue, $trajetVue);
             }

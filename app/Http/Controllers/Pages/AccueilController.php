@@ -60,7 +60,7 @@ class AccueilController extends PageController
         //Pour chaque trajet...
         foreach($trajets as $trajet) {
                 //Si le trajet n'est pas annule et que la date du trajet est celle du jour selectionne...
-            if (!$trajet->annulation and date("Y-m-d") == date('Y-m-d', strtotime($trajet->date_depart))) {
+            if (!$trajet->annulation and date("Y-m-d", strtotime($date)) == date('Y-m-d', strtotime($trajet->date_depart))) {
                 $trajetVue = array(
                     'id' => $trajet->id_trajet,
                     'stationArrivee' => $trajet->stationArrivee()->nom,

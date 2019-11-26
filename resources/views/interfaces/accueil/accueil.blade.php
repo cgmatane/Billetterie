@@ -51,26 +51,26 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Informations sur le trajet</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">{{ $accueil_infos_trajet }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="d-inline-block date-arrivee">
-                        Ce trajet arrive le <span class="donnees">&nbsp;</span>
+                        {{ $accueil_trajet_arrive }}<span class="donnees"></span>
                     </div>
                     <div class="d-inline heure-arrivee">
-                       à <span class="donnees"></span>.
+                       {{ $accueil_a }}<span class="donnees"></span>.
                     </div>
                     <div class="navire">
-                        Le navire utilisé pour ce trajet est le <span class="donnees"></span>.
+                        {{ $accueil_navire_utilise }}<span class="donnees"></span>.
                     </div>
                     <div class="nombre-places-restantes-passagers">
-                        Il reste <span class="donnees"></span> places passager pour ce trajet.
+                        {{ $accueil_reste }}<span class="donnees"></span>{{ $accueil_place_passagers }}
                     </div>
                     <div class="nombre-places-restantes-vehicules">
-                        Le reste <span class="donnees"></span> places véhicule pour ce trajet.
+                        {{ $accueil_reste }}<span class="donnees"></span> {{ $accueil_place_vehicules }}
                     </div>
                 </div>
 

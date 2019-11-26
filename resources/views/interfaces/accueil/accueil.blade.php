@@ -22,12 +22,9 @@
                 @endcomponent
 
                 @isset($trajets)
-                    @foreach ($trajets as $trajet)
-                        @component('interfaces.accueil.components.bouton_choix_trajet')
-                            @slot('id') {{ $trajet['id'] }} @endslot
-                            @slot('destination') {{ $trajet['stationArrivee'] }} @endslot
-                            @slot('heure') {{ $trajet['heureDepart'] }} @endslot
-                            @if($trajet['plusBeaucoupDePlace']) @slot('plusBeaucoupDePlace') @endslot @endif
+                    @foreach ($trajets as $numero=>$trajet)
+                        @component('interfaces.accueil.components.bouton_choix_trajet', ['trajet' => $trajet])
+                            @if($trajet['urgent']) @slot('urgent') @endslot @endif
                         @endcomponent
                     @endforeach
                 @endisset
@@ -49,6 +46,38 @@
             </div>
         </div>
     </div>
+
+    <div class="modal" id="modal-infos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Informations sur le trajet</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-inline-block date-arrivee">
+                        Ce trajet arrive le <span class="donnees">&nbsp;</span>
+                    </div>
+                    <div class="d-inline heure-arrivee">
+                       à <span class="donnees"></span>.
+                    </div>
+                    <div class="navire">
+                        Le navire utilisé pour ce trajet est le <span class="donnees"></span>.
+                    </div>
+                    <div class="nombre-places-restantes-passagers">
+                        Il reste <span class="donnees"></span> places passager pour ce trajet.
+                    </div>
+                    <div class="nombre-places-restantes-vehicules">
+                        Le reste <span class="donnees"></span> places véhicule pour ce trajet.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     @isset($mail)
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <noscript>{{ $global_activer_javascript }}</noscript>
@@ -64,3 +93,6 @@
 
 @endsection
 
+@section('scripts')
+    <script src="{{URL::asset('js/accueil.js')}}"></script>
+@endsection

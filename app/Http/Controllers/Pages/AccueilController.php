@@ -70,19 +70,24 @@ class AccueilController extends PageController
                 and $nombrePlacesVehiculesDisponible > 0) {
                 $trajetVue = array(
                     'id' => $trajet->id_trajet,
-                    'stationArrivee' => $trajet->stationArrivee()->nom,
-                    'heureDepart' => date('H\hi', strtotime($trajet->date_depart)),
-                    'plusBeaucoupDePlace' => ($nombrePlacesPassagersDisponible < 25
+                    'station_arrivee' => $trajet->stationArrivee()->nom,
+                    'date_arrivee' => date('d/m/Y', strtotime($trajet->date_arrivee)),
+                    'heure_depart' => date('H\hi', strtotime($trajet->date_depart)),
+                    'heure_arrivee' => date('H\hi', strtotime($trajet->date_arrivee)),
+                    'urgent' => ($nombrePlacesPassagersDisponible < 25
                         || $nombrePlacesVehiculesDisponible < 20),
+                    'navire' => $trajet->navire()->nom,
+                    'places_restantes_passagers' => $trajet->getNombrePlacesPassagerRestantes(),
+                    'places_restantes_vehicules' => $trajet->getNombrePlacesVehiculeRestantes(),
                 );
                 array_push($trajetsVue, $trajetVue);
             }
         }
 
         usort($trajetsVue, function($a, $b) {
-            if ($a['stationArrivee'] == $b['stationArrivee'])
-                return $a['heureDepart'] > $b['heureDepart'];
-            return ($a['stationArrivee'] > $b['stationArrivee']);
+            if ($a['station_arrivee'] == $b['station_arrivee'])
+                return $a['heure_depart'] > $b['heure_depart'];
+            return ($a['station_arrivee'] > $b['station_arrivee']);
         });
 
         //On injecte aux donnees la date d'aujourd'hui en francais (affiché en haut de la vue) et les trajets

@@ -115,7 +115,8 @@ class GerantReservationController extends Controller
         $this->ticket->telephone = $requete->session()->get('ticket.numero');
         $this->ticket->mail = $requete->session()->get('ticket.mail');
         $this->ticket->commentaires = $requete->session()->get('ticket.commentaires');
-        $this->ticket->numero_facture = Ticket::genererNumeroFacture();;
+        $this->ticket->numero_facture = Ticket::genererNumeroFacture();
+        $this->ticket->langue = FrontEndController::$langueCourante;
         $this->ticket->save();
         for ($i = 0;$i<count($requete->session()->get('ticket.noms'));$i++) {
             $passager = new Passager();

@@ -64,7 +64,8 @@ class AccueilController extends PageController
 //            dd($nombrePlacesVehiculesDisponible);
             //Si le trajet n'est pas annule et que la date du trajet est celle du jour selectionne et qu'il reste de la place
             if (!$trajet->annulation
-                and date("Y-m-d", strtotime($date)) == date('Y-m-d', strtotime($trajet->date_depart))
+                and date('Y-m-d', strtotime($date)) == date('Y-m-d', strtotime($trajet->date_depart))
+                and time() < strtotime($trajet->date_depart)
                 and $nombrePlacesPassagersDisponible > 0
                 and $nombrePlacesVehiculesDisponible > 0) {
                 $trajetVue = array(

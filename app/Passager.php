@@ -17,6 +17,12 @@ class Passager extends ModeleParent
     {
         return "Passager ".$this->nom;
     }
+    public function getNom(){
+        return $this->nom;
+    }
+    public function getPrenom(){
+        return $this->prenom;
+    }
 
     public function ticket() {
         return Ticket::find($this->id_ticket);

@@ -22,7 +22,12 @@ function setEntrees() {
             let entree = DOMValeurs[j].innerHTML;
             if (colonnes[j+1]['type'][0] === 'date') {
                 let dateFormatee = new Date(entree);
-                entree = (dateFormatee.getDate()<10?'0':'')+dateFormatee.getDate() + '/' + (dateFormatee.getMonth() + 1<10?'0':'')+(dateFormatee.getMonth() + 1) + '/' + dateFormatee.getFullYear();
+
+                entree = (dateFormatee.getDate() < 10?'0':'') + dateFormatee.getDate() +
+                    '/' + (dateFormatee.getMonth() + 1 < 10?'0':'')+(dateFormatee.getMonth() + 1) +
+                    '/' + dateFormatee.getFullYear() + ' ' +
+                    dateFormatee.getHours() + 'h' +
+                    (dateFormatee.getMinutes() < 10?'0':'') + dateFormatee.getMinutes();
             }
             entrees[id].push(entree);
         }
@@ -150,10 +155,10 @@ function getHTMLFormulaireAjouterEditerEntree(id) {
                 let valeur = '';
                 if (id>-1) {
                     valeur = entree[i-1];
-                    valeur = valeur.split('/');
-                    valeur = valeur[2]+"-"+(valeur[1].length===1?'0':'')+valeur[1]+"-"+(valeur[0].length===1?'0':'')+valeur[0];
+                    valeur = valeur.split(/[\/ h]/g);
+                    valeur = valeur[2]+"-"+(valeur[1].length===1?'0':'')+valeur[1]+"-"+(valeur[0].length===1?'0':'') + valeur[0] + 'T' + (valeur[3].length===1?'0':'') + valeur[3]+':' + (valeur[4].length===1?'0':'')+valeur[4];
                 }
-                HTML += '<input type="date" name="'+colonnes[i]['attribut']+'" value="'+valeur+'">';
+                HTML += '<input type="datetime-local" name="'+colonnes[i]['attribut']+'" value="'+valeur+'">';
                 break;
             default:
                 HTML += '<input type="'+type[0]+'" name="'+colonnes[i]['attribut']+'" value="'+((id>-1)?entree[i-1]:'')+'">';

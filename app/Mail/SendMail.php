@@ -11,13 +11,15 @@ class SendMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $data;
+    public $type;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($type,$data)
     {
+        $this->type = $type;
         $this->data = $data;
     }
 
@@ -28,12 +30,19 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->from('confirmation@stq.com')
-            ->subject('Confirmation reservation billet STQ')
-            ->view('dynamic_email_template')
-            ->with('data', $this->data)
-            ->attach($this->data['emplacementPdfBillet'])
-            ->attach($this->data['emplacementPdfFacture']);
+        if ($this->type == 'confirmation'){
+            return $this->from('confirmation@stq.com')
+                ->subject('Confirmation reservation billet STQ')
+                ->view('dynamic_email_template')
+                ->with('data', $this->data)
+                ->attach($this->data['emplacementPdfBillet'])
+                ->attach($this->data['emplacementPdfFacture']);
+        }else{
+            return $this->from('confirmation@stq.com')
+                ->subject('Annulation de votre trajet')
+                ->view('dynamic_annulation_email_template')
+                ->with('data', $this->data);
+        }
     }
 }
 

@@ -9,6 +9,7 @@ use App\Statics\Views\interfaces\pdf_billet\DonneesVuePDFBillet;
 use App\Statics\Views\interfaces\pdf_facture\DonneesVuePDFFacture;
 use App\Ticket;
 use App\Passager;
+use App\Trajet;
 use App\TypeVehicule;
 use App\Vehicule;
 use MongoDB\BSON\Type;
@@ -25,10 +26,26 @@ class GerantReservationController extends Controller
     {
         if ($requete->cookie('langue') != null)
             FrontEndController::$langueCourante = (int)$requete->cookie('langue');
+        $verificationReservation = $this->verifierReservation($requete);
+        if ($verificationReservation != null)
+            return $verificationReservation;
         $this->creerBillet($requete);
         $this->envoyerPDF($requete);
         $requete->session()->put('commande_terminee',true);
         return redirect(route('index'));
+    }
+
+    private function verifierReservation($requete) {
+        //Pas assez de place passager
+        $trajet = Trajet::find($requete->session()->get('ticket.trajet'));
+        if (count($requete->session()->get('ticket.noms')) > $trajet->getNombrePlacesPassagerRestantes()) {
+            return redirect(route('index'))->with('erreurNombrePassagers', true);
+        }
+
+        //Pas assez de place vehicule
+        if ($requete->session()->get('ticket.type_vehicule') != TypeVehicule::PIETON and $trajet->getNombrePlacesVehiculeRestantes <= 0) {
+            return redirect(route('index'))->with('erreurNombreVehicule', true);
+        }
     }
 
     private function envoyerPDF($requete) {
@@ -81,7 +98,7 @@ class GerantReservationController extends Controller
             'emplacementPdfFacture'      => $emplacementPdfFacture
             //'message'   =>   $request->message
         );
-        Mail::to($mail)->send(new SendMail(array_merge($data, (new DonneesVueDynamicEmailTemplate(FrontEndController::$langueCourante))->getDonneesVue())));
+        Mail::to($mail)->send(new SendMail('confirmation',array_merge($data, (new DonneesVueDynamicEmailTemplate(FrontEndController::$langueCourante))->getDonneesVue())));
 
         /* Suppression des pdf */
         $this->supprimerPDF($emplacementPdfBillet);

@@ -48,6 +48,15 @@ class Ticket extends ModeleParent
     public function getNombrePassagers() {
         return Passager::where('id_ticket', $this->id_ticket)->count();
     }
+    public function getMail(){
+        return $this->mail;
+    }
+    public function getPremierPassagerNom(){
+        return  Passager::where('id_ticket', $this->id_ticket)->first()->getNom();
+    }
+    public function getPremierPassagerPrenom(){
+        return  Passager::where('id_ticket', $this->id_ticket)->first()->getPrenom();
+    }
 
     public function getTarif() {
         $tarif = 0;

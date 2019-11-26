@@ -12,6 +12,8 @@ class Ticket extends ModeleParent
 
     protected $guarded = ['id_ticket'];
 
+    protected $appends = ['relation_passagers', 'relation_vehicule'];
+
     public $timestamps = false;
 
     public function getNomAffiche()
@@ -29,12 +31,13 @@ class Ticket extends ModeleParent
         //return $this->belongsTo('App\Vehicule', 'id_vehicule', 'id_vehicule');
     }
 
-    public function relationVehicule() {
-        return $this->belongsTo('App\Vehicule', 'id_ticket', 'id_ticket');
+    // Methode de nomage de Laravel ==> ne pas essayer de traduire
+    public function getRelationVehiculeAttribute() {
+        return $this->vehicule();
     }
 
-    public function relationPassagers() {
-        return $this->hasMany('App\Passager', 'id_ticket', 'id_ticket');
+    public function getRelationPassagersAttribute() {
+        return $this->passagers();
     }
 
     public function passagers() {

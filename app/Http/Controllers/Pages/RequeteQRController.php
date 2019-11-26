@@ -20,21 +20,16 @@ class RequeteQRController extends PageController
     {
         // AHEIFBG
         // UGJANGT
+        $reponse = "{}";
         if (isset($_GET['qr'])) {
             $qr = htmlentities($_GET['qr']);
 
             $ticket = Ticket::where('qrcode', $qr)->first();
-            if ($ticket == null) {
-                echo "{}";
-            } else {
-                $ticket->relationPassagers;
-                /*if ($commande->id_vehicule != null) {*/
-                    $ticket->relationVehicule;
-//                }
-                echo $ticket->toJSON();
+
+            if ($ticket != null) {
+                $reponse = $ticket->toJSON();
             }
-        } else {
-            echo '{}';
         }
+        echo $reponse;
     }
 }

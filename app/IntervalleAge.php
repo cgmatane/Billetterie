@@ -23,6 +23,10 @@ class IntervalleAge extends ModeleParent
         return $this->age_min . '-' . $this->age_max;
     }
 
+    public function getTarif() {
+        return $this->tarif;
+    }
+
     public function passagers() {
         return Passager::where('id_intervalle_age', $this->id_intervalle_age)->get();
     }

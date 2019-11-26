@@ -11,6 +11,10 @@ class Passager extends ModeleParent
 
     protected $guarded = ['id_passager'];
 
+    protected $hidden = ['id_passager', 'id_ticket', 'id_intervalle_age'];
+
+    protected $appends = ['intervalle', 'tarif'];
+
     public $timestamps = false;
 
     public function getNomAffiche()
@@ -33,6 +37,13 @@ class Passager extends ModeleParent
         //return $this->belongsTo('App\TypeVehicule', 'id_type_vehicule', 'id_type_vehicule');
     }
 
+    public function getIntervalleAttribute() {
+        return $this->intervalleAge()->getNomAffiche();
+    }
+
+    public function getTarifAttribute() {
+        return $this->intervalleAge()->getTarif();
+    }
 
     protected function getDependancesDirectes()
     {

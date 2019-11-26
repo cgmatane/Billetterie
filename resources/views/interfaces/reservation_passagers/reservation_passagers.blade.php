@@ -4,6 +4,9 @@
 
 @section('contenu')
 
+    <link rel="stylesheet" href="{{URL::asset('css/intlTelInput.css')}}">
+    <script src="{{URL::asset('js/intlTelInput.js')}}"></script>
+
     <div class="container">
         <form class="text-center border border-light p-5 mt-5 mb-5" method="get"
               action="{{ route('reservation_passagers') }}"
@@ -129,8 +132,12 @@
                         <label for="valeurTelephone" class="d-none">{{ $reservation_passagers_numero }}</label>
                         <input name="numero" type="tel" class="form-control medium"
                                id="valeurTelephone"
-                               placeholder="{{ $reservation_passagers_numero }}"
-                        >
+                               placeholder="{{ $reservation_passagers_numero }}">
+
+                        <script>
+                            var input = document.querySelector("#valeurTelephone");
+                            window.intlTelInput(input);
+                        </script>
                         <div class="alert alert-danger champErreur hidden" id="erreurTelephone">
                             <small class="texteErreur">{{ $reservation_passagers_numero_invalide }}</small>
                         </div>

@@ -75,7 +75,8 @@ class Trajet extends ModeleParent
             $passagerAvecMail =[
                 'nom' => $ticket->getPremierPassagerNom(),
                 'prenom' => $ticket->getPremierPassagerPrenom(),
-                'mail' =>  $ticket->getMail()
+                'mail' => $ticket->mail,
+                'langue' => $ticket->langue,
             ];
             array_push($permiersPassagers,$passagerAvecMail);
         }

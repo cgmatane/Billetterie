@@ -78,7 +78,8 @@ class TrajetController extends ModeleController
             $data['nom'] = $premierPassager['nom'];
             $data['prenom'] = $premierPassager['prenom'];
             $mail = $premierPassager['mail'];
-            Mail::to($mail)->send(new SendMail('annulation',array_merge($data, (new DonneesVueDynamicAnnulationEmailTemplate(FrontEndController::$langueCourante))->getDonneesVue())));
+            $langue = $premierPassager['langue'];
+            Mail::to($mail)->send(new SendMail('annulation',array_merge($data, (new DonneesVueDynamicAnnulationEmailTemplate($langue))->getDonneesVue())));
         }
     }
 

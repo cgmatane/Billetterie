@@ -59,8 +59,8 @@ class AccueilController extends PageController
 
         //Pour chaque trajet...
         foreach($trajets as $trajet) {
-            $nombrePlacesPassagersDisponible = $trajet->getNombrePlacesPassagers() - $trajet->getNombrePassagers();
-            $nombrePlacesVehiculesDisponible = $trajet->getNombrePlacesVehicules() - $trajet->getNombreVehicules();
+            $nombrePlacesPassagersDisponible = $trajet->getNombrePlacesPassagerRestantes();
+            $nombrePlacesVehiculesDisponible = $trajet->getNombrePlacesVehiculeRestantes();
 //            dd($nombrePlacesVehiculesDisponible);
             //Si le trajet n'est pas annule et que la date du trajet est celle du jour selectionne et qu'il reste de la place
             if (!$trajet->annulation

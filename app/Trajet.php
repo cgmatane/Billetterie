@@ -64,6 +64,14 @@ class Trajet extends ModeleParent
         return $navire->getNombrePlacesVehicules();
     }
 
+    public function getNombrePlacesVehiculeRestantes() {
+        return $this->navire()->nombre_place_vehicule - $this->getNombreVehicules();
+    }
+
+    public function getNombrePlacesPassagerRestantes() {
+        return $this->navire()->nombre_place_pieton - $this->getNombrePassagers();
+    }
+
     protected function getDependancesDirectes() {
         return [$this->tickets()];
     }

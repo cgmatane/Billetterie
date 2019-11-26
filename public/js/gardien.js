@@ -1,0 +1,1 @@
+/* JAVASCRIPT POUR INTERFACE GARDIEN (si necessaire) */

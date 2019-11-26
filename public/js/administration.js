@@ -22,8 +22,7 @@ function setEntrees() {
             let entree = DOMValeurs[j].innerHTML;
             if (colonnes[j+1]['type'][0] === 'date') {
                 let dateFormatee = new Date(entree);
-                dateFormatee.setMonth(dateFormatee.getMonth()+1);
-                entree = (dateFormatee.getDate()<10?'0':'')+dateFormatee.getDate() + '/' + (dateFormatee.getMonth()<10?'0':'')+dateFormatee.getMonth() + '/' + dateFormatee.getFullYear();
+                entree = (dateFormatee.getDate()<10?'0':'')+dateFormatee.getDate() + '/' + (dateFormatee.getMonth() + 1<10?'0':'')+(dateFormatee.getMonth() + 1) + '/' + dateFormatee.getFullYear();
             }
             entrees[id].push(entree);
         }

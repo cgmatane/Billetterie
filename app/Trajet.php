@@ -38,7 +38,12 @@ class Trajet extends ModeleParent
         return Ticket::where('id_trajet', $this->id_trajet)->get();
         //return $this->hasMany('App\ObsoleteProgrammation', 'id_trajet', 'id_trajet');
     }
-
+    public function getDateDepart(){
+        return $this->date_depart;
+    }
+    public function getDateArrivee(){
+        return $this->date_arrivee;
+    }
     public function getNombrePassagers(){
         $nombrePassagers = 0;
         $tickets = $this->tickets();
@@ -62,6 +67,19 @@ class Trajet extends ModeleParent
     public function getNombrePlacesVehicules(){
         $navire =  $this->navire();
         return $navire->getNombrePlacesVehicules();
+    }
+    public function getPremiersPassagersAvecMailParTicket(){
+        $permiersPassagers = [];
+        $tickets = $this->tickets();
+        foreach ($tickets as $ticket){
+            $passagerAvecMail =[
+                'nom' => $ticket->getPremierPassagerNom(),
+                'prenom' => $ticket->getPremierPassagerPrenom(),
+                'mail' =>  $ticket->getMail()
+            ];
+            array_push($permiersPassagers,$passagerAvecMail);
+        }
+        return $permiersPassagers;
     }
 
     public function getNombrePlacesVehiculeRestantes() {

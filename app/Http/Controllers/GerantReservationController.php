@@ -98,7 +98,7 @@ class GerantReservationController extends Controller
             'emplacementPdfFacture'      => $emplacementPdfFacture
             //'message'   =>   $request->message
         );
-        Mail::to($mail)->send(new SendMail(array_merge($data, (new DonneesVueDynamicEmailTemplate(FrontEndController::$langueCourante))->getDonneesVue())));
+        Mail::to($mail)->send(new SendMail('confirmation',array_merge($data, (new DonneesVueDynamicEmailTemplate(FrontEndController::$langueCourante))->getDonneesVue())));
 
         /* Suppression des pdf */
         $this->supprimerPDF($emplacementPdfBillet);

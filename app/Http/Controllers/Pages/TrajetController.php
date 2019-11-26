@@ -6,8 +6,11 @@ use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\ModeleController;
 
 
+use App\Mail\SendMail;
 use App\Statics\Views\interfaces\administration\DonneesVueTrajet;
+use App\Statics\Views\interfaces\dynamic_annulation_email_template\DonneesVueDynamicAnnulationEmailTemplate;
 use App;
+use Illuminate\Support\Facades\Mail;
 
 class TrajetController extends ModeleController
 {
@@ -52,6 +55,31 @@ class TrajetController extends ModeleController
             $nomEntrees[$entree->getAttributes()[array_key_first($entree->getAttributes())]] = $entree->getNomAffiche();
         }
         $this->ajouterTableClesEtrangeres($nomTable, $attributsLies, $nomEntrees);
+    }
+
+    protected function envoyerEmailAnnulation($entree){
+        $premiersPassagers = $entree->getPremiersPassagersAvecMailParTicket();
+        $depart = $entree->stationDepart()->getNomAffiche();
+        $arrivee = $entree->stationArrivee()->getNomAffiche();
+        $dateDepart = $entree->getDateDepart();
+        $dateArrivee = $entree->getDateArrivee();
+
+        $data = array(
+            'nom'      => '' ,
+            'prenom'      => '',
+            'depart'    => explode(' ',$depart)[1],
+            'arrivee'    => explode(' ',$arrivee)[1],
+            'date_depart'      => explode(' ',$dateDepart)[0],
+            'heure_depart'      => explode(' ',$dateDepart)[1],
+            'date_arrivee'      => explode(' ',$dateArrivee)[0],
+            'heure_arrivee'      => explode(' ',$dateArrivee)[1]
+        );
+        foreach ($premiersPassagers as $premierPassager){
+            $data['nom'] = $premierPassager['nom'];
+            $data['prenom'] = $premierPassager['prenom'];
+            $mail = $premierPassager['mail'];
+            Mail::to($mail)->send(new SendMail('annulation',array_merge($data, (new DonneesVueDynamicAnnulationEmailTemplate(FrontEndController::$langueCourante))->getDonneesVue())));
+        }
     }
 
     protected function getModeles()

@@ -36,6 +36,13 @@ abstract class ModeleController extends PageController
                 }
                 if ($requete->input('edition') == '1') {
                     $entree = $this->getModeleParId((int)$requete->input($this->attributsColonnes[0]));
+
+                    if (isset($entree->annulation) && isset($donnees['annulation'])){
+                        if (!$entree->annulation && $donnees['annulation'] && $entree->possedeDependances()) {
+                            $this->envoyerEmailAnnulation($entree);
+                        }
+                    }
+
                     $entree->update($donnees);
                 }
                 if ($requete->input('edition') == '0') {
@@ -100,6 +107,11 @@ abstract class ModeleController extends PageController
                 }
                 break;
             case "cascade" :
+                if (isset($entree->annulation)){
+                    if (!$entree->annulation) {
+                        $this->envoyerEmailAnnulation($entree);
+                    }
+                }
                 $entree->delete();
                 break;
             default:

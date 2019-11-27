@@ -6,8 +6,12 @@ let separateur = '-';
 
 document.addEventListener("DOMContentLoaded", onLoad);
 
+var input;
+var iti;
 
 function onLoad() {
+    input = document.querySelector("#valeurTelephone");
+    iti = window.intlTelInput(input);
     increment = 0;
     passagerVitrine = document.getElementById('passager');
     divPassagers = document.getElementById('passagers');
@@ -138,6 +142,11 @@ function validerFormulaire() {
     }
     else {
         setMessageErreurChamp(champ, false);
+    }
+
+    if (!erreur) {
+        let champTel = document.getElementById("valeurTelephone").value.substr(1);
+        document.getElementById("valeurTelephone").value = "+" + iti.getSelectedCountryData().dialCode + champTel;
     }
 
     return !erreur;

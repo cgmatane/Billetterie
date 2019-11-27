@@ -8,12 +8,9 @@
 
 @section('contenu')
     {{-- ...Les donnees dynamiques n'ont pas de prefixe - Elles sont set dans le controleur dans app\Http\Controllers\Pages\GardienController, dans la methode setDonneesDynamiques --}}
-    @if( $json_billet == "Pas de billet scanné")
-        <h1> {{ $json_billet }}</h1>
     
-    @endif
     <div class="contenu-table">
-        <h2>Passager(s):</h2>
+        <h2>@if($nombre_passagers > 1)Passagers: @else Passager: @endif</h2>
         <table class="table">
             <thead class="thead-dark">
             <tr>
@@ -23,12 +20,12 @@
                 
             </tr>
             </thead>
-            <tbody style="font-size: 1.2em;">
+            <tbody style="font-size: 2em;">
                 @for($i = 0; $i < $nombre_passagers; $i++)
                     <tr>
-                        <td scope="row"> {{ $passagers[$i]["prenom"] }} </td>
-                        <td scope="row"> {{ $passagers[$i]["nom"] }} </td>
-                        <td scope="row"> {{ $passagers[$i]["intervalle"] }} </td>
+                        <td scope="row">{{ $passagers[$i]["prenom"] }}</td>
+                        <td scope="row">{{ $passagers[$i]["nom"] }}</td>
+                        <td scope="row">{{ $passagers[$i]["intervalle"] }}</td>
                     </tr>
                 @endfor
             </tbody>
@@ -44,12 +41,12 @@
                 
             </tr>
             </thead>
-            <tbody style="font-size: 1.2em;">
+            <tbody style="font-size: 2em;">
                 
                 <tr>
-                    <td scope="row"> {{ $vehicule["marque"] }} </td>
-                    <td scope="row"> {{ $vehicule["couleur"] }} </td>
-                    <td scope="row"> {{ $vehicule["immatriculation"] }} </td>
+                    <td scope="row">{{ $vehicule["marque"] }}</td>
+                    <td scope="row">{{ $vehicule["couleur"] }}</td>
+                    <td scope="row">{{ $vehicule["immatriculation"] }}</td>
                 </tr>
 
             </tbody>

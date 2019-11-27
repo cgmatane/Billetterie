@@ -12,6 +12,7 @@ use App\Station;
 use App\Ticket;
 use App\Trajet;
 use App\Vehicule;
+use App\Scan;
 use Illuminate\Http\Request;
 
 class GardienController extends PageController
@@ -32,23 +33,18 @@ class GardienController extends PageController
     protected function setDonneesDynamiques(Request $requete = null)
     {
         $email = $requete->session()->get('utilisateur.email');
-        if(null != $requete->session()->get('dernier_scan')) {
-            $billet_scan = $requete->session()->get('dernier_scan');
-        } else {
-            $billet_scan = "Pas de billet scanné";
-        }
-
-        $billet_parse = json_decode($billet_scan, true);
-        $passagers = $billet_parse["relation_passagers"];
+        
+        $dernier_scan = Scan::getScanCourant();
+        $passagers_raw = $dernier_scan->relation_passagers;
+        $passagers = json_decode($passagers_raw, true);
         $nombre_passagers = count($passagers);
 
-        $vehicule = $billet_parse["relation_vehicule"];
+        $vehicule = json_decode($dernier_scan->relation_vehicule, true);
     
         
 
         $this->donneesDynamiques = [
             'email'=>$email,
-            'json_billet'=>$billet_scan,
             'passagers'=>$passagers,
             'nombre_passagers'=>$nombre_passagers,
             'vehicule'=>$vehicule,

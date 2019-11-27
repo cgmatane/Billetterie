@@ -20,7 +20,7 @@ class DonneesVueGlobales extends DonneesVue
         $this->setDonneeVue('retour_au_debut', ['Recommencer','Start over']);
         $this->setDonneeVue('titre', ['Billetterie - STQ','Ticketing - STQ']);
         $this->setDonneeVue('informations', ['Informations', 'Informations']);
-        $this->setDonneeVue('changer_langue', ['Changer de langue', 'change language']);
+        $this->setDonneeVue('changer_langue', ['Changer de langue', 'Change language']);
         $this->setDonneeVue('billetterie', ['Billetterie', 'Ticketing']);
         $this->setDonneeVue('STQ', 'STQ');
         $this->setDonneeVue('CAD', 'CAD');

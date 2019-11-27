@@ -13,7 +13,7 @@
     
     @endif
     <div class="contenu-table">
-        <h2>Passagers:</h2>
+        <h2>Passager(s):</h2>
         <table class="table">
             <thead class="thead-dark">
             <tr>
@@ -26,14 +26,15 @@
             <tbody style="font-size: 1.2em;">
                 @for($i = 0; $i < $nombre_passagers; $i++)
                     <tr>
-                        <td scope="row"> {{ $passagers[$i]["prenom"]}} </td>
-                        <td scope="row"> {{ $passagers[$i]["nom"]}} </td>
-                        <td scope="row"> {{ $passagers[$i]["intervalle"]}} </td>
+                        <td scope="row"> {{ $passagers[$i]["prenom"] }} </td>
+                        <td scope="row"> {{ $passagers[$i]["nom"] }} </td>
+                        <td scope="row"> {{ $passagers[$i]["intervalle"] }} </td>
                     </tr>
                 @endfor
             </tbody>
         </table>
-        <h2>Vehicules:</h2>
+        <h2>Vehicule:@if($vehicule == null) Aucun @endif</h2>
+        @if($vehicule != null)
         <table class="table">
             <thead class="thead-dark">
             <tr>
@@ -44,8 +45,16 @@
             </tr>
             </thead>
             <tbody style="font-size: 1.2em;">
+                
+                <tr>
+                    <td scope="row"> {{ $vehicule["marque"] }} </td>
+                    <td scope="row"> {{ $vehicule["couleur"] }} </td>
+                    <td scope="row"> {{ $vehicule["immatriculation"] }} </td>
+                </tr>
+
             </tbody>
         </table>
+        @endif
     </div>
     
     

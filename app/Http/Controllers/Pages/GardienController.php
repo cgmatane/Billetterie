@@ -41,6 +41,9 @@ class GardienController extends PageController
         $billet_parse = json_decode($billet_scan, true);
         $passagers = $billet_parse["relation_passagers"];
         $nombre_passagers = count($passagers);
+
+        $vehicule = $billet_parse["relation_vehicule"];
+    
         
 
         $this->donneesDynamiques = [
@@ -48,6 +51,7 @@ class GardienController extends PageController
             'json_billet'=>$billet_scan,
             'passagers'=>$passagers,
             'nombre_passagers'=>$nombre_passagers,
+            'vehicule'=>$vehicule,
         ];
     }
 

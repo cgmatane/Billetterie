@@ -35,6 +35,7 @@ class TicketController extends ModeleController
             ['Courriel', 'text'],
             ['Numéro de facture', 'number'],
             ['Commentaires', 'text'],
+            ['Langue', 'number'],
         ];
         return $typesColonnes;
     }

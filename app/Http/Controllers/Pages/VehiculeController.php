@@ -32,6 +32,7 @@ class VehiculeController extends ModeleController
             ['Immatriculation', 'text'],
             ['Marque', 'text'],
             ['Ticket', 'cle|ticket'],
+            ['Poids élevé', 'bool'],
         ];
         return $typesColonnes;
     }

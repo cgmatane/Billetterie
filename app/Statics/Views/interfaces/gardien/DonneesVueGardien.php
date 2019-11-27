@@ -13,5 +13,6 @@ class DonneesVueGardien extends DonneesVue
         parent::__construct($langue);
         $this->nomVue = 'gardien';
         $this->setDonneeVue('titre',['Interface du gardien', 'Page for the guardian']);
+        
     }
 }

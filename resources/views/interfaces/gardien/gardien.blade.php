@@ -8,7 +8,49 @@
 
 @section('contenu')
     {{-- ...Les donnees dynamiques n'ont pas de prefixe - Elles sont set dans le controleur dans app\Http\Controllers\Pages\GardienController, dans la methode setDonneesDynamiques --}}
-    {{ $exemple_donnee_dynamique }}
+    @if( $json_billet == "Pas de billet scanné")
+        <h1> {{ $json_billet }}</h1>
+    
+    @endif
+    <div class="contenu-table">
+        <h2>Passagers:</h2>
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="row">Prenom</th>
+                <th scope="row">Nom</th>
+                <th scope="row">Groupe d'age</th>
+                
+            </tr>
+            </thead>
+            <tbody style="font-size: 1.2em;">
+                @for($i = 0; $i < $nombre_passagers; $i++)
+                    <tr>
+                        <td scope="row"> {{ $passagers[$i]["prenom"]}} </td>
+                        <td scope="row"> {{ $passagers[$i]["nom"]}} </td>
+                        <td scope="row"> {{ $passagers[$i]["intervalle"]}} </td>
+                    </tr>
+                @endfor
+            </tbody>
+        </table>
+        <h2>Vehicules:</h2>
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="row">Marque</th>
+                <th scope="row">Couleur</th>
+                <th scope="row">Immatriculation</th>
+                
+            </tr>
+            </thead>
+            <tbody style="font-size: 1.2em;">
+            </tbody>
+        </table>
+    </div>
+    
+    
+        
+        
 @endsection
 
 

@@ -32,10 +32,22 @@ class GardienController extends PageController
     protected function setDonneesDynamiques(Request $requete = null)
     {
         $email = $requete->session()->get('utilisateur.email');
+        if(null != $requete->session()->get('dernier_scan')) {
+            $billet_scan = $requete->session()->get('dernier_scan');
+        } else {
+            $billet_scan = "Pas de billet scanné";
+        }
+
+        $billet_parse = json_decode($billet_scan, true);
+        $passagers = $billet_parse["relation_passagers"];
+        $nombre_passagers = count($passagers);
+        
 
         $this->donneesDynamiques = [
             'email'=>$email,
-            'exemple_donnee_dynamique'=>"Donnée dynamique exemple",
+            'json_billet'=>$billet_scan,
+            'passagers'=>$passagers,
+            'nombre_passagers'=>$nombre_passagers,
         ];
     }
 

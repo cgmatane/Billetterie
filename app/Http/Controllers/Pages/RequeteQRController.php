@@ -28,6 +28,7 @@ class RequeteQRController extends PageController
 
             if ($ticket != null) {
                 $reponse = $ticket->toJSON();
+                $requete->session()->put('dernier_scan', $reponse);
             }
         }
         echo $reponse;

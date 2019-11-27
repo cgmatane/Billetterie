@@ -48,6 +48,12 @@ class GardienController extends PageController
             'passagers'=>$passagers,
             'nombre_passagers'=>$nombre_passagers,
             'vehicule'=>$vehicule,
+            'id_ticket'=>$dernier_scan->id_ticket,
+            'id_trajet'=>$dernier_scan->id_trajet,
+            'qr_code'=>$dernier_scan->qr_code,
+            'date_achat'=>$dernier_scan->date_achat,
+            'telephone'=>$dernier_scan->telephone,
+            'commentaires'=>$dernier_scan->commentaires
         ];
     }
 

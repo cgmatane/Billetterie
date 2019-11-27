@@ -23,8 +23,13 @@ class RequeteQRController extends PageController
         // UGJANGT
         $reponse = "{}";
         if (isset($_GET['qr'])) {
+            
             $qr = htmlentities($_GET['qr']);
-
+            if($qr === 'scan'){
+                $dernier_scan = Scan::getScanCourant();
+                echo $dernier_scan->qr_code;
+                return;
+            }
             $ticket = Ticket::where('qrcode', $qr)->first();
 
             if ($ticket != null) {

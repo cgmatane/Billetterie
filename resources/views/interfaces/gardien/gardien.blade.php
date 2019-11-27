@@ -79,15 +79,16 @@
         </table>
         @endif
     </div>
-    
-    
-        
-        
-@endsection
-
-
-
-@section('scripts')
+    <script>
+        var qrcode = '{{ $qr_code }}';
+    </script>
     <script src="{{URL::asset('js/gardien.js')}}"></script>
     <noscript>{{ $global_activer_javascript }}</noscript>
+
+
+    
+        
+        
 @endsection
+
+

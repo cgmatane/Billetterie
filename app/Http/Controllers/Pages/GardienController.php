@@ -21,6 +21,8 @@ class GardienController extends PageController
         parent::__construct();
         $this->setNomPage('administration/gardien');
         $this->setDonneesStatiques(new DonneesVueGardien(FrontEndController::$langueCourante));
+        
+        
     }
 
     /* Methode appelee quand la requete vers la page contient des variables GET/POST */
@@ -29,16 +31,18 @@ class GardienController extends PageController
 
     }
 
+    
+
     /* Set un tableau associatif à passer à la template blade */
     protected function setDonneesDynamiques(Request $requete = null)
     {
         $email = $requete->session()->get('utilisateur.email');
-        
+        $changementDonnees = false;
         $dernier_scan = Scan::getScanCourant();
         $passagers_raw = $dernier_scan->relation_passagers;
         $passagers = json_decode($passagers_raw, true);
         $nombre_passagers = count($passagers);
-
+        
         $vehicule = json_decode($dernier_scan->relation_vehicule, true);
     
         
@@ -53,8 +57,10 @@ class GardienController extends PageController
             'qr_code'=>$dernier_scan->qr_code,
             'date_achat'=>$dernier_scan->date_achat,
             'telephone'=>$dernier_scan->telephone,
-            'commentaires'=>$dernier_scan->commentaires
+            'commentaires'=>$dernier_scan->commentaires,
+            
         ];
+        
     }
 
 }

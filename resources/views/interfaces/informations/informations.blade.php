@@ -15,19 +15,21 @@
         <div class="text-center row justify-content-center mb-5">
             <div class="bg-white rounded col-sm-6 col-xs-8 bg-light pt-2 pb-5">
                 <h3>{{ $informations_a_savoir }}</h3>
-                <ul>
-                    <li>
-                        <p class="font-weight-bold">{{ $informations_conditions_climatiques }}</p>
-                        <p>{{ $informations_traverses_annulees }}
-                            <br>
-                            {{ $informations_cas_annulation }}{{ $informations_plus_dinfos }}
-                            <a href="https://meteo.gc.ca/city/pages/qc-15_metric_f.html">{{ $informations_quebec_meteo }}</a>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="font-weight-bold">{{ $informations_presentation_embarquement }}</p>
-                    </li>
-                </ul>
+                <div id="milieuInfo">
+                    <ul>
+                        <li>
+                            <p class="font-weight-bold">{{ $informations_conditions_climatiques }}</p>
+                            <p>{{ $informations_traverses_annulees }}
+                                <br>
+                                {{ $informations_cas_annulation }}{{ $informations_plus_dinfos }}
+                                <a href="https://meteo.gc.ca/city/pages/qc-15_metric_f.html">{{ $informations_quebec_meteo }}</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="font-weight-bold">{{ $informations_presentation_embarquement }}</p>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="container-fluid" id="footerChoixMultiples">
                 <div id="footerInformation">

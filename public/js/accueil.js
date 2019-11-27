@@ -4,6 +4,7 @@
 function remplirModalInfos(provenance) {
     let contenuModal = document.getElementById('modal-infos').querySelector('.modal-body');
     let infos = provenance.querySelector('.infos-caches');
+    contenuModal.querySelector('.urgent').querySelector('.donnees').innerHTML = infos.querySelector('.urgent').innerHTML;
     contenuModal.querySelector('.date-arrivee').querySelector('.donnees').innerHTML = infos.querySelector('.date-arrivee').innerHTML;
     contenuModal.querySelector('.heure-arrivee').querySelector('.donnees').innerHTML = infos.querySelector('.heure-arrivee').innerHTML;
     contenuModal.querySelector('.navire').querySelector('.donnees').innerHTML = infos.querySelector('.navire').innerHTML;

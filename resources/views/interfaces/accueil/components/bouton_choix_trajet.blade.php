@@ -4,16 +4,24 @@
             <p class="mt-1 mb-1">
                 <em class="fas fa-map-marker-alt" style="color:blue"></em> {{ $trajet['station_arrivee'] }}
                 <em class="far fa-clock" style="color:tomato"></em> {{ $trajet['heure_depart'] }}
-                @isset($urgent)
-                    <small><em class="fas fa-circle" style="color:red"></em></small>
-                @endisset
             </p>
         </div>
     </a>
-    <button id="myBtn" class="align-middle d-inline-block idInformation" style="visibility: hidden;" data-target="#modal-infos" data-toggle="modal" onclick="remplirModalInfos(this);">
+    <button id="myBtn" class="align-middle d-inline-block idInformation" style="visibility: hidden;"
+            data-target="#modal-infos" data-toggle="modal" onclick="remplirModalInfos(this);">
         <span style="visibility: initial" tabindex="0">
-            <i class="fa fa-info-circle float-right fa-2x" style="color:blue"></i>
-            <span class="infos-caches" style="display:none;">
+            <em class="fa fa-info-circle float-right fa-2x"
+                @if(isset($urgent))
+                style="color:red"
+                @else
+                style="color:blue"
+                @endisset ></em>
+            <span class="infos-caches" style="display: none">
+                @if(isset($message_urgent))
+                    <span class="urgent">{{ $message_urgent }}</span>
+                @else
+                    <span class="urgent"></span>
+                @endisset
                 <span class="date-arrivee">{{ $trajet['date_arrivee'] }}</span>
                 <span class="heure-arrivee">{{ $trajet['heure_arrivee'] }}</span>
                 <span class="navire">{{ $trajet['navire'] }}</span>

@@ -3,7 +3,7 @@
 @section('titre', $global_titre)
 
 <script>
-    var i=0;
+    var i = 0;
 </script>
 
 @section('contenu')
@@ -24,7 +24,10 @@
                 @isset($trajets)
                     @foreach ($trajets as $numero=>$trajet)
                         @component('interfaces.accueil.components.bouton_choix_trajet', ['trajet' => $trajet])
-                            @if($trajet['urgent']) @slot('urgent') @endslot @endif
+                            @if($trajet['urgent'])
+                                @slot('urgent') @endslot
+                                @slot('message_urgent') {{ $accueil_urgent }}@endslot
+                            @endif
                         @endcomponent
                     @endforeach
                 @endisset
@@ -33,21 +36,24 @@
         <div class="text-center row justify-content-center">
             <div class="col-sm-6 col-xs-8 p-0">
                 <div class="col-sm-5 col-xs-12 float-left">
-                    <a class="btn btn-outline-param my-3 my-sm-5 p-3 " style="font-size: 1.5em" href="{{ route('choix_date') }}">
-                            {{ $accueil_choix_autre_date }}
+                    <a class="btn btn-outline-param my-3 my-sm-5 p-3 " style="font-size: 1.5em"
+                       href="{{ route('choix_date') }}">
+                        {{ $accueil_choix_autre_date }}
                     </a>
                 </div>
 
                 <div class="col-sm-5 col-xs-12 float-right">
-                    <a class="btn btn-outline-param mt-3 mb-5 my-sm-5 p-3 " style="font-size: 1.5em" href="{{ route('choix_depart') }}">
-                            {{ $accueil_choix_autre_depart }}
+                    <a class="btn btn-outline-param mt-3 mb-5 my-sm-5 p-3 " style="font-size: 1.5em"
+                       href="{{ route('choix_depart') }}">
+                        {{ $accueil_choix_autre_depart }}
                     </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal" id="modal-infos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal" id="modal-infos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -57,11 +63,16 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div class="d-block urgent ">
+                        <span class="donnees font-weight-bold"></span>
+                    </div>
+
                     <div class="d-inline-block date-arrivee">
                         {{ $accueil_trajet_arrive }}<span class="donnees"></span>
                     </div>
+
                     <div class="d-inline heure-arrivee">
-                       {{ $accueil_a }}<span class="donnees"></span>.
+                        {{ $accueil_a }}<span class="donnees"></span>.
                     </div>
                     <div class="navire">
                         {{ $accueil_navire_utilise }}<span class="donnees"></span>.
@@ -77,6 +88,8 @@
             </div>
         </div>
     </div>
+
+    <span id="urgent">{{ $accueil_urgent }}</span>
 
     @isset($mail)
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>

@@ -27,5 +27,6 @@ class DonneesVueAccueil extends DonneesVue
         $this->setDonneeVue('reste', ['Il reste ', 'There is ']);
         $this->setDonneeVue('place_passagers', [' places passager pour cette traverse.', ' passenger places left for this crossing.']);
         $this->setDonneeVue('place_vehicules', [' places véhicule pour cette traverse.', ' vehicle places left for this crossing.']);
+        $this->setDonneeVue('urgent', ['Attention ! il ne reste plus  beaucoup de place', ' Warning ! there is not much place']);
     }
 }

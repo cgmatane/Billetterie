@@ -48,7 +48,7 @@ Route::get('/administration/passager')->name('administration.passager');
 
 Route::get('/administration/vehicule')->name('administration.vehicule');
 
-Route::get('/administration/guardien')->name('administration.guardien');
+Route::get('/administration/gardien')->name('administration.gardien');
 
 Route::get('/date')->name('choix_date');
 

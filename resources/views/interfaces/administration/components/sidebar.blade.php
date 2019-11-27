@@ -31,11 +31,9 @@
             <li class="collapsed {{ (request()->is('administration/vehicule')) ? 'active' : '' }}">
                 <a href="{{route('administration.vehicule')}}"><i class="fas fa-car"></i> Véhicule</a>
             </li>
-            {{--
-            <li class="collapsed {{ (request()->is('administration/guardien')) ? 'active' : '' }}">
-                <a href="{{route('administration.guardien')}}"><i class="fas fa-address-card"></i>Surveillance Gardien</a>
+            <li class="collapsed {{ (request()->is('administration/gardien')) ? 'active' : '' }}">
+                <a href="{{route('administration.gardien')}}"><i class="fas fa-address-card"></i>Surveillance Gardien</a>
             </li>
-            --}}
             <li>
                 <form method="post" action="{{ route('administration.connexion') }}">
                     {{ csrf_field() }}

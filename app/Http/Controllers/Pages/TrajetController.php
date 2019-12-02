@@ -59,16 +59,16 @@ class TrajetController extends ModeleController
 
     protected function envoyerEmailAnnulation($entree){
         $premiersPassagers = $entree->getPremiersPassagersAvecMailParTicket();
-        $depart = $entree->stationDepart()->getNomAffiche();
-        $arrivee = $entree->stationArrivee()->getNomAffiche();
+        $depart = $entree->stationDepart()->getNom();
+        $arrivee = $entree->stationArrivee()->getNom();
         $dateDepart = $entree->getDateDepart();
         $dateArrivee = $entree->getDateArrivee();
 
         $data = array(
             'nom'      => '' ,
             'prenom'      => '',
-            'depart'    => explode(' ',$depart)[1],
-            'arrivee'    => explode(' ',$arrivee)[1],
+            'depart'    => $depart,
+            'arrivee'    => $arrivee,
             'date_depart'      => explode(' ',$dateDepart)[0],
             'heure_depart'      => explode(' ',$dateDepart)[1],
             'date_arrivee'      => explode(' ',$dateArrivee)[0],

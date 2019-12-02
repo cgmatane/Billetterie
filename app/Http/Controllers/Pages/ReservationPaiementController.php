@@ -33,6 +33,14 @@ class ReservationPaiementController extends PageController
         return redirect(route('gerant_reservation'));
     }
 
+    protected function setDonneesDynamiques(Request $requete = null)
+    {
+        $prix = $requete->session()->get('ticket.prix');
+        $this->donneesDynamiques = [
+            'prix' => $prix,
+        ];
+    }
+
     static function anonymiserNumeroCarte($numeroCarte) {
         $numeroAnonyme = substr($numeroCarte, -4, 4);
         return "**** **** **** ".$numeroAnonyme;

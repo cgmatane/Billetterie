@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-12">
-            <h2 class="text-center text-info font-weight-bold m-5">{{ $reservation_paiement_montant_transaction }}55 ${{ $global_CAD }}</h2>
+            <h2 class="text-center text-info font-weight-bold m-5">{{ $reservation_paiement_montant_transaction }}{{ $prix }} ${{ $global_CAD }}</h2>
         </div>
     </div>
 

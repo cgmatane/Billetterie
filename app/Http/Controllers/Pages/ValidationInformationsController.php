@@ -78,6 +78,8 @@ class ValidationInformationsController extends PageController
         }
         $prix += $tarifVehicule;
 
+        $requete->session()->put('ticket.prix', $prix);
+
         $this->donneesDynamiques = [
             'prix'=>$prix,
             'type_vehicule'=>$typeVehicule,

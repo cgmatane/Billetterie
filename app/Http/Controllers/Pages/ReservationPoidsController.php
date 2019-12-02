@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Pages;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PageController;
 use App\Statics\Views\interfaces\choix_deux_options\pages\DonneesVueReservationPoids;
+use App\Vehicule;
 use Illuminate\Http\Request;
 
 class ReservationPoidsController extends PageController
@@ -33,5 +34,4 @@ class ReservationPoidsController extends PageController
         }
         return redirect(route('reservation_passagers'));
     }
-
 }

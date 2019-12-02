@@ -14,6 +14,7 @@ class Vehicule extends ModeleParent
 
     public $timestamps = false;
 
+    const LIMITE_POIDS_ELEVE = 2000;
     const SUPPLEMENT_POIDS_ELEVE = 8.00;
 
     public function getNomAffiche()

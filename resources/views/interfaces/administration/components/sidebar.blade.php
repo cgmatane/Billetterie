@@ -31,7 +31,15 @@
             <li class="collapsed {{ (request()->is('administration/vehicule')) ? 'active' : '' }}">
                 <a href="{{route('administration.vehicule')}}"><i class="fas fa-car"></i> Véhicule</a>
             </li>
-            
+
+            <li class="collapsed {{ (request()->is('administration/intervalle_age')) ? 'active' : '' }}">
+                <a href="{{route('administration.intervalle_age')}}"><i class="fas fa-sort-numeric-asc"></i> Intervalle âge</a>
+            </li>
+
+            <li class="collapsed {{ (request()->is('administration/type_vehicule')) ? 'active' : '' }}">
+                <a href="{{route('administration.type_vehicule')}}"><i class="fas fa-truck"></i> Type de véhicule</a>
+            </li>
+
             <li class="collapsed {{ (request()->is('administration/gardien')) ? 'active' : '' }}">
                 <a href="{{route('administration.gardien')}}"><i class="fas fa-address-card"></i>Surveillance Gardien</a>
             </li>

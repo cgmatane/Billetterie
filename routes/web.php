@@ -48,6 +48,10 @@ Route::get('/administration/passager')->name('administration.passager');
 
 Route::get('/administration/vehicule')->name('administration.vehicule');
 
+Route::get('/administration/intervalle_age')->name('administration.intervalle_age');
+
+Route::get('/administration/type_vehicule')->name('administration.type_vehicule');
+
 Route::get('/administration/gardien')->name('administration.gardien');
 
 Route::get('/date')->name('choix_date');

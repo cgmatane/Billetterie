@@ -3,14 +3,17 @@
 
 @section('titre')
     {{-- Une donnee statique est prefixe par le nom de la template (ici gardien) - Les variables statiques de cette page sont dans app/Statics/Views/interfaces/gardien --}}
-    {{ $gardien_titre }}
+    
 @endsection
 
 @section('contenu')
     {{-- ...Les donnees dynamiques n'ont pas de prefixe - Elles sont set dans le controleur dans app\Http\Controllers\Pages\GardienController, dans la methode setDonneesDynamiques --}}
     
     <div class="contenu-table">
-        <h1>Info Billet:</h2>
+        <h1>{{ $gardien_titre }}</h1>
+        </br>
+        </br>
+        <h2>Info Billet:</h2>
         <table class="table">
             <thead class="thead-dark">
             <tr>
@@ -36,7 +39,7 @@
                 
             </tbody>
         </table>
-        <h1>@if($nombre_passagers > 1)Passagers: @else Passager: @endif</h2>
+        <h2>@if($nombre_passagers > 1)Passagers: @else Passager: @endif</h2>
         <table class="table">
             <thead class="thead-dark">
             <tr>
@@ -56,7 +59,7 @@
                 @endfor
             </tbody>
         </table>
-        <h1>Vehicule:@if($vehicule == null) Aucun @endif</h2>
+        <h2>Vehicule:@if($vehicule == null) Aucun @endif</h2>
         @if($vehicule != null)
         <table class="table">
             <thead class="thead-dark">

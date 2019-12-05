@@ -89,8 +89,6 @@
         </div>
     </div>
 
-    <span id="urgent">{{ $accueil_urgent }}</span>
-
     @isset($mail)
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <noscript>{{ $global_activer_javascript }}</noscript>

@@ -77,7 +77,13 @@ class Ticket extends ModeleParent
     }
 
     public static function genererNumeroFacture() {
-        return Ticket::all()->last()->numero_facture + rand(1, 10);
+        $dernierTicket = Ticket::all()->last();
+        if ($dernierTicket != null) {
+            return $dernierTicket->numero_facture + rand(1, 10);
+        } else {
+            return 3;
+        }
+//        return Ticket::all()->last()->numero_facture + rand(1, 10);
     }
 
     public static function genererCodeQR() {

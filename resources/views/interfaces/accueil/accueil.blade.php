@@ -2,11 +2,11 @@
 
 @section('titre', $global_titre)
 
-<script>
-    var i = 0;
-</script>
-
 @section('contenu')
+    <script>
+        var i = 0;
+    </script>
+
     <div class="container-fluid" id="imageFond">
         <div class="text-center row justify-content-center" id="noMargin">
             <div class="col-sm-6 col-xs-8 shadow-lg rounded-lg  mt-6" id="midnightBlue">

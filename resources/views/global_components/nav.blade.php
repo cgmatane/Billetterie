@@ -12,10 +12,10 @@
             </div>
 
                 <div class="col-md-12 col-lg-2 text-center p-3">
-                    <a class="mx-auto btn btn-outline-param" href="{{ route('informations') }}">{{ $global_informations }}</a> <!-- Route à définir -->
+                    <a class="mx-auto btn btn-lg btn-outline-param" href="{{ route('informations') }}">{{ $global_informations }}</a> <!-- Route à définir -->
                 </div>
                 <div class="dropdown col-md-12 col-lg-2 text-center p-3">
-                    <button class="btn btn-outline-param dropdown-toggle"
+                    <button class="btn btn-lg btn-outline-param dropdown-toggle"
                             type="button"
                             id="dropdownMenuButton"
                             data-toggle="dropdown"

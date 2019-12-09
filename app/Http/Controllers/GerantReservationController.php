@@ -43,7 +43,7 @@ class GerantReservationController extends Controller
         }
 
         //Pas assez de place vehicule
-        if ($requete->session()->get('ticket.type_vehicule') != TypeVehicule::PIETON and $trajet->getNombrePlacesVehiculeRestantes <= 0) {
+        if ($requete->session()->get('ticket.type_vehicule') != TypeVehicule::PIETON and $trajet->getNombrePlacesVehiculeRestantes() <= 0) {
             return redirect(route('index'))->with('erreurNombreVehicule', true);
         }
     }

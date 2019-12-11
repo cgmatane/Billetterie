@@ -49,6 +49,10 @@
                             <p class="font-weight-bold">{{ $informations_question_mobile }}</p>
                             <p>{{ $informations_reponse_mobile }}</p>
                         </li>
+                        <li>
+                            <p class="font-weight-bold">{{ $informations_question_animaux }}</p>
+                            <p>{{ $informations_reponse_animaux }}</p>
+                        </li>
                     </ul>
                 </div>
             </div>

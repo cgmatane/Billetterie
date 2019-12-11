@@ -28,7 +28,7 @@ class TypeVehicule extends ModeleParent
     }
 
     public function vehicules() {
-        return Vehicule::where('id_type_vehicule', $this->id_type_vehicule)->get();
+        return Vehicule::where('type_vehicule', $this->id_type_vehicule)->get();
         //return $this->hasMany('App\Vehicule', 'id_type_vehicule', 'id_type_vehicule');
     }
 

@@ -21,7 +21,6 @@ class TicketController extends ModeleController
         $this->setDonneesStatiques(new DonneesVueTicket(FrontEndController::$langueCourante));
         $this->ajoutable = false;
         $this->editable = false;
-        $this->supprimmable = false;
     }
 
     protected function getTypesColonnes() {

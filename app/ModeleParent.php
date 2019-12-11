@@ -47,7 +47,6 @@ abstract class ModeleParent extends Model
     }
 
     public function getDependances(&$dependances = [], $profondeur = 0) {
-
         $dependancesTables = $this->getDependancesDirectes();
         foreach ($dependancesTables as $dependancesTable) {
             foreach ($dependancesTable as $dependanceObjet) {

@@ -488,7 +488,16 @@ body {
     -ms-transition: all 1s ease;
     transition: all 1s ease;
 }
-
+.titre-side{
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 4em;
+}
+.titre-side>a{
+    color: white;
+    text-decoration: none;
+}
 .container-admin {
     margin-left: 300px;
     margin-top: 15px;
@@ -528,8 +537,13 @@ body {
     margin: 0 auto;
 }
 #introduction {
-    text-align: center;
+    width: 90%;
+    margin: 0px auto 0px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
+
 .td-pasTrajet{
     display:block;
     box-sizing:border-box;

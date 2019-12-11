@@ -50,11 +50,11 @@
                     <input type="submit" value="deconnexion" name="submit" class="hidden" id="deconnexion">
                 </form>
             </li>
-            <br>
-            <br>
-            <br>
+
 {{--            <li class="ml-6">--}}
-                <div class="text-center" style="position:absolute; bottom: 0; width: 100%; margin-bottom: 4rem;">Administration</div>
+                <div class="text-center titre-side">
+                    <a href="{{route('administration.vue_generale')}}">Administration</a>
+                </div>
 {{--            </li>--}}
 
         </ul>

@@ -29,6 +29,10 @@
                             <p class="font-weight-bold">{{ $informations_question_remboursement }}</p>
                             <p>{{ $informations_reponse_remboursement }}</p>
                         </li>
+                        <li>
+                            <p class="font-weight-bold">{{ $informations_question_contact }}</p>
+                            <p>{{ $informations_reponse_contact }}</p>
+                        </li>
                     </ul>
                 </div>
             </div>

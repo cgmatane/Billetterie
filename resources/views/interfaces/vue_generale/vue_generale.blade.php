@@ -8,7 +8,7 @@
 
 @section('contenu')
         <div id="introduction">
-            <h1>Interface d'administration de la STQ</h1>
+            <h1>Tableau de bord Administration de la STQ</h1>
             <p>C'est ici que ce fait la gestion des stations, des navires et des trajets.</p>
         </div>
 
@@ -16,7 +16,7 @@
             <a href="{{ route('index') }}">Réserver pour un utilisateur</a>
         </div>
 
-        <div id="tableau-bord" class="titre-gen" ><h2>Tableau de bord</h2></div>
+        <div id="tableau-bord" class="titre-gen" ><h2>&nbsp;{{--Tableau de bord--}}</h2></div>
         <div class="article">
             <h3>Trajets</h3>
             <p class="lead">Voici les 5 trajets à venir :</p>

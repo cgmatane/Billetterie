@@ -12,7 +12,7 @@ class DonneesVueIntervalleAge extends DonneesVue
         parent::__construct($langue);
         $this->nomVue = 'gestion';
         $this->setDonneeVue('titre','Administration');
-        $this->setDonneeVue('type','intervalle d\'age');
+        $this->setDonneeVue('type','intervalles d\'âge');
         $colonnes = [
             '#',
             'Âge min',

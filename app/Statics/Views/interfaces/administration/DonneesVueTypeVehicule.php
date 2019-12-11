@@ -12,7 +12,7 @@ class DonneesVueTypeVehicule extends DonneesVue
         parent::__construct($langue);
         $this->nomVue = 'gestion';
         $this->setDonneeVue('titre','Administration');
-        $this->setDonneeVue('type','type de véhicule');
+        $this->setDonneeVue('type','types de véhicule');
         $colonnes = [
             '#',
             'Nom',

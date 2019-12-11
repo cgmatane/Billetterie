@@ -3,7 +3,7 @@
 
 @section('titre')
     {{-- Une donnee statique est prefixe par le nom de la template (ici gardien) - Les variables statiques de cette page sont dans app/Statics/Views/interfaces/gardien --}}
-    
+    Administration
 @endsection
 
 @section('contenu')
@@ -11,7 +11,6 @@
     
     <div class="contenu-table">
         <h1>{{ $gardien_titre }}</h1>
-        </br>
         </br>
         <h2>Info Billet:</h2>
         <table class="table">

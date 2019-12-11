@@ -27,9 +27,9 @@ class ValidationInformationsController extends PageController
         $date = $requete->session()->get('ticket.date');
         $trajet = Trajet::find($requete->session()->get('ticket.trajet'));
         $depart = $trajet->stationDepart()->nom;
-        $dateDepart = date('d/m/Y h\hi',strtotime($trajet->date_depart));
+        $dateDepart = date('d/m/Y H\hi',strtotime($trajet->date_depart));
         $arrivee = $trajet->stationArrivee()->nom;
-        $dateArrivee = date('d/m/Y h\hi',strtotime($trajet->date_arrivee));
+        $dateArrivee = date('d/m/Y H\hi',strtotime($trajet->date_arrivee));
         $noms = $requete->session()->get('ticket.noms');
         $prenoms = $requete->session()->get('ticket.prenoms');
         $intervalles_age = $requete->session()->get('ticket.ages');

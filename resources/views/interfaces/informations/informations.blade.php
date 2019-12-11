@@ -45,6 +45,10 @@
                             <p class="font-weight-bold">{{ $informations_question_confirmation }}</p>
                             <p>{{ $informations_reponse_confirmation }}</p>
                         </li>
+                        <li>
+                            <p class="font-weight-bold">{{ $informations_question_mobile }}</p>
+                            <p>{{ $informations_reponse_mobile }}</p>
+                        </li>
                     </ul>
                 </div>
             </div>

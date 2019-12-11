@@ -101,7 +101,6 @@ class FrontEndController extends Controller
                 new Controllers\TypeVehiculeController()),
             'gardien' => array(new Controllers\GardienController()),
             'requete-qr' => array(new Controllers\RequeteQRController()),
-            'pdf-facture' => array(new GenerateurPdfController())
         );
     }
 

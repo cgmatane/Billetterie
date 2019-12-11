@@ -19,6 +19,10 @@ class DonneesVueInformationsGenerales extends DonneesVueInformations
         $this->setDonneeVue('question_remboursement', ['J\'ai fait une réservation pour la traverse de Matane et je ne pourrai pas m\'y présenter. Est-ce que l\'acompte que j\'ai payé me sera remboursé ?', 'I made a reservation for the Matane ferry and I will not be able to attend. Will the down payment I paid be refunded ?']);
         $this->setDonneeVue('reponse_remboursement', ['Oui, seulement si l\'annulation est faite avant 15 h la veille de votre départ. Passé ce délai, l\'acompte ne sera pas remboursé.', 'Yes, only if the cancellation is made before 3 pm the day before your departure. After this period, the deposit will not be refunded.']);
         //$this->setDonneeVue('question_remboursement', ['', '']);
+        $this->setDonneeVue('question_traverse', ['Où puis-je trouver les informations de chacune des traverses ?', 'Where can I find information on each of the sleepers ?']);
+        $this->setDonneeVue('reponse_traverse', ['Vous pouvez obtenir des informations détaillées sur les traverses en appuyant sur le bouton information disponible à la droite de chaque traverse.', '
+
+You can get detailed information on the sleepers by pressing the information button on the right of each crossbar.']);
         $this->setDonneeVue('question_contact', ['Comment puis-je joindre la STQ ?', 'How can I contact STQ ?']);
         $this->setDonneeVue('reponse_contact', ['En cas de problème, vous pouvez joindre la STQ par mail à l\'adresse kirk@gmail.com', 'In case of problem, you can reach the STQ by email at kirk@gmail.com']);
         $this->setDonneeVue('presentation_embarquement', ['Vous devez vous présenter à l\'embarquement 15 minutes avant l\'heure de départ','You have to get aboard 15 minutes before the hour of departure']);

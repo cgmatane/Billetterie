@@ -37,6 +37,10 @@
                             <p class="font-weight-bold">{{ $informations_question_traverse }}</p>
                             <p>{{ $informations_reponse_traverse }}</p>
                         </li>
+                        <li>
+                            <p class="font-weight-bold">{{ $informations_question_transaction }}</p>
+                            <p>{{ $informations_reponse_transaction }}</p>
+                        </li>
                     </ul>
                 </div>
             </div>

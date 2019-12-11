@@ -16,6 +16,9 @@ class DonneesVueInformationsGenerales extends DonneesVueInformations
         $this->setDonneeVue('cas_annulation', ['En cas d\'annulation, ne vous inquiétez pas vous receverez un email immédiatement et vous serez remboursé automatiquement !','In case of cancellation, dont worry you will receive an email and you will be refund automatically!']);
         $this->setDonneeVue('question_embarquement', ['Que doit-on présenter lors de l\'embarquement si nous avons réservé par Internet ? ', 'What must be presented when boarding if we booked via the Internet ?']);
         $this->setDonneeVue('reponse_embarquement', ['Vous devez présenter au préposé votre copie de facture, qui vous a été envoyée dans votre courriel', 'You must present to the agent your invoice copy, which was sent to you in your email']);
+        $this->setDonneeVue('question_remboursement', ['J\'ai fait une réservation pour la traverse de Matane et je ne pourrai pas m\'y présenter. Est-ce que l\'acompte que j\'ai payé me sera remboursé ?', 'I made a reservation for the Matane ferry and I will not be able to attend. Will the down payment I paid be refunded ?']);
+        $this->setDonneeVue('reponse_remboursement', ['Oui, seulement si l\'annulation est faite avant 15 h la veille de votre départ. Passé ce délai, l\'acompte ne sera pas remboursé.', 'Yes, only if the cancellation is made before 3 pm the day before your departure. After this period, the deposit will not be refunded.']);
+        //$this->setDonneeVue('question_remboursement', ['', '']);
         $this->setDonneeVue('presentation_embarquement', ['Vous devez vous présenter à l\'embarquement 15 minutes avant l\'heure de départ','You have to get aboard 15 minutes before the hour of departure']);
         $this->setDonneeVue('titre_page', ['Billetterie - Informations','Ticketing - Informations']);
     }

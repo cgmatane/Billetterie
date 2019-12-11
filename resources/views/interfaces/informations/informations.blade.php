@@ -19,11 +19,7 @@
                     <ul>
                         <li>
                             <p class="font-weight-bold">{{ $informations_conditions_climatiques }}</p>
-                            <p>{{ $informations_traverses_annulees }}
-                                <br>
-                                {{ $informations_cas_annulation }}{{ $informations_plus_dinfos }}
-                                <a href="https://meteo.gc.ca/city/pages/qc-15_metric_f.html">{{ $informations_quebec_meteo }}</a>
-                            </p>
+                            <p>{{ $informations_cas_annulation }}</p>
                         </li>
                         <li>
                             <p class="font-weight-bold">{{ $informations_presentation_embarquement }}</p>

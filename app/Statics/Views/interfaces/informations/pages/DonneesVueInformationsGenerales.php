@@ -16,11 +16,11 @@ class DonneesVueInformationsGenerales extends DonneesVueInformations
         $this->setDonneeVue('traverses_annulees',
             ['Elles peuvent donc êtres annulées à tout moment', 'This means they can be cancelled any time']);
         $this->setDonneeVue('cas_annulation',
-            ['En cas d\'annulation, ne vous inquiétez pas vous receverez un email immédiatement et vous serez remboursés automatiquement !','In case of cancellation, dont worry you will receive an email and you will be refund automatically!']);
+            ['En cas d\'annulation, ne vous inquiétez pas vous receverez un courriel immédiatement et vous serez remboursés automatiquement !','In case of cancellation, dont worry you will receive an email and you will be refund automatically!']);
         $this->setDonneeVue('question_embarquement',
             ['Que doit-on présenter lors de l\'embarquement si nous avons réservé par Internet ? ', 'What must be presented when boarding if we booked via the Internet ?']);
         $this->setDonneeVue('reponse_embarquement',
-            ['Vous devez présenter au préposé votre billet avec le code QR, qui vous a été envoyée dans votre courriel', 'You must present to the agent your invoice copy, which was sent to you in your email']);
+            ['Vous devez présenter au préposé votre billet avec le code QR, qui vous a été envoyé dans votre courriel', 'You must present to the agent your invoice copy, which was sent to you in your email']);
         $this->setDonneeVue('question_remboursement',
             ['J\'ai fait une réservation pour la traverse de Matane et je ne pourrai pas m\'y présenter. Est-ce que mon billet peut être remboursé ?', 'I made a reservation for the Matane ferry and I will not be able to attend. Will the down payment I paid be refunded ?']);
         $this->setDonneeVue('reponse_remboursement', ['Oui, seulement si l\'annulation est faite par mail 24h avant votre départ. Passé ce délai, vous ne pourrez pas être remboursé.', 'Yes, only if the cancellation is made by email 24h before your departure. After this period, the deposit will not be refunded.']);

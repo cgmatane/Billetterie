@@ -22,7 +22,8 @@
                             <p>{{ $informations_cas_annulation }}</p>
                         </li>
                         <li>
-                            <p class="font-weight-bold">{{ $informations_presentation_embarquement }}</p>
+                            <p class="font-weight-bold">{{ $informations_question_embarquement }}</p>
+                            <p>{{ $informations_reponse_embarquement }}</p>
                         </li>
                     </ul>
                 </div>
